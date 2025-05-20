@@ -17,14 +17,14 @@
 (not-eq l2 l3)
 (not-eq l3 l2)
 (empty-ferry)
-(at c0 l1)
+(at c0 l0)
 (at c1 l1)
-(at-ferry l3)
+(at-ferry l1)
 )
 (:goal
 (and
 (at c0 l1)
-(at c1 l2)
+(at c1 l0)
 )
 )
 )

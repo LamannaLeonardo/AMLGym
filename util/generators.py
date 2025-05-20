@@ -1,5 +1,6 @@
 import os
 import sys
+from typing import List
 
 import yaml
 
@@ -59,7 +60,7 @@ def problem_depots(e: int = 1,
                    p: int = 2,
                    h: int = 2,
                    c: int = 2,
-                   s: int = 123) -> str:
+                   seed: int = 123) -> str:
     """
     See `util/pddl-generators/depots/README.txt`.
     :param e: number of depots
@@ -68,12 +69,12 @@ def problem_depots(e: int = 1,
     :param p: number of pallets
     :param h: number of hoists
     :param c: number of crates
-    :param s: random seed
+    :param seed: random seed
     :return: problem string
     """
 
     # Generate a problem
-    result = subprocess.run(f"./{GEN_DIR}/{domain}/depots -e {e} -i {i} -t {t} -p {p} -h {h} -c {c} -s {s}".split(),
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/depots -e {e} -i {i} -t {t} -p {p} -h {h} -c {c} -s {seed}".split(),
                             capture_output=True, text=True)
     problem = result.stdout
 
@@ -126,7 +127,7 @@ def problem_barman(seed: int = 123,
     return problem
 
 
-def problem_ferry(s: int = 123,
+def problem_ferry(seed: int = 123,
                   l: int = 2,
                   c: int = 1) -> str:
     """
@@ -138,7 +139,7 @@ def problem_ferry(s: int = 123,
     """
 
     # Generate a problem
-    result = subprocess.run(f"./{GEN_DIR}/{domain}/ferry -l {l} -c {c} -s {s}".split(),
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/ferry -l {l} -c {c} -s {seed}".split(),
                             capture_output=True, text=True)
     problem = result.stdout
 
@@ -183,6 +184,137 @@ def problem_floortile(seed: int = 123,
     # Remove total cost a cost minimization
     problem = problem.replace('(= (total-cost) 0)', '')
     problem = problem.replace('(:metric minimize (total-cost))', '')
+
+    return problem
+
+
+def problem_goldminer(seed: int = 123,
+                      r: int = 2,
+                      c: int = 2) -> str:
+    """
+    See `util/pddl-generators/goldminer/README`.
+    :param seed: random seed
+    :param r: number of rows
+    :param c: number of columns
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/gold-miner-generator -r {r} -c {c} -s {seed}".split(),
+                            capture_output=True, text=True)
+    problem = f"{result.stdout}\n)"
+
+    return problem
+
+
+def problem_grid(seed: int = 123,
+                 x: int = 1,
+                 y: int = 1,
+                 t: int = 1,
+                 p: List[int] = np.array([100]),
+                 k: List[int] = np.array([1]),
+                 l: List[int] = np.array([1])) -> str:
+    """
+    See `util/pddl-generators/grid/README`.
+    :param seed: random seed
+    :param x: horizontal extension of grid
+    :param y: vertical extension of grid
+    :param t: number of different key and lock types
+    :param p: probability, for any key, to be mentioned in the goal
+    :param k: number of keys vector (one 0 ... 9 entry for each type)
+    :param l: number of locks vector (one 0 ... 9 entry for each type)
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/grid  -x {x} -y {y} -t {t} "
+                            f"-k {str(k)[1:-1].replace(',', '').replace(' ', '')} "
+                            f"-l {str(l)[1:-1].replace(',', '').replace(' ', '')} "
+                            f"-s {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    # Add object types
+    refactored_problem = []
+    rows = problem.split('\n')
+    for i in range(len(rows)):
+        if ' f0-' in rows[i] and rows[i+1].strip().startswith('shape0'):
+            refactored_problem.append(f"{rows[i]} - place")
+        elif ' shape' in rows[i] and rows[i+1].strip().startswith('key0-'):
+            refactored_problem.append(f"{rows[i]} - shape")
+        elif rows[i].strip().startswith('key') and rows[i+1] == ')':
+            refactored_problem.append(f"{rows[i]} - key")
+        elif '(key ' not in rows[i] and "(place " not in rows[i] and "(shape " not in rows[i]:
+            refactored_problem.append(rows[i])
+    problem = '\n'.join(refactored_problem)
+    return problem
+
+
+def problem_grippers(seed: int = 123,
+                     n: int = 1,
+                     r: int = 1,
+                     o: int = 1) -> str:
+    """
+    See `util/pddl-generators/grippers/README.txt`.
+    :param seed: random seed
+    :param n: number of robots
+    :param r: number of rooms
+    :param o: number of balls
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/grippers  -n {n} -r {r} -o {o} -s {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+    problem = problem.replace(' object', ' ball')  # unified-planning does not support type `object`
+    return problem
+
+
+def problem_hanoi(seed: int = 123,
+                  n: int = 1) -> str:
+    """
+    See `util/pddl-generators/hanoi/README.txt`.
+    :param seed: random seed (not used since the problems generator is not randomized)
+    :param n: number of discs
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/hanoi  -n {n}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    # Add object types
+    refactored_problem = []
+    rows = problem.split('\n')
+    for i in range(len(rows)):
+        if rows[i].startswith('(:objects'):
+            platforms = [w for w in rows[i].split()[1:-1] if w.startswith('peg')]
+            discs = [w for w in rows[i].split()[1:-1] if w.startswith('d')]
+            refactored_problem.append(f"(:objects \n{' '.join(platforms)} - platform\n {' '.join(discs)} - disc\n)")
+        else:
+            refactored_problem.append(rows[i])
+    problem = '\n'.join(refactored_problem)
+    return problem
+
+
+def problem_matchingbw(seed: int = 123,
+                       n: int = 1) -> str:
+    """
+    See `util/pddl-generators/hanoi/README.txt`.
+    :param seed: random seed (not used since the problems generator is not randomized)
+    :param n: number of blocks
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/matching-bw-generator.sh tmp {n} {seed}".split(),
+                            capture_output=True, text=True)
+    with open(f"{GEN_DIR}/{domain}/tmp-typed.pddl", 'r') as f:
+        problem = f.read()
+    os.remove(f"{GEN_DIR}/{domain}/tmp-typed.pddl")
+    os.remove(f"{GEN_DIR}/{domain}/tmp-untyped.pddl")
 
     return problem
 
@@ -245,6 +377,9 @@ def generate_traj(
                 if result.status.name == 'TIMEOUT':
                     logging.debug(f"Planning timout reached ({MAX_PLANNING_TIME}s).")
                     break
+                elif result.status.name == 'UNSOLVABLE_INCOMPLETELY':
+                    logging.debug(f"Planning unsolvable.")
+                    break
                 else:
                     raise Exception(f"Planning exited with status: {result.status.name}")
 
@@ -256,13 +391,25 @@ def generate_traj(
                     action_instance = ActionInstance(action, params)
 
                     # Check random action does not make the problem unfeasible
+                    max_trials = 5
+                    trial = 0
                     while not check_feasibility(problem, current_state, action_instance):
-                        logging.debug(f"[Debug] Random action {action_instance} makes the problem unsolvable."
+                        trial += 1
+                        logging.debug(f"Random action {action_instance} makes the problem unsolvable."
                                       f" Newly sampling a random action.")
                         action, params = random.choices(list(simulator.get_applicable_actions(current_state)))[0]
                         action_instance = ActionInstance(action, params)
+                        if trial > max_trials:
+                            break
 
-                    logging.debug(f"[Debug] Simulating random action {action_instance}.")
+                    if trial > max_trials:
+                        logging.debug(f"Maximum number of random action trials reached."
+                                      f" Avoiding random action execution.")
+                        # Trigger replanning
+                        plan = None
+                        break
+
+                    logging.debug(f"Simulating random action {action_instance}.")
                     current_state = simulator.apply(current_state, action_instance)
                     states.append(current_state)
                     actions.append(action_instance)
@@ -277,7 +424,7 @@ def generate_traj(
                     plan = None
                     break
 
-                logging.debug(f"[Debug] Simulating action {action_instance}.")
+                logging.debug(f"Simulating action {action_instance}.")
                 current_state = simulator.apply(current_state, action_instance)
                 actions.append(action_instance)
 
@@ -326,7 +473,9 @@ if __name__ == '__main__':
         domains = cfg['domains']
 
     to_be_avoided = ['elevators', 'floortile']
-    domains = {'floortile': domains['floortile']}
+
+    # tmp = 'bloc'
+    # domains = {tmp: domains[tmp]}
 
     for domain in domains:
 
@@ -351,24 +500,30 @@ if __name__ == '__main__':
             # For every domain problem kwargs
             for kwargs in domains[domain]:
 
-                # Generate a problem
-                generate_prob = getattr(sys.modules[__name__], f'problem_{domain}')
-                problem_str = generate_prob(**kwargs)
+                trajectory = Trajectory([], [])
 
-                # Write the problem string to a file
-                problem_file = f'../{BENCHMARK_DIR}/{PROB_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"))}_{domain}_prob.pddl'
-                with open(problem_file, 'w') as f:
-                    f.write(problem_str.lower())
-
-                # Parse the problem in unified-planning
-                domain_file = f'../{BENCHMARK_DIR}/{DOMAINS_DIR}/{domain}.pddl'
-                problem = reader.parse_problem(domain_file, problem_file)
-
-                # Generate a trace by solving the problem
-                trajectory = generate_traj(problem)
                 while len(trajectory.states) < TRAJ_LEN_MIN:
-                    logging.debug(f"[Debug] Failed to generate a sufficiently long trace. Retrying...")
+                    # Generate a problem
+                    logging.debug(f"Generating a new problem")
+                    kwargs['seed'] = np.random.randint(1, 100000)
+                    generate_prob = getattr(sys.modules[__name__], f'problem_{domain}')
+                    problem_str = generate_prob(**kwargs)
+
+                    # Write the problem string to a file
+                    problem_file = f'../{BENCHMARK_DIR}/{PROB_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"))}_{domain}_prob.pddl'
+                    with open(problem_file, 'w') as f:
+                        f.write(problem_str.lower())
+
+                    # Parse the problem in unified-planning
+                    domain_file = f'../{BENCHMARK_DIR}/{DOMAINS_DIR}/{domain}.pddl'
+                    problem = reader.parse_problem(domain_file, problem_file)
+
+                    # Generate a trace by solving the problem
                     trajectory = generate_traj(problem)
+                    if len(trajectory.states) < TRAJ_LEN_MIN:
+                        logging.debug(f"Failed to generate a sufficiently long trace. Retrying...")
+                        os.remove(problem_file)
+                        # trajectory = generate_traj(problem)
 
                 trace_file = f'../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))}_{domain}_traj'
                 trajectory.write(trace_file)
