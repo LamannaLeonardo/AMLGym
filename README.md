@@ -41,7 +41,7 @@ cp -r blocksworld/bwstates.1 ./
 
 6. Install `requirements.txt`
 ```
-cd ../../ && pip install requirements.txt
+cd ../../ && pip install -r requirements.txt
 ```
 6. Generate trajectories:
 ```
