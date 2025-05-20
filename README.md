@@ -32,12 +32,23 @@ The following instructions have been tested on macOS Sequoia 15.3
 cd pddl-generators && ./build_all
 ```
 
-5. Generate trajectories:
+5. Move the `matchingbw` generator out of `blocksworld` in order to the trajectory 
+generator to work correctly
 ```
-cd ../util && python generators.py
+mv blocksworld/matching matchingbw
+cp -r blocksworld/bwstates.1 ./
 ```
 
-6. Optionally generate trajectory statistics:
+6. Install `requirements.txt`
+```
+cd ../../ && pip install requirements.txt
+```
+6. Generate trajectories:
+```
+cd util && python generators.py
+```
+
+7. Optionally generate trajectory statistics:
 ```
 python benchmark_stats.py
 ```

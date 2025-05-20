@@ -14,9 +14,10 @@
 	s0 - location
 	s1 - location
 	p0-1 - location
+	p1-0 - location
 	)
 	(:init
-	(at driver1 s0)
+	(at driver1 s1)
 	(at driver2 s0)
 	(at driver3 s1)
 	(at truck1 s0)
@@ -29,7 +30,7 @@
 	(empty truck4)
 	(at truck5 s1)
 	(empty truck5)
-	(at package1 s0)
+	(at package1 s1)
 	(at package2 s0)
 	(path s0 p0-1)
 	(path p0-1 s0)
@@ -40,10 +41,12 @@
 )
 	(:goal (and
 	(at driver1 s1)
-	(at driver2 s0)
-	(at truck1 s1)
-	(at truck2 s1)
+	(at driver2 s1)
+	(at driver3 s1)
+	(at truck1 s0)
+	(at truck2 s0)
 	(at truck3 s1)
+	(at truck4 s1)
 	(at truck5 s0)
 	(at package1 s0)
 	(at package2 s0)
