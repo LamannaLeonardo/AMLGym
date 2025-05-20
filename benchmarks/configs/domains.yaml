@@ -1,0 +1,279 @@
+# This configuration file contains 10 problem settings for every domain.
+SEED: &id001 123  # random seed
+domains:
+  blocksworld:
+    - seed: *id001 # random seed
+      ops: 4 # domain operators
+      num: 3 # number of blocks
+    - seed: *id001
+      ops: 4
+      num: 3
+    - seed: *id001
+      ops: 4
+      num: 4
+    - seed: *id001
+      ops: 4
+      num: 4
+    - seed: *id001
+      ops: 4
+      num: 5
+    - seed: *id001
+      ops: 4
+      num: 5
+    - seed: *id001
+      ops: 4
+      num: 6
+    - seed: *id001
+      ops: 4
+      num: 6
+    - seed: *id001
+      ops: 4
+      num: 7
+    - seed: *id001
+      ops: 4
+      num: 7
+  depots:
+    - s: *id001 # random seed
+      e: 2 # depots
+      i: 2 # distributors
+      t: 2 # trucks
+      p: 2 # pallets
+      h: 2 # hoists
+      c: 2 # crates
+    - s: *id001
+      e: 2
+      i: 3
+      t: 2
+      p: 2
+      h: 2
+      c: 2
+    - s: *id001
+      e: 3
+      i: 2
+      t: 2
+      p: 3
+      h: 2
+      c: 2
+    - s: *id001
+      e: 3
+      i: 3
+      t: 3
+      p: 3
+      h: 3
+      c: 3
+    - s: *id001
+      e: 4
+      i: 3
+      t: 3
+      p: 4
+      h: 3
+      c: 3
+    - s: *id001
+      e: 4
+      i: 4
+      t: 3
+      p: 4
+      h: 3
+      c: 3
+    - s: *id001
+      e: 5
+      i: 3
+      t: 4
+      p: 5
+      h: 4
+      c: 4
+    - s: *id001
+      e: 5
+      i: 4
+      t: 4
+      p: 5
+      h: 4
+      c: 4
+    - s: *id001
+      e: 6
+      i: 4
+      t: 4
+      p: 6
+      h: 4
+      c: 4
+    - s: *id001
+      e: 6
+      i: 5
+      t: 5
+      p: 6
+      h: 5
+      c: 5
+  driverlog:
+    - seed: *id001 # random seed
+      road_junctions: 2
+      drivers: 3
+      packages: 1  # incremental from 1 to 10
+      trucks: 1  # drivers - 2
+    - seed: *id001
+      road_junctions: 2
+      drivers: 3
+      packages: 2
+      trucks: 5  # drivers + 2
+    - seed: *id001
+      road_junctions: 3
+      drivers: 4
+      packages: 3
+      trucks: 2  # drivers - 2
+    - seed: *id001
+      road_junctions: 3
+      drivers: 4
+      packages: 4
+      trucks: 6  # drivers + 2
+    - seed: *id001
+      road_junctions: 4
+      drivers: 5
+      packages: 5
+      trucks: 3  # drivers - 2
+    - seed: *id001
+      road_junctions: 4
+      drivers: 5
+      packages: 6
+      trucks: 5  # drivers + 2
+    - seed: *id001
+      road_junctions: 5
+      drivers: 6
+      packages: 7
+      trucks: 4  # drivers - 2
+    - seed: *id001
+      road_junctions: 5
+      drivers: 6
+      packages: 8
+      trucks: 8  # drivers + 2
+    - seed: *id001
+      road_junctions: 6
+      drivers: 7
+      packages: 9
+      trucks: 5  # drivers - 2
+    - seed: *id001
+      road_junctions: 6
+      drivers: 7
+      packages: 10
+      trucks: 9  # drivers + 2
+  barman:
+    - seed: *id001 # random seed
+      num_cocktails: 2
+      num_ingredients: 3
+      num_shots: 3
+    - seed: *id001
+      num_cocktails: 2
+      num_ingredients: 4
+      num_shots: 3
+    - seed: *id001
+      num_cocktails: 3
+      num_ingredients: 4
+      num_shots: 4
+    - seed: *id001
+      num_cocktails: 3
+      num_ingredients: 5
+      num_shots: 4
+    - seed: *id001
+      num_cocktails: 4
+      num_ingredients: 5
+      num_shots: 5
+    - seed: *id001
+      num_cocktails: 4
+      num_ingredients: 6
+      num_shots: 5
+    - seed: *id001
+      num_cocktails: 5
+      num_ingredients: 6
+      num_shots: 6
+    - seed: *id001
+      num_cocktails: 5
+      num_ingredients: 7
+      num_shots: 6
+    - seed: *id001
+      num_cocktails: 6
+      num_ingredients: 7
+      num_shots: 7
+    - seed: *id001
+      num_cocktails: 6
+      num_ingredients: 8
+      num_shots: 7
+  ferry:
+    - s: *id001 # random seed
+      l: 3 # number of locations
+      c: 2 # number of cars = number of locations + 2
+    - s: *id001
+      l: 4
+      c: 2 # number of locations - 2
+    - s: *id001
+      l: 5
+      c: 7 # number of locations + 2
+    - s: *id001
+      l: 6
+      c: 4 # number of locations - 2
+    - s: *id001
+      l: 7
+      c: 9 # number of locations + 2
+    - s: *id001
+      l: 8
+      c: 6 # number of locations - 2
+    - s: *id001
+      l: 9
+      c: 11 # number of locations + 2
+    - s: *id001
+      l: 10
+      c: 8 # number of locations - 2
+    - s: *id001
+      l: 11
+      c: 13 # number of locations + 2
+    - s: *id001
+      l: 12
+      c: 10 # number of locations - 2
+#  floortile:
+#    - seed: *id001 # random seed
+#      num_rows: 3 # number of rows
+#      num_columns: 3 # number of columns
+#      num_robots: 1 # number of robots
+#      mode_flag: seq # mode (seq or time)
+#    - seed: *id001
+#      num_rows: 3
+#      num_columns: 4
+#      num_robots: 2
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 4
+#      num_columns: 3
+#      num_robots: 3
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 4
+#      num_columns: 4
+#      num_robots: 4
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 4
+#      num_columns: 5
+#      num_robots: 5
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 5
+#      num_columns: 4
+#      num_robots: 6
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 5
+#      num_columns: 5
+#      num_robots: 7
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 5
+#      num_columns: 6
+#      num_robots: 8
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 6
+#      num_columns: 5
+#      num_robots: 9
+#      mode_flag: seq
+#    - seed: *id001
+#      num_rows: 6
+#      num_columns: 6
+#      num_robots: 10
+#      mode_flag: seq
