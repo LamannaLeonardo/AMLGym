@@ -45,22 +45,22 @@
 
 
 
-(origin p0 f5)
-(destin p0 f1)
+(origin p0 f0)
+(destin p0 f6)
 
-(origin p1 f6)
+(origin p1 f3)
 (destin p1 f0)
 
-(origin p2 f4)
-(destin p2 f0)
+(origin p2 f6)
+(destin p2 f3)
 
-(origin p3 f4)
-(destin p3 f3)
+(origin p3 f0)
+(destin p3 f5)
 
 (origin p4 f5)
-(destin p4 f0)
+(destin p4 f1)
 
-(origin p5 f4)
+(origin p5 f2)
 (destin p5 f0)
 
 
