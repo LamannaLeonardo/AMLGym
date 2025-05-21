@@ -1,0 +1,45 @@
+(observation
+
+(:state (at person1  city2) (at person2  city0) (at person3  city1) (at plane1  city4) (level plane1  fl1) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (refuel plane1 city4 fl1 fl2))
+
+(:state (at person1  city2) (at person2  city0) (at person3  city1) (at plane1  city4) (level plane1  fl2) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (fly plane1 city4 city0 fl2 fl1))
+
+(:state (at person1  city2) (at person2  city0) (at person3  city1) (at plane1  city0) (level plane1  fl1) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (board person2 plane1 city0))
+
+(:state (at person1  city2) (at person3  city1) (at plane1  city0) (in person2  plane1) (level plane1  fl1) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (fly plane1 city0 city1 fl1 fl0))
+
+(:state (at person1  city2) (at person3  city1) (at plane1  city1) (in person2  plane1) (level plane1  fl0) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (board person3 plane1 city1))
+
+(:state (at person1  city2) (at plane1  city1) (in person2  plane1) (in person3  plane1) (level plane1  fl0) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (refuel plane1 city1 fl0 fl1))
+
+(:state (at person1  city2) (at plane1  city1) (in person2  plane1) (in person3  plane1) (level plane1  fl1) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (fly plane1 city1 city0 fl1 fl0))
+
+(:state (at person1  city2) (at plane1  city0) (in person2  plane1) (in person3  plane1) (level plane1  fl0) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (refuel plane1 city0 fl0 fl1))
+
+(:state (at person1  city2) (at plane1  city0) (in person2  plane1) (in person3  plane1) (level plane1  fl1) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (debark person3 plane1 city0))
+
+(:state (at person1  city2) (at person3  city0) (at plane1  city0) (in person2  plane1) (level plane1  fl1) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+(:action (fly plane1 city0 city4 fl1 fl0))
+
+(:state (at person1  city2) (at person3  city0) (at plane1  city4) (in person2  plane1) (level plane1  fl0) (next fl0  fl1) (next fl1  fl2) (next fl2  fl3) (next fl3  fl4) (next fl4  fl5) (next fl5  fl6))
+
+)

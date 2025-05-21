@@ -1,29 +1,73 @@
 (observation
 
-(:state (at driver2  s1) (at driver3  s1) (at truck1  s1) (driving driver1  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p1-0  s0) (path p1-0  s1) (path s0  p1-0) (path s1  p1-0))
+(:state (at driver1  s1) (at driver2  p0-1) (at driver3  s0) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
 
-(:action (walk driver3 s1 p1-0))
+(:action (walk driver3 s0 p0-1))
 
-(:state (at driver2  s1) (at driver3  p1-0) (at truck1  s1) (driving driver1  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p1-0  s0) (path p1-0  s1) (path s0  p1-0) (path s1  p1-0))
+(:state (at driver1  s1) (at driver2  p0-1) (at driver3  p0-1) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
 
-(:action (walk driver2 s1 p1-0))
+(:action (walk driver2 p0-1 s1))
 
-(:state (at driver2  p1-0) (at driver3  p1-0) (at truck1  s1) (driving driver1  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p1-0  s0) (path p1-0  s1) (path s0  p1-0) (path s1  p1-0))
+(:state (at driver1  s1) (at driver2  s1) (at driver3  p0-1) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
 
-(:action (drive-truck truck1 s1 s0 driver1))
+(:action (walk driver2 s1 p0-1))
 
-(:state (at driver2  p1-0) (at driver3  p1-0) (at truck1  s0) (driving driver1  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p1-0  s0) (path p1-0  s1) (path s0  p1-0) (path s1  p1-0))
+(:state (at driver1  s1) (at driver2  p0-1) (at driver3  p0-1) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
 
-(:action (disembark-truck driver1 truck1 s0))
+(:action (walk driver2 p0-1 s0))
 
-(:state (at driver1  s0) (at driver2  p1-0) (at driver3  p1-0) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p1-0  s0) (path p1-0  s1) (path s0  p1-0) (path s1  p1-0))
+(:state (at driver1  s1) (at driver2  s0) (at driver3  p0-1) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
 
-(:action (walk driver1 s0 p1-0))
+(:action (walk driver1 s1 p0-1))
 
-(:state (at driver1  p1-0) (at driver2  p1-0) (at driver3  p1-0) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p1-0  s0) (path p1-0  s1) (path s0  p1-0) (path s1  p1-0))
+(:state (at driver1  p0-1) (at driver2  s0) (at driver3  p0-1) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
 
-(:action (unload-truck package1 truck1 s0))
+(:action (walk driver3 p0-1 s0))
 
-(:state (at driver1  p1-0) (at driver2  p1-0) (at driver3  p1-0) (at package1  s0) (at truck1  s0) (empty truck1) (link s0  s1) (link s1  s0) (path p1-0  s0) (path p1-0  s1) (path s0  p1-0) (path s1  p1-0))
+(:state (at driver1  p0-1) (at driver2  s0) (at driver3  s0) (at truck1  s0) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (board-truck driver3 truck1 s0))
+
+(:state (at driver1  p0-1) (at driver2  s0) (at truck1  s0) (driving driver3  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (drive-truck truck1 s0 s1 driver3))
+
+(:state (at driver1  p0-1) (at driver2  s0) (at truck1  s1) (driving driver3  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (walk driver1 p0-1 s0))
+
+(:state (at driver1  s0) (at driver2  s0) (at truck1  s1) (driving driver3  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (disembark-truck driver3 truck1 s1))
+
+(:state (at driver1  s0) (at driver2  s0) (at driver3  s1) (at truck1  s1) (empty truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (board-truck driver3 truck1 s1))
+
+(:state (at driver1  s0) (at driver2  s0) (at truck1  s1) (driving driver3  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (unload-truck package1 truck1 s1))
+
+(:state (at driver1  s0) (at driver2  s0) (at package1  s1) (at truck1  s1) (driving driver3  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (load-truck package1 truck1 s1))
+
+(:state (at driver1  s0) (at driver2  s0) (at truck1  s1) (driving driver3  truck1) (in package1  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (unload-truck package1 truck1 s1))
+
+(:state (at driver1  s0) (at driver2  s0) (at package1  s1) (at truck1  s1) (driving driver3  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (walk driver2 s0 p0-1))
+
+(:state (at driver1  s0) (at driver2  p0-1) (at package1  s1) (at truck1  s1) (driving driver3  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (drive-truck truck1 s1 s0 driver3))
+
+(:state (at driver1  s0) (at driver2  p0-1) (at package1  s1) (at truck1  s0) (driving driver3  truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
+
+(:action (disembark-truck driver3 truck1 s0))
+
+(:state (at driver1  s0) (at driver2  p0-1) (at driver3  s0) (at package1  s1) (at truck1  s0) (empty truck1) (link s0  s1) (link s1  s0) (path p0-1  s0) (path p0-1  s1) (path s0  p0-1) (path s1  p0-1))
 
 )
