@@ -53,6 +53,45 @@ cd util && python generators.py
 python benchmark_stats.py
 ```
 
+## Domain selection:
+The selected domains are the ones adopted in previous IPC learning tracks:
+1. IPC 1998/2000/2002/2004/2006: no learning track
+2. [IPC 2008 Learning Track](https://ipc08.icaps-conference.org/learning/): `goldminer`, `matchingbw`, `npuzzle`, 
+`parking` and `sokoban`
+    - `thoughtful` has not been considered since there is no problem generator neither in the IPC resources nor in
+    [`pddl-generators` repository](https://github.com/AI-Planning/pddl-generators) 
+3. [IPC 2011 Learning Track](https://icaps11.icaps-conference.org/proceedings/pal/fawcett-et-al.pdf): `barman`, 
+`blocksworld`, `depots`, `gripper`, `parking`, `rovers`, `satellite`, `spanner` and `tpp`.
+4. [IPC 2014 Learning Track](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2571): `elevators`,
+`floortile`, `nomystery`, `parking`, `spanner` and `transport`.
+5. [IPC 2023 Learning Track](https://github.com/ipc2023-learning/benchmarks): `blocksworld`,
+`childsnack`, `ferry`, `floortile`, `miconic`, `rovers`, `satellite`, `sokoban`,
+`spanner` and `transport`.
+   - `childsnack`: for consistency with other domains, we adopted the original domain version 
+      without negative preconditions.
+
+Therefore the following list of 20 classical planning domains:
+- `barman`
+- `blocksworld`
+- `childsnack`
+- `depots`
+- `elevators`
+- `ferry`
+- `floortile`
+- `goldminer`
+- `gripper`
+- `matchingbw`
+- `miconic`
+- `nomystery`
+- `npuzzle`
+- `parking`
+- `rovers`
+- `satellite`
+- `sokoban`
+- `spanner`
+- `tpp`
+- `transport`
+
 ## Trajectory features:
 1. **Reproducibility**: the trajectory generation process is fully reproducible and can be randomized according to 
 a random seed.
@@ -88,4 +127,24 @@ ${TR} -d STATES -n ${BLOCKS}
 rm STATES
 ```
 
+#### Matching-bw
+1. modify the file `matchingbw/matching-bw-generator.sh` by adding a random seed as third input argument:
 
+```
+#! /bin/bash
+
+# usage: matching-bw-generator.sh <base name> <n>
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+./../bwstates.1/bwstates -n $2 -s 3 -r $3 > temp.blocks || true
+./../bwstates.1/bwstates -n $2 -s 3 -r $3 >> temp.blocks || true
+
+./2pddl-typed -d temp.blocks -n $2 > $1-typed.pddl
+./2pddl-untyped -d temp.blocks -n $2 > $1-untyped.pddl
+
+rm -f temp.blocks
+
+```

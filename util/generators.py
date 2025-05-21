@@ -1,13 +1,13 @@
+# Add current project to sys path
 import os
 import sys
-from typing import List
-
-import yaml
-
-# Add current project to sys path
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
+from typing import List
+
+import yaml
+import re
 import contextlib
 import logging
 import random
@@ -319,6 +319,396 @@ def problem_matchingbw(seed: int = 123,
     return problem
 
 
+def problem_miconic(seed: int = 123,
+                       f: int = 1,
+                       p: int = 1) -> str:
+    """
+    See `util/pddl-generators/miconic/README.txt`.
+    :param seed: random seed
+    :param f: number of floors
+    :param p: number of passengers
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/miconic -f {f} -p {p} -r {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_npuzzle(seed: int = 123,
+                    n: int = 1) -> str:
+    """
+    See `util/pddl-generators/npuzzle/README.txt`.
+    :param seed: random seed
+    :param n: number of rows/columns
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/n-puzzle-generator -n {n} -s {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_nomystery(seed: int = 123,
+                      l: int = 1,
+                      p: int = 1,
+                      n: int = 1,
+                      m: int = 1,
+                      c: int = 1) -> str:
+    """
+    See `util/pddl-generators/nomystery/README.txt`.
+    :param seed: random seed
+    :param l: number of locations
+    :param p: number of packages
+    :param n: edges ratio in location graph (i.e. total edges = n * l)
+    :param m: maximum edges weight
+    :param c: constrainedness (initial fuel supply = c * optimal_cost)
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/nomystery -l {l} -p {p} -n {n} -m {m} -c {c} -s {seed} -e 0".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    # Remove total cost a cost minimization
+    problem = problem.replace('(= (total-cost) 0)', '')
+    problem = problem.replace('(:metric minimize (total-cost))', '')
+
+    return problem
+
+
+def problem_parking(seed: int = 123,
+                    curbs: int = 1,
+                    cars: int = 1) -> str:
+    """
+    See `util/pddl-generators/parking/README.txt`.
+    :param seed: random seed
+    :param curbs: number of curbs
+    :param cars: number of cars
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"perl ./{GEN_DIR}/{domain}/parking-generator.pl _ {curbs} {cars} seq {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    # Remove PDDL comments
+    problem = '\n'.join([r for r in problem.split('\n') if not r.strip().startswith(';')])
+
+    return problem
+
+
+def problem_rovers(seed: int = 123,
+                   r: int = 1,
+                   w: int = 1,
+                   o: int = 1,
+                   c: int = 1,
+                   g: int = 1) -> str:
+    """
+    See `util/pddl-generators/rovers/README`.
+    :param seed: random seed
+    :param r: number of rovers
+    :param w: number of waypoints
+    :param o: number of objectives
+    :param c: number of cameras
+    :param g: number of goals
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/rovgen {seed} {r} {w} {o} {c} {g}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_satellite(seed: int = 123,
+                      s: int = 1,
+                      i: int = 1,
+                      m: int = 1,
+                      t: int = 1,
+                      o: int = 1) -> str:
+    """
+    See `util/pddl-generators/satellite/README`.
+    :param seed: random seed
+    :param s: number of satellites
+    :param i: maximum number of instruments
+    :param m: number of modes
+    :param t: number of targets
+    :param o: number of observations
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/satgen {seed} {s} {i} {m} {t} {o}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_sokoban(seed: int = 123,
+                    n: int = 1,
+                    b: int = 1,
+                    w: int = 1) -> str:
+    """
+    See `util/pddl-generators/sokoban/README.txt`.
+    :param seed: random seed
+    :param n: grid size
+    :param b: number of boxes
+    :param w: number of walls
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/random/sokoban-generator-typed -n {n} -b {b} -w {w} -s {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_spanner(seed: int = 123,
+                    spanners: int = 1,
+                    nuts: int = 1,
+                    locations: int = 3) -> str:
+    """
+    See `util/pddl-generators/spanner/README.txt`.
+    :param seed: random seed
+    :param spanners: number of spanners
+    :param nuts: number of nuts
+    :param locations: number of locations
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"python ./{GEN_DIR}/{domain}/spanner-generator.py --seed {seed}"
+                            f" {spanners} {nuts} {locations}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_tpp(seed: int = 123,
+                p: int = 1,
+                m: int = 1,
+                t: int = 3,
+                d: int = 3,
+                l: int = 3) -> str:
+    """
+    See `util/pddl-generators/tpp/README`.
+    :param seed: random seed
+    :param p: number of products
+    :param m: number of markets
+    :param t: number of trucks
+    :param d: number of depots
+    :param l: maximum goods level
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/tpp -s {seed} -p {p} -m {m} -t {t} -d {d} -l {l} tmp.pddl".split(),
+                            capture_output=True, text=True)
+
+    with open(f"tmp.pddl", 'r') as f:
+        problem = f.read()
+    os.remove(f"tmp.pddl")
+
+    return problem
+
+
+def problem_transport(seed: int = 123,
+                      generator: str = 'city',
+                      n: int = 1,
+                      size: int = 10,
+                      degree: int = 3,
+                      mindistance: int = 10,
+                      trucks: int = 3,
+                      packages: int = 3) -> str:
+    """
+
+    See `util/pddl-generators/transport/README.txt`.
+    :param seed: random seed
+    :param generator: transport generator type in [city, two-cities, three-cities]
+    :param n: number of nodes
+    :param size: size for computing `connect_distance` = math.sqrt((degree * size * size) / (nodes * math.pi * 0.694))
+    :param degree: degree for computing `connect_distance` = math.sqrt((degree * size * size) / (nodes * math.pi * 0.694))
+    :param mindistance: minimum distance between two nodes
+    :param trucks: number of trucks
+    :param packages: number of packages
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"python ./{GEN_DIR}/{domain}/{generator}-generator.py"
+                            f" {n} {size} {degree} {mindistance} {trucks} {packages} {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    # Remove total cost a cost minimization
+    problem = problem.replace('(= (total-cost) 0)', '')
+    problem = problem.replace('(:metric minimize (total-cost))', '')
+
+    # Remove road lengths and comments
+    problem = '\n'.join([r for r in problem.split('\n')
+                         if not r.strip().startswith('(= ') and not r.strip().startswith(';')])
+
+    return problem
+
+
+def problem_zenotravel(seed: int = 123,
+                       cities: int = 1,
+                       planes: int = 1,
+                       people: int = 3,
+                       distance: int = 1) -> str:
+    """
+    See `util/pddl-generators/zenotravel/README`.
+    :param seed: random seed
+    :param cities: number of cities
+    :param planes: number of planes
+    :param people: number of people
+    :param distance: numerical distance between cities
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/ztravel {seed} {cities} {planes} {people}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_childsnack(seed: int = 123,
+                       children: int = 1,
+                       trays: int = 1,
+                       gluten_factor: int = 3,
+                       const_ratio: int = 1.3) -> str:
+    """
+    See `util/pddl-generators/childsnack/README.txt`.
+    :param seed: random seed
+    :param children: number of children
+    :param trays: number of trays
+    :param gluten_factor: gluten ratio among children
+    :param const_ratio: proportion of needed symbols that are declared in advance in the problem file.
+    The min ratio should be 1.0 to guarantee solvability.
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"python ./{GEN_DIR}/{domain}/child-snack-generator.py pool "
+                            f"{seed} {children} {trays} {gluten_factor} {const_ratio}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    return problem
+
+
+def problem_elevators(seed: int = 123,
+                      floors: int = 2,
+                      area_size: int = 2,
+                      fast_elevators: int = 1,
+                      slow_elevators: int = 1,
+                      fast_capacity: int = 1,
+                      slow_capacity: int = 3,
+                      passengers: int = 2) -> str:
+    """
+    See `util/pddl-generators/elevators/README.txt`.
+    :param seed: random seed
+    :param floors: number of floors
+    :param area_size: area size (must be a factor of floors, otherwise passengers can start in out of bounds floors)
+    :param fast_elevators: number of fast elevators
+    :param slow_elevators: number of slow elevators
+    :param fast_capacity: passengers capacity of every fast elevators
+    :param slow_capacity: passengers capacity of every slow elevators
+    :param passengers: number of passengers
+    :return: problem string
+    """
+
+    def generate_executable(c_file_path: str, **kwargs):
+        # Path to your C source file
+        # c_file ==
+        # executable = "./elevator_problem"  # Linux/macOS, use "elevator_problem.exe" for Windows
+
+        c_file = 'my_generate_data.c'
+        my_c_file = f"{os.path.join(*c_file_path.split('/')[:-1])}/{c_file}"
+        shutil.copy(c_file_path, my_c_file)
+
+        # Constants that can be changed
+        constants = {"FLOORS", "AREA_SIZE", "FAST_ELEVATORS", "SLOW_ELEVATORS", "FAST_CAPACITY", "SLOW_CAPACITY"}
+        assert set(kwargs.keys()).issubset({c.lower() for c in constants})
+
+        # modify constants in the C file
+        with open(my_c_file, "r") as f:
+            c_code = f.read()
+        for const, new_value in kwargs.items():
+            pattern = rf"#define\s+{const.upper()}\s+\d+"
+            replacement = f"#define {const.upper()} {new_value}"
+            c_code = re.sub(pattern, replacement, c_code)
+
+        # make generation reproducible by allowing for a random seed as input argument
+        c_code = c_code.replace('MinPassengers=atoi(argv[1]);', 'srand((unsigned int)atoi(argv[1]));\nMinPassengers=atoi(argv[2]);')
+        c_code = c_code.replace('MaxPassengers=atoi(argv[2]);', 'MaxPassengers=atoi(argv[3]);')
+        c_code = c_code.replace('Step=atoi(argv[3]);', 'Step=atoi(argv[4]);')
+        c_code = c_code.replace('MinID=atoi(argv[4]);', 'MinID=atoi(argv[5]);')
+        c_code = c_code.replace(f'MaxID=atoi(argv[5]);', f'MaxID=atoi(argv[6]);')
+        c_code = c_code.replace("if (argc!=6) {", "if (argc!=7) {")
+        c_code = c_code.replace('printf("MinPassengers, MaxPassenegrs, Step, MinID, MaxID\n\nwhere:\n\n");',
+                       'printf("Seed, MinPassengers, MaxPassenegrs, Step, MinID, MaxID\n\nwhere:\n\n");'
+                       '\nprintf("Seed : random seed\n");')
+        c_code = c_code.replace("srand( (unsigned)time( NULL ) );", "")
+
+        # save the updated C file
+        with open(my_c_file, "w") as file:
+            file.write(c_code)
+
+        # compile the C file
+        executable_file_path = my_c_file.replace(".c", "")
+        compile_cmd = ["gcc", my_c_file, "-o", executable_file_path]
+        result = subprocess.run(compile_cmd, capture_output=True, text=True)
+
+        if result.returncode != 0:
+            print("Compilation failed:\n", result.stderr)
+            exit(1)
+        return executable_file_path
+
+    # Generate a problem
+    executable_path = generate_executable(f"./{GEN_DIR}/{domain}/generate_data.c",
+        **dict(floors=floors, area_size=area_size, fast_elevators=fast_elevators, slow_elevators=slow_elevators,
+             fast_capacity=fast_capacity, slow_capacity=slow_capacity))
+    # Generate problem in txt
+    result = subprocess.run(f"{executable_path} {seed} {passengers} {passengers} 1 1 1".split(),
+                            capture_output=True, text=True)
+    # Parse problem in pddl
+    result = subprocess.run(f"./{GEN_DIR}/{domain}/generate_pddl {floors} {floors} 1 {passengers} {passengers} 1 1 1".split(),
+                            capture_output=True, text=True)
+
+    prob_file = [f for f in os.listdir(f"./") if f.endswith('.pddl') and f.startswith('p')][0]
+    with open(prob_file, 'r') as f:
+        problem = f.read()
+    os.remove(prob_file)
+    os.remove(prob_file.replace('.pddl', '.txt'))
+
+    # Remove cost functions
+    problem = '\n'.join([r for r in problem.split('\n')
+                         if ':metric' not in r and not r.startswith('(=')])
+
+    return problem
+
+
+#./"$GEN_DIR"/generate_data_p4-1 3 3 1 1 1
+#./"$GEN_DIR"/generate_pddl 4 4 1 3 3 1 1 1
+
 def check_feasibility(problem: Problem,
                       current_state: UPState,
                       action_instance: ActionInstance) -> bool:
@@ -435,7 +825,7 @@ def generate_traj(
 
     # Randomly sample trajectory length
     done = (len(states) - TRAJ_LEN_MIN >= 0)  # check a sufficiently long trajectory can be generated from the plan
-    traj_len = np.random.choice(range(TRAJ_LEN_MIN, len(states) + 1)) if done else 0
+    traj_len = np.random.choice(range(TRAJ_LEN_MIN, min(TRAJ_LEN_MAX, len(states) + 1))) if done else 0
 
     # Randomly select a subset of states
     start_idx = np.random.choice(range(len(states) - traj_len + 1))
@@ -472,10 +862,14 @@ if __name__ == '__main__':
         seed = cfg['SEED']
         domains = cfg['domains']
 
-    to_be_avoided = ['elevators', 'floortile']
+    to_be_avoided = [
+        'floortile',    # problems are too hard to solve
+        'npuzzle',      # problems are too hard to solve
+        'sokoban',      # problems are too hard to solve
+    ]
+    # domains = {k: v for k, v in domains.items() if k not in to_be_avoided}
+    domains = {k: v for k, v in domains.items() if k in to_be_avoided}
 
-    # tmp = 'bloc'
-    # domains = {tmp: domains[tmp]}
 
     for domain in domains:
 
@@ -505,7 +899,7 @@ if __name__ == '__main__':
                 while len(trajectory.states) < TRAJ_LEN_MIN:
                     # Generate a problem
                     logging.debug(f"Generating a new problem")
-                    kwargs['seed'] = np.random.randint(1, 100000)
+                    kwargs['seed'] = np.random.randint(1, 1000)
                     generate_prob = getattr(sys.modules[__name__], f'problem_{domain}')
                     problem_str = generate_prob(**kwargs)
 
