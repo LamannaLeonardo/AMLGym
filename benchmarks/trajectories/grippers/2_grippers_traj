@@ -1,0 +1,21 @@
+(observation
+
+(:state (at ball1  room4) (at ball2  room5) (free robot1  lgripper1) (free robot1  rgripper1) (robby robot1  room1))
+
+(:action (move robot1 room1 room5))
+
+(:state (at ball1  room4) (at ball2  room5) (free robot1  lgripper1) (free robot1  rgripper1) (robby robot1  room5))
+
+(:action (pick robot1 ball2 room5 lgripper1))
+
+(:state (at ball1  room4) (carry robot1  ball2  lgripper1) (free robot1  rgripper1) (robby robot1  room5))
+
+(:action (move robot1 room5 room1))
+
+(:state (at ball1  room4) (carry robot1  ball2  lgripper1) (free robot1  rgripper1) (robby robot1  room1))
+
+(:action (drop robot1 ball2 room1 lgripper1))
+
+(:state (at ball1  room4) (at ball2  room1) (free robot1  lgripper1) (free robot1  rgripper1) (robby robot1  room1))
+
+)

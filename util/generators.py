@@ -740,6 +740,7 @@ def check_feasibility(problem: Problem,
         with OneshotPlanner(name='fast-downward', problem_kind=problem.kind) as planner:
             result = planner.solve(problem, timeout=MAX_PLANNING_TIME)
             plan = result.plan
+            planner.destroy()
 
     return plan is not None
 
@@ -839,7 +840,7 @@ if __name__ == '__main__':
 
     TRAJ_LEN_MIN = 5
     TRAJ_LEN_MAX = 30
-    MAX_PLANNING_TIME = 300
+    MAX_PLANNING_TIME = 30
     # logging.basicConfig(level=logging.INFO)
     logging.basicConfig(level=logging.DEBUG)
     GEN_DIR = "pddl-generators"
@@ -867,8 +868,8 @@ if __name__ == '__main__':
         'npuzzle',      # problems are too hard to solve
         'sokoban',      # problems are too hard to solve
     ]
-    # domains = {k: v for k, v in domains.items() if k not in to_be_avoided}
-    domains = {k: v for k, v in domains.items() if k in to_be_avoided}
+    domains = {k: v for k, v in domains.items() if k not in to_be_avoided}
+    # domains = {k: v for k, v in domains.items() if k in to_be_avoided}
 
 
     for domain in domains:
@@ -917,7 +918,6 @@ if __name__ == '__main__':
                     if len(trajectory.states) < TRAJ_LEN_MIN:
                         logging.debug(f"Failed to generate a sufficiently long trace. Retrying...")
                         os.remove(problem_file)
-                        # trajectory = generate_traj(problem)
 
                 trace_file = f'../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))}_{domain}_traj'
                 trajectory.write(trace_file)

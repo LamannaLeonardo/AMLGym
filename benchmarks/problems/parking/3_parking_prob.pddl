@@ -30,16 +30,4 @@
     )
   )
 )
-; =========== init =========== 
-;  curb_0: car_1 car_0 
-;  curb_1: car_5 car_2 
-;  curb_2: car_4 car_3 
-;  curb_3: 
-; ========== /init =========== 
 
-; =========== goal =========== 
-;  curb_0: car_0 car_4 
-;  curb_1: car_1 car_5 
-;  curb_2: car_2 
-;  curb_3: car_3 
-; =========== /goal =========== 
