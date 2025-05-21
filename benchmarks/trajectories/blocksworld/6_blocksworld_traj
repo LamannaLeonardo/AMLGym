@@ -1,37 +1,21 @@
 (observation
 
-(:state (clear b3) (clear b4) (handempty) (on b1  b6) (on b3  b5) (on b5  b1) (on b6  b2) (ontable b2) (ontable b4))
+(:state (clear b3) (clear b4) (clear b5) (holding b1) (on b2  b6) (on b5  b2) (ontable b3) (ontable b4) (ontable b6))
 
-(:action (unstack b3 b5))
+(:action (stack b1 b3))
 
-(:state (clear b4) (clear b5) (holding b3) (on b1  b6) (on b5  b1) (on b6  b2) (ontable b2) (ontable b4))
+(:state (clear b1) (clear b4) (clear b5) (handempty) (on b1  b3) (on b2  b6) (on b5  b2) (ontable b3) (ontable b4) (ontable b6))
 
-(:action (put-down b3))
+(:action (pick-up b4))
 
-(:state (clear b3) (clear b4) (clear b5) (handempty) (on b1  b6) (on b5  b1) (on b6  b2) (ontable b2) (ontable b3) (ontable b4))
+(:state (clear b1) (clear b5) (holding b4) (on b1  b3) (on b2  b6) (on b5  b2) (ontable b3) (ontable b6))
 
-(:action (unstack b5 b1))
+(:action (put-down b4))
 
-(:state (clear b1) (clear b3) (clear b4) (holding b5) (on b1  b6) (on b6  b2) (ontable b2) (ontable b3) (ontable b4))
+(:state (clear b1) (clear b4) (clear b5) (handempty) (on b1  b3) (on b2  b6) (on b5  b2) (ontable b3) (ontable b4) (ontable b6))
 
-(:action (put-down b5))
+(:action (pick-up b4))
 
-(:state (clear b1) (clear b3) (clear b4) (clear b5) (handempty) (on b1  b6) (on b6  b2) (ontable b2) (ontable b3) (ontable b4) (ontable b5))
-
-(:action (unstack b1 b6))
-
-(:state (clear b3) (clear b4) (clear b5) (clear b6) (holding b1) (on b6  b2) (ontable b2) (ontable b3) (ontable b4) (ontable b5))
-
-(:action (put-down b1))
-
-(:state (clear b1) (clear b3) (clear b4) (clear b5) (clear b6) (handempty) (on b6  b2) (ontable b1) (ontable b2) (ontable b3) (ontable b4) (ontable b5))
-
-(:action (unstack b6 b2))
-
-(:state (clear b1) (clear b2) (clear b3) (clear b4) (clear b5) (holding b6) (ontable b1) (ontable b2) (ontable b3) (ontable b4) (ontable b5))
-
-(:action (put-down b6))
-
-(:state (clear b1) (clear b2) (clear b3) (clear b4) (clear b5) (clear b6) (handempty) (ontable b1) (ontable b2) (ontable b3) (ontable b4) (ontable b5) (ontable b6))
+(:state (clear b1) (clear b5) (holding b4) (on b1  b3) (on b2  b6) (on b5  b2) (ontable b3) (ontable b6))
 
 )
