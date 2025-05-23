@@ -1,6 +1,7 @@
 # Add current project to sys path
 import os
 import sys
+
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
@@ -24,6 +25,8 @@ from unified_planning.shortcuts import OneshotPlanner, SequentialSimulator
 
 from modeling.trajectory import Trajectory
 
+from tarski.io import PDDLReader as tarskiPDDLReader
+from tarski.grounding import LPGroundingStrategy
 
 def problem_blocksworld(seed: int = 123 ,
                         ops: int = 4,
@@ -181,6 +184,23 @@ def problem_floortile(seed: int = 123,
                             capture_output=True, text=True)
     problem = result.stdout
 
+    # Remove half goals to make the problem almost surely feasible
+    goal_block = re.search(r'\(:goal\s*\(and(.*?)\)\s*\)', problem, re.DOTALL)
+    if not goal_block:
+        raise Exception
+
+    # get goal facts
+    goals = re.findall(r'\([^)]+\)', goal_block.group(1))
+
+    # extract a random subset of goal facts
+    subgoals = np.random.choice(goals, int(len(goals)/2))
+
+    # Reconstruct the goal block
+    new_goal_block = '(:goal (and\n    ' + '\n    '.join(subgoals) + '\n)'
+
+    # Replace original goal block in text
+    problem = re.sub(r'\(:goal\s*\(and\s*((?:.|\n)*?)\s*\)\s*\)', new_goal_block, problem, re.DOTALL)
+
     # Remove total cost a cost minimization
     problem = problem.replace('(= (total-cost) 0)', '')
     problem = problem.replace('(:metric minimize (total-cost))', '')
@@ -303,7 +323,7 @@ def problem_matchingbw(seed: int = 123,
                        n: int = 1) -> str:
     """
     See `util/pddl-generators/hanoi/README.txt`.
-    :param seed: random seed (not used since the problems generator is not randomized)
+    :param seed: random seed
     :param n: number of blocks
     :return: problem string
     """
@@ -473,6 +493,19 @@ def problem_sokoban(seed: int = 123,
     result = subprocess.run(f"./{GEN_DIR}/{domain}/random/sokoban-generator-typed -n {n} -b {b} -w {w} -s {seed}".split(),
                             capture_output=True, text=True)
     problem = result.stdout
+
+    # Remove comments
+    problem = '\n'.join([r for r in problem.split('\n') if not r.startswith(';')])
+
+    # It may happen that the
+    while len([r for r in problem.split('\n') if r.strip() != '']) == 0:
+        logging.debug('An error occured during sokoban problem generation. Retrying to generate a new problem.')
+        seed += 1
+        result = subprocess.run(f"./{GEN_DIR}/{domain}/random/sokoban-generator-typed -n {n} -b {b} -w {w} -s {seed}".split(),
+                                capture_output=True, text=True)
+        problem = result.stdout
+        # Remove comments
+        problem = '\n'.join([r for r in problem.split('\n') if not r.startswith(';')])
 
     return problem
 
@@ -706,17 +739,15 @@ def problem_elevators(seed: int = 123,
     return problem
 
 
-#./"$GEN_DIR"/generate_data_p4-1 3 3 1 1 1
-#./"$GEN_DIR"/generate_pddl 4 4 1 3 3 1 1 1
-
-def check_feasibility(problem: Problem,
-                      current_state: UPState,
-                      action_instance: ActionInstance) -> bool:
+def replan(problem: Problem,
+           current_state: UPState,
+           action_instance: ActionInstance) -> any:
     """
-    Check action execution does not make the problem unsolvable
+    Check action execution does not make the problem unsolvable by simulating the action and computing
+    a new plan
     :param problem: solvable problem
     :param action: action to be executed
-    :return: problem is solvable
+    :return: new plan (if any)
     """
     # Update the problem initial state
     problem = problem.clone()
@@ -735,14 +766,20 @@ def check_feasibility(problem: Problem,
         problem.set_initial_value(fluent, value)
 
     # Check a plan still exists
-    logging.debug("Computing a new plan...")
+    logging.debug(f"Checking random action {action_instance} preserves solvability.")
     with contextlib.redirect_stdout(open(os.devnull, 'w')):
-        with OneshotPlanner(name='fast-downward', problem_kind=problem.kind) as planner:
-            result = planner.solve(problem, timeout=MAX_PLANNING_TIME)
+        with OneshotPlanner(
+                name='fast-downward',
+                problem_kind=problem.kind,
+                params={
+                    # 'fast_downward_alias': DOWNWARD_ALIAS,
+                    'fast_downward_search_config': DOWNWARD_SEARCH_CFG,
+                    'fast_downward_search_time_limit': f"{MAX_REPLANNING_TIME}s"
+                }) as planner:
+            result = planner.solve(problem, timeout=MAX_REPLANNING_TIME)
             plan = result.plan
-            planner.destroy()
 
-    return plan is not None
+    return plan
 
 
 def generate_traj(
@@ -755,13 +792,44 @@ def generate_traj(
         states = [current_state]  # init trajectory states
         actions = []  # init trajectory actions
         plan = None
-        while plan is None and len(states) < TRAJ_LEN_MAX:
 
-            logging.debug("Computing a new plan...")
-            with contextlib.redirect_stdout(open(os.devnull, 'w')):
-                with OneshotPlanner(name='fast-downward', problem_kind=problem.kind) as planner:
-                    result = planner.solve(problem, timeout=MAX_PLANNING_TIME)
-                    plan = result.plan
+        # Ground actions with tarski since unified-planning (1.2.0) grounder is inefficient
+        reader = tarskiPDDLReader(raise_on_error=True)
+        reader.parse_domain(domain_file)
+        reader.parse_instance(problem_file)
+        grounder = LPGroundingStrategy(reader.problem)
+        ground_actions = grounder.ground_actions()
+
+        while len(states) < TRAJ_LEN_MAX:
+
+            if plan is None:
+                # Update the problem initial state
+                logging.debug(f"Updating problem state")
+                problem = problem.clone()
+                for fluent in problem.initial_values:
+                    value = current_state.get_value(fluent)
+                    problem.set_initial_value(fluent, value)
+
+                logging.debug("Computing a new plan...")
+                with contextlib.redirect_stdout(open(os.devnull, 'w')):
+                    with OneshotPlanner(
+                            # name='lpg',
+                            # name='tamer',
+                            # name='enhsp',
+                            #
+                            # name='pyperplan',
+                            # params={'heuristic': 'hff'}
+                            #
+                            name='fast-downward',
+                            problem_kind=problem.kind,
+                            params={
+                                # 'fast_downward_alias': DOWNWARD_ALIAS,
+                                'fast_downward_search_config': DOWNWARD_SEARCH_CFG,
+                                'fast_downward_search_time_limit': f"{MAX_PLANNING_TIME}s"
+                            }
+                    ) as planner:
+                        result = planner.solve(problem, timeout=MAX_PLANNING_TIME)
+                        plan = result.plan
 
             # Problem unsolvable
             if plan is None:
@@ -778,41 +846,54 @@ def generate_traj(
 
                 # Possibly execute a random action and replan
                 if random.random() < randomness:
-                    action, params = random.choices(list(simulator.get_applicable_actions(current_state)))[0]
+                    logging.debug(f"Sampling a random action...")
+
+                    # applicable_actions = list(simulator.get_applicable_actions(current_state))
+                    applicable_actions = [(problem.action(k.lower()), [problem.object(o.lower()) for o in objs])
+                                          for k, params in ground_actions.items()
+                                          for objs in params
+                                          if simulator._is_applicable(current_state,
+                                                                      problem.action(k.lower()),
+                                                                      [problem.object(o.lower()) for o in objs])]
+
+                    applicable_actions = sorted(applicable_actions, key=lambda x: f"{x[0]} - {x[1]}")  # reproducibility
+                    action, params = random.choices(applicable_actions)[0]
                     action_instance = ActionInstance(action, params)
+                    logging.debug(f"Random action sampled.")
 
                     # Check random action does not make the problem unfeasible
-                    max_trials = 5
-                    trial = 0
-                    while not check_feasibility(problem, current_state, action_instance):
+                    trial = 1
+                    plan = replan(problem, current_state, action_instance)
+                    # while not check_feasibility(problem, current_state, action_instance):
+                    while plan is None:
                         trial += 1
                         logging.debug(f"Random action {action_instance} makes the problem unsolvable."
                                       f" Newly sampling a random action.")
-                        action, params = random.choices(list(simulator.get_applicable_actions(current_state)))[0]
+
+                        # applicable_actions = list(simulator.get_applicable_actions(current_state))
+                        applicable_actions = [(problem.action(k.lower()), [problem.object(o.lower()) for o in objs])
+                                              for k, params in ground_actions.items()
+                                              for objs in params
+                                              if simulator._is_applicable(current_state,
+                                                                          problem.action(k.lower()),
+                                                                          [problem.object(o.lower()) for o in objs])]
+
+                        applicable_actions = sorted(applicable_actions, key=lambda x: f"{x[0]} - {x[1]}")  # reproducibility
+                        action, params = random.choices(applicable_actions)[0]
                         action_instance = ActionInstance(action, params)
-                        if trial > max_trials:
+                        plan = replan(problem, current_state, action_instance)
+                        if trial >= MAX_RANDOM_TRIALS and plan is None:
                             break
 
-                    if trial > max_trials:
+                    if trial >= MAX_RANDOM_TRIALS and plan is None:
                         logging.debug(f"Maximum number of random action trials reached."
                                       f" Avoiding random action execution.")
-                        # Trigger replanning
-                        plan = None
                         break
 
                     logging.debug(f"Simulating random action {action_instance}.")
                     current_state = simulator.apply(current_state, action_instance)
                     states.append(current_state)
                     actions.append(action_instance)
-
-                    # Update the problem initial state
-                    problem = problem.clone()
-                    for fluent in problem.initial_values:
-                        value = current_state.get_value(fluent)
-                        problem.set_initial_value(fluent, value)
-
-                    # Trigger replanning
-                    plan = None
                     break
 
                 logging.debug(f"Simulating action {action_instance}.")
@@ -824,8 +905,12 @@ def generate_traj(
 
                 states.append(current_state)
 
+            if plan is not None and (len(plan.actions) == 0 or action_instance == plan.actions[-1]):
+                logging.debug("A goal state has been reached.")
+                break
+
     # Randomly sample trajectory length
-    done = (len(states) - TRAJ_LEN_MIN >= 0)  # check a sufficiently long trajectory can be generated from the plan
+    done = (len(states) - TRAJ_LEN_MIN >= 0)  # check a sufficiently long trajectory has been generated
     traj_len = np.random.choice(range(TRAJ_LEN_MIN, min(TRAJ_LEN_MAX, len(states) + 1))) if done else 0
 
     # Randomly select a subset of states
@@ -840,16 +925,22 @@ if __name__ == '__main__':
 
     TRAJ_LEN_MIN = 5
     TRAJ_LEN_MAX = 30
-    MAX_PLANNING_TIME = 30
-    # logging.basicConfig(level=logging.INFO)
-    logging.basicConfig(level=logging.DEBUG)
+    MAX_PLANNING_TIME = 600
+    MAX_REPLANNING_TIME = 60  # time to check problem feasibility
+    MAX_RANDOM_TRIALS = 3  # maximum number of random action samplings at each step
+    DOWNWARD_SEARCH_CFG = 'let(hff,ff(),let(hcea,cea(),lazy_greedy([hff,hcea],preferred=[hff,hcea])))'
+    # DOWNWARD_ALIAS = 'seq-sat-lama-2011'
+    logging.basicConfig(
+        # filename='out.log',
+        level=logging.DEBUG
+    )
     GEN_DIR = "pddl-generators"
     BENCHMARK_DIR = "benchmarks"
     DOMAINS_DIR = "domains"
     PROB_DIR = "problems"
     TRAJ_DIR = "trajectories"
     CFG_DIR = "configs"
-    DOM_CFG = f"{BENCHMARK_DIR}/{CFG_DIR}/domains.yaml"
+    DOM_CFG = f"{BENCHMARK_DIR}/problems.yaml"
 
     # Instantiate a PDDL problem reader
     reader = PDDLReader()
@@ -863,14 +954,8 @@ if __name__ == '__main__':
         seed = cfg['SEED']
         domains = cfg['domains']
 
-    to_be_avoided = [
-        'floortile',    # problems are too hard to solve
-        'npuzzle',      # problems are too hard to solve
-        'sokoban',      # problems are too hard to solve
-    ]
+    to_be_avoided = []
     domains = {k: v for k, v in domains.items() if k not in to_be_avoided}
-    # domains = {k: v for k, v in domains.items() if k in to_be_avoided}
-
 
     for domain in domains:
 
@@ -922,5 +1007,4 @@ if __name__ == '__main__':
                 trace_file = f'../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))}_{domain}_traj'
                 trajectory.write(trace_file)
                 bar()  # update progress bar
-
 
