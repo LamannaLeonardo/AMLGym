@@ -8,10 +8,12 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 import logging
 from unified_planning.io import PDDLReader
-import pandas as pd
 from collections import defaultdict
 from typing import Dict, Tuple
-
+import pandas as pd
+import re
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
 
 def get_object_stats(domain_file: str,
                      problem_file: str) -> Dict[Tuple[str, str], float]:
@@ -22,7 +24,7 @@ def get_object_stats(domain_file: str,
 
     # Get number of objects grouped by type
     objects = defaultdict(int)
-    objects['total_objects'] = len(problem.all_objects)  # get total number of objects
+    objects['objects'] = len(problem.all_objects)  # get total number of objects
     for o in problem.all_objects:
         objects[o.type.name] += 1
 
@@ -163,14 +165,73 @@ def write_domain_stats(file_name):
     writer.close()
 
 
+def plot_avg_attr(df_file_path: str,
+                     attribute: str,
+                     img_file_path: str) -> None:
+
+    # Load all sheets into a dictionary of DataFrames
+    all_sheets = pd.read_excel(df_file_path, sheet_name=None)
+
+    # Collect all data in one list
+    all_data = []
+
+    for sheet_name, df in all_sheets.items():
+        df = df.copy()
+
+        # extract the trajectory number from 'id' (e.g. '0_blocksworld_traj' -> '0')
+        df['x'] = df['id'].apply(lambda s: re.match(r'^(\d+)_', s).group(1) if re.match(r'^(\d+)_', s) else None)
+
+        # Keep only necessary columns
+        all_data.append(df[['x', attribute]])
+
+    # Combine all domains into one DataFrame
+    combined = pd.concat(all_data)
+
+    # Group by 'x' and average total_objects
+    grouped = combined.groupby('x')[attribute].mean().sort_index()
+
+    # Plot
+    plt.figure(figsize=(10, 6))
+    grouped.plot(kind='bar', color='skyblue', edgecolor='none')
+    # plt.title('Average number of objects')
+    plt.xlabel('Trajectory', size=18)
+    plt.ylabel(f'Avg #{attribute}', size=18)
+    plt.xticks(rotation=0, size=15)
+    plt.yticks(rotation=0, size=15)
+    plt.tight_layout()
+    plt.savefig(img_file_path)
+
+
 if __name__ == '__main__':
 
-    # logging.basicConfig(level=logging.INFO)
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
+    # logging.basicConfig(level=logging.DEBUG)
     BENCHMARK_DIR = "benchmarks"
     DOMAINS_DIR = "domains"
     PROB_DIR = "problems"
     TRAJ_DIR = "trajectories"
 
+    # Generate xlsx file of trajectory statistics
     write_trajectory_stats(f"../{BENCHMARK_DIR}/trajectories.xlsx")
+
+    # Generate xlsx file of domain statistics
     write_domain_stats(f"../{BENCHMARK_DIR}/domains.xlsx")
+
+    # Print domain statistics into a markdown table
+    domain_table_columns = ['id', 'operators', 'predicates', 'types',
+                            'max operators arity', 'max predicates arity',
+                            'min operators arity', 'min predicates arity']
+    print(pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")[domain_table_columns].to_markdown(index=False))
+
+    # Print domain statistics into an html table
+    print(pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")[domain_table_columns].to_html(index=False))
+
+    # Plot number of objects for every trace averaged over all domains
+    plot_avg_attr(f"../{BENCHMARK_DIR}/trajectories.xlsx",
+                  'objects',
+                  f"../{BENCHMARK_DIR}/objects.png")
+
+    # Plot number of states for every trace averaged over all domains
+    plot_avg_attr(f"../{BENCHMARK_DIR}/trajectories.xlsx",
+                  'states',
+                  f"../{BENCHMARK_DIR}/states.png")
