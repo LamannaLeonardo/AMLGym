@@ -37,31 +37,31 @@
 
 
 
-(origin p0 f2)
+(origin p0 f5)
 (destin p0 f0)
 
-(origin p1 f5)
-(destin p1 f3)
+(origin p1 f0)
+(destin p1 f6)
 
 (origin p2 f5)
-(destin p2 f3)
+(destin p2 f1)
 
-(origin p3 f6)
-(destin p3 f4)
+(origin p3 f1)
+(destin p3 f5)
 
-(origin p4 f0)
-(destin p4 f6)
+(origin p4 f3)
+(destin p4 f5)
 
-(origin p5 f1)
-(destin p5 f2)
+(origin p5 f0)
+(destin p5 f5)
 
-(origin p6 f1)
-(destin p6 f4)
+(origin p6 f0)
+(destin p6 f1)
 
-(origin p7 f6)
-(destin p7 f2)
+(origin p7 f1)
+(destin p7 f5)
 
-(origin p8 f3)
+(origin p8 f4)
 (destin p8 f5)
 
 

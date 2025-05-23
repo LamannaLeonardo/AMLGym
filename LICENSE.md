@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Yarin Benyamin, Leonardo Lamanna, Argaman Mordoch, Roni Stern
+Copyright (c) 2025 Anonymous authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

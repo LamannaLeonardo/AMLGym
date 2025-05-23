@@ -1,5 +1,5 @@
 # This configuration file contains 10 problem settings for every domain.
-SEED: &id001 123  # random seed
+SEED: 123  # random seed
 domains:
   blocksworld:
     - ops: 4 # domain operators
@@ -177,45 +177,45 @@ domains:
     - l: 12
       c: 10 # number of locations - 2
   floortile:
-    - num_rows: 3 # number of rows
-      num_columns: 3 # number of columns
+    - num_rows: 5 # number of rows
+      num_columns: 5 # number of columns
       num_robots: 1 # number of robots
       mode_flag: seq # mode (seq or time)
-    - num_rows: 3
-      num_columns: 4
+    - num_rows: 5
+      num_columns: 6
+      num_robots: 1
+      mode_flag: seq
+    - num_rows: 6
+      num_columns: 5
+      num_robots: 1
+      mode_flag: seq
+    - num_rows: 6
+      num_columns: 6
       num_robots: 2
       mode_flag: seq
-    - num_rows: 4
-      num_columns: 3
+    - num_rows: 6
+      num_columns: 7
+      num_robots: 2
+      mode_flag: seq
+    - num_rows: 7
+      num_columns: 6
+      num_robots: 2
+      mode_flag: seq
+    - num_rows: 7
+      num_columns: 7
       num_robots: 3
       mode_flag: seq
-    - num_rows: 4
-      num_columns: 4
+    - num_rows: 7
+      num_columns: 8
+      num_robots: 3
+      mode_flag: seq
+    - num_rows: 8
+      num_columns: 7
+      num_robots: 3
+      mode_flag: seq
+    - num_rows: 8
+      num_columns: 8
       num_robots: 4
-      mode_flag: seq
-    - num_rows: 4
-      num_columns: 5
-      num_robots: 5
-      mode_flag: seq
-    - num_rows: 5
-      num_columns: 4
-      num_robots: 6
-      mode_flag: seq
-    - num_rows: 5
-      num_columns: 5
-      num_robots: 7
-      mode_flag: seq
-    - num_rows: 5
-      num_columns: 6
-      num_robots: 8
-      mode_flag: seq
-    - num_rows: 6
-      num_columns: 5
-      num_robots: 9
-      mode_flag: seq
-    - num_rows: 6
-      num_columns: 6
-      num_robots: 10
       mode_flag: seq
   goldminer:
     - r: 3 # number of rows
@@ -366,15 +366,26 @@ domains:
       p: 6 # number of floors - 2
   npuzzle:
     - n: 2 # number of rows/columns
+    - n: 2
+    - n: 3
     - n: 3
     - n: 4
+    - n: 4
+    - n: 5
     - n: 5
     - n: 6
-    - n: 7
-    - n: 8
-    - n: 9
-    - n: 10
-    - n: 11
+    - n: 6
+#  npuzzle:
+#    - n: 2 # number of rows/columns
+#    - n: 3
+#    - n: 4
+#    - n: 5
+#    - n: 6
+#    - n: 7
+#    - n: 8
+#    - n: 9
+#    - n: 10
+#    - n: 11
   nomystery:
     - l: 2 # number of locations
       p: 1 # number of packages
@@ -550,36 +561,36 @@ domains:
       t: 6 # s - 1
       o: 8 # s + 1
   sokoban:
-    - n: 4 # grid size
-      b: 1 # number of boxes
-      w: 1 # number of walls
-    - n: 4
+    - n: 5
       b: 1
-      w: 4 # n
-    - n: 4
+      w: 10 # n
+    - n: 5
       b: 1
-      w: 6 # n + ceil(n / 2)
-    - n: 5
-      b: 2
-      w: 10 # 2 n
-    - n: 5
-      b: 2
-      w: 5 # n
-    - n: 5
-      b: 2
-      w: 8 # n + ceil(n / 2)
+      w: 15 # n + ceil(n / 2)
     - n: 6
-      b: 3
+      b: 1
       w: 12 # 2 n
     - n: 6
-      b: 3
-      w: 6 # n
-    - n: 6
-      b: 3
-      w: 9 # n + ceil(n / 2)
+      b: 1
+      w: 18 # n
     - n: 7
-      b: 4
-      w: 14 # 2 n
+      b: 2
+      w: 14 # n + ceil(n / 2)
+    - n: 7
+      b: 2
+      w: 21 # 2 n
+    - n: 8
+      b: 3
+      w: 16 # n
+    - n: 8
+      b: 3
+      w: 24 # n
+    - n: 10
+      b: 3
+      w: 20 # n
+    - n: 10
+      b: 3
+      w: 30 # n
 #    - n: 7
 #      b: 4
 #      w: 7 # n

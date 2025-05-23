@@ -29,14 +29,14 @@
 	(connected market2 depot1)
 	(connected depot2 market2)
 	(connected market2 depot2)
-	(on-sale goods1 market1 level0)
-	(on-sale goods2 market1 level2)
-	(on-sale goods1 market2 level1)
-	(on-sale goods2 market2 level1)
+	(on-sale goods1 market1 level3)
+	(on-sale goods2 market1 level1)
+	(on-sale goods1 market2 level0)
+	(on-sale goods2 market2 level0)
 	(at truck1 depot1))
 
 (:goal (and
-	(stored goods1 level1)
-	(stored goods2 level3)))
+	(stored goods1 level2)
+	(stored goods2 level1)))
 
 )

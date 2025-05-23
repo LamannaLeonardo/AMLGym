@@ -25,9 +25,9 @@ slow0-0 - slow-elevator
 (can-hold slow0-0 n1) 
 (reachable-floor slow0-0 n0)(reachable-floor slow0-0 n1)(reachable-floor slow0-0 n2)(reachable-floor slow0-0 n3)
 
-(passenger-at p0 n0)
+(passenger-at p0 n1)
 (passenger-at p1 n0)
-(passenger-at p2 n1)
+(passenger-at p2 n0)
 
 
 
@@ -40,7 +40,7 @@ slow0-0 - slow-elevator
 (:goal
 (and
 (passenger-at p0 n2)
-(passenger-at p1 n1)
+(passenger-at p1 n3)
 (passenger-at p2 n3)
 ))
 
