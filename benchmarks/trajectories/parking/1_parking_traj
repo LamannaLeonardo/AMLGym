@@ -1,0 +1,25 @@
+(observation
+
+(:state (car car_0  car_2) (clear car_0) (clear car_1) (clear car_3) (curb car_1) (curb car_2) (curb car_3) (num car_1  curb_0) (num car_2  curb_2) (num car_3  curb_1))
+
+(:action (move-curb-to-car car_1 curb_0 car_3))
+
+(:state (car car_0  car_2) (car car_1  car_3) (clear car_0) (clear car_1) (clear curb_0) (curb car_2) (curb car_3) (num car_2  curb_2) (num car_3  curb_1))
+
+(:action (move-car-to-curb car_0 car_2 curb_0))
+
+(:state (car car_1  car_3) (clear car_0) (clear car_1) (clear car_2) (curb car_0) (curb car_2) (curb car_3) (num car_0  curb_0) (num car_2  curb_2) (num car_3  curb_1))
+
+(:action (move-car-to-car car_1 car_3 car_2))
+
+(:state (car car_1  car_2) (clear car_0) (clear car_1) (clear car_3) (curb car_0) (curb car_2) (curb car_3) (num car_0  curb_0) (num car_2  curb_2) (num car_3  curb_1))
+
+(:action (move-curb-to-car car_3 curb_1 car_0))
+
+(:state (car car_1  car_2) (car car_3  car_0) (clear car_1) (clear car_3) (clear curb_1) (curb car_0) (curb car_2) (num car_0  curb_0) (num car_2  curb_2))
+
+(:action (move-car-to-curb car_1 car_2 curb_1))
+
+(:state (car car_3  car_0) (clear car_1) (clear car_2) (clear car_3) (curb car_0) (curb car_1) (curb car_2) (num car_0  curb_0) (num car_1  curb_1) (num car_2  curb_2))
+
+)

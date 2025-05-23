@@ -1,0 +1,81 @@
+(observation
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n0) (at p1  n2) (at p3  n4) (at slow0-0  n1) (boarded p0  slow0-0) (boarded p2  fast1) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n1) (passengers slow0-0  n1))
+
+(:action (move-up-slow slow0-0 n1 n4))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n0) (at p1  n2) (at p3  n4) (at slow0-0  n4) (boarded p0  slow0-0) (boarded p2  fast1) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n1) (passengers slow0-0  n1))
+
+(:action (leave p2 fast1 n0 n1 n0))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n0) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n4) (boarded p0  slow0-0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n1))
+
+(:action (leave p0 slow0-0 n4 n1 n0))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n0) (at p0  n4) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n4) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (move-down-slow slow0-0 n4 n0))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n0) (at p0  n4) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (board p2 fast0 n0 n0 n1))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n0) (at p0  n4) (at p1  n2) (at p3  n4) (at slow0-0  n0) (boarded p2  fast0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n1) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (leave p2 fast0 n0 n1 n0))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n0) (at p0  n4) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (move-up-fast fast1 n0 n2))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n2) (at p0  n4) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (move-up-fast fast1 n2 n4))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (move-up-slow slow0-0 n0 n2))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n2) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (move-down-slow slow0-0 n2 n0))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n0) (at p3  n4) (at slow0-0  n0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (board p2 slow0-0 n0 n0 n1))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p3  n4) (at slow0-0  n0) (boarded p2  slow0-0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n1))
+
+(:action (move-up-slow slow0-0 n0 n1))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p3  n4) (at slow0-0  n1) (boarded p2  slow0-0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n1))
+
+(:action (move-up-slow slow0-0 n1 n3))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p3  n4) (at slow0-0  n3) (boarded p2  slow0-0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n1))
+
+(:action (leave p2 slow0-0 n3 n1 n0))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n3) (at p3  n4) (at slow0-0  n3) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (move-down-slow slow0-0 n3 n1))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n3) (at p3  n4) (at slow0-0  n1) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (move-up-slow slow0-0 n1 n4))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n3) (at p3  n4) (at slow0-0  n4) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+(:action (board p3 slow0-0 n4 n0 n1))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n3) (at slow0-0  n4) (boarded p3  slow0-0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n1))
+
+(:action (move-down-slow slow0-0 n4 n1))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n3) (at slow0-0  n1) (boarded p3  slow0-0) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n1))
+
+(:action (leave p3 slow0-0 n1 n1 n0))
+
+(:state (above n0  n1) (above n0  n2) (above n0  n3) (above n0  n4) (above n0  n5) (above n1  n2) (above n1  n3) (above n1  n4) (above n1  n5) (above n2  n3) (above n2  n4) (above n2  n5) (above n3  n4) (above n3  n5) (above n4  n5) (at fast0  n0) (at fast1  n4) (at p0  n4) (at p1  n2) (at p2  n3) (at p3  n1) (at slow0-0  n1) (floor fast0  n0) (floor fast0  n2) (floor fast0  n4) (floor fast1  n0) (floor fast1  n2) (floor fast1  n4) (floor slow0-0  n0) (floor slow0-0  n1) (floor slow0-0  n2) (floor slow0-0  n3) (floor slow0-0  n4) (floor slow0-0  n5) (hold fast0  n1) (hold fast1  n1) (hold slow0-0  n1) (next n0  n1) (next n1  n2) (next n2  n3) (next n3  n4) (next n4  n5) (passengers fast0  n0) (passengers fast1  n0) (passengers slow0-0  n0))
+
+)

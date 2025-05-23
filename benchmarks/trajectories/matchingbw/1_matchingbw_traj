@@ -1,0 +1,21 @@
+(observation
+
+(:state (clear b1) (clear b2) (clear b3) (empty h1) (empty h2) (negative b2) (negative b3) (negative h2) (positive b1) (positive h1) (solid b1) (solid b2) (solid b3) (table b1) (table b2) (table b3))
+
+(:action (pickup h1 b2))
+
+(:state (clear b1) (clear b3) (empty h2) (holding h1  b2) (negative b2) (negative b3) (negative h2) (positive b1) (positive h1) (solid b1) (solid b2) (solid b3) (table b1) (table b3))
+
+(:action (putdown-pos-neg h1 b2))
+
+(:state (clear b1) (clear b2) (clear b3) (empty h1) (empty h2) (negative b2) (negative b3) (negative h2) (positive b1) (positive h1) (solid b1) (solid b3) (table b1) (table b2) (table b3))
+
+(:action (pickup h2 b1))
+
+(:state (clear b2) (clear b3) (empty h1) (holding h2  b1) (negative b2) (negative b3) (negative h2) (positive b1) (positive h1) (solid b1) (solid b3) (table b2) (table b3))
+
+(:action (stack-neg-pos h2 b1 b3))
+
+(:state (clear b1) (clear b2) (empty h1) (empty h2) (negative b2) (negative b3) (negative h2) (on b1  b3) (positive b1) (positive h1) (solid b3) (table b2) (table b3))
+
+)

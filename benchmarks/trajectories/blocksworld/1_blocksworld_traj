@@ -1,0 +1,21 @@
+(observation
+
+(:state (clear b1) (clear b2) (clear b3) (handempty) (ontable b1) (ontable b2) (ontable b3))
+
+(:action (pick-up b1))
+
+(:state (clear b2) (clear b3) (holding b1) (ontable b2) (ontable b3))
+
+(:action (stack b1 b3))
+
+(:state (clear b1) (clear b2) (handempty) (on b1  b3) (ontable b2) (ontable b3))
+
+(:action (pick-up b2))
+
+(:state (clear b1) (holding b2) (on b1  b3) (ontable b3))
+
+(:action (stack b2 b1))
+
+(:state (clear b2) (handempty) (on b1  b3) (on b2  b1) (ontable b3))
+
+)

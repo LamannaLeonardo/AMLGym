@@ -1,0 +1,37 @@
+(observation
+
+(:state (car car_1  car_6) (car car_2  car_7) (car car_8  car_5) (car car_9  car_0) (clear car_1) (clear car_2) (clear car_3) (clear car_4) (clear car_8) (clear car_9) (clear curb_6) (curb car_0) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_2) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_3) (num car_7  curb_0))
+
+(:action (move-car-to-car car_1 car_6 car_3))
+
+(:state (car car_1  car_3) (car car_2  car_7) (car car_8  car_5) (car car_9  car_0) (clear car_1) (clear car_2) (clear car_4) (clear car_6) (clear car_8) (clear car_9) (clear curb_6) (curb car_0) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_2) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_3) (num car_7  curb_0))
+
+(:action (move-car-to-car car_9 car_0 car_6))
+
+(:state (car car_1  car_3) (car car_2  car_7) (car car_8  car_5) (car car_9  car_6) (clear car_0) (clear car_1) (clear car_2) (clear car_4) (clear car_8) (clear car_9) (clear curb_6) (curb car_0) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_2) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_3) (num car_7  curb_0))
+
+(:action (move-car-to-car car_9 car_6 car_4))
+
+(:state (car car_1  car_3) (car car_2  car_7) (car car_8  car_5) (car car_9  car_4) (clear car_0) (clear car_1) (clear car_2) (clear car_6) (clear car_8) (clear car_9) (clear curb_6) (curb car_0) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_2) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_3) (num car_7  curb_0))
+
+(:action (move-curb-to-curb car_6 curb_3 curb_6))
+
+(:state (car car_1  car_3) (car car_2  car_7) (car car_8  car_5) (car car_9  car_4) (clear car_0) (clear car_1) (clear car_2) (clear car_6) (clear car_8) (clear car_9) (clear curb_3) (curb car_0) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_2) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_6) (num car_7  curb_0))
+
+(:action (move-curb-to-curb car_0 curb_2 curb_3))
+
+(:state (car car_1  car_3) (car car_2  car_7) (car car_8  car_5) (car car_9  car_4) (clear car_0) (clear car_1) (clear car_2) (clear car_6) (clear car_8) (clear car_9) (clear curb_2) (curb car_0) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_3) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_6) (num car_7  curb_0))
+
+(:action (move-car-to-car car_8 car_5 car_6))
+
+(:state (car car_1  car_3) (car car_2  car_7) (car car_8  car_6) (car car_9  car_4) (clear car_0) (clear car_1) (clear car_2) (clear car_5) (clear car_8) (clear car_9) (clear curb_2) (curb car_0) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_3) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_6) (num car_7  curb_0))
+
+(:action (move-car-to-curb car_2 car_7 curb_2))
+
+(:state (car car_1  car_3) (car car_8  car_6) (car car_9  car_4) (clear car_0) (clear car_1) (clear car_2) (clear car_5) (clear car_7) (clear car_8) (clear car_9) (curb car_0) (curb car_2) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (curb car_7) (num car_0  curb_3) (num car_2  curb_2) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_6) (num car_7  curb_0))
+
+(:action (move-curb-to-car car_7 curb_0 car_0))
+
+(:state (car car_1  car_3) (car car_7  car_0) (car car_8  car_6) (car car_9  car_4) (clear car_1) (clear car_2) (clear car_5) (clear car_7) (clear car_8) (clear car_9) (clear curb_0) (curb car_0) (curb car_2) (curb car_3) (curb car_4) (curb car_5) (curb car_6) (num car_0  curb_3) (num car_2  curb_2) (num car_3  curb_5) (num car_4  curb_4) (num car_5  curb_1) (num car_6  curb_6))
+
+)
