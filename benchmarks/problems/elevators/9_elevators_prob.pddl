@@ -29,18 +29,18 @@ slow0-0 slow0-1 - slow-elevator
 (can-hold slow0-0 n1) (can-hold slow0-0 n2) 
 (reachable-floor slow0-0 n0)(reachable-floor slow0-0 n1)(reachable-floor slow0-0 n2)(reachable-floor slow0-0 n3)(reachable-floor slow0-0 n4)(reachable-floor slow0-0 n5)(reachable-floor slow0-0 n6)(reachable-floor slow0-0 n7)
 
-(lift-at slow0-1 n7)
+(lift-at slow0-1 n4)
 (passengers slow0-1 n0)
 (can-hold slow0-1 n1) (can-hold slow0-1 n2) 
 (reachable-floor slow0-1 n0)(reachable-floor slow0-1 n1)(reachable-floor slow0-1 n2)(reachable-floor slow0-1 n3)(reachable-floor slow0-1 n4)(reachable-floor slow0-1 n5)(reachable-floor slow0-1 n6)(reachable-floor slow0-1 n7)
 
-(passenger-at p0 n6)
-(passenger-at p1 n6)
-(passenger-at p2 n7)
+(passenger-at p0 n7)
+(passenger-at p1 n3)
+(passenger-at p2 n3)
 (passenger-at p3 n1)
-(passenger-at p4 n5)
-(passenger-at p5 n1)
-(passenger-at p6 n2)
+(passenger-at p4 n7)
+(passenger-at p5 n3)
+(passenger-at p6 n3)
 
 
 
@@ -53,13 +53,13 @@ slow0-0 slow0-1 - slow-elevator
 
 (:goal
 (and
-(passenger-at p0 n2)
-(passenger-at p1 n7)
-(passenger-at p2 n2)
-(passenger-at p3 n4)
-(passenger-at p4 n1)
-(passenger-at p5 n5)
-(passenger-at p6 n4)
+(passenger-at p0 n0)
+(passenger-at p1 n6)
+(passenger-at p2 n5)
+(passenger-at p3 n0)
+(passenger-at p4 n5)
+(passenger-at p5 n0)
+(passenger-at p6 n0)
 ))
 
 

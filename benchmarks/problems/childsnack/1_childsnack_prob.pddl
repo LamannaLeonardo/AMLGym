@@ -1,6 +1,6 @@
 ; child-snack task with 3 children and 0.6 gluten factor 
 ; constant factor of 1.3
-; random seed: 383
+; random seed: 323
 
 (define (problem prob-snack)
   (:domain child-snack)
@@ -22,11 +22,11 @@
      (at_kitchen_content content3)
      (no_gluten_bread bread3)
      (no_gluten_content content3)
-     (allergic_gluten child2)
+     (allergic_gluten child1)
      (not_allergic_gluten child3)
-     (not_allergic_gluten child1)
+     (not_allergic_gluten child2)
      (waiting child1 table1)
-     (waiting child2 table1)
+     (waiting child2 table3)
      (waiting child3 table2)
      (notexist sandw1)
      (notexist sandw2)

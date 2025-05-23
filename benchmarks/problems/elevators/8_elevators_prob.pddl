@@ -31,10 +31,10 @@ slow0-0 - slow-elevator
 
 (passenger-at p0 n7)
 (passenger-at p1 n2)
-(passenger-at p2 n7)
-(passenger-at p3 n4)
-(passenger-at p4 n3)
-(passenger-at p5 n0)
+(passenger-at p2 n6)
+(passenger-at p3 n7)
+(passenger-at p4 n1)
+(passenger-at p5 n5)
 
 
 
@@ -47,12 +47,12 @@ slow0-0 - slow-elevator
 
 (:goal
 (and
-(passenger-at p0 n3)
-(passenger-at p1 n4)
-(passenger-at p2 n3)
-(passenger-at p3 n3)
-(passenger-at p4 n7)
-(passenger-at p5 n6)
+(passenger-at p0 n6)
+(passenger-at p1 n6)
+(passenger-at p2 n7)
+(passenger-at p3 n2)
+(passenger-at p4 n4)
+(passenger-at p5 n1)
 ))
 
 

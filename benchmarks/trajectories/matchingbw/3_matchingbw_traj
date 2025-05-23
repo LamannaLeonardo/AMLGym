@@ -1,16 +1,16 @@
 (observation
 
-(:state (clear b2) (clear b3) (clear b4) (empty h2) (holding h1  b1) (negative b3) (negative b4) (negative b5) (negative h2) (on b3  b5) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b2) (table b4) (table b5))
-
-(:action (unstack h2 b3 b5))
-
-(:state (clear b2) (clear b4) (clear b5) (holding h1  b1) (holding h2  b3) (negative b3) (negative b4) (negative b5) (negative h2) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b2) (table b4) (table b5))
-
-(:action (stack-pos-pos h1 b1 b5))
-
-(:state (clear b1) (clear b2) (clear b4) (empty h1) (holding h2  b3) (negative b3) (negative b4) (negative b5) (negative h2) (on b1  b5) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b2) (table b4) (table b5))
+(:state (clear b1) (clear b2) (clear b4) (clear b5) (empty h1) (holding h2  b3) (negative b3) (negative b4) (negative b5) (negative h2) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b1) (table b2) (table b4) (table b5))
 
 (:action (putdown-neg-neg h2 b3))
+
+(:state (clear b1) (clear b2) (clear b3) (clear b4) (clear b5) (empty h1) (empty h2) (negative b3) (negative b4) (negative b5) (negative h2) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b1) (table b2) (table b3) (table b4) (table b5))
+
+(:action (pickup h1 b1))
+
+(:state (clear b2) (clear b3) (clear b4) (clear b5) (empty h2) (holding h1  b1) (negative b3) (negative b4) (negative b5) (negative h2) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b2) (table b3) (table b4) (table b5))
+
+(:action (stack-pos-pos h1 b1 b5))
 
 (:state (clear b1) (clear b2) (clear b3) (clear b4) (empty h1) (empty h2) (negative b3) (negative b4) (negative b5) (negative h2) (on b1  b5) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b2) (table b3) (table b4) (table b5))
 

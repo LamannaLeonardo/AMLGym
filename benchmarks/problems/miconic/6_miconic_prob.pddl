@@ -30,29 +30,29 @@
 
 
 
-(origin p0 f5)
-(destin p0 f4)
+(origin p0 f0)
+(destin p0 f1)
 
-(origin p1 f4)
-(destin p1 f1)
+(origin p1 f2)
+(destin p1 f3)
 
 (origin p2 f2)
-(destin p2 f4)
+(destin p2 f5)
 
-(origin p3 f3)
-(destin p3 f0)
+(origin p3 f5)
+(destin p3 f4)
 
-(origin p4 f1)
+(origin p4 f2)
 (destin p4 f0)
 
-(origin p5 f1)
+(origin p5 f4)
 (destin p5 f3)
 
 (origin p6 f0)
 (destin p6 f5)
 
 (origin p7 f4)
-(destin p7 f5)
+(destin p7 f0)
 
 
 
