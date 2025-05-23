@@ -1,0 +1,49 @@
+(observation
+
+(:state (clear b4) (clear b6) (holding h1  b5) (holding h2  b3) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b4  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6) (solid b7) (table b6) (table b7))
+
+(:action (putdown-neg-pos h2 b3))
+
+(:state (clear b3) (clear b4) (clear b6) (empty h2) (holding h1  b5) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b4  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b5) (solid b6) (solid b7) (table b3) (table b6) (table b7))
+
+(:action (pickup h2 b6))
+
+(:state (clear b3) (clear b4) (holding h1  b5) (holding h2  b6) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b4  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b5) (solid b6) (solid b7) (table b3) (table b7))
+
+(:action (putdown-pos-neg h1 b5))
+
+(:state (clear b3) (clear b4) (clear b5) (empty h1) (holding h2  b6) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b4  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b3) (table b5) (table b7))
+
+(:action (pickup h1 b3))
+
+(:state (clear b4) (clear b5) (holding h1  b3) (holding h2  b6) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b4  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b5) (table b7))
+
+(:action (putdown-neg-neg h2 b6))
+
+(:state (clear b4) (clear b5) (clear b6) (empty h2) (holding h1  b3) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b4  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b5) (table b6) (table b7))
+
+(:action (unstack h2 b4 b1))
+
+(:state (clear b1) (clear b5) (clear b6) (holding h1  b3) (holding h2  b4) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b5) (table b6) (table b7))
+
+(:action (putdown-neg-neg h2 b4))
+
+(:state (clear b1) (clear b4) (clear b5) (clear b6) (empty h2) (holding h1  b3) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b4) (table b5) (table b6) (table b7))
+
+(:action (stack-pos-pos h1 b3 b4))
+
+(:state (clear b1) (clear b3) (clear b5) (clear b6) (empty h1) (empty h2) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b3  b4) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b4) (table b5) (table b6) (table b7))
+
+(:action (pickup h2 b6))
+
+(:state (clear b1) (clear b3) (clear b5) (empty h1) (holding h2  b6) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b3  b4) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b4) (table b5) (table b7))
+
+(:action (stack-neg-neg h2 b6 b1))
+
+(:state (clear b3) (clear b5) (clear b6) (empty h1) (empty h2) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b3  b4) (on b6  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b4) (table b5) (table b7))
+
+(:action (unstack h2 b3 b4))
+
+(:state (clear b4) (clear b5) (clear b6) (empty h1) (holding h2  b3) (negative b4) (negative b5) (negative b6) (negative b7) (negative h2) (on b1  b2) (on b2  b7) (on b6  b1) (positive b1) (positive b2) (positive b3) (positive h1) (solid b1) (solid b2) (solid b4) (solid b6) (solid b7) (table b4) (table b5) (table b7))
+
+)
