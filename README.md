@@ -46,9 +46,6 @@ python stats.py
 ```
 
 
-> [!warning]
-> Urgent info that needs immediate user attention to avoid problems.
-
 ## Domain selection
 The selected domains are the ones adopted in previous IPC learning tracks:
 1. [IPC 2008 Learning Track](https://ipc08.icaps-conference.org/learning/): `goldminer`, `matchingbw`, `npuzzle`, 
