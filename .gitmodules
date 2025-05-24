@@ -6,4 +6,4 @@
 	url = https://github.com/LamannaLeonardo/NOLAM.git
 [submodule "algorithms/sam"]
 	path = algorithms/sam
-	url = https://github.com/SPL-BGU/numeric-sam
+	url = https://github.com/SPL-BGU/numeric-sam.git
