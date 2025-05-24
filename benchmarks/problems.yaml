@@ -127,31 +127,31 @@ domains:
   barman:
     - num_cocktails: 2
       num_ingredients: 3
-      num_shots: 3
+      num_shots: 2
     - num_cocktails: 2
       num_ingredients: 4
-      num_shots: 3
+      num_shots: 2
     - num_cocktails: 3
       num_ingredients: 4
-      num_shots: 4
+      num_shots: 3
     - num_cocktails: 3
       num_ingredients: 5
-      num_shots: 4
+      num_shots: 3
     - num_cocktails: 4
       num_ingredients: 5
-      num_shots: 5
+      num_shots: 4
     - num_cocktails: 4
       num_ingredients: 6
-      num_shots: 5
+      num_shots: 4
     - num_cocktails: 5
       num_ingredients: 6
-      num_shots: 6
+      num_shots: 5
     - num_cocktails: 5
       num_ingredients: 7
-      num_shots: 6
+      num_shots: 5
     - num_cocktails: 6
       num_ingredients: 7
-      num_shots: 7
+      num_shots: 6
     - num_cocktails: 6
       num_ingredients: 8
       num_shots: 7
@@ -333,8 +333,7 @@ domains:
 #    - n: 10
 #    - n: 11
   matchingbw:
-    - n: 2 # number of blocks
-    - n: 3
+    - n: 3 # number of blocks
     - n: 4
     - n: 5
     - n: 6
@@ -343,6 +342,18 @@ domains:
     - n: 9
     - n: 10
     - n: 11
+    - n: 12
+#  matchingbwOLD:
+#    - n: 2 # number of blocks
+#    - n: 3
+#    - n: 4
+#    - n: 5
+#    - n: 6
+#    - n: 7
+#    - n: 8
+#    - n: 9
+#    - n: 10
+#    - n: 11
   miconic:
     - f: 3 # number of floors
       p: 3 # number of passengers
@@ -516,47 +527,47 @@ domains:
       t: 1 # number of targets
       o: 1 # number of observations
     - s: 3
-      i: 1 # s - 2
+      i: 1
       m: 2
       t: 2 # s - 1
       o: 4 # s + 1
     - s: 4
-      i: 2 # s - 2
+      i: 1
       m: 2
       t: 3 # s - 1
       o: 5 # s + 1
     - s: 4
-      i: 2 # s - 2
+      i: 1
       m: 3
       t: 3 # s - 1
       o: 5 # s + 1
     - s: 5
-      i: 3 # s - 2
+      i: 2
       m: 3
       t: 4 # s - 1
       o: 6 # s + 1
     - s: 5
-      i: 3 # s - 2
+      i: 2
       m: 4
       t: 4 # s - 1
       o: 6 # s + 1
     - s: 6
-      i: 4 # s - 2
+      i: 2
       m: 4
       t: 5 # s - 1
       o: 7 # s + 1
     - s: 6
-      i: 4 # s - 2
+      i: 2
       m: 5
       t: 5 # s - 1
       o: 7 # s + 1
     - s: 7
-      i: 5 # s - 2
+      i: 3
       m: 5
       t: 6 # s - 1
       o: 8 # s + 1
     - s: 7
-      i: 5 # s - 2
+      i: 3
       m: 6
       t: 6 # s - 1
       o: 8 # s + 1
@@ -690,20 +701,6 @@ domains:
       mindistance: 10
       trucks: 1
       packages: 2
-    - generator: city
-      n: 8
-      size: 10
-      degree: 3
-      mindistance: 10
-      trucks: 2
-      packages: 4
-    - generator: city
-      n: 10
-      size: 10
-      degree: 3
-      mindistance: 10
-      trucks: 3
-      packages: 6
     - generator: two-cities
       n: 6
       size: 10
@@ -711,20 +708,6 @@ domains:
       mindistance: 10
       trucks: 1
       packages: 2
-    - generator: two-cities
-      n: 8
-      size: 10
-      degree: 3
-      mindistance: 10
-      trucks: 2
-      packages: 4
-    - generator: two-cities
-      n: 10
-      size: 10
-      degree: 3
-      mindistance: 10
-      trucks: 3
-      packages: 6
     - generator: three-cities
       n: 6
       size: 10
@@ -732,6 +715,20 @@ domains:
       mindistance: 10
       trucks: 1
       packages: 2
+    - generator: city
+      n: 8
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 2
+      packages: 4
+    - generator: two-cities
+      n: 8
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 2
+      packages: 4
     - generator: three-cities
       n: 8
       size: 10
@@ -739,6 +736,20 @@ domains:
       mindistance: 10
       trucks: 2
       packages: 4
+    - generator: city
+      n: 10
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 3
+      packages: 6
+    - generator: two-cities
+      n: 10
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 3
+      packages: 6
     - generator: three-cities
       n: 10
       size: 10
@@ -819,22 +830,22 @@ domains:
       trays: 3 # ceil(children / 2) - 1
       gluten_factor: 0.6
   elevators:
-    - floors: 3 # number of floors
-      passengers: 2 # number of passengers
-      area_size: 3 # area size (must be a factor of floors, otherwise passengers can start in out of bounds floors)
+    - floors: 4 # number of floors
+      passengers: 3 # number of passengers
+      area_size: 2 # area size (must be a factor of floors, otherwise passengers can start in out of bounds floors)
       fast_elevators: 1 # number of fast elevators
       slow_elevators: 1 # number of slow elevators
       fast_capacity: 1 # passengers capacity of fast elevators
       slow_capacity: 1 # passengers capacity of slow elevators
-    - floors: 3
+    - floors: 4
       passengers: 3
-      area_size: 3
+      area_size: 2
       fast_elevators: 1
       slow_elevators: 1
       fast_capacity: 1
       slow_capacity: 1
     - floors: 4
-      passengers: 3
+      passengers: 4
       area_size: 2
       fast_elevators: 1
       slow_elevators: 1
@@ -848,7 +859,7 @@ domains:
       fast_capacity: 1
       slow_capacity: 1
     - floors: 5
-      passengers: 4
+      passengers: 5
       area_size: 5
       fast_elevators: 2
       slow_elevators: 1
@@ -862,7 +873,7 @@ domains:
       fast_capacity: 1
       slow_capacity: 2
     - floors: 6
-      passengers: 5
+      passengers: 6
       area_size: 3
       fast_elevators: 1
       slow_elevators: 2
@@ -876,7 +887,7 @@ domains:
       fast_capacity: 1
       slow_capacity: 2
     - floors: 7
-      passengers: 6
+      passengers: 7
       area_size: 7
       fast_elevators: 1
       slow_elevators: 1
