@@ -15,6 +15,7 @@ import re
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 
+
 def get_object_stats(domain_file: str,
                      problem_file: str) -> Dict[Tuple[str, str], float]:
 
@@ -119,7 +120,7 @@ def write_domain_stats(file_name):
             upl_domain = reader.parse_problem(domain_file)
 
             domain_stats = {
-                'id': domain,
+                'domain': domain,
                 'operators': len(upl_domain.actions),
                 'min operators arity': min([len(a.parameters) for a in upl_domain.actions]),
                 'max operators arity': max([len(a.parameters) for a in upl_domain.actions]),
@@ -196,8 +197,8 @@ def plot_avg_attr(df_file_path: str,
     # plt.title('Average number of objects')
     plt.xlabel('Trajectory', size=18)
     plt.ylabel(f'Avg #{attribute}', size=18)
-    plt.xticks(rotation=0, size=15)
-    plt.yticks(rotation=0, size=15)
+    plt.xticks(rotation=0, size=13)
+    plt.yticks(rotation=0, size=13)
     plt.tight_layout()
     plt.savefig(img_file_path)
 
@@ -218,7 +219,7 @@ if __name__ == '__main__':
     write_domain_stats(f"../{BENCHMARK_DIR}/domains.xlsx")
 
     # Print domain statistics into a markdown table
-    domain_table_columns = ['id', 'operators', 'predicates', 'types',
+    domain_table_columns = ['domain', 'operators', 'predicates', 'types',
                             'max operators arity', 'max predicates arity',
                             'min operators arity', 'min predicates arity']
     print(pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")[domain_table_columns].to_markdown(index=False))
