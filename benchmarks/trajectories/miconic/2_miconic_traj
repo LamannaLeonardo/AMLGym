@@ -1,0 +1,25 @@
+(observation
+
+(:state (above f0 f1) (above f0 f2) (above f0 f3) (above f1 f2) (above f1 f3) (above f2 f3) (boarded p3) (boarded p4) (destin p0 f0) (destin p1 f2) (destin p2 f1) (destin p3 f3) (destin p4 f1) (destin p5 f0) (lift_at f3) (origin p0 f3) (origin p1 f1) (origin p2 f2) (origin p3 f0) (origin p4 f0) (origin p5 f2))
+
+(:action (board f3 p0))
+
+(:state (above f0 f1) (above f0 f2) (above f0 f3) (above f1 f2) (above f1 f3) (above f2 f3) (boarded p0) (boarded p3) (boarded p4) (destin p0 f0) (destin p1 f2) (destin p2 f1) (destin p3 f3) (destin p4 f1) (destin p5 f0) (lift_at f3) (origin p0 f3) (origin p1 f1) (origin p2 f2) (origin p3 f0) (origin p4 f0) (origin p5 f2))
+
+(:action (depart f3 p3))
+
+(:state (above f0 f1) (above f0 f2) (above f0 f3) (above f1 f2) (above f1 f3) (above f2 f3) (boarded p0) (boarded p4) (destin p0 f0) (destin p1 f2) (destin p2 f1) (destin p3 f3) (destin p4 f1) (destin p5 f0) (lift_at f3) (origin p0 f3) (origin p1 f1) (origin p2 f2) (origin p3 f0) (origin p4 f0) (origin p5 f2) (served p3))
+
+(:action (down f3 f1))
+
+(:state (above f0 f1) (above f0 f2) (above f0 f3) (above f1 f2) (above f1 f3) (above f2 f3) (boarded p0) (boarded p4) (destin p0 f0) (destin p1 f2) (destin p2 f1) (destin p3 f3) (destin p4 f1) (destin p5 f0) (lift_at f1) (origin p0 f3) (origin p1 f1) (origin p2 f2) (origin p3 f0) (origin p4 f0) (origin p5 f2) (served p3))
+
+(:action (board f1 p1))
+
+(:state (above f0 f1) (above f0 f2) (above f0 f3) (above f1 f2) (above f1 f3) (above f2 f3) (boarded p0) (boarded p1) (boarded p4) (destin p0 f0) (destin p1 f2) (destin p2 f1) (destin p3 f3) (destin p4 f1) (destin p5 f0) (lift_at f1) (origin p0 f3) (origin p1 f1) (origin p2 f2) (origin p3 f0) (origin p4 f0) (origin p5 f2) (served p3))
+
+(:action (depart f1 p4))
+
+(:state (above f0 f1) (above f0 f2) (above f0 f3) (above f1 f2) (above f1 f3) (above f2 f3) (boarded p0) (boarded p1) (destin p0 f0) (destin p1 f2) (destin p2 f1) (destin p3 f3) (destin p4 f1) (destin p5 f0) (lift_at f1) (origin p0 f3) (origin p1 f1) (origin p2 f2) (origin p3 f0) (origin p4 f0) (origin p5 f2) (served p3) (served p4))
+
+)
