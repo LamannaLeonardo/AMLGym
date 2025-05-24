@@ -1,4 +1,4 @@
-(define (domain n-puzzle-typed)
+(define (domain n_puzzle_typed)
   (:requirements :typing)
   (:types position tile)
   (:predicates (at ?tile - tile ?position - position)

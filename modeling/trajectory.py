@@ -26,7 +26,7 @@ class Trajectory:
             trajectory_str += f"\n\n(:action {a})"
             trajectory_str += f"\n\n(:state {format_pddl_string(s)})"
 
-        trajectory_str = f"(observation\n\n{trajectory_str}\n\n)"
+        trajectory_str = f"(observation\n\n{trajectory_str}\n\n)".replace('  ', ' ')
         return trajectory_str
 
     def __repr__(self):

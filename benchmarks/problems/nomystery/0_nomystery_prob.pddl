@@ -1,5 +1,5 @@
-(define (problem transport-l2-t1-p1---int100n150-m1---int100c100---s511---e0)
-(:domain transport-strips)
+(define (problem transport_l2_t1_p1---int100n150_m1---int100c100---s511---e0)
+(:domain transport_strips)
 
 (:objects
 l0 l1 - location

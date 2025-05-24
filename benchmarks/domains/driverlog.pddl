@@ -13,48 +13,48 @@
 		(empty ?v - truck))
 
 
-(:action load-truck
+(:action load_truck
   :parameters (?obj - obj ?truck - truck ?loc - location)
   :precondition
    (and (at ?truck ?loc) (at ?obj ?loc))
   :effect
    (and (not (at ?obj ?loc)) (in ?obj ?truck)))
 
-(:action unload-truck
+(:action unload_truck
   :parameters (?obj - obj ?truck - truck ?loc - location)
   :precondition
    (and (at ?truck ?loc) (in ?obj ?truck))
   :effect
    (and (not (in ?obj ?truck)) (at ?obj ?loc)))
 
-(:action board-truck
+(:action board_truck
   :parameters (?driver - driver ?truck - truck ?loc - location)
   :precondition
    (and (at ?truck ?loc) (at ?driver ?loc) (empty ?truck))
   :effect
    (and (not (at ?driver ?loc)) (driving ?driver ?truck) (not (empty ?truck))))
 
-(:action disembark-truck
+(:action disembark_truck
   :parameters (?driver - driver ?truck - truck ?loc - location)
   :precondition
    (and (at ?truck ?loc) (driving ?driver ?truck))
   :effect
    (and (not (driving ?driver ?truck)) (at ?driver ?loc) (empty ?truck)))
 
-(:action drive-truck
-  :parameters (?truck - truck ?loc-from - location ?loc-to - location ?driver - driver)
+(:action drive_truck
+  :parameters (?truck - truck ?loc_from - location ?loc_to - location ?driver - driver)
   :precondition
-   (and (at ?truck ?loc-from)
-   (driving ?driver ?truck) (link ?loc-from ?loc-to))
+   (and (at ?truck ?loc_from)
+   (driving ?driver ?truck) (link ?loc_from ?loc_to))
   :effect
-   (and (not (at ?truck ?loc-from)) (at ?truck ?loc-to)))
+   (and (not (at ?truck ?loc_from)) (at ?truck ?loc_to)))
 
 (:action walk
-  :parameters (?driver - driver ?loc-from - location ?loc-to - location)
+  :parameters (?driver - driver ?loc_from - location ?loc_to - location)
   :precondition
-   (and (at ?driver ?loc-from) (path ?loc-from ?loc-to))
+   (and (at ?driver ?loc_from) (path ?loc_from ?loc_to))
   :effect
-   (and (not (at ?driver ?loc-from)) (at ?driver ?loc-to)))
+   (and (not (at ?driver ?loc_from)) (at ?driver ?loc_to)))
 
 
 )

@@ -1,21 +1,33 @@
 (observation
 
-(:state (clear b1) (clear b2) (clear b4) (clear b5) (empty h1) (holding h2  b3) (negative b3) (negative b4) (negative b5) (negative h2) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b1) (table b2) (table b4) (table b5))
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b2) (clear b4) (empty h1) (empty h2) (hand_negative h2) (hand_positive h1) (on b1 b6) (on b3 b5) (on b4 b1) (on b6 b3) (on_table b2) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
 
-(:action (putdown-neg-neg h2 b3))
+(:action (unstack h2 b4 b1))
 
-(:state (clear b1) (clear b2) (clear b3) (clear b4) (clear b5) (empty h1) (empty h2) (negative b3) (negative b4) (negative b5) (negative h2) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b1) (table b2) (table b3) (table b4) (table b5))
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b1) (clear b2) (empty h1) (hand_negative h2) (hand_positive h1) (holding h2 b4) (on b1 b6) (on b3 b5) (on b6 b3) (on_table b2) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
 
-(:action (pickup h1 b1))
+(:action (stack_neg_neg h2 b4 b2))
 
-(:state (clear b2) (clear b3) (clear b4) (clear b5) (empty h2) (holding h1  b1) (negative b3) (negative b4) (negative b5) (negative h2) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b2) (table b3) (table b4) (table b5))
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b1) (clear b4) (empty h1) (empty h2) (hand_negative h2) (hand_positive h1) (on b1 b6) (on b3 b5) (on b4 b2) (on b6 b3) (on_table b2) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
 
-(:action (stack-pos-pos h1 b1 b5))
+(:action (unstack h2 b4 b2))
 
-(:state (clear b1) (clear b2) (clear b3) (clear b4) (empty h1) (empty h2) (negative b3) (negative b4) (negative b5) (negative h2) (on b1  b5) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b2) (table b3) (table b4) (table b5))
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b1) (clear b2) (empty h1) (hand_negative h2) (hand_positive h1) (holding h2 b4) (on b1 b6) (on b3 b5) (on b6 b3) (on_table b2) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
 
-(:action (pickup h1 b2))
+(:action (putdown_neg_neg h2 b4))
 
-(:state (clear b1) (clear b3) (clear b4) (empty h2) (holding h1  b2) (negative b3) (negative b4) (negative b5) (negative h2) (on b1  b5) (positive b1) (positive b2) (positive h1) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (table b3) (table b4) (table b5))
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b1) (clear b2) (clear b4) (empty h1) (empty h2) (hand_negative h2) (hand_positive h1) (on b1 b6) (on b3 b5) (on b6 b3) (on_table b2) (on_table b4) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
+
+(:action (unstack h1 b1 b6))
+
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b2) (clear b4) (clear b6) (empty h2) (hand_negative h2) (hand_positive h1) (holding h1 b1) (on b3 b5) (on b6 b3) (on_table b2) (on_table b4) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
+
+(:action (putdown_pos_pos h1 b1))
+
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b1) (clear b2) (clear b4) (clear b6) (empty h1) (empty h2) (hand_negative h2) (hand_positive h1) (on b3 b5) (on b6 b3) (on_table b1) (on_table b2) (on_table b4) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
+
+(:action (pickup h2 b1))
+
+(:state (block_negative b4) (block_negative b5) (block_negative b6) (block_positive b1) (block_positive b2) (block_positive b3) (clear b2) (clear b4) (clear b6) (empty h1) (hand_negative h2) (hand_positive h1) (holding h2 b1) (on b3 b5) (on b6 b3) (on_table b2) (on_table b4) (on_table b5) (solid b1) (solid b2) (solid b3) (solid b4) (solid b5) (solid b6))
 
 )

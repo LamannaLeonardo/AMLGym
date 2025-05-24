@@ -165,3 +165,4 @@ __pycache__/
 */.DS_Store
 util/pddl-generators
 util/output.sas
+res/

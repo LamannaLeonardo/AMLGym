@@ -1,10 +1,10 @@
-(define (domain zeno-travel)
+(define (domain zeno_travel)
 (:requirements :typing)
 (:types aircraft person - either_aircraft_person
 either_aircraft_person city flevel - object)
 (:predicates (at ?x - either_aircraft_person ?c - city)
              (in ?p - person ?a - aircraft)
-	     (fuel-level ?a - aircraft ?l - flevel)
+	     (fuel_level ?a - aircraft ?l - flevel)
 	     (next ?l1 ?l2 - flevel))
 
 
@@ -28,35 +28,35 @@ either_aircraft_person city flevel - object)
  :parameters (?a - aircraft ?c1 ?c2 - city ?l1 ?l2 - flevel)
  
  :precondition (and (at ?a ?c1)
-                 (fuel-level ?a ?l1)
+                 (fuel_level ?a ?l1)
 		 (next ?l2 ?l1))
  :effect (and (not (at ?a ?c1))
               (at ?a ?c2)
-              (not (fuel-level ?a ?l1))
-              (fuel-level ?a ?l2)))
+              (not (fuel_level ?a ?l1))
+              (fuel_level ?a ?l2)))
                                   
 (:action zoom
  :parameters (?a - aircraft ?c1 ?c2 - city ?l1 ?l2 ?l3 - flevel)
 
  :precondition (and (at ?a ?c1)
-                 (fuel-level ?a ?l1)
+                 (fuel_level ?a ?l1)
 		 (next ?l2 ?l1)
 		 (next ?l3 ?l2)
 		)
  :effect (and (not (at ?a ?c1))
               (at ?a ?c2)
-              (not (fuel-level ?a ?l1))
-              (fuel-level ?a ?l3)
+              (not (fuel_level ?a ?l1))
+              (fuel_level ?a ?l3)
 	)
 ) 
 
 (:action refuel
  :parameters (?a - aircraft ?c - city ?l - flevel ?l1 - flevel)
 
- :precondition (and (fuel-level ?a ?l)
+ :precondition (and (fuel_level ?a ?l)
                  (next ?l ?l1)
                  (at ?a ?c))
- :effect (and (fuel-level ?a ?l1) (not (fuel-level ?a ?l))))
+ :effect (and (fuel_level ?a ?l1) (not (fuel_level ?a ?l))))
 
 
 )

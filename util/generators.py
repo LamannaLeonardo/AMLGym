@@ -1,12 +1,11 @@
 # Add current project to sys path
 import os
 import sys
-
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
+from datetime import datetime
 from typing import List
-
 import yaml
 import re
 import contextlib
@@ -14,7 +13,6 @@ import logging
 import random
 import shutil
 import subprocess
-
 import numpy as np
 import unified_planning
 from alive_progress import alive_bar
@@ -27,6 +25,7 @@ from modeling.trajectory import Trajectory
 
 from tarski.io import PDDLReader as tarskiPDDLReader
 from tarski.grounding import LPGroundingStrategy
+
 
 def problem_blocksworld(seed: int = 123 ,
                         ops: int = 4,
@@ -53,6 +52,9 @@ def problem_blocksworld(seed: int = 123 ,
 
     # Rename `on-table` to `ontable`
     problem = problem.replace('on-table', 'ontable')
+
+    # Rename domain from `blocksworld_4ops` to `blocksworld`
+    problem = problem.replace('(:domain blocksworld_4ops)', '(:domain blocksworld)')
 
     return problem
 
@@ -159,6 +161,12 @@ def problem_ferry(seed: int = 123,
             if not r.startswith('(location ') and not r.startswith('(car '):
                 refactored_problem.append(r)
     problem = "\n".join(refactored_problem)
+
+    # Ferry: hyphens '-' are not yet well supported in unified-planning
+    # --> change not-eq into not_eq --> remove not_ for OffLAM
+    # --> TODO 1: refactor OffLAM
+    # --> TODO 2: open issue in unified-planning
+    problem = problem.replace('(not-eq ', '(noteq ')
 
     return problem
 
@@ -769,13 +777,9 @@ def replan(problem: Problem,
     logging.debug(f"Checking random action {action_instance} preserves solvability.")
     with contextlib.redirect_stdout(open(os.devnull, 'w')):
         with OneshotPlanner(
-                name='fast-downward',
                 problem_kind=problem.kind,
-                params={
-                    # 'fast_downward_alias': DOWNWARD_ALIAS,
-                    'fast_downward_search_config': DOWNWARD_SEARCH_CFG,
-                    'fast_downward_search_time_limit': f"{MAX_REPLANNING_TIME}s"
-                }) as planner:
+                **PLANNER_CFG,
+        ) as planner:
             result = planner.solve(problem, timeout=MAX_REPLANNING_TIME)
             plan = result.plan
 
@@ -813,20 +817,8 @@ def generate_traj(
                 logging.debug("Computing a new plan...")
                 with contextlib.redirect_stdout(open(os.devnull, 'w')):
                     with OneshotPlanner(
-                            # name='lpg',
-                            # name='tamer',
-                            # name='enhsp',
-                            #
-                            # name='pyperplan',
-                            # params={'heuristic': 'hff'}
-                            #
-                            name='fast-downward',
                             problem_kind=problem.kind,
-                            params={
-                                # 'fast_downward_alias': DOWNWARD_ALIAS,
-                                'fast_downward_search_config': DOWNWARD_SEARCH_CFG,
-                                'fast_downward_search_time_limit': f"{MAX_PLANNING_TIME}s"
-                            }
+                            **PLANNER_CFG
                     ) as planner:
                         result = planner.solve(problem, timeout=MAX_PLANNING_TIME)
                         plan = result.plan
@@ -914,9 +906,23 @@ def generate_traj(
     traj_len = np.random.choice(range(TRAJ_LEN_MIN, min(TRAJ_LEN_MAX, len(states) + 1))) if done else 0
 
     # Randomly select a subset of states
-    start_idx = np.random.choice(range(len(states) - traj_len + 1))
-    states = states[start_idx:start_idx + traj_len]
-    actions = actions[start_idx:start_idx + traj_len - 1]
+    pr = random.random()
+
+    if pr <= 0.33:
+        # Initial/final states are random
+        start_idx = np.random.choice(range(len(states) - traj_len + 1))
+        end_idx = start_idx + traj_len
+    elif pr <= 0.66:
+        # Initial state is the first trajectory state, final state is random
+        start_idx = 0
+        end_idx = start_idx + traj_len
+    else:
+        # Initial state is random, final state is the last trajectory state
+        start_idx = len(states) - traj_len
+        end_idx = len(states)
+
+    states = states[start_idx:end_idx]
+    actions = actions[start_idx:end_idx - 1]
 
     return Trajectory(states, actions)
 
@@ -925,13 +931,24 @@ if __name__ == '__main__':
 
     TRAJ_LEN_MIN = 5
     TRAJ_LEN_MAX = 30
+    OPTIMAL_TRACES = 3
     MAX_PLANNING_TIME = 600
     MAX_REPLANNING_TIME = 60  # time to check problem feasibility
     MAX_RANDOM_TRIALS = 3  # maximum number of random action samplings at each step
     DOWNWARD_SEARCH_CFG = 'let(hff,ff(),let(hcea,cea(),lazy_greedy([hff,hcea],preferred=[hff,hcea])))'
-    # DOWNWARD_ALIAS = 'seq-sat-lama-2011'
+    HEUR_PLANNER_CFG = {
+        'name': 'fast-downward',
+        'params': dict(
+            fast_downward_search_config=DOWNWARD_SEARCH_CFG,
+            fast_downward_search_time_limit=f"{MAX_PLANNING_TIME}s"
+        )}
+    OPT_PLANNER_CFG = {
+        'name': 'fast-downward-opt',
+    }
+
+    PLANNER_CFG = OPT_PLANNER_CFG
     logging.basicConfig(
-        # filename='out.log',
+        filename='out.log',
         level=logging.DEBUG
     )
     GEN_DIR = "pddl-generators"
@@ -941,6 +958,9 @@ if __name__ == '__main__':
     TRAJ_DIR = "trajectories"
     CFG_DIR = "configs"
     DOM_CFG = f"{BENCHMARK_DIR}/problems.yaml"
+
+    # Trace CPU time
+    run_start = datetime.now()
 
     # Instantiate a PDDL problem reader
     reader = PDDLReader()
@@ -963,6 +983,9 @@ if __name__ == '__main__':
         np.random.seed(seed)
         random.seed(seed)
 
+        # Trace CPU time
+        domain_run_start = datetime.now()
+
         # Clean domain problems directory
         if os.path.exists(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"):
             shutil.rmtree(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}")
@@ -978,7 +1001,12 @@ if __name__ == '__main__':
                        length=20,
                        bar='halloween') as bar:
             # For every domain problem kwargs
-            for kwargs in domains[domain]:
+            for i, kwargs in enumerate(domains[domain]):
+
+                if i >= OPTIMAL_TRACES:
+                    PLANNER_CFG = HEUR_PLANNER_CFG
+                else:
+                    PLANNER_CFG = OPT_PLANNER_CFG
 
                 trajectory = Trajectory([], [])
 
@@ -988,6 +1016,8 @@ if __name__ == '__main__':
                     kwargs['seed'] = np.random.randint(1, 1000)
                     generate_prob = getattr(sys.modules[__name__], f'problem_{domain}')
                     problem_str = generate_prob(**kwargs)
+                    # Fix hyphens to avoid issues with unified-planning parsing
+                    problem_str = re.sub(r'(?<=\w)-(?=\w)', '_', problem_str)
 
                     # Write the problem string to a file
                     problem_file = f'../{BENCHMARK_DIR}/{PROB_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"))}_{domain}_prob.pddl'
@@ -1007,4 +1037,9 @@ if __name__ == '__main__':
                 trace_file = f'../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))}_{domain}_traj'
                 trajectory.write(trace_file)
                 bar()  # update progress bar
+
+        logging.info(f'{domain} CPU time (s): {(datetime.now() - domain_run_start).seconds}')
+
+    logging.info(f'Total CPU time (s): {(datetime.now() - run_start).seconds}')
+
 
