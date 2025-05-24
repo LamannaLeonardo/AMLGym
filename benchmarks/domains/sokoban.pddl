@@ -1,28 +1,28 @@
-(define (domain typed-sokoban)
+(define (domain typed_sokoban)
 (:requirements :typing)
-(:types LOC DIR BOX)
+(:types loc dir box)
 (:predicates 
-             (at-robot ?l - LOC)
-             (at ?o - BOX ?l - LOC)
-             (adjacent ?l1 - LOC ?l2 - LOC ?d - DIR) 
-             (clear ?l - LOC)
+             (at_robot ?l - loc)
+             (at ?o - box ?l - loc)
+             (adjacent ?l1 - loc ?l2 - loc ?d - dir) 
+             (clear ?l - loc)
 )
 
 
 (:action move
-:parameters (?from - LOC ?to - LOC ?dir - DIR)
-:precondition (and (clear ?to) (at-robot ?from) (adjacent ?from ?to ?dir))
-:effect (and (at-robot ?to) (not (at-robot ?from)))
+:parameters (?from - loc ?to - loc ?dir - dir)
+:precondition (and (clear ?to) (at_robot ?from) (adjacent ?from ?to ?dir))
+:effect (and (at_robot ?to) (not (at_robot ?from)))
 )
              
 
 (:action push
-:parameters  (?rloc - LOC ?bloc - LOC ?floc - LOC ?dir - DIR ?b - BOX)
-:precondition (and (at-robot ?rloc) (at ?b ?bloc) (clear ?floc)
+:parameters  (?rloc - loc ?bloc - loc ?floc - loc ?dir - dir ?b - box)
+:precondition (and (at_robot ?rloc) (at ?b ?bloc) (clear ?floc)
 	           (adjacent ?rloc ?bloc ?dir) (adjacent ?bloc ?floc ?dir))
 
-:effect (and (at-robot ?bloc) (at ?b ?floc) (clear ?bloc)
-             (not (at-robot ?rloc)) (not (at ?b ?bloc)) (not (clear ?floc)))
+:effect (and (at_robot ?bloc) (at ?b ?floc) (clear ?bloc)
+             (not (at_robot ?rloc)) (not (at ?b ?bloc)) (not (clear ?floc)))
 )
 )
 

@@ -1,4 +1,4 @@
-(define (domain transport-strips)
+(define (domain transport_strips)
 (:requirements :typing)
 
 (:types location fuellevel locatable - object
@@ -14,7 +14,7 @@
 (sum ?a ?b ?c - fuellevel)
 )
 
-(:action LOAD
+(:action load
 :parameters (?p - package ?t - truck ?l - location)
 :precondition
 (and (at ?t ?l) (at ?p ?l))
@@ -22,7 +22,7 @@
 (and (not (at ?p ?l)) (in ?p ?t))
 )
 
-(:action UNLOAD
+(:action unload
 :parameters (?p - package ?t - truck ?l - location)
 :precondition
 (and (at ?t ?l) (in ?p ?t))
@@ -30,7 +30,7 @@
 (and (at ?p ?l) (not (in ?p ?t)))
 )
 
-(:action DRIVE
+(:action drive
 :parameters (?t - truck ?l1 - location ?l2 - location ?fuelpost - fuellevel ?fueldelta - fuellevel ?fuelpre - fuellevel)
 :precondition
 (and 
