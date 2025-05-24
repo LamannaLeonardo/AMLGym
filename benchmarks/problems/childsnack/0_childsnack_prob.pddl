@@ -1,13 +1,13 @@
-; child-snack task with 3 children and 0.4 gluten factor 
+; child_snack task with 3 children and 0.4 gluten factor 
 ; constant factor of 1.3
 ; random seed: 511
 
-(define (problem prob-snack)
-  (:domain child-snack)
+(define (problem prob_snack)
+  (:domain child_snack)
   (:objects
     child1 child2 child3 - child
-    bread1 bread2 bread3 - bread-portion
-    content1 content2 content3 - content-portion
+    bread1 bread2 bread3 - bread_portion
+    content1 content2 content3 - content_portion
     tray1 tray2 - tray
     table1 table2 table3 - place
     sandw1 sandw2 sandw3 sandw4 - sandwich

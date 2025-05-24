@@ -1,97 +1,21 @@
 (observation
 
-(:state (clear b5) (clear b6) (handempty) (on b2  b4) (on b3  b1) (on b4  b3) (on b5  b2) (ontable b1) (ontable b6))
+(:state (clear b2) (clear b3) (clear b4) (clear b5) (handempty) (on b3 b1) (on b5 b6) (ontable b1) (ontable b2) (ontable b4) (ontable b6))
 
-(:action (unstack b5 b2))
+(:action (pick_up b2))
 
-(:state (clear b2) (clear b6) (holding b5) (on b2  b4) (on b3  b1) (on b4  b3) (ontable b1) (ontable b6))
+(:state (clear b3) (clear b4) (clear b5) (holding b2) (on b3 b1) (on b5 b6) (ontable b1) (ontable b4) (ontable b6))
 
-(:action (put-down b5))
+(:action (stack b2 b5))
 
-(:state (clear b2) (clear b5) (clear b6) (handempty) (on b2  b4) (on b3  b1) (on b4  b3) (ontable b1) (ontable b5) (ontable b6))
+(:state (clear b2) (clear b3) (clear b4) (handempty) (on b2 b5) (on b3 b1) (on b5 b6) (ontable b1) (ontable b4) (ontable b6))
 
-(:action (unstack b2 b4))
+(:action (unstack b2 b5))
 
-(:state (clear b4) (clear b5) (clear b6) (holding b2) (on b3  b1) (on b4  b3) (ontable b1) (ontable b5) (ontable b6))
+(:state (clear b3) (clear b4) (clear b5) (holding b2) (on b3 b1) (on b5 b6) (ontable b1) (ontable b4) (ontable b6))
 
-(:action (stack b2 b6))
+(:action (stack b2 b4))
 
-(:state (clear b2) (clear b4) (clear b5) (handempty) (on b2  b6) (on b3  b1) (on b4  b3) (ontable b1) (ontable b5) (ontable b6))
-
-(:action (unstack b4 b3))
-
-(:state (clear b2) (clear b3) (clear b5) (holding b4) (on b2  b6) (on b3  b1) (ontable b1) (ontable b5) (ontable b6))
-
-(:action (put-down b4))
-
-(:state (clear b2) (clear b3) (clear b4) (clear b5) (handempty) (on b2  b6) (on b3  b1) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (unstack b3 b1))
-
-(:state (clear b1) (clear b2) (clear b4) (clear b5) (holding b3) (on b2  b6) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (stack b3 b5))
-
-(:state (clear b1) (clear b2) (clear b3) (clear b4) (handempty) (on b2  b6) (on b3  b5) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (pick-up b1))
-
-(:state (clear b2) (clear b3) (clear b4) (holding b1) (on b2  b6) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (stack b1 b4))
-
-(:state (clear b1) (clear b2) (clear b3) (handempty) (on b1  b4) (on b2  b6) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (unstack b2 b6))
-
-(:state (clear b1) (clear b3) (clear b6) (holding b2) (on b1  b4) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (stack b2 b6))
-
-(:state (clear b1) (clear b2) (clear b3) (handempty) (on b1  b4) (on b2  b6) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (unstack b2 b6))
-
-(:state (clear b1) (clear b3) (clear b6) (holding b2) (on b1  b4) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (stack b2 b6))
-
-(:state (clear b1) (clear b2) (clear b3) (handempty) (on b1  b4) (on b2  b6) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (unstack b1 b4))
-
-(:state (clear b2) (clear b3) (clear b4) (holding b1) (on b2  b6) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (stack b1 b3))
-
-(:state (clear b1) (clear b2) (clear b4) (handempty) (on b1  b3) (on b2  b6) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (unstack b2 b6))
-
-(:state (clear b1) (clear b4) (clear b6) (holding b2) (on b1  b3) (on b3  b5) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (put-down b2))
-
-(:state (clear b1) (clear b2) (clear b4) (clear b6) (handempty) (on b1  b3) (on b3  b5) (ontable b2) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (pick-up b6))
-
-(:state (clear b1) (clear b2) (clear b4) (holding b6) (on b1  b3) (on b3  b5) (ontable b2) (ontable b4) (ontable b5))
-
-(:action (stack b6 b4))
-
-(:state (clear b1) (clear b2) (clear b6) (handempty) (on b1  b3) (on b3  b5) (on b6  b4) (ontable b2) (ontable b4) (ontable b5))
-
-(:action (pick-up b2))
-
-(:state (clear b1) (clear b6) (holding b2) (on b1  b3) (on b3  b5) (on b6  b4) (ontable b4) (ontable b5))
-
-(:action (put-down b2))
-
-(:state (clear b1) (clear b2) (clear b6) (handempty) (on b1  b3) (on b3  b5) (on b6  b4) (ontable b2) (ontable b4) (ontable b5))
-
-(:action (pick-up b2))
-
-(:state (clear b1) (clear b6) (holding b2) (on b1  b3) (on b3  b5) (on b6  b4) (ontable b4) (ontable b5))
+(:state (clear b2) (clear b3) (clear b5) (handempty) (on b2 b4) (on b3 b1) (on b5 b6) (ontable b1) (ontable b4) (ontable b6))
 
 )

@@ -1,7 +1,7 @@
 
 
-(define (problem bw-rand-3)
-(:domain blocksworld-4ops)
+(define (problem bw_rand_3)
+(:domain blocksworld_4ops)
 (:objects b1 b2 b3 - block)
 (:init
 (handempty)

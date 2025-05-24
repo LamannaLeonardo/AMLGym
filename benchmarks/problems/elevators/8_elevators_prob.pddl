@@ -1,11 +1,11 @@
-(define (problem elevators-sequencedstrips-p7_6_1)
-(:domain elevators-sequencedstrips)
+(define (problem elevators_sequencedstrips_p7_7_1)
+(:domain elevators_sequencedstrips)
 
 (:objects 
 n0 n1 n2 n3 n4 n5 n6 n7  - count
-p0 p1 p2 p3 p4 p5  - passenger
-fast0  - fast-elevator
-slow0-0 - slow-elevator
+p0 p1 p2 p3 p4 p5 p6  - passenger
+fast0  - fast_elevator
+slow0_0 - slow_elevator
 )
 
 (:init
@@ -19,22 +19,23 @@ slow0-0 - slow-elevator
 (above n5 n6) (above n5 n7) 
 (above n6 n7) 
 
-(lift-at fast0 n0)
+(lift_at fast0 n0)
 (passengers fast0 n0)
-(can-hold fast0 n1) (can-hold fast0 n2) 
-(reachable-floor fast0 n0)(reachable-floor fast0 n3)(reachable-floor fast0 n6)
+(can_hold fast0 n1) (can_hold fast0 n2) 
+(reachable_floor fast0 n0)(reachable_floor fast0 n3)(reachable_floor fast0 n6)
 
-(lift-at slow0-0 n3)
-(passengers slow0-0 n0)
-(can-hold slow0-0 n1) (can-hold slow0-0 n2) 
-(reachable-floor slow0-0 n0)(reachable-floor slow0-0 n1)(reachable-floor slow0-0 n2)(reachable-floor slow0-0 n3)(reachable-floor slow0-0 n4)(reachable-floor slow0-0 n5)(reachable-floor slow0-0 n6)(reachable-floor slow0-0 n7)
+(lift_at slow0_0 n5)
+(passengers slow0_0 n0)
+(can_hold slow0_0 n1) (can_hold slow0_0 n2) 
+(reachable_floor slow0_0 n0)(reachable_floor slow0_0 n1)(reachable_floor slow0_0 n2)(reachable_floor slow0_0 n3)(reachable_floor slow0_0 n4)(reachable_floor slow0_0 n5)(reachable_floor slow0_0 n6)(reachable_floor slow0_0 n7)
 
-(passenger-at p0 n7)
-(passenger-at p1 n2)
-(passenger-at p2 n6)
-(passenger-at p3 n7)
-(passenger-at p4 n1)
-(passenger-at p5 n5)
+(passenger_at p0 n6)
+(passenger_at p1 n2)
+(passenger_at p2 n7)
+(passenger_at p3 n3)
+(passenger_at p4 n0)
+(passenger_at p5 n6)
+(passenger_at p6 n5)
 
 
 
@@ -47,12 +48,13 @@ slow0-0 - slow-elevator
 
 (:goal
 (and
-(passenger-at p0 n6)
-(passenger-at p1 n6)
-(passenger-at p2 n7)
-(passenger-at p3 n2)
-(passenger-at p4 n4)
-(passenger-at p5 n1)
+(passenger_at p0 n7)
+(passenger_at p1 n5)
+(passenger_at p2 n1)
+(passenger_at p3 n0)
+(passenger_at p4 n7)
+(passenger_at p5 n1)
+(passenger_at p6 n6)
 ))
 
 

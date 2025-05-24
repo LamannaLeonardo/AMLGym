@@ -1,7 +1,7 @@
 
 
 
-(define (problem mixed-f3-p3-u0-v0-d0-a0-n0-a0-b0-n0-f0)
+(define (problem mixed_f3_p3_u0_v0_d0_a0_n0_a0_b0_n0_f0)
    (:domain miconic)
    (:objects p0 p1 p2 - passenger
              f0 f1 f2 - floor)
@@ -29,7 +29,7 @@
 
 
 
-(lift-at f0)
+(lift_at f0)
 )
 
 

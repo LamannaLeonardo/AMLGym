@@ -1,7 +1,7 @@
 
 
 
-(define (problem mixed-f7-p5-u0-v0-d0-a0-n0-a0-b0-n0-f0)
+(define (problem mixed_f7_p5_u0_v0_d0_a0_n0_a0_b0_n0_f0)
    (:domain miconic)
    (:objects p0 p1 p2 p3 p4 - passenger
              f0 f1 f2 f3 f4 f5 f6 - floor)
@@ -40,24 +40,24 @@
 (origin p0 f3)
 (destin p0 f6)
 
-(origin p1 f2)
-(destin p1 f6)
+(origin p1 f5)
+(destin p1 f4)
 
-(origin p2 f3)
-(destin p2 f5)
+(origin p2 f2)
+(destin p2 f1)
 
-(origin p3 f6)
-(destin p3 f3)
+(origin p3 f1)
+(destin p3 f6)
 
 (origin p4 f1)
-(destin p4 f2)
+(destin p4 f5)
 
 
 
 
 
 
-(lift-at f0)
+(lift_at f0)
 )
 
 

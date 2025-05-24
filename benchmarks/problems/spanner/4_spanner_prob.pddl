@@ -9,7 +9,7 @@
     )
  (:init 
     (at bob shed)
-    (at spanner1 location1)
+    (at spanner1 location7)
     (useable spanner1)
     (at spanner2 location2)
     (useable spanner2)
@@ -17,7 +17,7 @@
     (useable spanner3)
     (at spanner4 location3)
     (useable spanner4)
-    (at spanner5 location1)
+    (at spanner5 location6)
     (useable spanner5)
     (loose nut1)
     (at nut1 gate)

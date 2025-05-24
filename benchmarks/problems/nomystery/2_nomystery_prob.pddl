@@ -1,5 +1,5 @@
-(define (problem transport-l3-t1-p1---int100n150-m1---int100c100---s596---e0)
-(:domain transport-strips)
+(define (problem transport_l3_t1_p1---int100n150_m1---int100c100---s989---e0)
+(:domain transport_strips)
 
 (:objects
 l0 l1 l2 - location
@@ -25,16 +25,16 @@ level0 level1 level2 - fuellevel
 (connected l2 l1)
 (fuelcost level1 l2 l1)
 
-(at t0 l2)
+(at t0 l1)
 (fuel t0 level2)
 
 
-(at p0 l1)
+(at p0 l0)
 )
 
 (:goal
 (and
-(at p0 l0)
+(at p0 l1)
 )
 )
 )

@@ -1,11 +1,11 @@
-(define (problem elevators-sequencedstrips-p4_4_1)
-(:domain elevators-sequencedstrips)
+(define (problem elevators_sequencedstrips_p4_4_1)
+(:domain elevators_sequencedstrips)
 
 (:objects 
 n0 n1 n2 n3 n4  - count
 p0 p1 p2 p3  - passenger
-fast0  - fast-elevator
-slow0-0 slow0-1 slow1-0 slow1-1 - slow-elevator
+fast0  - fast_elevator
+slow0_0 slow0_1 slow1_0 slow1_1 - slow_elevator
 )
 
 (:init
@@ -16,35 +16,35 @@ slow0-0 slow0-1 slow1-0 slow1-1 - slow-elevator
 (above n2 n3) (above n2 n4) 
 (above n3 n4) 
 
-(lift-at fast0 n0)
+(lift_at fast0 n0)
 (passengers fast0 n0)
-(can-hold fast0 n1) 
-(reachable-floor fast0 n0)(reachable-floor fast0 n1)(reachable-floor fast0 n2)(reachable-floor fast0 n3)(reachable-floor fast0 n4)
+(can_hold fast0 n1) 
+(reachable_floor fast0 n0)(reachable_floor fast0 n1)(reachable_floor fast0 n2)(reachable_floor fast0 n3)(reachable_floor fast0 n4)
 
-(lift-at slow0-0 n0)
-(passengers slow0-0 n0)
-(can-hold slow0-0 n1) 
-(reachable-floor slow0-0 n0)(reachable-floor slow0-0 n1)(reachable-floor slow0-0 n2)
+(lift_at slow0_0 n2)
+(passengers slow0_0 n0)
+(can_hold slow0_0 n1) 
+(reachable_floor slow0_0 n0)(reachable_floor slow0_0 n1)(reachable_floor slow0_0 n2)
 
-(lift-at slow0-1 n2)
-(passengers slow0-1 n0)
-(can-hold slow0-1 n1) 
-(reachable-floor slow0-1 n0)(reachable-floor slow0-1 n1)(reachable-floor slow0-1 n2)
+(lift_at slow0_1 n1)
+(passengers slow0_1 n0)
+(can_hold slow0_1 n1) 
+(reachable_floor slow0_1 n0)(reachable_floor slow0_1 n1)(reachable_floor slow0_1 n2)
 
-(lift-at slow1-0 n2)
-(passengers slow1-0 n0)
-(can-hold slow1-0 n1) 
-(reachable-floor slow1-0 n2)(reachable-floor slow1-0 n3)(reachable-floor slow1-0 n4)
+(lift_at slow1_0 n4)
+(passengers slow1_0 n0)
+(can_hold slow1_0 n1) 
+(reachable_floor slow1_0 n2)(reachable_floor slow1_0 n3)(reachable_floor slow1_0 n4)
 
-(lift-at slow1-1 n2)
-(passengers slow1-1 n0)
-(can-hold slow1-1 n1) 
-(reachable-floor slow1-1 n2)(reachable-floor slow1-1 n3)(reachable-floor slow1-1 n4)
+(lift_at slow1_1 n4)
+(passengers slow1_1 n0)
+(can_hold slow1_1 n1) 
+(reachable_floor slow1_1 n2)(reachable_floor slow1_1 n3)(reachable_floor slow1_1 n4)
 
-(passenger-at p0 n2)
-(passenger-at p1 n3)
-(passenger-at p2 n0)
-(passenger-at p3 n4)
+(passenger_at p0 n3)
+(passenger_at p1 n1)
+(passenger_at p2 n2)
+(passenger_at p3 n4)
 
 
 
@@ -58,10 +58,10 @@ slow0-0 slow0-1 slow1-0 slow1-1 - slow-elevator
 
 (:goal
 (and
-(passenger-at p0 n0)
-(passenger-at p1 n0)
-(passenger-at p2 n2)
-(passenger-at p3 n3)
+(passenger_at p0 n4)
+(passenger_at p1 n3)
+(passenger_at p2 n4)
+(passenger_at p3 n2)
 ))
 
 

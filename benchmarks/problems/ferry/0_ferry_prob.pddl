@@ -1,19 +1,19 @@
-(define (problem ferry-l3-c2)
+(define (problem ferry_l3_c2)
 (:domain ferry)
 (:objects l0 l1 l2  - location
           c0 c1  - car
 )
 (:init
-(not-eq l0 l1)
-(not-eq l1 l0)
-(not-eq l0 l2)
-(not-eq l2 l0)
-(not-eq l1 l2)
-(not-eq l2 l1)
-(empty-ferry)
+(noteq l0 l1)
+(noteq l1 l0)
+(noteq l0 l2)
+(noteq l2 l0)
+(noteq l1 l2)
+(noteq l2 l1)
+(empty_ferry)
 (at c0 l2)
 (at c1 l2)
-(at-ferry l2)
+(at_ferry l2)
 )
 (:goal
 (and

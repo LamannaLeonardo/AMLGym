@@ -1,4 +1,4 @@
-(define (problem depot-2-3-2-5-5-2) (:domain depots)
+(define (problem depot_2_3_2_5_5_2) (:domain depots)
 (:objects
 	depot0 depot1 - depot
 	distributor0 distributor1 distributor2 - distributor

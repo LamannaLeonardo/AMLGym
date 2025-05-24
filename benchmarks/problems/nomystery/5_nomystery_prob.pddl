@@ -1,11 +1,11 @@
-(define (problem transport-l4-t1-p6---int100n150-m1---int100c100---s114---e0)
-(:domain transport-strips)
+(define (problem transport_l4_t1_p6---int100n150_m1---int100c100---s124---e0)
+(:domain transport_strips)
 
 (:objects
 l0 l1 l2 l3 - location
 t0 - truck
 p0 p1 p2 p3 p4 p5 - package
-level0 level1 level2 level3 level4 - fuellevel
+level0 level1 level2 level3 level4 level5 - fuellevel
 )
 
 (:init
@@ -13,6 +13,7 @@ level0 level1 level2 level3 level4 - fuellevel
 (sum level1 level1 level2)
 (sum level2 level1 level3)
 (sum level3 level1 level4)
+(sum level4 level1 level5)
 
 (connected l0 l1)
 (fuelcost level1 l0 l1)
@@ -39,26 +40,26 @@ level0 level1 level2 level3 level4 - fuellevel
 (connected l3 l2)
 (fuelcost level1 l3 l2)
 
-(at t0 l1)
-(fuel t0 level4)
+(at t0 l3)
+(fuel t0 level5)
 
 
 (at p0 l1)
 (at p1 l2)
-(at p2 l0)
+(at p2 l2)
 (at p3 l1)
-(at p4 l1)
-(at p5 l3)
+(at p4 l3)
+(at p5 l0)
 )
 
 (:goal
 (and
-(at p0 l2)
+(at p0 l3)
 (at p1 l1)
 (at p2 l1)
 (at p3 l2)
-(at p4 l0)
-(at p5 l0)
+(at p4 l2)
+(at p5 l1)
 )
 )
 )

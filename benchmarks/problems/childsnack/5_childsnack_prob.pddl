@@ -1,13 +1,13 @@
-; child-snack task with 5 children and 0.6 gluten factor 
+; child_snack task with 5 children and 0.6 gluten factor 
 ; constant factor of 1.3
-; random seed: 545
+; random seed: 124
 
-(define (problem prob-snack)
-  (:domain child-snack)
+(define (problem prob_snack)
+  (:domain child_snack)
   (:objects
     child1 child2 child3 child4 child5 - child
-    bread1 bread2 bread3 bread4 bread5 - bread-portion
-    content1 content2 content3 content4 content5 - content-portion
+    bread1 bread2 bread3 bread4 bread5 - bread_portion
+    content1 content2 content3 content4 content5 - content_portion
     tray1 tray2 - tray
     table1 table2 table3 - place
     sandw1 sandw2 sandw3 sandw4 sandw5 sandw6 sandw7 - sandwich
@@ -25,21 +25,21 @@
      (at_kitchen_content content3)
      (at_kitchen_content content4)
      (at_kitchen_content content5)
-     (no_gluten_bread bread2)
+     (no_gluten_bread bread3)
      (no_gluten_bread bread1)
      (no_gluten_bread bread4)
-     (no_gluten_content content4)
      (no_gluten_content content1)
+     (no_gluten_content content4)
      (no_gluten_content content2)
-     (allergic_gluten child4)
-     (allergic_gluten child5)
      (allergic_gluten child3)
-     (not_allergic_gluten child2)
-     (not_allergic_gluten child1)
-     (waiting child1 table3)
-     (waiting child2 table3)
-     (waiting child3 table1)
-     (waiting child4 table1)
+     (allergic_gluten child1)
+     (allergic_gluten child2)
+     (not_allergic_gluten child4)
+     (not_allergic_gluten child5)
+     (waiting child1 table1)
+     (waiting child2 table2)
+     (waiting child3 table2)
+     (waiting child4 table2)
      (waiting child5 table1)
      (notexist sandw1)
      (notexist sandw2)

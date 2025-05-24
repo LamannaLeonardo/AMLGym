@@ -1,5 +1,5 @@
-(define (problem n-puzzle-2)
-  (:domain n-puzzle-typed)
+(define (problem n_puzzle_2)
+  (:domain n_puzzle_typed)
   (:objects p_1_1 p_1_2 p_2_1 p_2_2 - position t_1 t_2 t_3 - tile)
   (:init
     (at t_3 p_1_1)

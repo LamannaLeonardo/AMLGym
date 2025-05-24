@@ -1,34 +1,34 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; The child-snack domain 2013
+;; the child_snack domain 2013
 ;;
-;; This domain is for planning how to make and serve sandwiches for a group of
-;; children in which some are allergic to gluten. There are two actions for
-;; making sandwiches from their ingredients. The first one makes a sandwich and
+;; this domain is for planning how to make and serve sandwiches for a group of
+;; children in which some are allergic to gluten. there are two actions for
+;; making sandwiches from their ingredients. the first one makes a sandwich and
 ;; the second one makes a sandwich taking into account that all ingredients are
-;; gluten-free. There are also actions to put a sandwich on a tray, to move a tray
+;; gluten_free. there are also actions to put a sandwich on a tray, to move a tray
 ;; from one place to another and to serve sandwiches.
 ;; 
-;; Problems in this domain define the ingredients to make sandwiches at the initial
-;; state. Goals consist of having all kids served with a sandwich to which they
+;; problems in this domain define the ingredients to make sandwiches at the initial
+;; state. goals consist of having all kids served with a sandwich to which they
 ;; are not allergic.
 ;; 
-;; Created by Raquel Fuentetaja and Tomas de la Rosa
-;; See MIT License attached
+;; created by raquel fuentetaja and tomas de la rosa
+;; see mit license attached
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(define (domain child-snack)
+(define (domain child_snack)
 (:requirements :typing :equality)
-(:types child bread-portion content-portion sandwich tray place)
+(:types child bread_portion content_portion sandwich tray place)
 (:constants kitchen - place)
 
-(:predicates (at_kitchen_bread ?b - bread-portion)
-	     (at_kitchen_content ?c - content-portion)
+(:predicates (at_kitchen_bread ?b - bread_portion)
+	     (at_kitchen_content ?c - content_portion)
      	     (at_kitchen_sandwich ?s - sandwich)
-     	     (no_gluten_bread ?b - bread-portion)
-       	     (no_gluten_content ?c - content-portion)
+     	     (no_gluten_bread ?b - bread_portion)
+       	     (no_gluten_content ?c - content_portion)
       	     (ontray ?s - sandwich ?t - tray)
        	     (no_gluten_sandwich ?s - sandwich)
 	     (allergic_gluten ?c - child)
@@ -40,7 +40,7 @@
   )
 
 (:action make_sandwich_no_gluten 
-	 :parameters (?s - sandwich ?b - bread-portion ?c - content-portion)
+	 :parameters (?s - sandwich ?b - bread_portion ?c - content_portion)
 	 :precondition (and (at_kitchen_bread ?b)
 			    (at_kitchen_content ?c)
 			    (no_gluten_bread ?b)
@@ -56,7 +56,7 @@
 
 
 (:action make_sandwich
-	 :parameters (?s - sandwich ?b - bread-portion ?c - content-portion)
+	 :parameters (?s - sandwich ?b - bread_portion ?c - content_portion)
 	 :precondition (and (at_kitchen_bread ?b)
 			    (at_kitchen_content ?c)
                             (notexist ?s)

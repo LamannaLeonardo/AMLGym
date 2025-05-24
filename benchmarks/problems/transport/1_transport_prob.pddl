@@ -1,73 +1,72 @@
 
-(define (problem transport-city-sequential-8nodes-10size-3degree-10mindistance-2trucks-4packages-323seed)
+(define (problem transport_two_cities_sequential_6nodes_10size_3degree_10mindistance_1trucks_2packages_383seed)
  (:domain transport)
  (:objects
-  city-loc-1 - location
-  city-loc-2 - location
-  city-loc-3 - location
-  city-loc-4 - location
-  city-loc-5 - location
-  city-loc-6 - location
-  city-loc-7 - location
-  city-loc-8 - location
-  truck-1 - vehicle
-  truck-2 - vehicle
-  package-1 - package
-  package-2 - package
-  package-3 - package
-  package-4 - package
-  capacity-0 - capacity-number
-  capacity-1 - capacity-number
-  capacity-2 - capacity-number
-  capacity-3 - capacity-number
-  capacity-4 - capacity-number
+  city_1_loc_1 - location
+  city_2_loc_1 - location
+  city_1_loc_2 - location
+  city_2_loc_2 - location
+  city_1_loc_3 - location
+  city_2_loc_3 - location
+  city_1_loc_4 - location
+  city_2_loc_4 - location
+  city_1_loc_5 - location
+  city_2_loc_5 - location
+  city_1_loc_6 - location
+  city_2_loc_6 - location
+  truck_1 - vehicle
+  package_1 - package
+  package_2 - package
+  capacity_0 - capacity_number
+  capacity_1 - capacity_number
+  capacity_2 - capacity_number
+  capacity_3 - capacity_number
+  capacity_4 - capacity_number
  )
  (:init
   
-  (capacity-predecessor capacity-0 capacity-1)
-  (capacity-predecessor capacity-1 capacity-2)
-  (capacity-predecessor capacity-2 capacity-3)
-  (capacity-predecessor capacity-3 capacity-4)
-  (road city-loc-2 city-loc-1)
-  (road city-loc-1 city-loc-2)
-  (road city-loc-3 city-loc-1)
-  (road city-loc-1 city-loc-3)
-  (road city-loc-4 city-loc-1)
-  (road city-loc-1 city-loc-4)
-  (road city-loc-4 city-loc-2)
-  (road city-loc-2 city-loc-4)
-  (road city-loc-5 city-loc-2)
-  (road city-loc-2 city-loc-5)
-  (road city-loc-5 city-loc-4)
-  (road city-loc-4 city-loc-5)
-  (road city-loc-6 city-loc-1)
-  (road city-loc-1 city-loc-6)
-  (road city-loc-6 city-loc-4)
-  (road city-loc-4 city-loc-6)
-  (road city-loc-7 city-loc-1)
-  (road city-loc-1 city-loc-7)
-  (road city-loc-7 city-loc-3)
-  (road city-loc-3 city-loc-7)
-  (road city-loc-8 city-loc-1)
-  (road city-loc-1 city-loc-8)
-  (road city-loc-8 city-loc-3)
-  (road city-loc-3 city-loc-8)
-  (road city-loc-8 city-loc-6)
-  (road city-loc-6 city-loc-8)
-  (at package-1 city-loc-6)
-  (at package-2 city-loc-8)
-  (at package-3 city-loc-8)
-  (at package-4 city-loc-1)
-  (at truck-1 city-loc-6)
-  (capacity truck-1 capacity-2)
-  (at truck-2 city-loc-7)
-  (capacity truck-2 capacity-2)
+  (capacity_predecessor capacity_0 capacity_1)
+  (capacity_predecessor capacity_1 capacity_2)
+  (capacity_predecessor capacity_2 capacity_3)
+  (capacity_predecessor capacity_3 capacity_4)
+  (road city_1_loc_2 city_1_loc_1)
+  (road city_1_loc_1 city_1_loc_2)
+  (road city_1_loc_3 city_1_loc_1)
+  (road city_1_loc_1 city_1_loc_3)
+  (road city_1_loc_3 city_1_loc_2)
+  (road city_1_loc_2 city_1_loc_3)
+  (road city_1_loc_4 city_1_loc_2)
+  (road city_1_loc_2 city_1_loc_4)
+  (road city_1_loc_5 city_1_loc_1)
+  (road city_1_loc_1 city_1_loc_5)
+  (road city_1_loc_5 city_1_loc_2)
+  (road city_1_loc_2 city_1_loc_5)
+  (road city_1_loc_6 city_1_loc_2)
+  (road city_1_loc_2 city_1_loc_6)
+  (road city_1_loc_6 city_1_loc_4)
+  (road city_1_loc_4 city_1_loc_6)
+  (road city_2_loc_2 city_2_loc_1)
+  (road city_2_loc_1 city_2_loc_2)
+  (road city_2_loc_3 city_2_loc_2)
+  (road city_2_loc_2 city_2_loc_3)
+  (road city_2_loc_4 city_2_loc_1)
+  (road city_2_loc_1 city_2_loc_4)
+  (road city_2_loc_4 city_2_loc_2)
+  (road city_2_loc_2 city_2_loc_4)
+  (road city_2_loc_5 city_2_loc_2)
+  (road city_2_loc_2 city_2_loc_5)
+  (road city_2_loc_6 city_2_loc_3)
+  (road city_2_loc_3 city_2_loc_6)
+  (road city_1_loc_3 city_2_loc_6)
+  (road city_2_loc_6 city_1_loc_3)
+  (at package_1 city_1_loc_6)
+  (at package_2 city_1_loc_1)
+  (at truck_1 city_2_loc_1)
+  (capacity truck_1 capacity_2)
  )
  (:goal (and
-  (at package-1 city-loc-4)
-  (at package-2 city-loc-7)
-  (at package-3 city-loc-3)
-  (at package-4 city-loc-8)
+  (at package_1 city_2_loc_5)
+  (at package_2 city_2_loc_2)
  ))
  
 )
