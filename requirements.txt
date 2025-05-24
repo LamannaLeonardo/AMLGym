@@ -3,6 +3,11 @@ up-fast-downward~=0.4.1
 tarski~=0.8.2
 pddl-plus-parser==3.13.5
 anytree~=2.8.0
+pddl~=0.4.3
 pyyaml
 pandas~=2.2.3
 alive-progress~=3.2.0
+matplotlib~=3.10.3
+sympy~=1.14.0
+scikit-learn~=1.6.1
+openpyxl~=3.1.5
