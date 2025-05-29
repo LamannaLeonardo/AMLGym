@@ -1,5 +1,5 @@
-# This configuration file contains 10 small and medium-sized problem settings for every domain.
-SEED: 123  # random seed
+# This configuration file contains 10 small/medium-sized problem settings for every domain.
+SEED: 789  # random seed
 domains:
   blocksworld:
     - ops: 4 # domain operators

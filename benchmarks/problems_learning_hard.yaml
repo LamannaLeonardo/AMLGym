@@ -1,0 +1,165 @@
+# This configuration file contains 2 medium-sized problem settings for every domain.
+SEED: 123
+domains:
+  barman:
+  - num_cocktails: 6
+    num_ingredients: 7
+    num_shots: 6
+  - num_cocktails: 6
+    num_ingredients: 8
+    num_shots: 7
+  blocksworld:
+  - num: 11
+    ops: 4
+  - num: 12
+    ops: 4
+  childsnack:
+  - children: 7
+    gluten_factor: 0.4
+    trays: 4
+  - children: 7
+    gluten_factor: 0.6
+    trays: 3
+  depots:
+  - c: 4
+    e: 6
+    h: 4
+    i: 4
+    p: 6
+    t: 4
+  - c: 5
+    e: 6
+    h: 5
+    i: 5
+    p: 6
+    t: 5
+  elevators:
+  - area_size: 7
+    fast_capacity: 2
+    fast_elevators: 1
+    floors: 7
+    passengers: 7
+    slow_capacity: 2
+    slow_elevators: 1
+  - area_size: 7
+    fast_capacity: 2
+    fast_elevators: 1
+    floors: 7
+    passengers: 7
+    slow_capacity: 2
+    slow_elevators: 2
+  ferry:
+  - c: 13
+    l: 11
+  - c: 10
+    l: 12
+  floortile:
+  - mode_flag: seq
+    num_columns: 7
+    num_robots: 3
+    num_rows: 8
+  - mode_flag: seq
+    num_columns: 8
+    num_robots: 4
+    num_rows: 8
+  goldminer:
+  - c: 6
+    r: 5
+  - c: 6
+    r: 6
+  grippers:
+  - n: 3
+    o: 5
+    r: 11
+  - n: 4
+    o: 6
+    r: 12
+  matchingbw:
+  - n: 11
+  - n: 12
+  miconic:
+  - f: 7
+    p: 9
+  - f: 8
+    p: 6
+  nomystery:
+  - c: 1
+    l: 7
+    m: 1
+    n: 1.5
+    p: 5
+  - c: 1
+    l: 7
+    m: 1
+    n: 1.5
+    p: 9
+  npuzzle:
+  - n: 5
+  - n: 5
+  parking:
+  - cars: 10
+    curbs: 7
+  - cars: 12
+    curbs: 7
+  rovers:
+  - c: 6
+    g: 7
+    o: 5
+    r: 5
+    w: 11
+  - c: 6
+    g: 7
+    o: 6
+    r: 5
+    w: 12
+  satellite:
+  - i: 3
+    m: 5
+    o: 8
+    s: 7
+    t: 6
+  - i: 3
+    m: 6
+    o: 8
+    s: 7
+    t: 6
+  sokoban:
+  - b: 3
+    n: 10
+    w: 20
+  - b: 3
+    n: 10
+    w: 30
+  spanner:
+  - locations: 11
+    nuts: 9
+    spanners: 9
+  - locations: 12
+    nuts: 9
+    spanners: 9
+  tpp:
+  - d: 4
+    l: 5
+    m: 5
+    p: 6
+    t: 3
+  - d: 4
+    l: 5
+    m: 6
+    p: 6
+    t: 3
+  transport:
+  - degree: 3
+    generator: three-cities
+    mindistance: 10
+    n: 10
+    packages: 6
+    size: 10
+    trucks: 3
+  - degree: 3
+    generator: three-cities
+    mindistance: 10
+    n: 12
+    packages: 8
+    size: 10
+    trucks: 4
