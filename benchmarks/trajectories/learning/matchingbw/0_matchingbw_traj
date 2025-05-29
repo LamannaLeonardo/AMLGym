@@ -1,0 +1,21 @@
+(:trajectory
+
+(:state (block_negative b2) (block_negative b3) (block_positive b1) (clear b1) (clear b3) (empty h1) (empty h2) (hand_negative h2) (hand_positive h1) (on b1 b2) (on_table b2) (on_table b3) (solid b1) (solid b2) (solid b3))
+
+(:action (pickup h2 b3))
+
+(:state (block_negative b2) (block_negative b3) (block_positive b1) (clear b1) (empty h1) (hand_negative h2) (hand_positive h1) (holding h2 b3) (on b1 b2) (on_table b2) (solid b1) (solid b2) (solid b3))
+
+(:action (unstack h1 b1 b2))
+
+(:state (block_negative b2) (block_negative b3) (block_positive b1) (clear b2) (hand_negative h2) (hand_positive h1) (holding h1 b1) (holding h2 b3) (on_table b2) (solid b1) (solid b2) (solid b3))
+
+(:action (stack_neg_neg h2 b3 b2))
+
+(:state (block_negative b2) (block_negative b3) (block_positive b1) (clear b3) (empty h2) (hand_negative h2) (hand_positive h1) (holding h1 b1) (on b3 b2) (on_table b2) (solid b1) (solid b2) (solid b3))
+
+(:action (stack_pos_pos h1 b1 b3))
+
+(:state (block_negative b2) (block_negative b3) (block_positive b1) (clear b1) (empty h1) (empty h2) (hand_negative h2) (hand_positive h1) (on b1 b3) (on b3 b2) (on_table b2) (solid b1) (solid b2) (solid b3))
+
+)

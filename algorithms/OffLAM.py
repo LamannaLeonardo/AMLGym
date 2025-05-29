@@ -14,6 +14,12 @@ from algorithms.offlam.main import learn
 
 
 class OffLAM(AlgorithmAdapter):
+    """
+    Adapter class for running the OffLAM algorithm: "Lifted Action Models Learning
+    from Partial Traces", L. Lamanna, L. Serafini, A. Saetti, A. Gerevini,
+    and P. Traverso, Artificial Intelligence Journal, 2025.
+    https://www.sciencedirect.com/science/article/abs/pii/S0004370224001929
+    """
 
     def __init__(self, **kwargs):
         super(OffLAM, self).__init__(**kwargs)
@@ -35,7 +41,7 @@ class OffLAM(AlgorithmAdapter):
         # Learn action model
         model = learn(domain_file, filled_traj_paths)
 
-        # TODO: tmp patch, change OffLAM code
+        # TODO: open issue in OffLAM
         model = model.replace("(:requirements)", "(:requirements :typing)")
 
         # Remove temporary files

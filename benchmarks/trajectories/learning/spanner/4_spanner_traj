@@ -1,0 +1,77 @@
+(:trajectory
+
+(:state (at bob shed) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner2 location1) (at spanner3 location7) (at spanner4 location2) (at spanner5 location3) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk shed location1 bob))
+
+(:state (at bob location1) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner2 location1) (at spanner3 location7) (at spanner4 location2) (at spanner5 location3) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (pickup_spanner location1 spanner2 bob))
+
+(:state (at bob location1) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (at spanner4 location2) (at spanner5 location3) (carrying bob spanner2) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk location1 location2 bob))
+
+(:state (at bob location2) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (at spanner4 location2) (at spanner5 location3) (carrying bob spanner2) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (pickup_spanner location2 spanner4 bob))
+
+(:state (at bob location2) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (at spanner5 location3) (carrying bob spanner2) (carrying bob spanner4) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk location2 location3 bob))
+
+(:state (at bob location3) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (at spanner5 location3) (carrying bob spanner2) (carrying bob spanner4) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (pickup_spanner location3 spanner5 bob))
+
+(:state (at bob location3) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (carrying bob spanner2) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk location3 location4 bob))
+
+(:state (at bob location4) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (carrying bob spanner2) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk location4 location5 bob))
+
+(:state (at bob location5) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (carrying bob spanner2) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk location5 location6 bob))
+
+(:state (at bob location6) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (carrying bob spanner2) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk location6 location7 bob))
+
+(:state (at bob location7) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (at spanner3 location7) (carrying bob spanner2) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (pickup_spanner location7 spanner3 bob))
+
+(:state (at bob location7) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (at spanner1 location7) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (pickup_spanner location7 spanner1 bob))
+
+(:state (at bob location7) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (carrying bob spanner1) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (walk location7 gate bob))
+
+(:state (at bob gate) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (carrying bob spanner1) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (useable spanner1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (tighten_nut gate spanner1 bob nut1))
+
+(:state (at bob gate) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (carrying bob spanner1) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut2) (loose nut3) (loose nut4) (loose nut5) (tightened nut1) (useable spanner2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (tighten_nut gate spanner2 bob nut2))
+
+(:state (at bob gate) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (carrying bob spanner1) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut3) (loose nut4) (loose nut5) (tightened nut1) (tightened nut2) (useable spanner3) (useable spanner4) (useable spanner5))
+
+(:action (tighten_nut gate spanner3 bob nut3))
+
+(:state (at bob gate) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (carrying bob spanner1) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut4) (loose nut5) (tightened nut1) (tightened nut2) (tightened nut3) (useable spanner4) (useable spanner5))
+
+(:action (tighten_nut gate spanner4 bob nut4))
+
+(:state (at bob gate) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (carrying bob spanner1) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (loose nut5) (tightened nut1) (tightened nut2) (tightened nut3) (tightened nut4) (useable spanner5))
+
+(:action (tighten_nut gate spanner5 bob nut5))
+
+(:state (at bob gate) (at nut1 gate) (at nut2 gate) (at nut3 gate) (at nut4 gate) (at nut5 gate) (carrying bob spanner1) (carrying bob spanner2) (carrying bob spanner3) (carrying bob spanner4) (carrying bob spanner5) (link location1 location2) (link location2 location3) (link location3 location4) (link location4 location5) (link location5 location6) (link location6 location7) (link location7 gate) (link shed location1) (tightened nut1) (tightened nut2) (tightened nut3) (tightened nut4) (tightened nut5))
+
+)

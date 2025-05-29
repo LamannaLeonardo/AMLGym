@@ -1,13 +1,10 @@
+import json
 import logging
 import os
 import sys
 import time
-from datetime import datetime
-
-import pandas as pd
 from pddl import parse_domain
 import algorithms
-from evaluation.evaluator import evaluate
 
 
 def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
@@ -30,7 +27,7 @@ def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
 
 if __name__ == '__main__':
 
-    TRAJ_DIR = 'benchmarks/trajectories'
+    TRAJ_DIR = 'benchmarks/trajectories/learning'
     DOM_DIR = 'benchmarks/domains'
     RES_DIR = 'res'
 
@@ -39,8 +36,7 @@ if __name__ == '__main__':
         # level=logging.INFO
     )
 
-    # methods = ['SAM', 'OffLAM', 'NOLAM']
-    methods = ['SAM']
+    methods = ['SAM', 'OffLAM', 'NOLAM']
 
     for alg_class in methods:
 
@@ -53,10 +49,9 @@ if __name__ == '__main__':
         os.makedirs(f"{RES_DIR}/{alg_class}", exist_ok=True)
         run_dir = f"{RES_DIR}/{alg_class}/run{len(os.listdir(f'{RES_DIR}/{alg_class}'))}"
         os.makedirs(run_dir, exist_ok=True)
-        agent_metrics = []
+        metrics = dict()
 
         to_be_avoided = []
-
 
         for domain in [d for d in sorted(os.listdir(TRAJ_DIR)) if d not in to_be_avoided]:
 
@@ -93,15 +88,10 @@ if __name__ == '__main__':
             with open(f"{run_dir}/{domain}_learned.pddl", 'w') as f:
                 f.write(model)
 
-            # Evaluate learned model
-            metrics = evaluate(model_path, domain_path)
-            agent_metrics.append({
-                'domain': domain,
+            # Evaluate CPU time model
+            metrics[domain] = {
                 'CPU time (s)': round((time.perf_counter() - run_start), 2),
-                **metrics
-            })
+            }
 
-        # Save metrics
-        pd.DataFrame(agent_metrics).to_excel(f"{run_dir}/metrics.xlsx", index=False, float_format='%.2f')
-
-
+        with open(f"{run_dir}/metrics.json", 'w') as f:
+            json.dump(metrics, f, indent=2)

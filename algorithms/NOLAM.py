@@ -14,6 +14,12 @@ from algorithms.nolam.NOLAM.Learner import Learner
 
 
 class NOLAM(AlgorithmAdapter):
+    """
+    Adapter class for running the NOLAM algorithm: "Action Model Learning from Noisy
+    Traces: a Probabilistic Approach", L. Lamanna and L. Serafini, Proceedings of the
+    Thirty-Fourth International Conference on Automated Planning and Scheduling, 2024.
+    https://ojs.aaai.org/index.php/ICAPS/article/view/31493)
+    """
 
     def __init__(self, **kwargs):
         super(NOLAM, self).__init__(**kwargs)
