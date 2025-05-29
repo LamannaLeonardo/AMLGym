@@ -1,7 +1,7 @@
 unified-planning~=1.2.0
 up-fast-downward~=0.4.1
 tarski~=0.8.2
-pddl-plus-parser==3.13.5
+pddl-plus-parser==3.14.7
 anytree~=2.8.0
 pddl~=0.4.3
 pyyaml
@@ -11,3 +11,4 @@ matplotlib~=3.10.3
 sympy~=1.14.0
 scikit-learn~=1.6.1
 openpyxl~=3.1.5
+clingo~=5.7.1
