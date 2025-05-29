@@ -60,8 +60,10 @@ def barplot_metric(metric: str,
                    img_file_path: str) -> None:
 
     # get metrics for each algorithm and run
+    algs = [a for a in os.listdir(RES_DIR) if '.' not in a]
+
     alg_stats = defaultdict(list)
-    for alg in os.listdir(RES_DIR):
+    for alg in algs:
         for run in [d for d in os.listdir(os.path.join(RES_DIR, alg)) if '.DS_' not in d]:
             alg_stats[alg].append(pd.read_excel(f"{RES_DIR}/{alg}/{run}/metrics.xlsx"))
 
@@ -97,17 +99,69 @@ def barplot_metric(metric: str,
     # barplot_df = barplot_df.loc[avg_metric['domain']]
 
     # plot grouped bar chart
-    barplot_df.plot(kind='bar', figsize=(12, 6), alpha=.8, color=[color_map[next(colors)]
-                                                                  for _ in range(len(avg_alg_stats))])
-    plt.legend(prop={'size': 13})
+    barplot_df.plot(
+        # kind='barh',
+        # figsize=(6, 6),
+        kind='bar',
+        figsize=(12, 6),
+        alpha=.8,
+        color=[color_map[next(colors)] for _ in range(len(avg_alg_stats))])
+
+    plt.legend(prop={'size': 13}, loc='lower left')
 
     # plt.title('Average number of objects')
     plt.xlabel('')
-    plt.ylabel(f'Avg {metric}', size=18)
-    plt.xticks(rotation=70, size=13)
+    plt.ylabel(f'{metric.replace("_", " ").capitalize()}', size=18)
+    plt.ylabel('')
+    # plt.ylabel(f'Avg applicability precision', size=18)
+    plt.xticks(
+        # [i * 0.1 for i in range(11)],
+        rotation=70, size=13)
     plt.yticks(rotation=0, size=13)
     plt.tight_layout()
     plt.savefig(img_file_path)
+
+
+def print_best_table():
+
+    # get metrics for each algorithm and run
+    run = 'run0'
+
+    sam = pd.read_excel(f"{RES_DIR}/SAM/{run}/metrics.xlsx")
+    offlam = pd.read_excel(f"{RES_DIR}/OffLAM/{run}/metrics.xlsx")
+    nolam = pd.read_excel(f"{RES_DIR}/NOLAM/{run}/metrics.xlsx")
+
+    # Label the dataframes
+    labeled_dfs = {'1': sam, '2': offlam, '3': nolam}
+
+    # Stack dataframes into a single multi-indexed dataframe
+    combined = pd.concat(labeled_dfs, names=['Algorithm'])
+
+    # Unstack so each column becomes a 3D array: (index, column, algorithm)
+    stacked = combined.stack().unstack('Algorithm')
+
+    # Compute the best value (e.g., max) for each cell
+    best_values = stacked.max(axis=1)  # or min(axis=1) for minimization
+
+    # Find labels that achieved the best value
+    best_labels = stacked.eq(best_values, axis=0)
+
+    # For each cell, get the list of algorithm names that matched the best value
+    # labels_per_cell = best_labels.apply(lambda row: f"$^{{{','.join(row.index[row].tolist())}}}$", axis=1)
+    labels_per_cell = best_labels.apply(lambda row: ','.join(row.index[row].tolist()), axis=1)
+
+    # Combine best value and labels in a readable format
+    result = best_values.astype(str) + ' $^{' + labels_per_cell + '}$'
+
+    # Reshape back to original dataframe shape
+    final_result = result.unstack()
+
+    # # Write best results into xlsx
+    # writer = pd.ExcelWriter('bests.xlsx', engine='xlsxwriter')
+    # final_result.to_excel(writer, index=False, float_format="%.2f")
+    # writer.close()
+
+    final_result.to_latex(f'{RES_DIR}/res_bests.tex', index=False, float_format="%.2f")
 
 
 if __name__ == '__main__':
@@ -116,7 +170,6 @@ if __name__ == '__main__':
     RES_DIR = "../res"
 
     logging.basicConfig(level=logging.INFO)
-    # logging.basicConfig(level=logging.DEBUG)
 
     colors = cycle(['blue', 'green', 'orange'])
     palette = seaborn.color_palette("Paired")
@@ -129,6 +182,15 @@ if __name__ == '__main__':
     }
 
     # Plot metric for every domain
-    # plot_metric('Precision', "precision.png")
-    barplot_metric('Precision', "../benchmarks/precision.png")
-    barplot_metric('Recall', "../benchmarks/recall.png")
+    # plot_metric('syn precision', "../benchmarks/syn_precision.png")
+
+    # barplot_metric('syn precision', f"{RES_DIR}/syn_precision.png")
+    # barplot_metric('syn recall', f"{RES_DIR}/syn_recall.png")
+    # barplot_metric('app precision', f"{RES_DIR}/app_precision.png")
+    # barplot_metric('app recall', f"{RES_DIR}/app_recall.png")
+    # barplot_metric('predicted_effects precision', f"{RES_DIR}/predeffs_precision.png")
+    # barplot_metric('predicted_effects recall', f"{RES_DIR}/predeffs_recall.png")
+    # barplot_metric('solving_ratio', f"{RES_DIR}/solving.png")
+    # barplot_metric('false_plans_ratio', f"{RES_DIR}/false_plans.png")
+
+    # print_best_table()
