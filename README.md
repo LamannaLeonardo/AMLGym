@@ -7,7 +7,8 @@
 
 </div>
 
-Official code for benchmark generation and evaluation of action model learning approaches.
+Official code for benchmark generation and evaluation of action model 
+learning approaches.
 
 
 ## Getting Started
@@ -36,14 +37,16 @@ cd aml-evaluation && pip install -r requirements.txt
 
 
 ## State-of-the-art Algorithms
-This repository provides seamless integration with state-of-the-art algorithms for offline learning 
-classical planning domains from an input set of trajectories in the following settings:
+This repository provides seamless integration with state-of-the-art algorithms 
+for offline learning classical planning domains from an input set of 
+trajectories in the following settings:
 1. **full** observability: SAM [1].
 2. **partial** observability: OffLAM [2].
 3. **full** and **noisy** observability: NOLAM [3].
 
-It is possible to run the above algorithms as of the `main.py` script, which by default runs SAM, OffLAM and NOLAM 
-on every domain and associated set of trajectories in `benchmarks/trajectories`.
+It is possible to run the above algorithms as of the `main.py` script, 
+which by default runs SAM, OffLAM and NOLAM on every domain and associated 
+set of trajectories in `benchmarks/trajectories/learning`.
 
 
 [1] ["Safe Learning of Lifted Action Models", B. Juba and H. S. Le, and R. Stern, 
@@ -73,7 +76,24 @@ new class file, where `newalg` is the new algorithm name.
 
 
 ## Evaluation
-TBD
+
+We evaluate the learned models by means of several metrics:
+1. _Syntactic_ precision and recall 
+   - to compute the syntactic metrics, we adopted the IPC domain models 
+   as reference ones;
+2. _Predicted_ applicability and effects
+   - for each domain, we generated a set of 100 traces by optimally solving 
+   small-sized problems and interleaving plan execution with random action 
+   executions with 20% probability, such that the problem does not become 
+   unfeasible.
+3. _Solvability_ metrics
+   - to evaluate the problem solving metrics, we generated a test set of 10 
+   small/medium-sized problems
+
+> [!NOTE]
+> **Reproducibility**: the benchmark generation process and evaluation results 
+> are fully reproducible.
+
 
 
 ## Benchmark Generation
@@ -113,7 +133,7 @@ python stats.py
 
 
 ### Domain selection
-The selected domains are the ones adopted in previous IPC learning tracks:
+The adopted domains are the ones adopted in previous IPC learning tracks:
 1. [IPC 2008 Learning Track](https://ipc08.icaps-conference.org/learning/): `goldminer`, `matchingbw`, `npuzzle`, 
 `parking` and `sokoban`
 > [!WARNING]
@@ -128,8 +148,8 @@ The selected domains are the ones adopted in previous IPC learning tracks:
 `childsnack`, `ferry`, `floortile`, `miconic`, `rovers`, `satellite`, `sokoban`,
 `spanner` and `transport`.
 > [!WARNING]
-> `childsnack`: for consistency with other domains, we adopted the original domain version 
->  without negative preconditions.
+> `childsnack`: for compatibility with the problems generator, we adopted the original domain 
+> version without negative preconditions.
 
 Therefore the following set of 20 classical planning domains:
 
@@ -354,38 +374,3 @@ Therefore the following set of 20 classical planning domains:
     </tr>
   </tbody>
 </table>
-
-
-### Trajectories generation
-1. **Reproducibility**: the trajectory generation process is fully reproducible and can be randomized according to 
-a random seed.
-2. **Bias mitigation**: the bias in the initial and final states of every trajectory is mitigated by: 
-   1. planning to reach a random goal from a random initial state; 
-   2. executing the plan by interleaving random actions according to some probability (set to `0.2`); the random
-   actions are selected such that the problem remains feasible, and after executing a random action a new plan is produced.
-   3. randomly selecting a subtrajectory from the ones generated in the two previous steps.
-      - The initial/final state of the trajectory is randomly sampled among: [initial, final, mid] 
-   with uniform probability. This is because otherwise there are operators that are unlikely to 
-   appear in the trajectory (e.g. in `goldminer` the `pick-gold` action is typically the last plan 
-   action, which makes it very unlikely to appear in a subtrajectory.
-3. **Variability**: in terms of trajectory length (ranging from `5` to `30`) and number of problem objects.
-      - The 30% of problems are optimally solved to make it easier to include all operators in 
-    the trajectories; for example, in `barman` a non-optimal agent is not likely to execute the 
-   operator `refill-shot`, which uses a shot twice without unnecessarily cleaning it before; contrarily,  
-   `refill-shot` is likely to appear in an optimal plan.
-      - Every operator is executed at least once in the set of 10 trajectories of every domain.
-      - For every domain, the 10 problems from which the trajectories have been derived are generated with 
-   different configurations (in terms of number of objects of each types). However, `npuzzle` does not respect this
-   requirement, since there is only one object type and linearly increase it leads to problem that are too difficult
-   to solve in a reasonable amount of time (i.e. less than 2 hours per problem), which prohibits the planning and 
-   replanning involved by the trajectory generation process.
-
-
-<div align="center">
-  <a href="benchmarks/objects.png">
-    <img src="benchmarks/objects.png" width="45%" style="margin-right: 2%;" />
-  </a>
-  <a href="benchmarks/states.png">
-    <img src="benchmarks/states.png" width="45%" />
-  </a>
-</div>
