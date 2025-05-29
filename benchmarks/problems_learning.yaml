@@ -1,0 +1,902 @@
+# This configuration file contains 10 small and medium-sized problem settings for every domain.
+SEED: 123  # random seed
+domains:
+  blocksworld:
+    - ops: 4 # domain operators
+      num: 3 # number of blocks
+    - ops: 4
+      num: 4
+    - ops: 4
+      num: 5
+    - ops: 4
+      num: 6
+    - ops: 4
+      num: 7
+    - ops: 4
+      num: 8
+    - ops: 4
+      num: 9
+    - ops: 4
+      num: 10
+    - ops: 4
+      num: 11
+    - ops: 4
+      num: 12
+  depots:
+    - e: 2 # depots
+      i: 2 # distributors
+      t: 2 # trucks
+      p: 2 # pallets
+      h: 2 # hoists
+      c: 2 # crates
+    - e: 2
+      i: 3
+      t: 2
+      p: 2
+      h: 2
+      c: 2
+    - e: 3
+      i: 2
+      t: 2
+      p: 3
+      h: 2
+      c: 2
+    - e: 3
+      i: 3
+      t: 3
+      p: 3
+      h: 3
+      c: 3
+    - e: 4
+      i: 3
+      t: 3
+      p: 4
+      h: 3
+      c: 3
+    - e: 4
+      i: 4
+      t: 3
+      p: 4
+      h: 3
+      c: 3
+    - e: 5
+      i: 3
+      t: 4
+      p: 5
+      h: 4
+      c: 4
+    - e: 5
+      i: 4
+      t: 4
+      p: 5
+      h: 4
+      c: 4
+    - e: 6
+      i: 4
+      t: 4
+      p: 6
+      h: 4
+      c: 4
+    - e: 6
+      i: 5
+      t: 5
+      p: 6
+      h: 5
+      c: 5
+#  driverlog:
+#    - road_junctions: 2
+#      drivers: 3
+#      packages: 1  # incremental from 1 to 10
+#      trucks: 1  # drivers - 2
+#    - road_junctions: 2
+#      drivers: 3
+#      packages: 2
+#      trucks: 5  # drivers + 2
+#    - road_junctions: 3
+#      drivers: 4
+#      packages: 3
+#      trucks: 2  # drivers - 2
+#    - road_junctions: 3
+#      drivers: 4
+#      packages: 4
+#      trucks: 6  # drivers + 2
+#    - road_junctions: 4
+#      drivers: 5
+#      packages: 5
+#      trucks: 3  # drivers - 2
+#    - road_junctions: 4
+#      drivers: 5
+#      packages: 6
+#      trucks: 5  # drivers + 2
+#    - road_junctions: 5
+#      drivers: 6
+#      packages: 7
+#      trucks: 4  # drivers - 2
+#    - road_junctions: 5
+#      drivers: 6
+#      packages: 8
+#      trucks: 8  # drivers + 2
+#    - road_junctions: 6
+#      drivers: 7
+#      packages: 9
+#      trucks: 5  # drivers - 2
+#    - road_junctions: 6
+#      drivers: 7
+#      packages: 10
+#      trucks: 9  # drivers + 2
+  barman:
+    - num_cocktails: 2
+      num_ingredients: 3
+      num_shots: 2
+    - num_cocktails: 2
+      num_ingredients: 4
+      num_shots: 2
+    - num_cocktails: 3
+      num_ingredients: 4
+      num_shots: 3
+    - num_cocktails: 3
+      num_ingredients: 5
+      num_shots: 3
+    - num_cocktails: 4
+      num_ingredients: 5
+      num_shots: 4
+    - num_cocktails: 4
+      num_ingredients: 6
+      num_shots: 4
+    - num_cocktails: 5
+      num_ingredients: 6
+      num_shots: 5
+    - num_cocktails: 5
+      num_ingredients: 7
+      num_shots: 5
+    - num_cocktails: 6
+      num_ingredients: 7
+      num_shots: 6
+    - num_cocktails: 6
+      num_ingredients: 8
+      num_shots: 7
+  ferry:
+    - l: 3 # number of locations
+      c: 2 # number of cars = number of locations + 2
+    - l: 4
+      c: 2 # number of locations - 2
+    - l: 5
+      c: 7 # number of locations + 2
+    - l: 6
+      c: 4 # number of locations - 2
+    - l: 7
+      c: 9 # number of locations + 2
+    - l: 8
+      c: 6 # number of locations - 2
+    - l: 9
+      c: 11 # number of locations + 2
+    - l: 10
+      c: 8 # number of locations - 2
+    - l: 11
+      c: 13 # number of locations + 2
+    - l: 12
+      c: 10 # number of locations - 2
+  floortile:
+    - num_rows: 5 # number of rows
+      num_columns: 5 # number of columns
+      num_robots: 1 # number of robots
+      mode_flag: seq # mode (seq or time)
+    - num_rows: 5
+      num_columns: 6
+      num_robots: 1
+      mode_flag: seq
+    - num_rows: 6
+      num_columns: 5
+      num_robots: 1
+      mode_flag: seq
+    - num_rows: 6
+      num_columns: 6
+      num_robots: 2
+      mode_flag: seq
+    - num_rows: 6
+      num_columns: 7
+      num_robots: 2
+      mode_flag: seq
+    - num_rows: 7
+      num_columns: 6
+      num_robots: 2
+      mode_flag: seq
+    - num_rows: 7
+      num_columns: 7
+      num_robots: 3
+      mode_flag: seq
+    - num_rows: 7
+      num_columns: 8
+      num_robots: 3
+      mode_flag: seq
+    - num_rows: 8
+      num_columns: 7
+      num_robots: 3
+      mode_flag: seq
+    - num_rows: 8
+      num_columns: 8
+      num_robots: 4
+      mode_flag: seq
+  goldminer:
+    - r: 3 # number of rows
+      c: 3 # number of columns
+    - r: 3
+      c: 4
+    - r: 4
+      c: 3
+    - r: 4
+      c: 4
+    - r: 5
+      c: 4
+    - r: 4
+      c: 5
+    - r: 5
+      c: 5
+    - r: 6
+      c: 5
+    - r: 5
+      c: 6
+    - r: 6
+      c: 6
+#  grid:
+#    - x: 3 # horizontal extension of grid
+#      y: 3 # vertical extension of grid
+#      t: 1 # number of different key and lock types
+##      p: [100] # probability, for any key, to be mentioned in the goal
+#      k: [1] # number of keys vector (one 0 .. 9 entry for each type)
+#      l: [1] # number of locks vector (one 0 .. 9 entry for each type)
+#    - x: 4
+#      y: 3
+#      t: 1
+#      k: [2]
+#      l: [2]
+#    - x: 3
+#      y: 4
+#      t: 2
+#      k: [1, 2]
+#      l: [1, 1]
+#    - x: 4
+#      y: 4
+#      t: 2
+#      k: [1, 1]
+#      l: [2, 2]
+#    - x: 5
+#      y: 4
+#      t: 3
+#      k: [2, 2, 2]
+#      l: [2, 2, 2]
+#    - x: 4
+#      y: 5
+#      t: 3
+#      k: [1, 1, 2]
+#      l: [3, 3, 3]
+#    - x: 5
+#      y: 5
+#      t: 4
+#      k: [2, 2, 2, 2]
+#      l: [3, 3, 3, 3]
+#    - x: 6
+#      y: 5
+#      t: 4
+#      k: [1, 1, 2, 2]
+#      l: [4, 4, 4, 4]
+#    - x: 5
+#      y: 6
+#      t: 5
+#      k: [2, 2, 2, 2, 2]
+#      l: [3, 3, 3, 3, 3]
+#    - x: 6
+#      y: 6
+#      t: 5
+#      k: [1, 1, 2, 2, 3]
+#      l: [4, 4, 4, 4, 4]
+  grippers:
+    - n: 1 # number of robots
+      r: 3 # number of rooms
+      o: 1 # number of balls
+    - n: 1
+      r: 4
+      o: 2
+    - n: 1
+      r: 5
+      o: 2
+    - n: 2
+      r: 6
+      o: 3
+    - n: 2
+      r: 7
+      o: 3
+    - n: 2
+      r: 8
+      o: 4
+    - n: 3
+      r: 9
+      o: 4
+    - n: 3
+      r: 10
+      o: 5
+    - n: 3
+      r: 11
+      o: 5
+    - n: 4
+      r: 12
+      o: 6
+#  hanoi:
+#    - n: 2 # number of discs
+#    - n: 3
+#    - n: 4
+#    - n: 5
+#    - n: 6
+#    - n: 7
+#    - n: 8
+#    - n: 9
+#    - n: 10
+#    - n: 11
+  matchingbw:
+    - n: 3 # number of blocks
+    - n: 4
+    - n: 5
+    - n: 6
+    - n: 7
+    - n: 8
+    - n: 9
+    - n: 10
+    - n: 11
+    - n: 12
+#  matchingbwOLD:
+#    - n: 2 # number of blocks
+#    - n: 3
+#    - n: 4
+#    - n: 5
+#    - n: 6
+#    - n: 7
+#    - n: 8
+#    - n: 9
+#    - n: 10
+#    - n: 11
+  miconic:
+    - f: 3 # number of floors
+      p: 3 # number of passengers
+    - f: 4
+      p: 2 # number of floors - 2
+    - f: 4
+      p: 6 # number of floors + 2
+    - f: 5
+      p: 3 # number of floors - 2
+    - f: 5
+      p: 7 # number of floors + 2
+    - f: 6
+      p: 4 # number of floors - 2
+    - f: 6
+      p: 8 # number of floors + 2
+    - f: 7
+      p: 5 # number of floors - 2
+    - f: 7
+      p: 9 # number of floors + 2
+    - f: 8
+      p: 6 # number of floors - 2
+  npuzzle:
+    - n: 2 # number of rows/columns
+    - n: 3
+    - n: 3
+    - n: 3
+    - n: 4
+    - n: 4
+    - n: 4
+    - n: 5
+    - n: 5
+    - n: 5
+#  npuzzle:
+#    - n: 2 # number of rows/columns
+#    - n: 3
+#    - n: 4
+#    - n: 5
+#    - n: 6
+#    - n: 7
+#    - n: 8
+#    - n: 9
+#    - n: 10
+#    - n: 11
+  nomystery:
+    - l: 3 # number of locations
+      p: 2 # number of packages
+      n: 1.5 # number of edges in location graph (default 1.5)
+      m: 1 # maximum edge weights (default 25)
+      c: 1 # constrainedness: <-c> * <optimalcost> is the initial fuel supply (default 1)
+    - l: 3
+      p: 5 # number of locations + 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 4
+      p: 2 # number of locations - 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 4
+      p: 6 # number of locations + 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 5
+      p: 3 # number of locations - 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 5
+      p: 7 # number of locations + 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 6
+      p: 4 # number of locations - 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 6
+      p: 8 # number of locations + 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 7
+      p: 5 # number of locations - 2
+      n: 1.5
+      m: 1
+      c: 1
+    - l: 7
+      p: 9 # number of locations + 2
+      n: 1.5
+      m: 1
+      c: 1
+  parking:
+    - curbs: 3 # number of curbs
+      cars: 3 # number of cars
+    - curbs: 3
+      cars: 4 # 2 * (curbs - 1)
+    - curbs: 4
+      cars: 4 # 2 * (curbs - 2)
+    - curbs: 4
+      cars: 6 # 2 * (curbs - 1)
+    - curbs: 5
+      cars: 6 # 2 * (curbs - 2)
+    - curbs: 5
+      cars: 8 # 2 * (curbs - 1)
+    - curbs: 6
+      cars: 8 # 2 * (curbs - 2)
+    - curbs: 6
+      cars: 10 # 2 * (curbs - 1)
+    - curbs: 7
+      cars: 10 # 2 * (curbs - 2)
+    - curbs: 7
+      cars: 12 # 2 * (curbs - 1)
+  rovers:
+    - r: 1 # number of rovers
+      w: 3 # number of waypoints
+      o: 1 # number of objectives
+      c: 1 # number of cameras
+      g: 3 # number of goals
+    - r: 1
+      w: 4 # 2 * r + 2
+      o: 2
+      c: 2 # r + 1
+      g: 3
+    - r: 2
+      w: 5 # 2 * r + 1
+      o: 2
+      c: 3 # r + 1
+      g: 4
+    - r: 2
+      w: 6 # 2 * r + 2
+      o: 3
+      c: 3 # r + 1
+      g: 4
+    - r: 3
+      w: 7 # 2 * r + 1
+      o: 3
+      c: 4 # r + 1
+      g: 5
+    - r: 3
+      w: 8 # 2 * r + 2
+      o: 4
+      c: 4 # r + 1
+      g: 5
+    - r: 4
+      w: 9 # 2 * r + 1
+      o: 4
+      c: 5 # r + 1
+      g: 6
+    - r: 4
+      w: 10 # 2 * r + 2
+      o: 5
+      c: 5 # r + 1
+      g: 6
+    - r: 5
+      w: 11 # 2 * r + 1
+      o: 5
+      c: 6 # r + 1
+      g: 7
+    - r: 5
+      w: 12 # 2 * r + 2
+      o: 6
+      c: 6 # r + 1
+      g: 7
+  satellite:
+    - s: 3 # number of satellites
+      i: 1 # maximum number of instruments/satellite
+      m: 1 # number of modes
+      t: 1 # number of targets
+      o: 1 # number of observations
+    - s: 3
+      i: 1
+      m: 2
+      t: 2 # s - 1
+      o: 4 # s + 1
+    - s: 4
+      i: 1
+      m: 2
+      t: 3 # s - 1
+      o: 5 # s + 1
+    - s: 4
+      i: 1
+      m: 3
+      t: 3 # s - 1
+      o: 5 # s + 1
+    - s: 5
+      i: 2
+      m: 3
+      t: 4 # s - 1
+      o: 6 # s + 1
+    - s: 5
+      i: 2
+      m: 4
+      t: 4 # s - 1
+      o: 6 # s + 1
+    - s: 6
+      i: 2
+      m: 4
+      t: 5 # s - 1
+      o: 7 # s + 1
+    - s: 6
+      i: 2
+      m: 5
+      t: 5 # s - 1
+      o: 7 # s + 1
+    - s: 7
+      i: 3
+      m: 5
+      t: 6 # s - 1
+      o: 8 # s + 1
+    - s: 7
+      i: 3
+      m: 6
+      t: 6 # s - 1
+      o: 8 # s + 1
+  sokoban:
+    - n: 5
+      b: 1
+      w: 10 # n
+    - n: 5
+      b: 1
+      w: 15 # n + ceil(n / 2)
+    - n: 6
+      b: 1
+      w: 12 # 2 n
+    - n: 6
+      b: 1
+      w: 18 # n
+    - n: 7
+      b: 2
+      w: 14 # n + ceil(n / 2)
+    - n: 7
+      b: 2
+      w: 21 # 2 n
+    - n: 8
+      b: 3
+      w: 16 # n
+    - n: 8
+      b: 3
+      w: 24 # n
+    - n: 10
+      b: 3
+      w: 20 # n
+    - n: 10
+      b: 3
+      w: 30 # n
+#    - n: 7
+#      b: 4
+#      w: 7 # n
+#    - n: 7
+#      b: 4
+#      w: 11 # n + ceil(n / 2)
+#    - n: 8
+#      b: 5
+#      w: 12 # n + ceil(n / 2)
+  spanner:
+    - spanners: 1 # number of spanners
+      nuts: 1 # number of nuts (<= spanner)
+      locations: 3 # number of locations
+    - spanners: 2
+      nuts: 2
+      locations: 4
+    - spanners: 3
+      nuts: 3
+      locations: 5
+    - spanners: 4
+      nuts: 4
+      locations: 6
+    - spanners: 5
+      nuts: 5
+      locations: 7
+    - spanners: 6
+      nuts: 6
+      locations: 8
+    - spanners: 7
+      nuts: 7
+      locations: 9
+    - spanners: 8
+      nuts: 8
+      locations: 10
+    - spanners: 9
+      nuts: 9
+      locations: 11
+    - spanners: 9
+      nuts: 9
+      locations: 12
+  tpp:
+    - p: 2 # number of products
+      m: 1 # number of markets
+      t: 1 # number of trucks
+      d: 2 # number of depots
+      l: 3 # maximum level of goods
+    - p: 2
+      m: 2
+      t: 1
+      d: 2
+      l: 3
+    - p: 3
+      m: 2
+      t: 1
+      d: 2
+      l: 3
+    - p: 3
+      m: 3
+      t: 1
+      d: 2
+      l: 3
+    - p: 4
+      m: 3
+      t: 2
+      d: 3
+      l: 3
+    - p: 4
+      m: 4
+      t: 2
+      d: 3
+      l: 5
+    - p: 5
+      m: 4
+      t: 2
+      d: 3
+      l: 5
+    - p: 5
+      m: 5
+      t: 3
+      d: 4
+      l: 5
+    - p: 6
+      m: 5
+      t: 3
+      d: 4
+      l: 5
+    - p: 6
+      m: 6
+      t: 3
+      d: 4
+      l: 5
+  transport:
+    - generator: city # type of generator: city, two-cities or three-cities
+      n: 6 # number of nodes
+      size: 10 # used for computing `connect_distance` = math.sqrt((degree * size * size) / (nodes * math.pi * 0.694))
+      degree: 3  # used for computing `connect_distance` = math.sqrt((degree * size * size) / (nodes * math.pi * 0.694))
+      mindistance: 10
+      trucks: 1
+      packages: 2
+    - generator: two-cities
+      n: 6
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 1
+      packages: 2
+    - generator: three-cities
+      n: 6
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 1
+      packages: 2
+    - generator: city
+      n: 8
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 2
+      packages: 4
+    - generator: two-cities
+      n: 8
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 2
+      packages: 4
+    - generator: three-cities
+      n: 8
+      size: 10
+      degree: 4
+      mindistance: 10
+      trucks: 2
+      packages: 4
+    - generator: city
+      n: 10
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 3
+      packages: 6
+    - generator: two-cities
+      n: 10
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 3
+      packages: 6
+    - generator: three-cities
+      n: 10
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 3
+      packages: 6
+    - generator: three-cities
+      n: 12
+      size: 10
+      degree: 3
+      mindistance: 10
+      trucks: 4
+      packages: 8
+#  zenotravel:
+#    - cities: 4 # number of cities
+#      planes: 1 # number of planes
+#      people: 2 # number of people
+##      distance: 1 # [optional] numerical distance between two cities
+#    - cities: 4
+#      planes: 1
+#      people: 2
+#    - cities: 5
+#      planes: 1
+#      people: 3
+#    - cities: 5
+#      planes: 1
+#      people: 3
+#    - cities: 6
+#      planes: 2
+#      people: 4
+#    - cities: 6
+#      planes: 2
+#      people: 4
+#    - cities: 7
+#      planes: 2
+#      people: 5
+#    - cities: 7
+#      planes: 3
+#      people: 5
+#    - cities: 8
+#      planes: 2
+#      people: 6
+#    - cities: 8
+#      planes: 3
+#      people: 6
+  childsnack:
+    - children: 3 # number of children
+      trays: 2 # number of trays
+      gluten_factor: 0.4 # ratio of gluten allergy
+#      const_ratio: 1.3 # proportion of needed symbols that are declared in advance in the problem file.
+#                       # The min ratio should be 1.0 to guarantee solvability.
+    - children: 3
+      trays: 1  # ceil(children / 2) - 1
+      gluten_factor: 0.6
+    - children: 4
+      trays: 2 # ceil(children / 2)
+      gluten_factor: 0.4
+    - children: 4
+      trays: 2 # ceil(children / 2) - 1
+      gluten_factor: 0.6
+    - children: 5
+      trays: 3 # ceil(children / 2)
+      gluten_factor: 0.4
+    - children: 5
+      trays: 2 # ceil(children / 2) - 1
+      gluten_factor: 0.6
+    - children: 6
+      trays: 3 # ceil(children / 2)
+      gluten_factor: 0.4
+    - children: 6
+      trays: 2 # ceil(children / 2) - 1
+      gluten_factor: 0.6
+    - children: 7
+      trays: 4 # ceil(children / 2)
+      gluten_factor: 0.4
+    - children: 7
+      trays: 3 # ceil(children / 2) - 1
+      gluten_factor: 0.6
+  elevators:
+    - floors: 4 # number of floors
+      passengers: 3 # number of passengers
+      area_size: 2 # area size (must be a factor of floors, otherwise passengers can start in out of bounds floors)
+      fast_elevators: 1 # number of fast elevators
+      slow_elevators: 1 # number of slow elevators
+      fast_capacity: 1 # passengers capacity of fast elevators
+      slow_capacity: 1 # passengers capacity of slow elevators
+    - floors: 4
+      passengers: 3
+      area_size: 2
+      fast_elevators: 1
+      slow_elevators: 1
+      fast_capacity: 1
+      slow_capacity: 1
+    - floors: 4
+      passengers: 4
+      area_size: 2
+      fast_elevators: 1
+      slow_elevators: 1
+      fast_capacity: 1
+      slow_capacity: 1
+    - floors: 4
+      passengers: 4
+      area_size: 2
+      fast_elevators: 1
+      slow_elevators: 2
+      fast_capacity: 1
+      slow_capacity: 1
+    - floors: 5
+      passengers: 5
+      area_size: 5
+      fast_elevators: 2
+      slow_elevators: 1
+      fast_capacity: 1
+      slow_capacity: 1
+    - floors: 5
+      passengers: 5
+      area_size: 5
+      fast_elevators: 1
+      slow_elevators: 1
+      fast_capacity: 1
+      slow_capacity: 2
+    - floors: 6
+      passengers: 6
+      area_size: 3
+      fast_elevators: 1
+      slow_elevators: 2
+      fast_capacity: 2
+      slow_capacity: 1
+    - floors: 6
+      passengers: 6
+      area_size: 3
+      fast_elevators: 2
+      slow_elevators: 1
+      fast_capacity: 1
+      slow_capacity: 2
+    - floors: 7
+      passengers: 7
+      area_size: 7
+      fast_elevators: 1
+      slow_elevators: 1
+      fast_capacity: 2
+      slow_capacity: 2
+    - floors: 7
+      passengers: 7
+      area_size: 7
+      fast_elevators: 1
+      slow_elevators: 2
+      fast_capacity: 2
+      slow_capacity: 2
