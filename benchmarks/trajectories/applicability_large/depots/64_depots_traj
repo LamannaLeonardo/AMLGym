@@ -1,0 +1,81 @@
+(:trajectory
+
+(:state (at crate0 depot3) (at crate1 depot3) (at crate2 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 depot3) (at truck2 distributor2) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate2) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (on crate0 pallet3) (on crate1 crate0) (on crate2 crate1))
+
+(:action (lift hoist3 crate2 crate1 depot3))
+
+(:state (at crate0 depot3) (at crate1 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 depot3) (at truck2 distributor2) (available hoist0) (available hoist1) (available hoist2) (available hoist4) (available hoist5) (available hoist6) (clear crate1) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (lifting hoist3 crate2) (on crate0 pallet3) (on crate1 crate0))
+
+(:action (load hoist3 crate2 truck1 depot3))
+
+(:state (at crate0 depot3) (at crate1 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 depot3) (at truck2 distributor2) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate1) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (in crate2 truck1) (on crate0 pallet3) (on crate1 crate0))
+
+(:action (lift hoist3 crate1 crate0 depot3))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 depot3) (at truck2 distributor2) (available hoist0) (available hoist1) (available hoist2) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (in crate2 truck1) (lifting hoist3 crate1) (on crate0 pallet3))
+
+(:action (load hoist3 crate1 truck1 depot3))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 depot3) (at truck2 distributor2) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (in crate1 truck1) (in crate2 truck1) (on crate0 pallet3))
+
+(:action (drive truck1 depot3 depot1))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 depot1) (at truck2 distributor2) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (in crate1 truck1) (in crate2 truck1) (on crate0 pallet3))
+
+(:action (unload hoist1 crate1 truck1 depot1))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 depot1) (at truck2 distributor2) (available hoist0) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (in crate2 truck1) (lifting hoist1 crate1) (on crate0 pallet3))
+
+(:action (drive truck1 depot1 distributor1))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 distributor1) (at truck2 distributor2) (available hoist0) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (in crate2 truck1) (lifting hoist1 crate1) (on crate0 pallet3))
+
+(:action (drive truck1 distributor1 distributor2))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 distributor2) (at truck2 distributor2) (available hoist0) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (in crate2 truck1) (lifting hoist1 crate1) (on crate0 pallet3))
+
+(:action (unload hoist6 crate2 truck1 distributor2))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 distributor2) (at truck2 distributor2) (available hoist0) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (lifting hoist1 crate1) (lifting hoist6 crate2) (on crate0 pallet3))
+
+(:action (drive truck0 depot0 depot3))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot3) (at truck1 distributor2) (at truck2 distributor2) (available hoist0) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (lifting hoist1 crate1) (lifting hoist6 crate2) (on crate0 pallet3))
+
+(:action (drive truck2 distributor2 distributor0))
+
+(:state (at crate0 depot3) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot3) (at truck1 distributor2) (at truck2 distributor0) (available hoist0) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (clear crate0) (clear pallet0) (clear pallet1) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (lifting hoist1 crate1) (lifting hoist6 crate2) (on crate0 pallet3))
+
+(:action (drop hoist1 crate1 pallet1 depot1))
+
+(:state (at crate0 depot3) (at crate1 depot1) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot3) (at truck1 distributor2) (at truck2 distributor0) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (clear crate0) (clear crate1) (clear pallet0) (clear pallet2) (clear pallet4) (clear pallet5) (clear pallet6) (lifting hoist6 crate2) (on crate0 pallet3) (on crate1 pallet1))
+
+(:action (drop hoist6 crate2 pallet6 distributor2))
+
+(:state (at crate0 depot3) (at crate1 depot1) (at crate2 distributor2) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot3) (at truck1 distributor2) (at truck2 distributor0) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear crate1) (clear crate2) (clear pallet0) (clear pallet2) (clear pallet4) (clear pallet5) (on crate0 pallet3) (on crate1 pallet1) (on crate2 pallet6))
+
+(:action (lift hoist3 crate0 pallet3 depot3))
+
+(:state (at crate1 depot1) (at crate2 distributor2) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot3) (at truck1 distributor2) (at truck2 distributor0) (available hoist0) (available hoist1) (available hoist2) (available hoist4) (available hoist5) (available hoist6) (clear crate1) (clear crate2) (clear pallet0) (clear pallet2) (clear pallet3) (clear pallet4) (clear pallet5) (lifting hoist3 crate0) (on crate1 pallet1) (on crate2 pallet6))
+
+(:action (load hoist3 crate0 truck0 depot3))
+
+(:state (at crate1 depot1) (at crate2 distributor2) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot3) (at truck1 distributor2) (at truck2 distributor0) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate1) (clear crate2) (clear pallet0) (clear pallet2) (clear pallet3) (clear pallet4) (clear pallet5) (in crate0 truck0) (on crate1 pallet1) (on crate2 pallet6))
+
+(:action (drive truck0 depot3 depot0))
+
+(:state (at crate1 depot1) (at crate2 distributor2) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 distributor2) (at truck2 distributor0) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate1) (clear crate2) (clear pallet0) (clear pallet2) (clear pallet3) (clear pallet4) (clear pallet5) (in crate0 truck0) (on crate1 pallet1) (on crate2 pallet6))
+
+(:action (unload hoist0 crate0 truck0 depot0))
+
+(:state (at crate1 depot1) (at crate2 distributor2) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot0) (at truck1 distributor2) (at truck2 distributor0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate1) (clear crate2) (clear pallet0) (clear pallet2) (clear pallet3) (clear pallet4) (clear pallet5) (lifting hoist0 crate0) (on crate1 pallet1) (on crate2 pallet6))
+
+(:action (drive truck0 depot0 depot1))
+
+(:state (at crate1 depot1) (at crate2 distributor2) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot1) (at truck1 distributor2) (at truck2 distributor0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate1) (clear crate2) (clear pallet0) (clear pallet2) (clear pallet3) (clear pallet4) (clear pallet5) (lifting hoist0 crate0) (on crate1 pallet1) (on crate2 pallet6))
+
+(:action (drop hoist0 crate0 pallet0 depot0))
+
+(:state (at crate0 depot0) (at crate1 depot1) (at crate2 distributor2) (at hoist0 depot0) (at hoist1 depot1) (at hoist2 depot2) (at hoist3 depot3) (at hoist4 distributor0) (at hoist5 distributor1) (at hoist6 distributor2) (at pallet0 depot0) (at pallet1 depot1) (at pallet2 depot2) (at pallet3 depot3) (at pallet4 distributor0) (at pallet5 distributor1) (at pallet6 distributor2) (at truck0 depot1) (at truck1 distributor2) (at truck2 distributor0) (available hoist0) (available hoist1) (available hoist2) (available hoist3) (available hoist4) (available hoist5) (available hoist6) (clear crate0) (clear crate1) (clear crate2) (clear pallet2) (clear pallet3) (clear pallet4) (clear pallet5) (on crate0 pallet0) (on crate1 pallet1) (on crate2 pallet6))
+
+)

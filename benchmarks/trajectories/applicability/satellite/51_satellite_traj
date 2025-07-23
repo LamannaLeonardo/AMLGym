@@ -1,0 +1,25 @@
+(:trajectory
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 star1) (pointing satellite1 groundstation0) (pointing satellite2 star1) (power_avail satellite0) (power_avail satellite1) (power_avail satellite2) (supports instrument0 infrared0) (supports instrument1 infrared0) (supports instrument2 infrared0))
+
+(:action (switch_on instrument2 satellite2))
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 star1) (pointing satellite1 groundstation0) (pointing satellite2 star1) (power_avail satellite0) (power_avail satellite1) (power_on instrument2) (supports instrument0 infrared0) (supports instrument1 infrared0) (supports instrument2 infrared0))
+
+(:action (switch_on instrument1 satellite1))
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 star1) (pointing satellite1 groundstation0) (pointing satellite2 star1) (power_avail satellite0) (power_on instrument1) (power_on instrument2) (supports instrument0 infrared0) (supports instrument1 infrared0) (supports instrument2 infrared0))
+
+(:action (calibrate satellite1 instrument1 groundstation0))
+
+(:state (calibrated instrument1) (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 star1) (pointing satellite1 groundstation0) (pointing satellite2 star1) (power_avail satellite0) (power_on instrument1) (power_on instrument2) (supports instrument0 infrared0) (supports instrument1 infrared0) (supports instrument2 infrared0))
+
+(:action (turn_to satellite1 star1 groundstation0))
+
+(:state (calibrated instrument1) (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 star1) (pointing satellite1 star1) (pointing satellite2 star1) (power_avail satellite0) (power_on instrument1) (power_on instrument2) (supports instrument0 infrared0) (supports instrument1 infrared0) (supports instrument2 infrared0))
+
+(:action (take_image satellite1 star1 instrument1 infrared0))
+
+(:state (calibrated instrument1) (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (have_image star1 infrared0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 star1) (pointing satellite1 star1) (pointing satellite2 star1) (power_avail satellite0) (power_on instrument1) (power_on instrument2) (supports instrument0 infrared0) (supports instrument1 infrared0) (supports instrument2 infrared0))
+
+)

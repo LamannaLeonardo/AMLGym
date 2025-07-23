@@ -1,0 +1,41 @@
+(:trajectory
+
+(:state (clear b11) (clear b4) (clear b6) (clear b8) (handempty) (on b1 b10) (on b10 b7) (on b3 b1) (on b5 b3) (on b7 b9) (on b8 b5) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b6))
+
+(:action (pick_up b11))
+
+(:state (clear b4) (clear b6) (clear b8) (holding b11) (on b1 b10) (on b10 b7) (on b3 b1) (on b5 b3) (on b7 b9) (on b8 b5) (on b9 b2) (ontable b2) (ontable b4) (ontable b6))
+
+(:action (put_down b11))
+
+(:state (clear b11) (clear b4) (clear b6) (clear b8) (handempty) (on b1 b10) (on b10 b7) (on b3 b1) (on b5 b3) (on b7 b9) (on b8 b5) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b6))
+
+(:action (unstack b8 b5))
+
+(:state (clear b11) (clear b4) (clear b5) (clear b6) (holding b8) (on b1 b10) (on b10 b7) (on b3 b1) (on b5 b3) (on b7 b9) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b6))
+
+(:action (stack b8 b4))
+
+(:state (clear b11) (clear b5) (clear b6) (clear b8) (handempty) (on b1 b10) (on b10 b7) (on b3 b1) (on b5 b3) (on b7 b9) (on b8 b4) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b6))
+
+(:action (unstack b5 b3))
+
+(:state (clear b11) (clear b3) (clear b6) (clear b8) (holding b5) (on b1 b10) (on b10 b7) (on b3 b1) (on b7 b9) (on b8 b4) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b6))
+
+(:action (put_down b5))
+
+(:state (clear b11) (clear b3) (clear b5) (clear b6) (clear b8) (handempty) (on b1 b10) (on b10 b7) (on b3 b1) (on b7 b9) (on b8 b4) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b5) (ontable b6))
+
+(:action (pick_up b5))
+
+(:state (clear b11) (clear b3) (clear b6) (clear b8) (holding b5) (on b1 b10) (on b10 b7) (on b3 b1) (on b7 b9) (on b8 b4) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b6))
+
+(:action (put_down b5))
+
+(:state (clear b11) (clear b3) (clear b5) (clear b6) (clear b8) (handempty) (on b1 b10) (on b10 b7) (on b3 b1) (on b7 b9) (on b8 b4) (on b9 b2) (ontable b11) (ontable b2) (ontable b4) (ontable b5) (ontable b6))
+
+(:action (pick_up b11))
+
+(:state (clear b3) (clear b5) (clear b6) (clear b8) (holding b11) (on b1 b10) (on b10 b7) (on b3 b1) (on b7 b9) (on b8 b4) (on b9 b2) (ontable b2) (ontable b4) (ontable b5) (ontable b6))
+
+)
