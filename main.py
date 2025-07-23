@@ -36,7 +36,7 @@ if __name__ == '__main__':
         # level=logging.INFO
     )
 
-    methods = ['SAM', 'OffLAM', 'NOLAM']
+    methods = ['SAM', 'OffLAM', 'ROSAME', 'NOLAM']
 
     for alg_class in methods:
 

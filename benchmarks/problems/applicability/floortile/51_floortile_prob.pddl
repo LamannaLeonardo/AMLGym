@@ -1,4 +1,4 @@
-(define (problem floortile_r5_c5_robot1_s552)
+(define (problem floortile_r5_c5_robot1_s597)
  (:domain floor_tile)
  (:objects tile_0_1 tile_0_2 tile_0_3 tile_0_4 tile_0_5 
            tile_1_1 tile_1_2 tile_1_3 tile_1_4 tile_1_5 
@@ -11,11 +11,11 @@
 )
  (:init 
    
-   (robot_at robot1 tile_0_1)
+   (robot_at robot1 tile_0_2)
    (robot_has robot1 white)
    (available_color white)
    (available_color black)
-   (clear tile_0_2)
+   (clear tile_0_1)
    (clear tile_0_3)
    (clear tile_0_4)
    (clear tile_0_5)
@@ -144,18 +144,18 @@
    (left tile_5_4 tile_5_5)
 )
  (:goal (and
-    (painted tile_2_2 white)
-    (painted tile_5_1 white)
+    (painted tile_4_3 black)
+    (painted tile_2_3 black)
     (painted tile_1_2 black)
-    (painted tile_2_1 black)
-    (painted tile_1_1 white)
-    (painted tile_2_5 black)
-    (painted tile_4_3 black)
-    (painted tile_1_4 black)
-    (painted tile_3_5 white)
+    (painted tile_3_3 white)
+    (painted tile_5_3 white)
+    (painted tile_4_5 black)
+    (painted tile_5_3 white)
+    (painted tile_4_4 white)
     (painted tile_1_3 white)
-    (painted tile_2_2 white)
-    (painted tile_4_3 black)
+    (painted tile_5_4 black)
+    (painted tile_2_1 black)
+    (painted tile_5_1 white)
 ))
  
 )

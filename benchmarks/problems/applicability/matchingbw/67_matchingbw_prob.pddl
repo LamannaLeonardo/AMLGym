@@ -20,14 +20,15 @@
  (on b3 b2)
  (solid b4)
  (block_negative b4)
- (on b4 b1)
+ (on_table b4)
+ (clear b1)
  (clear b3)
  (clear b4)
 )
 (:goal
 (and
  (on b1 b4)
- (on b4 b2))
+ (on b3 b1))
 )
 )
 

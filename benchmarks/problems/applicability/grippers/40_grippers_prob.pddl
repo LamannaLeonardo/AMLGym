@@ -5,7 +5,7 @@ rgripper1 lgripper1 - gripper
 room1 room2 room3 room4 - room
 ball1 ball2 - ball)
 (:init
-(at_robby robot1 room3)
+(at_robby robot1 room1)
 (free robot1 rgripper1)
 (free robot1 lgripper1)
 (at ball1 room3)
@@ -13,8 +13,8 @@ ball1 ball2 - ball)
 )
 (:goal
 (and
-(at ball1 room4)
-(at ball2 room4)
+(at ball1 room2)
+(at ball2 room3)
 )
 )
 )

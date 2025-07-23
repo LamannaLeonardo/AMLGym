@@ -17,8 +17,7 @@
  (on b2 b1)
  (solid b3)
  (block_negative b3)
- (on_table b3)
- (clear b2)
+ (on b3 b2)
  (clear b3)
 )
 (:goal

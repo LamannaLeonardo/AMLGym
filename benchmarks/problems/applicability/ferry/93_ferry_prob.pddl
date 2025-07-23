@@ -18,7 +18,7 @@
 (:goal
 (and
 (at c0 l0)
-(at c1 l0)
+(at c1 l1)
 )
 )
 )

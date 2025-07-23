@@ -12,8 +12,8 @@
 (noteq l2 l1)
 (empty_ferry)
 (at c0 l0)
-(at c1 l0)
-(at_ferry l1)
+(at c1 l1)
+(at_ferry l0)
 )
 (:goal
 (and

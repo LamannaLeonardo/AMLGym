@@ -13,11 +13,11 @@
 (empty_ferry)
 (at c0 l0)
 (at c1 l2)
-(at_ferry l2)
+(at_ferry l1)
 )
 (:goal
 (and
-(at c0 l2)
+(at c0 l0)
 (at c1 l1)
 )
 )

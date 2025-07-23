@@ -14,11 +14,10 @@
  (on_table b1)
  (solid b2)
  (block_negative b2)
- (on_table b2)
+ (on b2 b1)
  (solid b3)
  (block_negative b3)
- (on b3 b1)
- (clear b2)
+ (on b3 b2)
  (clear b3)
 )
 (:goal

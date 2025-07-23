@@ -191,7 +191,7 @@ if __name__ == '__main__':
     TRAJ_LEN_MIN = 5
     TRAJ_LEN_MAX = 30
     TRAJ_PER_DOMAIN = 100
-    OPTIMAL_TRACES = np.inf
+    OPTIMAL_TRACES = 1  # corresponds to 30% of optimal traces since every domain has 3 problem settings
     MAX_PLANNING_TIME = 600
     MAX_REPLANNING_TIME = 60  # time to check problem feasibility
     MAX_RANDOM_TRIALS = 3  # maximum number of random action samplings at each step
