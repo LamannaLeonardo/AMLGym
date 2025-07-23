@@ -1,0 +1,61 @@
+(:trajectory
+
+(:state (clear b5) (handempty) (on b2 b1) (on b3 b2) (on b4 b3) (on b5 b4) (ontable b1))
+
+(:action (unstack b5 b4))
+
+(:state (clear b4) (holding b5) (on b2 b1) (on b3 b2) (on b4 b3) (ontable b1))
+
+(:action (put_down b5))
+
+(:state (clear b4) (clear b5) (handempty) (on b2 b1) (on b3 b2) (on b4 b3) (ontable b1) (ontable b5))
+
+(:action (unstack b4 b3))
+
+(:state (clear b3) (clear b5) (holding b4) (on b2 b1) (on b3 b2) (ontable b1) (ontable b5))
+
+(:action (put_down b4))
+
+(:state (clear b3) (clear b4) (clear b5) (handempty) (on b2 b1) (on b3 b2) (ontable b1) (ontable b4) (ontable b5))
+
+(:action (unstack b3 b2))
+
+(:state (clear b2) (clear b4) (clear b5) (holding b3) (on b2 b1) (ontable b1) (ontable b4) (ontable b5))
+
+(:action (put_down b3))
+
+(:state (clear b2) (clear b3) (clear b4) (clear b5) (handempty) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b5))
+
+(:action (unstack b2 b1))
+
+(:state (clear b1) (clear b3) (clear b4) (clear b5) (holding b2) (ontable b1) (ontable b3) (ontable b4) (ontable b5))
+
+(:action (stack b2 b3))
+
+(:state (clear b1) (clear b2) (clear b4) (clear b5) (handempty) (on b2 b3) (ontable b1) (ontable b3) (ontable b4) (ontable b5))
+
+(:action (pick_up b1))
+
+(:state (clear b2) (clear b4) (clear b5) (holding b1) (on b2 b3) (ontable b3) (ontable b4) (ontable b5))
+
+(:action (put_down b1))
+
+(:state (clear b1) (clear b2) (clear b4) (clear b5) (handempty) (on b2 b3) (ontable b1) (ontable b3) (ontable b4) (ontable b5))
+
+(:action (pick_up b4))
+
+(:state (clear b1) (clear b2) (clear b5) (holding b4) (on b2 b3) (ontable b1) (ontable b3) (ontable b5))
+
+(:action (stack b4 b2))
+
+(:state (clear b1) (clear b4) (clear b5) (handempty) (on b2 b3) (on b4 b2) (ontable b1) (ontable b3) (ontable b5))
+
+(:action (pick_up b5))
+
+(:state (clear b1) (clear b4) (holding b5) (on b2 b3) (on b4 b2) (ontable b1) (ontable b3))
+
+(:action (stack b5 b1))
+
+(:state (clear b4) (clear b5) (handempty) (on b2 b3) (on b4 b2) (on b5 b1) (ontable b1) (ontable b3))
+
+)

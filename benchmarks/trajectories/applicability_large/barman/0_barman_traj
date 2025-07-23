@@ -1,0 +1,113 @@
+(:trajectory
+
+(:state (clean shaker1) (clean shot1) (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (empty shot2) (handempty left) (handempty right) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0))
+
+(:action (grasp right shot1))
+
+(:state (clean shaker1) (clean shot1) (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (empty shot2) (handempty left) (holding right shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0))
+
+(:action (fill_shot shot1 ingredient3 right left dispenser3))
+
+(:state (clean shaker1) (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot1 ingredient3) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot2) (handempty left) (holding right shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient3))
+
+(:action (pour_shot_to_clean_shaker shot1 ingredient3 shaker1 right l0 l1))
+
+(:state (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient3) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (empty shot2) (handempty left) (holding right shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1) (unshaked shaker1) (used shot1 ingredient3))
+
+(:action (clean_shot shot1 ingredient3 right left))
+
+(:state (clean shot1) (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient3) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (empty shot2) (handempty left) (holding right shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1) (unshaked shaker1))
+
+(:action (fill_shot shot1 ingredient2 right left dispenser2))
+
+(:state (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient3) (contains shot1 ingredient2) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot2) (handempty left) (holding right shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1) (unshaked shaker1) (used shot1 ingredient2))
+
+(:action (pour_shot_to_used_shaker shot1 ingredient2 shaker1 right l1 l2))
+
+(:state (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient2) (contains shaker1 ingredient3) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (empty shot2) (handempty left) (holding right shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (unshaked shaker1) (used shot1 ingredient2))
+
+(:action (leave right shot1))
+
+(:state (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient2) (contains shaker1 ingredient3) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (empty shot2) (handempty left) (handempty right) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (unshaked shaker1) (used shot1 ingredient2))
+
+(:action (grasp right shaker1))
+
+(:state (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient2) (contains shaker1 ingredient3) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (empty shot2) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (unshaked shaker1) (used shot1 ingredient2))
+
+(:action (shake cocktail1 ingredient3 ingredient2 shaker1 right left))
+
+(:state (clean shot2) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (empty shot2) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaked shaker1) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (used shot1 ingredient2))
+
+(:action (pour_shaker_to_shot cocktail1 shot2 right shaker1 l2 l1))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 cocktail1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaked shaker1) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1) (used shot1 ingredient2))
+
+(:action (empty_shaker right shaker1 cocktail1 l1 l0))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (grasp left shot1))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (holding left shot1) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (leave left shot1))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (clean_shaker right left shaker1))
+
+(:state (clean shaker1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (clean_shaker right left shaker1))
+
+(:state (clean shaker1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (grasp left shot1))
+
+(:state (clean shaker1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (holding left shot1) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (leave right shaker1))
+
+(:state (clean shaker1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (empty shot1) (handempty right) (holding left shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (refill_shot shot1 ingredient2 left right dispenser2))
+
+(:state (clean shaker1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shot1 ingredient2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shaker1) (handempty right) (holding left shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l0) (used shot1 ingredient2))
+
+(:action (pour_shot_to_clean_shaker shot1 ingredient2 shaker1 left l0 l1))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty right) (holding left shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1) (unshaked shaker1) (used shot1 ingredient2))
+
+(:action (clean_shot shot1 ingredient2 left right))
+
+(:state (clean shot1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty right) (holding left shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1) (unshaked shaker1))
+
+(:action (fill_shot shot1 ingredient1 left right dispenser1))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient2) (contains shot1 ingredient1) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (handempty right) (holding left shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1) (unshaked shaker1) (used shot1 ingredient1))
+
+(:action (pour_shot_to_used_shaker shot1 ingredient1 shaker1 left l1 l2))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient1) (contains shaker1 ingredient2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty right) (holding left shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (unshaked shaker1) (used shot1 ingredient1))
+
+(:action (clean_shot shot1 ingredient1 left right))
+
+(:state (clean shot1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient1) (contains shaker1 ingredient2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty right) (holding left shot1) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (unshaked shaker1))
+
+(:action (leave left shot1))
+
+(:state (clean shot1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient1) (contains shaker1 ingredient2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty left) (handempty right) (next l0 l1) (next l1 l2) (ontable shaker1) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (unshaked shaker1))
+
+(:action (grasp right shaker1))
+
+(:state (clean shot1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 ingredient1) (contains shaker1 ingredient2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2) (unshaked shaker1))
+
+(:action (shake cocktail2 ingredient2 ingredient1 shaker1 right left))
+
+(:state (clean shot1) (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 cocktail2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (empty shot1) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaked shaker1) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l2))
+
+(:action (pour_shaker_to_shot cocktail2 shot1 right shaker1 l2 l1))
+
+(:state (cocktail_part1 cocktail1 ingredient3) (cocktail_part1 cocktail2 ingredient2) (cocktail_part2 cocktail1 ingredient2) (cocktail_part2 cocktail2 ingredient1) (contains shaker1 cocktail2) (contains shot1 cocktail2) (contains shot2 cocktail1) (dispenses dispenser1 ingredient1) (dispenses dispenser2 ingredient2) (dispenses dispenser3 ingredient3) (handempty left) (holding right shaker1) (next l0 l1) (next l1 l2) (ontable shot1) (ontable shot2) (shaked shaker1) (shaker_empty_level shaker1 l0) (shaker_level shaker1 l1))
+
+)

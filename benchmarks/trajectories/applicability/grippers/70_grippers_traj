@@ -1,0 +1,21 @@
+(:trajectory
+
+(:state (at ball1 room3) (at ball2 room4) (at_robby robot1 room4) (free robot1 lgripper1) (free robot1 rgripper1))
+
+(:action (pick robot1 ball2 room4 lgripper1))
+
+(:state (at ball1 room3) (at_robby robot1 room4) (carry robot1 ball2 lgripper1) (free robot1 rgripper1))
+
+(:action (move robot1 room4 room3))
+
+(:state (at ball1 room3) (at_robby robot1 room3) (carry robot1 ball2 lgripper1) (free robot1 rgripper1))
+
+(:action (move robot1 room3 room3))
+
+(:state (at ball1 room3) (at_robby robot1 room3) (carry robot1 ball2 lgripper1) (free robot1 rgripper1))
+
+(:action (drop robot1 ball2 room3 lgripper1))
+
+(:state (at ball1 room3) (at ball2 room3) (at_robby robot1 room3) (free robot1 lgripper1) (free robot1 rgripper1))
+
+)

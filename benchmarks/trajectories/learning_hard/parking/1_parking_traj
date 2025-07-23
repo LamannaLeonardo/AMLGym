@@ -1,0 +1,41 @@
+(:trajectory
+
+(:state (at_curb car_00) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb car_11) (at_curb_num car_00 curb_5) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (at_curb_num car_11 curb_6) (behind_car car_01 car_04) (behind_car car_05 car_10) (behind_car car_06 car_03) (behind_car car_08 car_07) (behind_car car_09 car_02) (car_clear car_00) (car_clear car_01) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_11))
+
+(:action (move_car_to_car car_08 car_07 car_00))
+
+(:state (at_curb car_00) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb car_11) (at_curb_num car_00 curb_5) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (at_curb_num car_11 curb_6) (behind_car car_01 car_04) (behind_car car_05 car_10) (behind_car car_06 car_03) (behind_car car_08 car_00) (behind_car car_09 car_02) (car_clear car_01) (car_clear car_05) (car_clear car_06) (car_clear car_07) (car_clear car_08) (car_clear car_09) (car_clear car_11))
+
+(:action (move_car_to_car car_09 car_02 car_07))
+
+(:state (at_curb car_00) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb car_11) (at_curb_num car_00 curb_5) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (at_curb_num car_11 curb_6) (behind_car car_01 car_04) (behind_car car_05 car_10) (behind_car car_06 car_03) (behind_car car_08 car_00) (behind_car car_09 car_07) (car_clear car_01) (car_clear car_02) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_11))
+
+(:action (move_car_to_car car_06 car_03 car_02))
+
+(:state (at_curb car_00) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb car_11) (at_curb_num car_00 curb_5) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (at_curb_num car_11 curb_6) (behind_car car_01 car_04) (behind_car car_05 car_10) (behind_car car_06 car_02) (behind_car car_08 car_00) (behind_car car_09 car_07) (car_clear car_01) (car_clear car_03) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_11))
+
+(:action (move_curb_to_car car_11 curb_6 car_03))
+
+(:state (at_curb car_00) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb_num car_00 curb_5) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (behind_car car_01 car_04) (behind_car car_05 car_10) (behind_car car_06 car_02) (behind_car car_08 car_00) (behind_car car_09 car_07) (behind_car car_11 car_03) (car_clear car_01) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_11) (curb_clear curb_6))
+
+(:action (move_car_to_curb car_01 car_04 curb_6))
+
+(:state (at_curb car_00) (at_curb car_01) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb_num car_00 curb_5) (at_curb_num car_01 curb_6) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (behind_car car_05 car_10) (behind_car car_06 car_02) (behind_car car_08 car_00) (behind_car car_09 car_07) (behind_car car_11 car_03) (car_clear car_01) (car_clear car_04) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_11))
+
+(:action (move_car_to_car car_05 car_10 car_04))
+
+(:state (at_curb car_00) (at_curb car_01) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb_num car_00 curb_5) (at_curb_num car_01 curb_6) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (behind_car car_05 car_04) (behind_car car_06 car_02) (behind_car car_08 car_00) (behind_car car_09 car_07) (behind_car car_11 car_03) (car_clear car_01) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_10) (car_clear car_11))
+
+(:action (move_car_to_car car_08 car_00 car_01))
+
+(:state (at_curb car_00) (at_curb car_01) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb car_10) (at_curb_num car_00 curb_5) (at_curb_num car_01 curb_6) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (at_curb_num car_10 curb_4) (behind_car car_05 car_04) (behind_car car_06 car_02) (behind_car car_08 car_01) (behind_car car_09 car_07) (behind_car car_11 car_03) (car_clear car_00) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_10) (car_clear car_11))
+
+(:action (move_curb_to_car car_10 curb_4 car_00))
+
+(:state (at_curb car_00) (at_curb car_01) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_07) (at_curb_num car_00 curb_5) (at_curb_num car_01 curb_6) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_07 curb_0) (behind_car car_05 car_04) (behind_car car_06 car_02) (behind_car car_08 car_01) (behind_car car_09 car_07) (behind_car car_10 car_00) (behind_car car_11 car_03) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_10) (car_clear car_11) (curb_clear curb_4))
+
+(:action (move_car_to_curb car_05 car_04 curb_4))
+
+(:state (at_curb car_00) (at_curb car_01) (at_curb car_02) (at_curb car_03) (at_curb car_04) (at_curb car_05) (at_curb car_07) (at_curb_num car_00 curb_5) (at_curb_num car_01 curb_6) (at_curb_num car_02 curb_2) (at_curb_num car_03 curb_3) (at_curb_num car_04 curb_1) (at_curb_num car_05 curb_4) (at_curb_num car_07 curb_0) (behind_car car_06 car_02) (behind_car car_08 car_01) (behind_car car_09 car_07) (behind_car car_10 car_00) (behind_car car_11 car_03) (car_clear car_04) (car_clear car_05) (car_clear car_06) (car_clear car_08) (car_clear car_09) (car_clear car_10) (car_clear car_11))
+
+)
