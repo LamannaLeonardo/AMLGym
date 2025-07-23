@@ -12,7 +12,7 @@ ball1 - ball)
 )
 (:goal
 (and
-(at ball1 room3)
+(at ball1 room2)
 )
 )
 )

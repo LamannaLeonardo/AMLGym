@@ -684,7 +684,7 @@ def solving_eval(model_path: str,
 
 if __name__ == '__main__':
 
-    approaches = ['SAM', 'OffLAM', 'NOLAM']
+    approaches = ['SAM', 'OffLAM', 'NOLAM', 'ROSAME']
     SYNTACTIC_EVAL = True
     PREDICTIVE_EVAL = True
     SOLVING_EVAL = True

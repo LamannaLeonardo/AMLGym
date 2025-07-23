@@ -14,7 +14,7 @@ ball1 ball2 - ball)
 (:goal
 (and
 (at ball1 room3)
-(at ball2 room1)
+(at ball2 room2)
 )
 )
 )

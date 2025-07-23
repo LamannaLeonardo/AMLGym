@@ -6,18 +6,18 @@
 (:init
 (handempty)
 (on b1 b5)
-(on b2 b1)
+(ontable b2)
 (on b3 b4)
-(on b4 b2)
-(ontable b5)
+(on b4 b1)
+(on b5 b2)
 (clear b3)
 )
 (:goal
 (and
-(on b1 b3)
-(on b2 b5)
+(on b1 b5)
+(on b2 b3)
 (on b3 b4)
-(on b5 b1))
+(on b5 b2))
 )
 )
 

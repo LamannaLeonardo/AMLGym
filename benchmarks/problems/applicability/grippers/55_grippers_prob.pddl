@@ -8,8 +8,8 @@ ball1 ball2 - ball)
 (at_robby robot1 room4)
 (free robot1 rgripper1)
 (free robot1 lgripper1)
-(at ball1 room3)
-(at ball2 room2)
+(at ball1 room2)
+(at ball2 room3)
 )
 (:goal
 (and

@@ -18,13 +18,13 @@
 (noteq l3 l2)
 (empty_ferry)
 (at c0 l2)
-(at c1 l3)
-(at_ferry l3)
+(at c1 l1)
+(at_ferry l0)
 )
 (:goal
 (and
-(at c0 l3)
-(at c1 l3)
+(at c0 l1)
+(at c1 l1)
 )
 )
 )
