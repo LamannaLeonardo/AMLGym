@@ -162,20 +162,19 @@ class SimpleDomainReader:
                 # Read operator certain preconditions
                 # op_precs_row = re.findall(":precondition(.*?):effect", action_schema)[0].strip()[1:-1]
                 op_precs_row = re.findall(":precondition(.*?):effect", action_schema)[0]
-                op_precs_row = op_precs_row.replace('( not ', '(not ').replace(') )', '))')
+                op_precs_row = op_precs_row.replace('( not ', '(not ').replace(') )', '))').replace('  ', ' ').replace('( ', '(')
                 precs_cert_neg = {e.strip()[1:-1].replace('not', '', 1).strip() for e in re.findall("\(not [^)]*\)\)", op_precs_row)
                                   if not len(e.replace('(and', '').replace(')', '').strip()) == 0}
-                precs_cert_pos = {p.strip() for p in re.findall("\([^()]*\)", op_precs_row)
-                                  if p not in precs_cert_neg and not len(p.replace('(and', '').replace(')', '').strip()) == 0}
-
+                precs_cert_pos = {p.strip() for p in re.findall(r'(?<!\(not\s)\([^()]*\)', op_precs_row)
+                                  if not len(p.replace('(and', '').replace(')', '').strip()) == 0}
 
                 # Read operator certain effects
                 op_effects_row = re.findall(":effect(.*?)(?:action|$)", action_schema)[0]
-                op_effects_row = op_effects_row.replace('( not ', '(not ').replace(') )', '))')
+                op_effects_row = op_effects_row.replace('( not ', '(not ').replace(') )', '))').replace('  ', ' ').replace('( ', '(')
                 eff_neg_cert = {e.strip()[1:-1].replace('not', '', 1).strip() for e in re.findall("\(not[^)]*\)\)", op_effects_row)
                                   if not len(e.replace('(and', '').replace(')', '').strip()) == 0}
-                eff_pos_cert = {e.strip() for e in re.findall("\([^()]*\)", op_effects_row)
-                                  if e not in eff_neg_cert and not len(e.replace('(and', '').replace(')', '').strip()) == 0}
+                eff_pos_cert = {e.strip() for e in re.findall(r'(?<!\(not\s)\([^()]*\)', op_effects_row)
+                                if not len(e.replace('(and', '').replace(')', '').strip()) == 0}
 
                 # Format preconditions and effects syntax
                 precs_cert_pos = {f"{p[1:-1].split()[0]}({','.join(p[1:-1].split()[1:])})"
