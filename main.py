@@ -5,6 +5,9 @@ import sys
 import time
 from pddl import parse_domain
 import algorithms
+import torch
+import random
+import numpy as np
 
 
 def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
@@ -31,12 +34,18 @@ if __name__ == '__main__':
     DOM_DIR = 'benchmarks/domains'
     RES_DIR = 'res'
 
+    # Set random seed for reproducibility of stochastic algorithms (e.g. ROSAME)
+    SEED = 123
+    torch.manual_seed(SEED)
+    random.seed(SEED)
+    np.random.seed(SEED)
+
     logging.basicConfig(
         # filename='out.log',
         # level=logging.INFO
     )
 
-    methods = ['SAM', 'OffLAM', 'ROSAME', 'NOLAM']
+    methods = ['SAM', 'OffLAM', 'NOLAM', 'ROSAME']
 
     for alg_class in methods:
 
