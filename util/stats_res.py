@@ -41,8 +41,6 @@ def plot_metric(metric: List[str],
                 ).reset_index().rename(columns={'index': 'domain'})
                 alg_stats[alg].append(df)
 
-    assert all(len(alg_stats[k]) == len(alg_stats[list(alg_stats.keys())[0]]) for k in alg_stats)
-
     # plot each algorithm metric
     domain_df = pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")
     avg_alg_stats = defaultdict()
@@ -142,8 +140,6 @@ def lineplot_metric(metric: str,
         for run in [d for d in os.listdir(os.path.join(RES_DIR, alg)) if '.DS_' not in d]:
             alg_stats[alg].append(pd.read_excel(f"{RES_DIR}/{alg}/{run}/metrics.xlsx"))
 
-    assert all(len(alg_stats[k]) == len(alg_stats[list(alg_stats.keys())[0]]) for k in alg_stats)
-
     # plot each algorithm metric
     domain_df = pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")
     avg_alg_stats = defaultdict()
@@ -184,21 +180,19 @@ def lineplot_metric(metric: str,
             marker=next(markers),
             color=color_map[next(colors)],
             # alpha=.8,
-            # linewidth=2,
+            linewidth=2,
             markersize=5 + (len(lineplot_df.columns) - k)*1.5
         )
 
-    plt.legend(prop={'size': 13}, loc='lower right')
+    plt.legend(prop={'size': 15}, loc='lower right')
 
     # plt.title('Average number of objects')
     plt.xlabel('')
-    plt.ylabel(f'{metric.replace("_", " ").capitalize()}', size=18)
     plt.ylabel('')
-    # plt.ylabel(f'Avg applicability precision', size=18)
-    plt.xticks(
-        # [i * 0.1 for i in range(11)],
-        rotation=70, size=13)
-    plt.yticks(rotation=0, size=13)
+    plt.xticks(rotation=70, size=15)
+    plt.yticks(rotation=0, size=15)
+    plt.yticks([i * 0.1 for i in range(2, 11)],
+               rotation=0, size=15)
     plt.tight_layout()
     plt.savefig(img_file_path)
 
@@ -213,8 +207,6 @@ def barplot_metric(metric: str,
     for alg in algs:
         for run in [d for d in os.listdir(os.path.join(RES_DIR, alg)) if '.DS_' not in d]:
             alg_stats[alg].append(pd.read_excel(f"{RES_DIR}/{alg}/{run}/metrics.xlsx"))
-
-    assert all(len(alg_stats[k]) == len(alg_stats[list(alg_stats.keys())[0]]) for k in alg_stats)
 
     # plot each algorithm metric
     domain_df = pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")
@@ -255,19 +247,17 @@ def barplot_metric(metric: str,
         color=[color_map[next(colors)] for _ in range(len(avg_alg_stats))]
     )
 
-    plt.legend(prop={'size': 13}, loc='lower right')
+    plt.legend(prop={'size': 15}, loc='lower right')
 
-    # plt.title('Average number of objects')
     plt.xlabel('')
-    plt.ylabel(f'{metric.replace("_", " ").capitalize()}', size=18)
     plt.ylabel('')
-    plt.xticks(rotation=70, size=13)
-    plt.yticks(rotation=0, size=13)
+    plt.xticks(rotation=70, size=15)
+    plt.yticks(rotation=0, size=15)
     plt.tight_layout()
     plt.savefig(img_file_path)
 
 
-def print_metric_table(metrics: List[str], run_dir: str = 'run0') -> None:
+def print_metrics_table(metrics: List[str], run_dir: str = 'run0') -> None:
     # List algorithms
     algs = list(filter(os.path.isdir, [f"{RES_DIR}/{d}" for d in os.listdir(RES_DIR)]))
 
@@ -286,7 +276,23 @@ def print_metric_table(metrics: List[str], run_dir: str = 'run0') -> None:
         # Collect all values for later comparison
         for alg in algs:
             alg_name = alg.split('/')[-1]
-            alg_df = pd.read_excel(f"{RES_DIR}/{alg}/{run_dir}/metrics.xlsx")
+            all_run_dfs = []
+            for run_dir in os.listdir(f"{RES_DIR}/{alg}"):
+                run_df = pd.read_excel(f"{RES_DIR}/{alg}/{run_dir}/metrics.xlsx")
+                all_run_dfs.append(run_df)
+
+            assert len(all_run_dfs) > 0, f'There is no run directory (e.g. "run0") in {RES_DIR}/{alg}.'
+
+            # extract numeric columns
+            numeric_cols = run_df.select_dtypes(include='number').columns
+
+            # average only numeric parts
+            avg_numeric_df = pd.concat([df[numeric_cols] for df in all_run_dfs]).groupby(level=0).mean()
+
+            # merge non-numeric (i.e. 'domain') from the original dataframe
+            non_numeric_cols = run_df.drop(columns=numeric_cols)
+            alg_df = pd.concat([non_numeric_cols, avg_numeric_df], axis=1)
+
             alg_dom_df = alg_df[alg_df["domain"] == d]
 
             for metric in metrics:
@@ -326,11 +332,8 @@ def print_metric_table(metrics: List[str], run_dir: str = 'run0') -> None:
         index=False,
         escape=False,
         # column_format=f"l|{'|'.join([''.join('c' for _ in algs) for _ in metrics])}",
-        # label=f"tab:{'_'.join(metrics)}",
-        # caption="Problem solving (Solv.\%) and false plan ratio (False \%) achieved by planning with the "
-        #         "domains learned by \offlam, \sam, \\rosame, and \\nolam; $\uparrow$ (resp. $\downarrow$) "
-        #         "indicates the higher (resp. lower) the better, the best metric value for every domain "
-        #         "is highlighted in bold."
+        # label=f"tab:something",
+        # caption="something"
     )
 
 
@@ -378,14 +381,11 @@ def print_best_table():
 if __name__ == '__main__':
 
     BENCHMARK_DIR = "benchmarks"
-    # RES_DIR = "../res"
-    RES_DIR = "../tmpres"
+    RES_DIR = "../res"
 
     logging.basicConfig(level=logging.INFO)
 
-    # colors = cycle(['blue', 'green', 'orange', 'purple'])
     colors = cycle(['blue', 'orange', 'red', 'purple'])
-    # markers = cycle(['d', '*', '.', 'x'])
     markers = cycle(['s', 'd', '*', '.'])
 
     palette = seaborn.color_palette("Paired")
@@ -393,7 +393,7 @@ if __name__ == '__main__':
         "lightblue": palette[0],  # Default "lightblue" color in the pastel palette
         "blue": palette[1],  # Default "blue" color in the pastel palette
         "orange": palette[7],  # Default "orange" color
-        "green": palette[3],
+        "green": palette[3],   # ...
         "purple": palette[9],
         "brown": palette[11],
         "red": palette[5],
@@ -413,27 +413,27 @@ if __name__ == '__main__':
     # barplot_metric('false_plans_ratio', f"{RES_DIR}/false_plans.png")
 
     # Generate metric lineplot grouped by domain for every algorithm
-    # lineplot_metric('syn precision', f"{RES_DIR}/syn_precision_line.png")
-    # lineplot_metric('syn recall', f"{RES_DIR}/syn_recall_line.png")
-    # lineplot_metric('app precision', f"{RES_DIR}/app_precision_line.png")
-    # lineplot_metric('app recall', f"{RES_DIR}/app_recall_line.png")
-    # lineplot_metric('predicted_effects precision', f"{RES_DIR}/predeffs_precision_line.png")
-    # lineplot_metric('predicted_effects recall', f"{RES_DIR}/predeffs_recall_line.png")
-    # lineplot_metric('solving_ratio', f"{RES_DIR}/solving_line.png")
-    # lineplot_metric('false_plans_ratio', f"{RES_DIR}/false_plans_line.png")
+    lineplot_metric('syn precision', f"{RES_DIR}/syn_precision_line.png")
+    lineplot_metric('syn recall', f"{RES_DIR}/syn_recall_line.png")
+    lineplot_metric('app precision', f"{RES_DIR}/app_precision_line.png")
+    lineplot_metric('app recall', f"{RES_DIR}/app_recall_line.png")
+    lineplot_metric('predicted_effects precision', f"{RES_DIR}/predeffs_precision_line.png")
+    lineplot_metric('predicted_effects recall', f"{RES_DIR}/predeffs_recall_line.png")
+    lineplot_metric('solving_ratio', f"{RES_DIR}/solving_line.png")
+    lineplot_metric('false_plans_ratio', f"{RES_DIR}/false_plans_line.png")
 
-    # Print a table for the given metric
+    # Print a table for the given metrics
     # metrics = [
-    #     "syn precision",
-    #     "syn recall",
-    #     "app precision",
-    #     "app recall",
-    #     "predicted_effects precision",
-    #     "predicted_effects recall",
+    #     # "syn precision",
+    #     # "syn recall",
+    #     # "app precision",
+    #     # "app recall",
+    #     # "predicted_effects precision",
+    #     # "predicted_effects recall",
     #     "solving_ratio",
-    #     "false_plans_ratio"
+    #     # "false_plans_ratio"
     # ]
-    # print_metric_table(metrics)
+    # print_metrics_table(metrics)
 
     # Print the best results achieved for every domain among all algorithms
     # print_best_table()
@@ -441,10 +441,10 @@ if __name__ == '__main__':
     # Plot metric results for preconditions/effects
     # for metric in [
     #     # ['syntactic', 'precs_pos_precision'],
-    #     ['syntactic', 'precs_neg_precision'],
+    #     # ['syntactic', 'precs_neg_precision'],
     #     # ['syntactic', 'pos_precision'],
     #     # ['syntactic', 'neg_precision'],
-    #     # ['syntactic', 'precs_pos_recall'],
+    #     ['syntactic', 'precs_pos_recall'],
     #     # ['syntactic', 'pos_recall'],
     #     # ['syntactic', 'neg_recall']
     # ]:
