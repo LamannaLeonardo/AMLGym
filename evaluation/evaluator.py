@@ -406,6 +406,8 @@ def predictive_eval(model_learned_path: str,
                     applicable_ref = simulator_ref._is_applicable(current_state,
                                                             problem.action(a.action.name),
                                                             [problem.object(str(o)) for o in a.actual_parameters])
+                    assert applicable_ref, ('the action of a plan produced by the environment model '
+                                            'must be applicable according to the environment model.')
                     if applicable_ref:
                         current_state = simulator_ref.apply(current_state, a)
                         lpos = re.findall(r'(\w+(?:\([^\)]*\))?)\s*:\s*true', str(current_state))
@@ -455,7 +457,7 @@ def predictive_eval(model_learned_path: str,
                         operators[a.action.name]['consequentiality']['fp'] += len((lnext_learned - lprev) - lnext_ref)
                         operators[a.action.name]['consequentiality']['fn'] += len((lnext_learned.intersection(lprev)) - lnext_ref)
 
-                        lprev = lnext_ref
+                    lprev = lnext_ref
 
             bar()  # update progress bar
 
@@ -511,24 +513,24 @@ def predictive_eval(model_learned_path: str,
     all_recall_cons = []
     for op in operators:
         if (operators[op]['consequentiality']['tp'] + operators[op]['consequentiality']['fp']) == 0:
-            if not operators[op]['consequentiality']['fn'] > 0:
+            if operators[op]['consequentiality']['fn'] == 0:
                 warnings.warn(f"Operator {op} has never been observed, setting predicted "
                               f"effects precision to None.")
                 operators[op]['consequentiality']['precision'] = None
             else:
-                operators[op]['consequentiality']['precision'] = 0
+                operators[op]['consequentiality']['precision'] = 1.
         else:
             operators[op]['consequentiality']['precision'] = ((operators[op]['consequentiality']['tp'])
                                                               / (operators[op]['consequentiality']['tp']
                                                                  + operators[op]['consequentiality']['fp']))
 
         if (operators[op]['consequentiality']['tp'] + operators[op]['consequentiality']['fn']) == 0:
-            if not operators[op]['consequentiality']['fp'] > 0:
+            if operators[op]['consequentiality']['fp'] == 0:
                 warnings.warn(f"Operator {op} has never been observed, setting predicted "
                               f"effects recall to None.")
                 operators[op]['consequentiality']['recall'] = None
             else:
-                operators[op]['consequentiality']['recall'] = 0
+                operators[op]['consequentiality']['recall'] = 1.
         else:
             operators[op]['consequentiality']['recall'] = ((operators[op]['consequentiality']['tp'])
                                                            / (operators[op]['consequentiality']['tp']
@@ -684,7 +686,8 @@ def solving_eval(model_path: str,
 
 if __name__ == '__main__':
 
-    approaches = ['SAM', 'OffLAM', 'NOLAM', 'ROSAME']
+    approaches = ['SAM', 'OffLAM', 'ROSAME', 'NOLAM']
+
     SYNTACTIC_EVAL = True
     PREDICTIVE_EVAL = True
     SOLVING_EVAL = True
