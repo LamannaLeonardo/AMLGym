@@ -1,5 +1,7 @@
 import sys
 import os
+sys.path.append(os.path.abspath("algorithms/rosame"))
+
 from algorithms.AlgorithmAdapter import AlgorithmAdapter
 from typing import List
 import shutil
@@ -7,18 +9,18 @@ from pathlib import Path
 from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
 from pddl_plus_parser.lisp_parsers import ProblemParser
 
-sys.path.append(os.path.abspath("algorithms/rosame"))
-from rosame.experiment_runner.rosame_runner import Rosame_Runner
+from algorithms.rosame.experiment_runner.rosame_runner import Rosame_Runner
+
 
 class ROSAME(AlgorithmAdapter):
     """
-    Adapter class for running the ROSAME algorithm: "Neuro-Symbolic Learning of Lifted Action Models from Visual Traces",
-    Kai Xi1, Stephen Gould1, Sylvie Thiebaux, icaps24
+    Adapter class for running the ROSAME algorithm: "Neuro-Symbolic Learning
+    of Lifted Action Models from Visual Traces", Kai Xi1, Stephen Gould1,
+    Sylvie Thiebaux, ICAPS 2024
     """
 
     def __init__(self, **kwargs):
         super(ROSAME, self).__init__(**kwargs)
-
 
     def learn(self,
               domain_file: str,
@@ -64,8 +66,6 @@ class ROSAME(AlgorithmAdapter):
         shutil.rmtree('tmp')
 
         return rosame.rosame_to_pddl()
-
-
 
     def preprocess_trace(self, traj_path: str) -> str:
 

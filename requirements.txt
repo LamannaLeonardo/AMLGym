@@ -12,3 +12,4 @@ sympy~=1.14.0
 scikit-learn~=1.6.1
 openpyxl~=3.1.5
 clingo~=5.7.1
+torch~=2.6.0
