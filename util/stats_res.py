@@ -339,20 +339,42 @@ def print_metrics_table(metrics: List[str], run_dir: str = 'run0') -> None:
 
 def print_best_table():
 
-    # get metrics for each algorithm and run
-    run = 'run0'
+    # evaluated algorithms to be included in the table
+    algs = ['SAM', 'OffLAM', 'ROSAME', 'NOLAM']
 
+    # evaluation metrics to be included in the table
     metrics = ['domain', 'app precision', 'app recall',
                'predicted_effects precision', 'predicted_effects recall',
                'solving_ratio', 'false_plans_ratio']
 
-    sam = pd.read_excel(f"{RES_DIR}/SAM/{run}/metrics.xlsx")[metrics]
-    offlam = pd.read_excel(f"{RES_DIR}/OffLAM/{run}/metrics.xlsx")[metrics]
-    nolam = pd.read_excel(f"{RES_DIR}/NOLAM/{run}/metrics.xlsx")[metrics]
-    rosame = pd.read_excel(f"{RES_DIR}/ROSAME/{run}/metrics.xlsx")[metrics]
+    # get metrics for each algorithm averaged over all runs
+    labeled_dfs = dict()
+    for i, alg in enumerate(algs):
+        all_run_dfs = []
+        for run_dir in os.listdir(f"{RES_DIR}/{alg}"):
+            run_df = pd.read_excel(f"{RES_DIR}/{alg}/{run_dir}/metrics.xlsx")
+            all_run_dfs.append(run_df)
 
-    # Label the dataframes
-    labeled_dfs = {'1': sam, '2': offlam, '3': rosame, '4': nolam}
+        assert len(all_run_dfs) > 0, f'There is no run directory (e.g. "run0") in {RES_DIR}/{alg}.'
+
+        # extract numeric columns
+        numeric_cols = run_df.select_dtypes(include='number').columns
+
+        # average only numeric parts
+        avg_numeric_df = pd.concat([df[numeric_cols] for df in all_run_dfs]).groupby(level=0).mean()
+
+        # merge non-numeric (i.e. 'domain') from the original dataframe
+        non_numeric_cols = run_df.drop(columns=numeric_cols)
+        alg_df = pd.concat([non_numeric_cols, avg_numeric_df], axis=1)
+        labeled_dfs[str(i + 1)] = alg_df[metrics]
+
+    # sam = pd.read_excel(f"{RES_DIR}/SAM/{run}/metrics.xlsx")[metrics]
+    # offlam = pd.read_excel(f"{RES_DIR}/OffLAM/{run}/metrics.xlsx")[metrics]
+    # nolam = pd.read_excel(f"{RES_DIR}/NOLAM/{run}/metrics.xlsx")[metrics]
+    # rosame = pd.read_excel(f"{RES_DIR}/ROSAME/{run}/metrics.xlsx")[metrics]
+    #
+    # # Label the dataframes
+    # labeled_dfs = {'1': sam, '2': offlam, '3': rosame, '4': nolam}
 
     # Stack dataframes into a single multi-indexed dataframe
     combined = pd.concat(labeled_dfs, names=['Algorithm'])
@@ -375,7 +397,10 @@ def print_best_table():
 
     # Reshape back to original dataframe shape
     final_result = result.unstack()
-    final_result.to_latex(f'{RES_DIR}/res_bests.tex', index=False, float_format="%.2f")
+    final_result.to_latex(f'{RES_DIR}/res_bests.tex', index=False, float_format="%.2f",
+                          caption="Best metric values for every domain obtained among "
+                                  f"{','.join([f'{i+1}: {k}' for i, k in enumerate(algs)])}"
+                          )
 
 
 if __name__ == '__main__':
