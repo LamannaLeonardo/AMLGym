@@ -1,4 +1,4 @@
-# Action Model Learning Benchmarking
+# Evaluating Planning Model-Learning Algorithms
 <!-- Define badges -->
 <div style="display: flex; gap: 10px;">
    
