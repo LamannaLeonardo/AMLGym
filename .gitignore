@@ -163,6 +163,6 @@ __pycache__/
 
 # Custom directories to be ignored
 */.DS_Store
-util/pddl-generators
-util/output.sas
+aml-evaluation/util/pddl-generators
+aml-evaluation/util/output.sas
 res/

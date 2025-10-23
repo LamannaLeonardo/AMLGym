@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["aml_evaluation", "aml_evaluation.*"]
+
+[tool.setuptools.package-data]
+"aml_evaluation.benchmarks" = ["**/*"]
+
+[project]
+name = "aml_evaluation"
+version = "1.0.0"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+requires-python = ">=3.8"
+authors = [
+  {name = "Leonardo Lamanna", email = "llamanna@fbk.eu"},
+  {name = "Omar Watted"}
+]
+maintainers = [
+  {name = "Leonardo Lamanna", email = "llamanna@fbk.eu"}
+]
+description = "Action model learning benchmarking."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICEN[CS]E.*"]
+keywords = ["action model learning", "domain model learning", "action model acquisition"]
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/LamannaLeonardo/aml-evaluation"
+Documentation = "https://github.com/LamannaLeonardo/aml-evaluation"
+Repository = "https://github.com/LamannaLeonardo/aml-evaluation"
+"Bug Tracker" = "https://github.com/LamannaLeonardo/aml-evaluation/issues"

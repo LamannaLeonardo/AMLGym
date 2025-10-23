@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.abspath("algorithms/offlam"))
+sys.path.append(os.path.abspath("aml_evaluation/algorithms/offlam"))
 
 import itertools
 import shutil
@@ -8,9 +8,9 @@ from collections import defaultdict
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set
-from algorithms.AlgorithmAdapter import AlgorithmAdapter
+from aml_evaluation.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from unified_planning.io import PDDLReader
-from algorithms.offlam.main import learn
+from aml_evaluation.algorithms.offlam.main import learn
 
 
 class OffLAM(AlgorithmAdapter):
