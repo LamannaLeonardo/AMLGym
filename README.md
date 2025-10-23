@@ -1,4 +1,4 @@
-# Action Model Learning Benchmarking
+# Evaluating Planning Model-Learning Algorithms
 <!-- Define badges -->
 <div style="display: flex; gap: 10px;">
    
@@ -42,10 +42,10 @@ for offline learning classical planning domains from an input set of
 trajectories in the following settings:
 1. **full** observability: SAM [1].
 2. **partial** observability: OffLAM [2].
-3. **full** and **noisy** observability: NOLAM [3].
+3. **full** and **noisy** observability: NOLAM [3], ROSAME [4].
 
 It is possible to run the above algorithms as of the `main.py` script, 
-which by default runs SAM, OffLAM and NOLAM on every domain and associated 
+which by default runs SAM, OffLAM, NOLAM, and ROSAME on every domain and associated 
 set of trajectories in `benchmarks/trajectories/learning`.
 
 
@@ -61,6 +61,11 @@ A. Saetti, A. Gerevini, and P. Traverso, Artificial Intelligence Journal,
 and L. Serafini, Proceedings of the Thirty-Fourth International Conference on 
 Automated Planning and Scheduling, 2024.](
 https://ojs.aaai.org/index.php/ICAPS/article/view/31493)
+
+[4] ["Neuro-symbolic learning of lifted action models from visual traces", X. Kai, 
+S. Gould, and S. Thiébaux, Proceedings of the Thirty-Fourth International Conference on 
+Automated Planning and Scheduling, 2024.](https://ojs.aaai.org/index.php/ICAPS/article/download/31528/33688)
+
 
 ### Adding an algorithm
 PRs with new or existing state-of-the-art algorithms are welcome:
@@ -374,3 +379,7 @@ Therefore the following set of 20 classical planning domains:
     </tr>
   </tbody>
 </table>
+
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE.md) file for details.
