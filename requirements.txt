@@ -8,7 +8,7 @@ pyyaml
 pandas~=2.2.3
 alive-progress~=3.2.0
 matplotlib~=3.10.3
-scikit-learn~=1.6.1
+scikit-learn~=1.7.2
 openpyxl~=3.1.5
 clingo~=5.7.1
 torch~=2.6.0
