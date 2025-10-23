@@ -7,14 +7,12 @@ sys.path.insert(0, parent_dir)
 from gen_problems import *  # do not remove
 
 from datetime import datetime
-from typing import List
 import yaml
 import re
 import contextlib
 import logging
 import random
 import shutil
-import subprocess
 import numpy as np
 import unified_planning
 from alive_progress import alive_bar
@@ -23,7 +21,7 @@ from unified_planning.model import Problem, UPState
 from unified_planning.plans import ActionInstance
 from unified_planning.shortcuts import OneshotPlanner, SequentialSimulator
 
-from modeling.trajectory import Trajectory
+from aml_evaluation.modeling.trajectory import Trajectory
 
 from tarski.io import PDDLReader as tarskiPDDLReader
 from tarski.grounding import LPGroundingStrategy

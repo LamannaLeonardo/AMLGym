@@ -723,7 +723,7 @@ def problem_elevators(seed: int = 123,
     result = subprocess.run(f"./{GEN_DIR}/elevators/generate_pddl {floors} {floors} 1 {passengers} {passengers} 1 1 1".split(),
                             capture_output=True, text=True)
 
-    prob_file = [f for f in os.listdir(f"./") if f.endswith('.pddl') and f.startswith('p')][0]
+    prob_file = [f for f in os.listdir(f"/") if f.endswith('.pddl') and f.startswith('p')][0]
     with open(prob_file, 'r') as f:
         problem = f.read()
     os.remove(prob_file)

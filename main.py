@@ -4,10 +4,10 @@ import os
 import sys
 import time
 from pddl import parse_domain
-import algorithms
 import torch
 import random
 import numpy as np
+from aml_evaluation import algorithms
 
 
 def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
@@ -30,8 +30,8 @@ def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
 
 if __name__ == '__main__':
 
-    TRAJ_DIR = 'benchmarks/trajectories/learning'
-    DOM_DIR = 'benchmarks/domains'
+    TRAJ_DIR = 'aml-evaluation/benchmarks/trajectories/learning'
+    DOM_DIR = 'aml-evaluation/benchmarks/domains'
     RES_DIR = 'res'
 
     # Set random seed for reproducibility of stochastic algorithms (e.g. ROSAME)

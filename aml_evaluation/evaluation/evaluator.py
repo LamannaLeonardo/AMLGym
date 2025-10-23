@@ -16,12 +16,12 @@ import warnings
 
 from alive_progress import alive_bar
 
-from util.SimpleDomainReader import SimpleDomainReader
+from aml_evaluation.util.SimpleDomainReader import SimpleDomainReader
 import numpy as np
 import os
 import re
 import shutil
-from typing import List, Tuple, Dict, Set
+from typing import List, Dict, Set
 
 import unified_planning.model
 from tarski.grounding import LPGroundingStrategy

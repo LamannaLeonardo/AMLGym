@@ -1,20 +1,18 @@
 # Add current project to sys path
+import math
 import os
 import sys
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
-from gen_problems import *  # do not remove
-
+from gen_problems import *  # DO NOT REMOVE
 from datetime import datetime
-from typing import List
 import yaml
 import re
 import contextlib
 import logging
 import random
 import shutil
-import subprocess
 import numpy as np
 import unified_planning
 from alive_progress import alive_bar
@@ -23,7 +21,7 @@ from unified_planning.model import Problem, UPState
 from unified_planning.plans import ActionInstance
 from unified_planning.shortcuts import OneshotPlanner, SequentialSimulator
 
-from modeling.trajectory import Trajectory
+from aml_evaluation.modeling.trajectory import Trajectory
 
 from tarski.io import PDDLReader as tarskiPDDLReader
 from tarski.grounding import LPGroundingStrategy
@@ -190,7 +188,8 @@ if __name__ == '__main__':
 
     TRAJ_LEN_MIN = 5
     TRAJ_LEN_MAX = 30
-    OPTIMAL_TRACES = 3
+    TRAJ_PER_DOMAIN = 100
+    OPTIMAL_TRACES = 1  # corresponds to 30% of optimal traces since every domain has 3 problem settings
     MAX_PLANNING_TIME = 600
     MAX_REPLANNING_TIME = 60  # time to check problem feasibility
     MAX_RANDOM_TRIALS = 3  # maximum number of random action samplings at each step
@@ -213,9 +212,9 @@ if __name__ == '__main__':
     GEN_DIR = "pddl-generators"
     BENCHMARK_DIR = "benchmarks"
     DOMAINS_DIR = "domains"
-    PROB_DIR = "problems/learning"
-    TRAJ_DIR = "trajectories/learning"
-    DOM_CFG = f"{BENCHMARK_DIR}/problems_learning.yaml"
+    PROB_DIR = "problems/applicability"
+    TRAJ_DIR = "trajectories/applicability"
+    DOM_CFG = f"{BENCHMARK_DIR}/problems_applicability.yaml"
 
     # Trace CPU time
     run_start = datetime.now()
@@ -237,67 +236,75 @@ if __name__ == '__main__':
 
     for domain in domains:
 
-        # Set random seed for reproducibility
-        np.random.seed(seed)
-        random.seed(seed)
+            # Set random seed for reproducibility
+            np.random.seed(seed)
+            random.seed(seed)
 
-        # Trace CPU time
-        domain_run_start = datetime.now()
+            # Trace CPU time
+            domain_run_start = datetime.now()
 
-        # Clean domain problems directory
-        if os.path.exists(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"):
-            shutil.rmtree(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}")
-        os.makedirs(os.path.join(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"))
+            # Clean domain problems directory
+            if os.path.exists(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"):
+                shutil.rmtree(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}")
+            os.makedirs(os.path.join(f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"))
 
-        # Clean domain trajectories directory
-        if os.path.exists(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"):
-            shutil.rmtree(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}")
-        os.makedirs(os.path.join(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))
+            # Clean domain trajectories directory
+            if os.path.exists(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"):
+                shutil.rmtree(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}")
+            os.makedirs(os.path.join(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))
 
-        with alive_bar(len(domains[domain]),
-                       title=f'Processing domain {domain}',
-                       length=20,
-                       bar='halloween') as bar:
-            # For every domain problem kwargs
-            for i, kwargs in enumerate(domains[domain]):
+            tot_runs = math.ceil(TRAJ_PER_DOMAIN / len(domains[domain]))
 
-                if i >= OPTIMAL_TRACES:
-                    PLANNER_CFG = HEUR_PLANNER_CFG
-                else:
-                    PLANNER_CFG = OPT_PLANNER_CFG
+            with alive_bar(len(domains[domain] * tot_runs),
+                           title=f'Processing domain {domain}',
+                           length=20,
+                           bar='halloween') as bar:
 
-                trajectory = Trajectory([], [])
+                for run in range(tot_runs):
 
-                while len(trajectory.states) < TRAJ_LEN_MIN:
-                    # Generate a problem
-                    logging.debug(f"Generating a new problem")
-                    kwargs['seed'] = np.random.randint(1, 1000)
-                    generate_prob = getattr(sys.modules[__name__], f'problem_{domain}')
-                    problem_str = generate_prob(**kwargs)
-                    # Fix hyphens to avoid issues with unified-planning parsing
-                    problem_str = re.sub(r'(?<=\w)-(?=\w)', '_', problem_str)
+                    if run >= TRAJ_PER_DOMAIN:
+                        break
 
-                    # Write the problem string to a file
-                    problems_dir = f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"
-                    problem_file = f'{problems_dir}/{len(os.listdir(problems_dir))}_{domain}_prob.pddl'
-                    with open(problem_file, 'w') as f:
-                        f.write(problem_str.lower())
+                    # For every domain problem kwargs
+                    for i, kwargs in enumerate(domains[domain]):
 
-                    # Parse the problem in unified-planning
-                    domain_file = f'../{BENCHMARK_DIR}/{DOMAINS_DIR}/{domain}.pddl'
-                    problem = reader.parse_problem(domain_file, problem_file)
+                        if i >= OPTIMAL_TRACES:
+                            PLANNER_CFG = HEUR_PLANNER_CFG
+                        else:
+                            PLANNER_CFG = OPT_PLANNER_CFG
 
-                    # Generate a trace by solving the problem
-                    trajectory = generate_traj(problem)
-                    if len(trajectory.states) < TRAJ_LEN_MIN:
-                        logging.debug(f"Failed to generate a sufficiently long trace. Retrying...")
-                        os.remove(problem_file)
+                        trajectory = Trajectory([], [])
 
-                trace_file = f'../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))}_{domain}_traj'
-                trajectory.write(trace_file)
-                bar()  # update progress bar
+                        while len(trajectory.states) < TRAJ_LEN_MIN:
+                            # Generate a problem
+                            logging.debug(f"Generating a new problem")
+                            kwargs['seed'] = np.random.randint(1, 1000)
+                            generate_prob = getattr(sys.modules[__name__], f'problem_{domain}')
+                            problem_str = generate_prob(**kwargs)
+                            # Fix hyphens to avoid issues with unified-planning parsing
+                            problem_str = re.sub(r'(?<=\w)-(?=\w)', '_', problem_str)
 
-        logging.info(f'{domain} CPU time (s): {(datetime.now() - domain_run_start).seconds}')
+                            # Write the problem string to a file
+                            problems_dir = f"../{BENCHMARK_DIR}/{PROB_DIR}/{domain}"
+                            problem_file = f'{problems_dir}/{len(os.listdir(problems_dir))}_{domain}_prob.pddl'
+                            with open(problem_file, 'w') as f:
+                                f.write(problem_str.lower())
+
+                            # Parse the problem in unified-planning
+                            domain_file = f'../{BENCHMARK_DIR}/{DOMAINS_DIR}/{domain}.pddl'
+                            problem = reader.parse_problem(domain_file, problem_file)
+
+                            # Generate a trace by solving the problem
+                            trajectory = generate_traj(problem)
+                            if len(trajectory.states) < TRAJ_LEN_MIN:
+                                logging.debug(f"Failed to generate a sufficiently long trace. Retrying...")
+                                os.remove(problem_file)
+
+                        trace_file = f'../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}/{len(os.listdir(f"../{BENCHMARK_DIR}/{TRAJ_DIR}/{domain}"))}_{domain}_traj'
+                        trajectory.write(trace_file)
+                        bar()  # update progress bar
+
+            logging.info(f'{domain} CPU time (s): {(datetime.now() - domain_run_start).seconds}')
 
     logging.info(f'Total CPU time (s): {(datetime.now() - run_start).seconds}')
 
