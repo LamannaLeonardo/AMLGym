@@ -1,0 +1,488 @@
+{
+  "features": [
+    {
+      "pos": [
+        27,
+        4,
+        27
+      ],
+      "name": "Start 0",
+      "color": -16711681,
+      "type": "START",
+      "canProceed": false,
+      "isDone": false,
+      "completionTime": 0,
+      "uuid": "d986780e-22dd-44cb-98d2-faf8dc73c82b",
+      "pos2": [
+        27,
+        4,
+        27
+      ],
+      "lookDir": [
+        0,
+        90,
+        0
+      ],
+      "dim": 0,
+      "spawnedInServer": false,
+      "spawnedInClient": false,
+      "spawnRand": false
+    },
+	{
+      "pos": [
+        0,
+        3,
+        0
+      ],
+      "name": "Room 11",
+      "color": -16711936,
+      "type": "ROOM",
+      "canProceed": false,
+      "isDone": false,
+      "completionTime": 0,
+      "uuid": "f98ed78d-b998-430b-9deb-a54168771d0a",
+      "pos2": [
+        31,
+        6,
+        31
+      ],
+      "blockFloorMeta": 0,
+      "blockFloorName": "minecraft:grass",
+      "blockWallMeta": 0,
+      "blockWallName": "minecraft:bedrock",
+      "blockCeilMeta": 0,
+      "blockCeilName": "minecraft:air",
+      "blockRefMeta": 0,
+      "blockRefName": "minecraft:bedrock",
+      "spawnRefBlocks": false,
+      "recycleRefSeed": false,
+      "refSeed": 0,
+      "refSpawnChance": 0.05,
+	  "intensity":100,
+	  "wallTexture":"T1",
+	  "wallColor":"T0",
+	  "floorTexture":"T0",
+	  "floorColor":"T3"
+    },
+    {
+      "pos": [
+        1,
+        4,
+        1
+      ],
+      "name": "World Builder 1",
+      "color": -16711936,
+      "type": "WORLDGEN",
+      "canProceed": false,
+      "isDone": false,
+      "completionTime": 0,
+      "uuid": "c5fd8bf9-87eb-4977-80d0-357bb5fa06b7",
+      "pos2": [
+        30,
+        4,
+        30
+      ],
+      "count": 0,
+      "genType": "BLOCK_LIST",
+      "blockList": [
+        {
+          "blockPos": [
+            10,
+            4,
+            10
+          ],
+          "blockName": "tree"
+        },
+        {
+          "blockPos": [
+            3,
+            4,
+            17
+          ],
+          "blockName": "tree"
+        },
+        {
+          "blockPos": [
+            23,
+            4,
+            15
+          ],
+          "blockName": "tree"
+        },
+        {
+          "blockPos": [
+            20,
+            4,
+            20
+          ],
+          "blockName": "minecraft:crafting_table"
+        },
+        {
+          "blockPos": [
+            8,
+            4,
+            2
+          ],
+          "blockName": "tree"
+        },
+        {
+          "blockPos": [
+            18,
+            4,
+            26
+          ],
+          "blockName": "tree"
+        }
+      ]
+    },
+    {
+      "pos": [
+        0,
+        4,
+        0
+      ],
+      "name": "map",
+      "color": -256,
+      "type": "DATA",
+      "canProceed": true,
+      "isDone": false,
+      "completionTime": 0,
+      "uuid": "53f20c95-f1e5-48f4-9310-b663f71ba5d8",
+      "pos2": [
+        31,
+        4,
+        31
+      ],
+      "data": " "
+    },
+    {
+      "pos": [
+        2,
+        4,
+        2
+      ],
+      "name": "Recipe Override5",
+      "color": -16711936,
+      "type": "RECIPE_OVERRIDE",
+      "canProceed": false,
+      "isDone": false,
+      "completionTime": 0,
+      "uuid": "cbcc7ae2-80d0-46dd-a4f4-efa3855d705d",
+      "recipeListConfig": [
+		{
+          "inputs": [
+            {
+              "slotIndex": 0,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 1,
+              "itemStacks": [
+                {
+                  "name": "minecraft:stick",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 2,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+			{
+              "slotIndex": 3,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 5,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 7,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "slotIndex": 9,
+              "itemStack": {
+                "name": "polycraft:tree_tap",
+                "stackSize": 1
+              }
+            }
+          ],
+          "containerType": "CRAFTING_TABLE"
+        },
+		{
+          "inputs": [
+            {
+              "slotIndex": 0,
+              "itemStacks": [
+                {
+                  "name": "minecraft:stick",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 1,
+              "itemStacks": [
+                {
+                  "name": "minecraft:stick",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 2,
+              "itemStacks": [
+                {
+                  "name": "minecraft:stick",
+                  "stackSize": 1
+                }
+              ]
+            },
+			{
+              "slotIndex": 3,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 4,
+              "itemStacks": [
+                {
+                  "name": "minecraft:stick",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 5,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 7,
+              "itemStacks": [
+                {
+                  "name": "polycraft:sack_polyisoprene_pellets",
+                  "stackSize": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "slotIndex": 9,
+              "itemStack": {
+                "name": "polycraft:wooden_pogo_stick",
+                "stackSize": 1
+              }
+            }
+          ],
+          "containerType": "CRAFTING_TABLE"
+        },
+		{
+          "inputs": [
+            {
+              "slotIndex": -1,
+              "itemStacks": [
+                {
+                  "name": "minecraft:log",
+                  "stackSize": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "slotIndex": 9,
+              "itemStack": {
+                "name": "minecraft:planks",
+                "stackSize": 4
+              }
+            }
+          ],
+          "containerType": "CRAFTING_TABLE"
+        },
+		{
+          "inputs": [
+            {
+              "slotIndex": 0,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 3,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "slotIndex": 9,
+              "itemStack": {
+                "name": "minecraft:stick",
+                "stackSize": 4
+              }
+            }
+          ],
+          "containerType": "CRAFTING_TABLE"
+        },
+		{
+          "inputs": [
+            {
+              "slotIndex": 0,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 1,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+            {
+              "slotIndex": 3,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            },
+			{
+              "slotIndex": 4,
+              "itemStacks": [
+                {
+                  "name": "minecraft:planks",
+                  "stackSize": 1
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "slotIndex": 9,
+              "itemStack": {
+                "name": "minecraft:crafting_table",
+                "stackSize": 1
+              }
+            }
+          ],
+          "containerType": "CRAFTING_TABLE"
+        }
+      ]
+    },
+    {
+      "pos": [
+        0,
+        0,
+        0
+      ],
+      "name": "End Condition",
+      "color": -256,
+      "type": "END",
+      "canProceed": true,
+      "isDone": false,
+      "completionTime": 0,
+      "uuid": "8c01a564-674c-11ea-bc55-0242ac130003",
+      "endCondition": "ITEM",
+      "itemToAcquire": "polycraft:wooden_pogo_stick",
+      "blockToPlace": "",
+      "locationToReach": [
+        0,
+        0,
+        0
+      ],
+      "endTime": 0.0,
+      "endStepCost": 0.0,
+      "isFinished": false
+    },
+    {
+      "pos": [
+        13,
+        4,
+        34
+      ],
+      "name": "Guide 2",
+      "color": -256,
+      "type": "GUIDE",
+      "canProceed": false,
+      "isDone": false,
+      "completionTime": 0,
+      "uuid": "b80e43ef-db9c-4d5f-b13e-68b430d3c3f8",
+      "pos2": [
+        13,
+        4,
+        34
+      ]
+    }
+  ],
+  "options": {
+    "pos": [
+      0,
+      2,
+      0
+    ],
+    "pos2": [
+      30,
+      9,
+      30
+    ],
+    "name": "",
+    "numTeams": 2,
+    "teamSize": 2,
+    "seed": 0,
+    "hideGui": false,
+    "outputScreen": false
+  },
+  "novelty_config": {}
+}

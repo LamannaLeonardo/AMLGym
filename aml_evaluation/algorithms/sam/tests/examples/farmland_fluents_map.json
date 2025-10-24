@@ -1,0 +1,4 @@
+{
+  "move-fast": ["(x ?f1)"],
+  "move-slow": ["(x ?f1)"]
+}
