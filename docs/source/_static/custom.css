@@ -1,0 +1,9 @@
+/* Make the content a bit wider and adjust font sizes for readability */
+.wy-nav-content {
+    max-width: 1100px;
+}
+
+.wy-nav-content h1,
+.wy-nav-content h2 {
+    font-weight: 600;
+}

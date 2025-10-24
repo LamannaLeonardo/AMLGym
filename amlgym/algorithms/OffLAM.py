@@ -17,27 +17,36 @@ class OffLAM(AlgorithmAdapter):
     from Partial Traces", L. Lamanna, L. Serafini, A. Saetti, A. Gerevini,
     and P. Traverso, Artificial Intelligence Journal, 2025.
     https://www.sciencedirect.com/science/article/abs/pii/S0004370224001929
+
+    Example:
+        .. code-block:: python
+
+            from amlgym.algorithms import get_algorithm
+            offlam = get_algorithm('OffLAM')
+            model = offlam.learn('path/to/domain.pddl', ['path/to/trace0', 'path/to/trace1'])
+            print(model)
+
     """
 
     def __init__(self, **kwargs):
         super(OffLAM, self).__init__(**kwargs)
 
     def learn(self,
-              domain_file: str,
-              trajectory_files: List[str]) -> str:
+              domain_path: str,
+              trajectory_paths: List[str]) -> str:
 
         # Fill input trajectories with some (i.e. `relevant`) missing literals
         os.makedirs('tmp', exist_ok=True)
         filled_traj_paths = []
-        for i, traj_path in enumerate(sorted(trajectory_files,
+        for i, traj_path in enumerate(sorted(trajectory_paths,
                                              key=lambda x: int(x.split('/')[-1].split('_')[0]))):
-            filled_traj = self.preprocess_trace(domain_file, traj_path)  # add relevant negative literals
+            filled_traj = self._preprocess_trace(domain_path, traj_path)  # add relevant negative literals
             filled_traj_paths.append(f"tmp/{i}_traj_filled")
             with open(f"tmp/{i}_traj_filled", "w") as f:
                 f.write(filled_traj)
 
         # Learn action model
-        model = learn(domain_file, filled_traj_paths)
+        model = learn(domain_path, filled_traj_paths)
 
         # TODO: open issue in OffLAM
         model = model.replace("(:requirements)", "(:requirements :typing)")
@@ -47,7 +56,16 @@ class OffLAM(AlgorithmAdapter):
 
         return model
 
-    def preprocess_trace(self, domain_path: str, traj_path: str) -> str:
+    def _preprocess_trace(self, domain_path: str, traj_path: str) -> str:
+        """
+        Format the trajectory to make it compliant with the algorithm, by explicitly
+        stating negative literals.
+
+        :parameter domain_path: path to the input domain file
+        :parameter traj_path: path to the trajectory file
+
+        :return: a string representing the formatted trajectory
+        """
 
         # Inner helper function
         def ground_atoms(atom: Fluent,
