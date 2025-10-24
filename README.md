@@ -4,8 +4,15 @@
    
   <a href="https://opensource.org/licenses/MIT" target="_blank">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" height="20"/></a>
+    
+  <a href="https://pypi.python.org/pypi/amlgym" target="_blank">
+    <img src="https://badge.fury.io/py/amlgym.svg" height="20"/></a>
+    
+  <a href="https://amlgym.readthedocs.io/en/latest/" target="_blank">
+    <img src="https://readthedocs.org/projects/amlgym/badge/?version=latest" height="20"/></a>
 
 </div>
+
 
 Official code for benchmark generation and evaluation of action model 
 learning approaches.
@@ -24,6 +31,9 @@ agent = get_algorithm('OffLAM')
 model = agent.learn('path/to/domain.pddl', ['path/to/trace0', 'path/to/trace1'])
 print(model)
 ```
+
+### Documentation
+Tutorials and API documentation is accessible on [Read the Docs](https://amlgym.readthedocs.io/en/latest/)
 
 
 ## State-of-the-art Algorithms
