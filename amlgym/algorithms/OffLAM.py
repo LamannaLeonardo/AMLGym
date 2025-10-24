@@ -6,7 +6,7 @@ from collections import defaultdict
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set
-from aml_evaluation.algorithms.AlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from unified_planning.io import PDDLReader
 from offlam.algorithm import learn
 

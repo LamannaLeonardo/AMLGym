@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set
-from aml_evaluation.algorithms.AlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from unified_planning.io import PDDLReader
 
 from nolam.algorithm.Learner import Learner
