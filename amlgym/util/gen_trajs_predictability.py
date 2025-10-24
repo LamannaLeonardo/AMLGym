@@ -5,7 +5,7 @@ import sys
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
-from gen_problems import *  # DO NOT REMOVE
+from .gen_problems import *  # DO NOT REMOVE
 from datetime import datetime
 import yaml
 import re

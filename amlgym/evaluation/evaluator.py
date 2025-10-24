@@ -236,12 +236,14 @@ def predictive_eval(model_learned_path: str,
     """
     Compute the action applicability (precision and recall) of a learned model w.r.t. a
      reference model by considering all states in the input trajectories
+
     :param model_learned_path: file path to learned pddl model
     :param model_ref_path: file path to reference pddl model
     :param traj_problem_paths: a dictionary where each key is a path to a pddl trajectory
-    and the value a path to the associated pddl problem. This is required as input since
-    the trajectory does not explicitly report the set of problem objects, which is
-    required to evaluate action applicability by simulating actions.
+        and the value a path to the associated pddl problem. This is required as input since
+        the trajectory does not explicitly report the set of problem objects, which is
+        required to evaluate action applicability by simulating actions.
+
     :return: action applicability precision and recall grouped by operator
     """
 
