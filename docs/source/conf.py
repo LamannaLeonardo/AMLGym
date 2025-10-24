@@ -38,7 +38,7 @@ nbsphinx_prolog = r"""
     <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
     </a>
 """
-nbsphinx_allow_errors = True
+# nbsphinx_allow_errors = True  # compile despite notebook errors
 
 
 templates_path = ['_templates']
