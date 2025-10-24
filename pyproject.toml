@@ -8,13 +8,13 @@ include = ["aml_evaluation", "aml_evaluation.*"]
 [tool.setuptools.package-data]
 "aml_evaluation.benchmarks" = ["**/*"]
 
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
 [project]
 name = "aml_evaluation"
 version = "1.0.0"
 dynamic = ["dependencies"]
-
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
 requires-python = ">=3.8"
 authors = [
   {name = "Leonardo Lamanna", email = "llamanna@fbk.eu"},
@@ -30,7 +30,6 @@ license-files = ["LICEN[CS]E.*"]
 keywords = ["action model learning", "domain model learning", "action model acquisition"]
 classifiers = [
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]

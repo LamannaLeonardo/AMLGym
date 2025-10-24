@@ -1,18 +1,20 @@
-import sys
 import os
-sys.path.append(os.path.abspath("aml_evaluation/algorithms/nolam"))
 
 import itertools
 import shutil
 from collections import defaultdict
+from dataclasses import dataclass
+
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set
 from aml_evaluation.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from unified_planning.io import PDDLReader
-from aml_evaluation.algorithms.nolam.NOLAM.Learner import Learner
+
+from nolam.algorithm.Learner import Learner
 
 
+@dataclass
 class NOLAM(AlgorithmAdapter):
     """
     Adapter class for running the NOLAM algorithm: "Action Model Learning from Noisy
@@ -21,8 +23,7 @@ class NOLAM(AlgorithmAdapter):
     https://ojs.aaai.org/index.php/ICAPS/article/view/31493)
     """
 
-    def __init__(self, **kwargs):
-        super(NOLAM, self).__init__(**kwargs)
+    noise: float = 0.
 
     def learn(self,
               domain_file: str,
@@ -39,7 +40,7 @@ class NOLAM(AlgorithmAdapter):
                 f.write(filled_traj)
 
         # Learn an action model
-        model = Learner().learn(domain_file, filled_traj_paths, e=0.0)  # noise set to 0.0
+        model = Learner().learn(domain_file, filled_traj_paths, e=self.noise)  # noise set to 0.0
 
         # Remove temporary files
         shutil.rmtree('tmp')
