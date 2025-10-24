@@ -1,0 +1,26 @@
+{
+  "environment_variables_file_path": "/sise/home/mordocha/numeric_planning/domains/environment.json",
+  "code_directory_path": "/sise/home/mordocha/code/sam_learning/experiments",
+  "experiments_script_path": "parallel_numeric_experiment_runner.py",
+  "num_folds": 5,
+  "experiment_configurations": [
+    {
+      "parallelization_data": {
+        "min_index": 0,
+        "max_index": 75,
+        "hop": 5
+      },
+      "compared_versions": [
+        6,
+        14,
+        16,
+        18
+      ],
+      "working_directory_path": "/sise/home/mordocha/numeric_planning/domains/zenotravel_large_dataset/",
+      "domain_file_name": "zenonumeric.pddl",
+      "solver_type": 3,
+      "problems_prefix": "pfile",
+      "fluents_map_path": "/sise/home/mordocha/numeric_planning/domains/zenotravel/zenotravel_fluents_map.json"
+    }
+  ]
+}

@@ -1,6 +1,0 @@
-[submodule "aml_evaluation/algorithms/sam"]
-	path = aml_evaluation/algorithms/sam
-	url = https://github.com/SPL-BGU/numeric-sam.git
-[submodule "aml_evaluation/algorithms/rosame"]
-	path = aml_evaluation/algorithms/rosame
-	url = https://github.com/omarw00/rosame.git
