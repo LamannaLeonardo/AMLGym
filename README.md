@@ -1,4 +1,4 @@
-# Evaluating Planning Model-Learning Algorithms
+# AMLGym: benchmarking action model learning
 <!-- Define badges -->
 <div style="display: flex; gap: 10px;">
    
