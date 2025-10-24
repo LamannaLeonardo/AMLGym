@@ -3,16 +3,16 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-include = ["aml_evaluation", "aml_evaluation.*"]
+include = ["amlgym", "amlgym.*"]
 
 [tool.setuptools.package-data]
-"aml_evaluation.benchmarks" = ["**/*"]
+"amlgym.benchmarks" = ["**/*"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
 [project]
-name = "aml_evaluation"
+name = "amlgym"
 version = "1.0.0"
 dynamic = ["dependencies"]
 requires-python = ">=3.8"
@@ -35,7 +35,7 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/LamannaLeonardo/aml-evaluation"
-Documentation = "https://github.com/LamannaLeonardo/aml-evaluation"
-Repository = "https://github.com/LamannaLeonardo/aml-evaluation"
-"Bug Tracker" = "https://github.com/LamannaLeonardo/aml-evaluation/issues"
+Homepage = "https://github.com/LamannaLeonardo/AMLGym"
+Documentation = "https://github.com/LamannaLeonardo/AMLGym"
+Repository = "https://github.com/LamannaLeonardo/AMLGym"
+"Bug Tracker" = "https://github.com/LamannaLeonardo/AMLGym/issues"

@@ -4,7 +4,7 @@ import sys
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
-from gen_problems import *  # do not remove
+from .gen_problems import *  # do not remove
 
 from datetime import datetime
 import yaml
@@ -21,7 +21,7 @@ from unified_planning.model import Problem, UPState
 from unified_planning.plans import ActionInstance
 from unified_planning.shortcuts import OneshotPlanner, SequentialSimulator
 
-from aml_evaluation.modeling.trajectory import Trajectory
+from amlgym.modeling.trajectory import Trajectory
 
 from tarski.io import PDDLReader as tarskiPDDLReader
 from tarski.grounding import LPGroundingStrategy
@@ -177,9 +177,6 @@ def generate_traj(
 
                 states.append(current_state)
 
-                if len(states) == TRAJ_LEN_MAX:
-                    break
-
             if plan is not None and (len(plan.actions) == 0 or action_instance == plan.actions[-1]):
                 logging.debug("A goal state has been reached.")
                 break
@@ -189,9 +186,9 @@ def generate_traj(
 
 if __name__ == '__main__':
 
-    TRAJ_LEN_MIN = 10
-    TRAJ_LEN_MAX = 10
-    OPTIMAL_TRACES = 0
+    TRAJ_LEN_MIN = 5
+    TRAJ_LEN_MAX = 30
+    OPTIMAL_TRACES = 3
     MAX_PLANNING_TIME = 600
     MAX_REPLANNING_TIME = 60  # time to check problem feasibility
     MAX_RANDOM_TRIALS = 3  # maximum number of random action samplings at each step
@@ -214,9 +211,9 @@ if __name__ == '__main__':
     GEN_DIR = "pddl-generators"
     BENCHMARK_DIR = "benchmarks"
     DOMAINS_DIR = "domains"
-    PROB_DIR = "problems/learning_hard"
-    TRAJ_DIR = "trajectories/learning_hard"
-    DOM_CFG = f"{BENCHMARK_DIR}/problems_learning_hard.yaml"
+    PROB_DIR = "problems/learning"
+    TRAJ_DIR = "trajectories/learning"
+    DOM_CFG = f"{BENCHMARK_DIR}/problems_learning.yaml"
 
     # Trace CPU time
     run_start = datetime.now()

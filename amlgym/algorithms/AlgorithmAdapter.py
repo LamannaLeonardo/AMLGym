@@ -12,14 +12,16 @@ class AlgorithmAdapter(abc.ABC):
 
     @abc.abstractmethod
     def learn(self,
-              domain_file: str,
-              trajectory_files: List[str]) -> str:
+              domain_path: str,
+              trajectory_paths: List[str]) -> str:
         """
-        Learns an action model from:
-         (i)    a (possibly empty input) model which is required to specify the predicates and operators signature;
+        Learns a PDDL action model from:
+         (i)    a (possibly empty) input model which is required to specify the predicates and operators signature;
          (ii)   a list of trajectory file paths.
-        :param domain_file: input PDDL domain file path
-        :param trajectory_files: list of trajectory file paths
-        :return: a string representing the action model
+
+        :parameter domain_path: input PDDL domain file path
+        :parameter trajectory_paths: list of trajectory file paths
+
+        :return: a string representing the learned PDDL model
         """
         raise NotImplementedError
