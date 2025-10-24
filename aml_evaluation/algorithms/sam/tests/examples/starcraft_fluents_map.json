@@ -1,0 +1,9 @@
+{
+	"dead": ["(health ?agent)"],
+	"stop": ["(health ?agent)"],
+	"move_up": ["(health ?agent)", "(coordinate_y ?agent)", "(max_y)"],
+	"move_down": ["(health ?agent)", "(coordinate_y ?agent)", "(max_y)"],
+	"move_left": ["(health ?agent)", "(coordinate_x ?agent)", "(max_x)"],
+	"move_right": ["(health ?agent)", "(coordinate_x ?agent)", "(max_x)"],
+	"attack": ["(health ?agent)", "(health ?enemy)"]
+}

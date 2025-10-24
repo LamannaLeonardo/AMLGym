@@ -1,0 +1,7 @@
+{
+	"turn_to": ["(fuel ?s)", "(slew_time ?d_new ?d_prev)"],
+	"switch_on": [],
+	"switch_off": [],
+	"calibrate": [],
+	"take_image": ["(data_capacity ?s)", "(data ?d ?m)"]
+}

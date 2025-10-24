@@ -1,0 +1,73 @@
+{
+    "types": [
+        {
+            "name": "object",
+            "parent": null
+        },
+        {
+            "name": "tile",
+            "parent": "object"
+        },
+        {
+            "name": "position",
+            "parent": "object"
+        }
+    ],
+    "predicates": [
+        {
+            "name": "at",
+            "params": {
+                "tile": 1,
+                "position": 2
+            }
+        },
+        {
+            "name": "blank",
+            "params": {
+                "position": 2
+            }
+        },
+        {
+            "name": "inc",
+            "params": {
+                "position": 2
+            }
+        },
+        {
+            "name": "dec",
+            "params": {
+                "position": 2
+            }
+        }
+    ],
+    "action_schemas": [
+        {
+            "name": "move-up",
+            "params": {
+                "tile": 1,
+                "position": 3
+            }
+        },
+        {
+            "name": "move-down",
+            "params": {
+                "tile": 1,
+                "position": 3
+            }
+        },
+        {
+            "name": "move-left",
+            "params": {
+                "tile": 1,
+                "position": 3
+            }
+        },
+        {
+            "name": "move-right",
+            "params": {
+                "tile": 1,
+                "position": 3
+            }
+        }
+    ]
+}

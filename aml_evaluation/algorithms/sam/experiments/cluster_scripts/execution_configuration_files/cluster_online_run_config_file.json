@@ -1,0 +1,17 @@
+{
+  "environment_variables_file_path": "/sise/home/mordocha/numeric_planning/domains/environment.json",
+  "code_directory_path": "/sise/home/mordocha/code/sam_learning/experiments",
+  "experiments_script_path": "planning_with_online_learning.py",
+  "num_folds": 5,
+  "experiment_configurations": [
+    {
+      "compared_versions": [3, 4],
+      "working_directory_path": "/sise/home/mordocha/numeric_planning/domains/minecraft_counting_rl_experiments/",
+      "domain_file_name": "basic_minecraft_domain.pddl",
+      "learning_algorithm": 3,
+      "solver_type": 3,
+      "problems_prefix": "basic_map_instance",
+      "fluents_map_path": "/sise/home/mordocha/numeric_planning/domains/minecraft_counting_rl_experiments/minecraft_fluents_map.json"
+    }
+  ]
+}
