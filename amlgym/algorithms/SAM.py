@@ -1,26 +1,27 @@
 import sys
 import os
-sys.path.append(os.path.abspath("aml_evaluation/algorithms/rosame"))
+sys.path.append(os.path.abspath("aml_evaluation/algorithms/sam"))
 
-from aml_evaluation.algorithms.AlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from typing import List
 import shutil
 from pathlib import Path
 from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
+
+from amlgym.algorithms.sam.sam_learning.learners import SAMLearner
 from pddl_plus_parser.lisp_parsers import ProblemParser
 
-from aml_evaluation.algorithms.rosame.experiment_runner.rosame_runner import Rosame_Runner
 
-
-class ROSAME(AlgorithmAdapter):
+class SAM(AlgorithmAdapter):
     """
-    Adapter class for running the ROSAME algorithm: "Neuro-Symbolic Learning
-    of Lifted Action Models from Visual Traces", Kai Xi1, Stephen Gould1,
-    Sylvie Thiebaux, ICAPS 2024
+    Adapter class for running the SAM algorithm: "Safe Learning of Lifted Action Models",
+    B. Juba and H. S. Le, and R. Stern, Proceedings of the 18th International Conference
+    on Principles of Knowledge Representation and Reasoning, 2021.
+    https://proceedings.kr.org/2021/36/
     """
 
     def __init__(self, **kwargs):
-        super(ROSAME, self).__init__(**kwargs)
+        super(SAM, self).__init__(**kwargs)
 
     def learn(self,
               domain_file: str,
@@ -37,35 +38,31 @@ class ROSAME(AlgorithmAdapter):
             with open(f"tmp/{i}_traj_filled", "w") as f:
                 f.write(filled_traj)
 
-        # Instantiate ROSAME algorithm
+        # Instantiate SAM algorithm
         partial_domain = DomainParser(Path(domain_file), partial_parsing=True).parse_domain()
-        rosame = Rosame_Runner(domain_file)
+        sam = SAMLearner(partial_domain=partial_domain)
 
-        # Parse input trajectories TODO: TO BE REMOVED (if not ...)
+        # Parse input trajectories
         if not use_problems:
             allowed_observations = [TrajectoryParser(partial_domain).parse_trajectory(traj_path)
                                     for traj_path in sorted(filled_traj_paths,
                                                             key=lambda x: int(x.split('/')[-1].split('_')[0]))]
         else:
-            # allowed_observations = []
+            allowed_observations = []
             for k, traj_path in enumerate(sorted(filled_traj_paths,
                                                  key=lambda x: int(x.split('/')[-1].split('_')[0]))):
                 problem_path = trajectory_files[k].replace('trajectories', 'problems').replace('_traj', '_prob.pddl')
                 problem = ProblemParser(Path(problem_path), partial_domain).parse_problem()
-                rosame.add_problem(problem)
-                # Learn the observation
-                observation = TrajectoryParser(partial_domain, problem).parse_trajectory(traj_path)
-                rosame.ground_new_trajectory()
-                rosame.learn_rosame(observation)
-                # allowed_observations.append(TrajectoryParser(partial_domain, problem).parse_trajectory(traj_path))
+                allowed_observations.append(TrajectoryParser(partial_domain, problem).parse_trajectory(traj_path))
 
-        # # Learn action model
-        # learned_model, learning_report = sam.learn_action_model(allowed_observations)
+        # Learn action model
+        learned_model, learning_report = sam.learn_action_model(allowed_observations)
 
         # Remove temporary files
         shutil.rmtree('tmp')
 
-        return rosame.rosame_to_pddl()
+        return learned_model.to_pddl()
+
 
     def preprocess_trace(self, traj_path: str) -> str:
 

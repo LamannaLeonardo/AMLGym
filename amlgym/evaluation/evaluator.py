@@ -16,7 +16,7 @@ import warnings
 
 from alive_progress import alive_bar
 
-from aml_evaluation.util.SimpleDomainReader import SimpleDomainReader
+from amlgym.util.SimpleDomainReader import SimpleDomainReader
 import numpy as np
 import os
 import re
