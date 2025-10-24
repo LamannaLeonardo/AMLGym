@@ -1,61 +1,83 @@
-import sys
 import os
+
 import itertools
 import shutil
 from collections import defaultdict
+from dataclasses import dataclass
+
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set
-from aml_evaluation.algorithms.AlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from unified_planning.io import PDDLReader
-from offlam.algorithm import learn
+
+from nolam.algorithm.Learner import Learner
 
 
-class OffLAM(AlgorithmAdapter):
+@dataclass
+class NOLAM(AlgorithmAdapter):
     """
-    Adapter class for running the OffLAM algorithm: "Lifted Action Models Learning
-    from Partial Traces", L. Lamanna, L. Serafini, A. Saetti, A. Gerevini,
-    and P. Traverso, Artificial Intelligence Journal, 2025.
-    https://www.sciencedirect.com/science/article/abs/pii/S0004370224001929
-    """
+    Adapter class for running the NOLAM algorithm: "Action Model Learning from Noisy
+    Traces: a Probabilistic Approach", L. Lamanna and L. Serafini, Proceedings of the
+    Thirty-Fourth International Conference on Automated Planning and Scheduling, 2024.
+    https://ojs.aaai.org/index.php/ICAPS/article/view/31493)
 
-    def __init__(self, **kwargs):
-        super(OffLAM, self).__init__(**kwargs)
+    Args:
+        noise (float): The observation noise.
+
+    Example:
+        .. code-block:: python
+
+            from amlgym.algorithms import get_algorithm
+            nolam = get_algorithm('NOLAM')
+            model = nolam.learn('path/to/domain.pddl', ['path/to/trace0', 'path/to/trace1'])
+            print(model)
+
+    """
+    noise: float = 0.
 
     def learn(self,
-              domain_file: str,
-              trajectory_files: List[str]) -> str:
+              domain_path: str,
+              trajectory_paths: List[str]) -> str:
 
         # Fill input trajectories with some (i.e. `relevant`) missing literals
         os.makedirs('tmp', exist_ok=True)
         filled_traj_paths = []
-        for i, traj_path in enumerate(sorted(trajectory_files,
+        for i, traj_path in enumerate(sorted(trajectory_paths,
                                              key=lambda x: int(x.split('/')[-1].split('_')[0]))):
-            filled_traj = self.preprocess_trace(domain_file, traj_path)  # add relevant negative literals
+            filled_traj = self._preprocess_trace(domain_path, traj_path)  # add relevant negative literals
             filled_traj_paths.append(f"tmp/{i}_traj_filled")
             with open(f"tmp/{i}_traj_filled", "w") as f:
                 f.write(filled_traj)
 
-        # Learn action model
-        model = learn(domain_file, filled_traj_paths)
-
-        # TODO: open issue in OffLAM
-        model = model.replace("(:requirements)", "(:requirements :typing)")
+        # Learn an action model
+        model = Learner().learn(domain_path, filled_traj_paths, e=self.noise)  # noise set to 0.0
 
         # Remove temporary files
         shutil.rmtree('tmp')
 
-        return model
+        return str(model)
 
-    def preprocess_trace(self, domain_path: str, traj_path: str) -> str:
+    def _preprocess_trace(self, domain_path: str, traj_path: str) -> str:
+        """
+        Format the trajectory to make it compliant with the algorithm, by explicitly
+        stating negative literals.
+
+        :parameter domain_path: path to the input domain file
+        :parameter traj_path: path to the trajectory file
+
+        :return: a string representing the formatted trajectory
+        """
 
         # Inner helper function
         def ground_atoms(atom: Fluent,
                          objects: Dict[str, Set[str]]) -> Set[str]:
             """
             Ground a lifted atom with a set of objects by checking object types are in the atom signature
+
             :param atom: a lifted atom
             :param objects: dictionary where keys are object ids and values object types
+
             :return: list of grounded atoms
             """
             atom_objs = [[o for o, o_types in objects.items() if param.type.name in o_types]
