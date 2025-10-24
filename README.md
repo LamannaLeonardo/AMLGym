@@ -71,12 +71,11 @@ Automated Planning and Scheduling, 2024.](https://ojs.aaai.org/index.php/ICAPS/a
 PRs with new or existing state-of-the-art algorithms are welcome:
 
 1. Create a Python class in `algorithms` which inherits from `AlgorithmAdapter.py` and implements the `learn` method
-3. Add the new class import in `algorithms/.__init__.py`
-4. Add either the algorithm package in `requirements.txt` or a git submodule for the new algorithm repository:
+2. Add either the algorithm package in `requirements.txt` or a git submodule for the new algorithm repository:
 ```
-git submodule add https://github.com/path/to/algorithm/newalg.git algorithms/newalg
+git submodule add https://github.com/path/to/algorithm/newalg.git aml_evaluation/algorithms/newalg
 ```
-When using git submodules, add `sys.path.append(os.path.abspath("algorithms/newalg"))` at the top level of the 
+When using git submodules, add `sys.path.append(os.path.abspath("aml_evaluation/algorithms/newalg"))` at the top level of the 
 new class file, where `newalg` is the new algorithm name.
 
 

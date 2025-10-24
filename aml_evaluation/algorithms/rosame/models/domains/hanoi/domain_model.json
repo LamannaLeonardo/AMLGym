@@ -1,0 +1,36 @@
+{
+    "types": [
+        {
+            "name": "object",
+            "parent": null
+        }
+    ],
+    "predicates": [
+        {
+            "name": "clear",
+            "params": {
+                "object": 1
+            }
+        },
+        {
+            "name": "on",
+            "params": {
+                "object": 2
+            }
+        },
+        {
+            "name": "smaller",
+            "params": {
+                "object": 2
+            }
+        }
+    ],
+    "action_schemas": [
+        {
+            "name": "move",
+            "params": {
+                "object": 3
+            }
+        }
+    ]
+}

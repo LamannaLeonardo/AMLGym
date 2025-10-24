@@ -1,0 +1,9 @@
+{
+  "tp_to": [],
+  "break": ["(cell_type ?pos)"],
+  "craft_plank": ["(count_log_in_inventory )"],
+  "craft_stick": ["(count_planks_in_inventory )"],
+  "craft_tree_tap": ["(count_planks_in_inventory )", "(count_stick_in_inventory )"],
+  "craft_wooden_pogo": ["(count_planks_in_inventory )", "(count_stick_in_inventory )", "(count_sack_polyisoprene_pellets_in_inventory )"],
+  "place_tree_tap": ["(cell_type ?pos)", "(count_tree_tap_in_inventory )"]
+}

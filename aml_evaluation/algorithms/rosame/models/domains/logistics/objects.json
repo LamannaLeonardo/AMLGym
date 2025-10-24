@@ -1,0 +1,30 @@
+{
+    "location": [
+        "city1-1",
+        "city2-1"
+    ],
+    "city": [
+        "city1",
+        "city2"
+    ],
+    "obj": [
+        "package1",
+        "package2",
+        "package3",
+        "package4",
+        "package5",
+        "package6"
+    ],
+    "truck": [
+        "truckred",
+        "trucklime"
+    ],
+    "airplane": [
+        "planeblue",
+        "planeyellow"
+    ],
+    "airport": [
+        "city1-2",
+        "city2-2"
+    ]
+}

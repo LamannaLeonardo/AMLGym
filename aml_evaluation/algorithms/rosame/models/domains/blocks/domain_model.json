@@ -1,0 +1,64 @@
+{
+    "types": [
+        {
+            "name": "object",
+            "parent": null
+        }
+    ],
+    "predicates": [
+        {
+            "name": "arm-empty",
+            "params": {}
+        },
+        {
+            "name": "clear",
+            "params": {
+                "object": 1
+            }
+        },
+        {
+            "name": "on-table",
+            "params": {
+                "object": 1
+            }
+        },
+        {
+            "name": "holding",
+            "params": {
+                "object": 1
+            }
+        },
+        {
+            "name": "on",
+            "params": {
+                "object": 2
+            }
+        }
+    ],
+    "action_schemas": [
+        {
+            "name": "pickup",
+            "params": {
+                "object": 1
+            }
+        },
+        {
+            "name": "putdown",
+            "params": {
+                "object": 1
+            }
+        },
+        {
+            "name": "stack",
+            "params": {
+                "object": 2
+            }
+        },
+        {
+            "name": "unstack",
+            "params": {
+                "object": 2
+            }
+        }
+    ]
+}

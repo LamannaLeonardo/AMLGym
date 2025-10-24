@@ -1,0 +1,6 @@
+((:init (= (cost ) 0.0) (= (x farm0) 0.0) (= (x farm1) 3.0) (adj farm1 farm0) (adj farm0 farm1))
+(operator: (move-slow farm1 farm0))
+(:state (= (cost ) 0.0) (= (x farm0) 1.0) (= (x farm1) 2.0) (adj farm1 farm0) (adj farm0 farm1))
+(operator: (move-slow farm1 farm0))
+(:state (= (cost ) 0.0) (= (x farm0) 2.0) (= (x farm1) 1.0) (adj farm1 farm0) (adj farm0 farm1))
+)
