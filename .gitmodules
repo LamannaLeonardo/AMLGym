@@ -1,9 +1,3 @@
-[submodule "aml_evaluation/algorithms/offlam"]
-	path = aml_evaluation/algorithms/offlam
-	url = https://github.com/LamannaLeonardo/OffLAM.git
-[submodule "aml_evaluation/algorithms/nolam"]
-	path = aml_evaluation/algorithms/nolam
-	url = https://github.com/LamannaLeonardo/NOLAM.git
 [submodule "aml_evaluation/algorithms/sam"]
 	path = aml_evaluation/algorithms/sam
 	url = https://github.com/SPL-BGU/numeric-sam.git

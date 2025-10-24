@@ -13,3 +13,5 @@ openpyxl>=3.1.5
 clingo>=5.7.1
 torch>=2.6.0
 seaborn>=0.13.0
+nolam
+offlam

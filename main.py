@@ -9,6 +9,7 @@ import random
 import numpy as np
 from aml_evaluation import algorithms
 
+from aml_evaluation.algorithms import get_algorithm
 
 def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
 
@@ -30,8 +31,8 @@ def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
 
 if __name__ == '__main__':
 
-    TRAJ_DIR = 'aml-evaluation/benchmarks/trajectories/learning'
-    DOM_DIR = 'aml-evaluation/benchmarks/domains'
+    TRAJ_DIR = 'aml_evaluation/benchmarks/trajectories/learning'
+    DOM_DIR = 'aml_evaluation/benchmarks/domains'
     RES_DIR = 'res'
 
     # Set random seed for reproducibility of stochastic algorithms (e.g. ROSAME)
@@ -45,14 +46,16 @@ if __name__ == '__main__':
         # level=logging.INFO
     )
 
-    methods = ['SAM', 'OffLAM', 'NOLAM', 'ROSAME']
+    # methods = ['SAM', 'OffLAM', 'NOLAM', 'ROSAME']
+    methods = ['SAM']
 
     for alg_class in methods:
 
         print(f'##################### Running {alg_class} #####################')
 
         # Instantiate learning algorithm
-        agent = getattr(algorithms, alg_class)()
+        # agent = getattr(algorithms, alg_class)()
+        agent = get_algorithm(alg_class)()
 
         # Create results log directory and metrics dataframe
         os.makedirs(f"{RES_DIR}/{alg_class}", exist_ok=True)
