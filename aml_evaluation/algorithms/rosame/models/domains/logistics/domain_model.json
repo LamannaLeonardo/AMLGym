@@ -1,0 +1,112 @@
+{
+    "types": [
+        {
+            "name": "object",
+            "parent": null
+        },
+        {
+            "name": "movable",
+            "parent": "object"
+        },
+        {
+            "name": "location",
+            "parent": "object"
+        },
+        {
+            "name": "city",
+            "parent": "object"
+        },
+        {
+            "name": "obj",
+            "parent": "movable"
+        },
+        {
+            "name": "transport",
+            "parent": "movable"
+        },
+        {
+            "name": "truck",
+            "parent": "transport"
+        },
+        {
+            "name": "airplane",
+            "parent": "transport"
+        },
+        {
+            "name": "airport",
+            "parent": "location"
+        }
+    ],
+    "predicates": [
+        {
+            "name": "at",
+            "params": {
+                "movable": 1,
+                "location": 1
+            }
+        },
+        {
+            "name": "in",
+            "params": {
+                "obj": 1,
+                "transport": 1
+            }
+        },
+        {
+            "name": "in-city",
+            "params": {
+                "location": 1,
+                "city": 1
+            }
+        }
+    ],
+    "action_schemas": [
+        {
+            "name": "load-truck",
+            "params": {
+                "obj": 1,
+                "truck": 1,
+                "location": 1
+            }
+        },
+        {
+            "name": "load-airplane",
+            "params": {
+                "obj": 1,
+                "airplane": 1,
+                "airport": 1
+            }
+        },
+        {
+            "name": "unload-truck",
+            "params": {
+                "obj": 1,
+                "truck": 1,
+                "location": 1
+            }
+        },
+        {
+            "name": "unload-airplane",
+            "params": {
+                "obj": 1,
+                "airplane": 1,
+                "airport": 1
+            }
+        },
+        {
+            "name": "drive-truck",
+            "params": {
+                "truck": 1,
+                "location": 2,
+                "city": 1
+            }
+        },
+        {
+            "name": "fly-airplane",
+            "params": {
+                "airplane": 1,
+                "airport": 2
+            }
+        }
+    ]
+}

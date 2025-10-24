@@ -1,0 +1,72 @@
+{
+    "types": [
+        {
+            "name": "object",
+            "parent": null
+        },
+        {
+            "name": "room",
+            "parent": "object"
+        },
+        {
+            "name": "ball",
+            "parent": "object"
+        },
+        {
+            "name": "gripper",
+            "parent": "object"
+        }
+    ],
+    "predicates": [
+        {
+            "name": "at-robby",
+            "params": {
+                "room": 1
+            }
+        },
+        {
+            "name": "at",
+            "params": {
+                "ball": 1,
+                "room": 1
+            }
+        },
+        {
+            "name": "free",
+            "params": {
+                "gripper": 1
+            }
+        },
+        {
+            "name": "carry",
+            "params": {
+                "ball": 1,
+                "gripper": 1
+            }
+        }
+    ],
+    "action_schemas": [
+        {
+            "name": "move",
+            "params": {
+                "room": 2
+            }
+        },
+        {
+            "name": "pick",
+            "params": {
+                "ball": 1,
+                "room": 1,
+                "gripper": 1
+            }
+        },
+        {
+            "name": "drop",
+            "params": {
+                "ball": 1,
+                "room": 1,
+                "gripper": 1
+            }
+        }
+    ]
+}
