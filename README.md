@@ -44,11 +44,6 @@ trajectories in the following settings:
 2. **partial** observability: OffLAM [2].
 3. **full** and **noisy** observability: NOLAM [3], ROSAME [4].
 
-It is possible to run the above algorithms as of the `main.py` script, 
-which by default runs SAM, OffLAM, NOLAM, and ROSAME on every domain and associated 
-set of trajectories in `benchmarks/trajectories/learning`.
-
-
 [1] ["Safe Learning of Lifted Action Models", B. Juba and H. S. Le, and R. Stern, 
 Proceedings of the 18th International Conference on Principles of Knowledge 
 Representation and Reasoning, 2021.](https://proceedings.kr.org/2021/36/)
@@ -86,3 +81,6 @@ See the [benchmark](/amlgym/benchmarks/README.md) package for details.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](/LICENSE.md) file for details.
+
+## Citing
+Available soon
