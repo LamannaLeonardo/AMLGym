@@ -1,3 +1,4 @@
+import re
 import sys
 import os
 sys.path.append(os.path.abspath("aml_evaluation/algorithms/rosame"))
@@ -97,6 +98,9 @@ class ROSAME(AlgorithmAdapter):
 
         with open(traj_path, 'r') as f:
             traj_str = f.read()
+
+        # Format extra spaces
+        traj_str = re.sub(r' +', ' ', traj_str)
 
         # Remove initial 'observation' keyword
         traj_str = traj_str.replace('(:trajectory', '(')
