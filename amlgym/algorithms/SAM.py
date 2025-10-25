@@ -52,8 +52,7 @@ class SAM(AlgorithmAdapter):
         # Format input trajectories
         os.makedirs('tmp', exist_ok=True)
         filled_traj_paths = []
-        for i, traj_path in enumerate(sorted(trajectory_paths,
-                                             key=lambda x: int(x.split('/')[-1].split('_')[0]))):
+        for i, traj_path in enumerate(trajectory_paths):
             filled_traj = self._preprocess_trace(traj_path)
             filled_traj_paths.append(f"tmp/{i}_traj_filled")
             with open(f"tmp/{i}_traj_filled", "w") as f:
