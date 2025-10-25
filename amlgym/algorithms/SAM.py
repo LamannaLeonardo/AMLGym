@@ -1,3 +1,4 @@
+import re
 import sys
 import os
 from dataclasses import dataclass
@@ -95,6 +96,9 @@ class SAM(AlgorithmAdapter):
 
         with open(traj_path, 'r') as f:
             traj_str = f.read()
+
+        # Format extra spaces
+        traj_str = re.sub(r' +', ' ', traj_str)
 
         # Remove initial 'observation' keyword
         traj_str = traj_str.replace('(:trajectory', '(')

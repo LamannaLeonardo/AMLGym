@@ -83,10 +83,12 @@ class OffLAM(AlgorithmAdapter):
 
         domain = PDDLReader().parse_problem(domain_path)
         with open(traj_path, 'r') as f:
-            data = f.read()
-        states = [r for r in data.split('\n') if r.strip().startswith('(:state ')]
+            traj_str = f.read()
+            traj_str = re.sub(r' +', ' ', traj_str)  # format extra spaces
+
+        states = [r for r in traj_str.split('\n') if r.strip().startswith('(:state ')]
         actions = [{'name': a.split()[0], 'objs': a.split()[1:] if len(a.split()) > 1 else list()}
-                   for a in re.findall(r"\(:action\s+\((.*?)\)\)", data)]
+                   for a in re.findall(r"\(:action\s+\((.*?)\)\)", traj_str)]
         states = [{
             'pos': {e.strip() for e in re.findall(r"\([^()]*\)", s)
                     if not len(e.replace('(and', '').replace(')', '').strip()) == 0},
