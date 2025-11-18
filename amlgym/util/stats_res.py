@@ -202,6 +202,7 @@ def barplot_metric(metric: str,
 
     # get metrics for each algorithm and run
     algs = [a for a in os.listdir(RES_DIR) if '.' not in a]
+    # algs = ['ROSAME']
 
     alg_stats = defaultdict(list)
     for alg in algs:
@@ -210,6 +211,11 @@ def barplot_metric(metric: str,
 
     # plot each algorithm metric
     domain_df = pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")
+    # avoided = ['npuzzle', 'spanner', 'ferry', 'transport', 'miconic', 'sokoban', 'blocksworld']
+    # avoided = ['miconic', 'blocksworld', 'satellite']
+    avoided = ['npuzzle', 'sokoban', 'transport', 'ferry', 'spanner', 'miconic', 'blocksworld', 'satellite']
+    # avoided = []
+    domain_df = domain_df[~domain_df['domain'].isin(avoided)]
     avg_alg_stats = defaultdict()
     for alg in alg_stats:
         # extract numeric columns
@@ -234,9 +240,9 @@ def barplot_metric(metric: str,
     barplot_df = pd.concat(avg_alg_stats.values(), axis=1)
     barplot_df.columns = avg_alg_stats.keys()
 
-    # # Sort domains by average value across all algorithms
-    domain_means = barplot_df.mean(axis=1)
-    barplot_df = barplot_df.loc[domain_means.sort_values().index]
+    # # # Sort domains by average value across all algorithms
+    # domain_means = barplot_df.mean(axis=1)
+    # barplot_df = barplot_df.loc[domain_means.sort_values().index]
 
     # plot grouped bar chart
     barplot_df.plot(
@@ -247,12 +253,15 @@ def barplot_metric(metric: str,
         color=[color_map[next(colors)] for _ in range(len(avg_alg_stats))]
     )
 
-    plt.legend(prop={'size': 15}, loc='lower right')
+    plt.legend(prop={'size': 25}, loc='lower right')
 
     plt.xlabel('')
-    plt.ylabel('')
-    plt.xticks(rotation=70, size=15)
-    plt.yticks(rotation=0, size=15)
+    plt.ylabel('Problem solving', size=25)
+    # plt.ylabel('Pred. effs. Precision', size=25)
+    plt.xticks(rotation=-30, ha='left', rotation_mode='anchor', size=25)
+    plt.yticks(rotation=0, size=25)
+    plt.ylim(.0, 1.)
+    # plt.xticks([])
     plt.tight_layout()
     plt.savefig(img_file_path)
 
@@ -406,22 +415,36 @@ def print_best_table():
 if __name__ == '__main__':
 
     BENCHMARK_DIR = "benchmarks"
-    RES_DIR = "../res"
+    RES_DIR = "../res_KEPS"
 
     logging.basicConfig(level=logging.INFO)
 
-    colors = cycle(['blue', 'orange', 'red', 'purple'])
+    colors = cycle(['purple', 'lightblue', 'gray', 'red', 'purple'])
+    colors = cycle(['red', 'lightblue', 'purple', 'gray'])
     markers = cycle(['s', 'd', '*', '.'])
 
-    palette = seaborn.color_palette("Paired")
+    # palette = seaborn.color_palette("Paired")
+    # color_map = {
+    #     "lightblue": palette[0],  # Default "lightblue" color in the pastel palette
+    #     "blue": palette[1],  # Default "blue" color in the pastel palette
+    #     "orange": palette[7],  # Default "orange" color
+    #     "green": palette[3],   # ...
+    #     "purple": palette[9],
+    #     "brown": palette[11],
+    #     "red": palette[5],
+    # }
+    palette = seaborn.color_palette("muted", 10)
     color_map = {
-        "lightblue": palette[0],  # Default "lightblue" color in the pastel palette
-        "blue": palette[1],  # Default "blue" color in the pastel palette
-        "orange": palette[7],  # Default "orange" color
-        "green": palette[3],   # ...
-        "purple": palette[9],
-        "brown": palette[11],
-        "red": palette[5],
+        "blue": palette[0],  # muted blue
+        "orange": palette[1],  # muted orange
+        "green": palette[2],  # muted green
+        "red": palette[3],  # muted red
+        "purple": palette[4],  # muted purple
+        "brown": palette[5],  # muted brown
+        "pink": palette[6],  # muted pink
+        "gray": seaborn.color_palette("bright", 10)[-3],  # muted gray
+        "yellow": palette[8],  # pale cyan-like
+        "lightblue": palette[9],  # muted yellow
     }
 
     # Concatenate and save all algorithm results
@@ -434,18 +457,18 @@ if __name__ == '__main__':
     # barplot_metric('app recall', f"{RES_DIR}/app_recall.png")
     # barplot_metric('predicted_effects precision', f"{RES_DIR}/predeffs_precision.png")
     # barplot_metric('predicted_effects recall', f"{RES_DIR}/predeffs_recall.png")
-    # barplot_metric('solving_ratio', f"{RES_DIR}/solving.png")
+    barplot_metric('solving_ratio', f"{RES_DIR}/solving.png")
     # barplot_metric('false_plans_ratio', f"{RES_DIR}/false_plans.png")
 
     # Generate metric lineplot grouped by domain for every algorithm
-    lineplot_metric('syn precision', f"{RES_DIR}/syn_precision_line.png")
-    lineplot_metric('syn recall', f"{RES_DIR}/syn_recall_line.png")
-    lineplot_metric('app precision', f"{RES_DIR}/app_precision_line.png")
-    lineplot_metric('app recall', f"{RES_DIR}/app_recall_line.png")
-    lineplot_metric('predicted_effects precision', f"{RES_DIR}/predeffs_precision_line.png")
-    lineplot_metric('predicted_effects recall', f"{RES_DIR}/predeffs_recall_line.png")
-    lineplot_metric('solving_ratio', f"{RES_DIR}/solving_line.png")
-    lineplot_metric('false_plans_ratio', f"{RES_DIR}/false_plans_line.png")
+    # lineplot_metric('syn precision', f"{RES_DIR}/syn_precision_line.png")
+    # lineplot_metric('syn recall', f"{RES_DIR}/syn_recall_line.png")
+    # lineplot_metric('app precision', f"{RES_DIR}/app_precision_line.png")
+    # lineplot_metric('app recall', f"{RES_DIR}/app_recall_line.png")
+    # lineplot_metric('predicted_effects precision', f"{RES_DIR}/predeffs_precision_line.png")
+    # lineplot_metric('predicted_effects recall', f"{RES_DIR}/predeffs_recall_line.png")
+    # lineplot_metric('solving_ratio', f"{RES_DIR}/solving_line.png")
+    # lineplot_metric('false_plans_ratio', f"{RES_DIR}/false_plans_line.png")
 
     # Print a table for the given metrics
     # metrics = [

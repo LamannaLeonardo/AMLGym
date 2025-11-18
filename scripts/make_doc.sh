@@ -1,4 +1,5 @@
 ##generates .rst files from amlgym package
+# rm -rf docs/source/api/*  # possibly remove the old generated file
 #sphinx-apidoc -o docs/source/api amlgym amlgym/algorithms/sam amlgym/algorithms/rosame
 
 ## build docs

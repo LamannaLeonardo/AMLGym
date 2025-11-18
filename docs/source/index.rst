@@ -7,7 +7,7 @@
 AML Gym Documentation
 =====================
 
-Welcome to **AMLGym**, a benchmarking framework for action model learning approaches in AI Planning.
+Welcome to **AMLGym**, a framework for benchmarking action model learning approaches in AI Planning.
 
 This documentation provides:
 
@@ -17,24 +17,20 @@ This documentation provides:
 - **API Reference** — detailed information for developers.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 10
    :caption: Overview
    :titlesonly:
+   :hidden:
 
    getting_started
    algorithms/index
+   evaluation/index
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 10
    :caption: Usage
    :titlesonly:
+   :hidden:
 
    tutorials/index
-   api/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   api/modules
