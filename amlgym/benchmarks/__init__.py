@@ -58,3 +58,16 @@ def get_trajectories_path(domain_name: str,
     pkg = f"amlgym.benchmarks.trajectories.{kind}.{domain_name.split('.')[0]}"
     trajectories_path = [str(f) for f in resources.files(pkg).iterdir() if f.is_file()]
     return sorted(trajectories_path, key=lambda x: int(x.split('/')[-1].split('_')[0]))
+
+
+def get_problems_path(domain_name: str,
+                      kind: str = 'solving') -> List[str]:
+    """
+    Return the absolute path of a PDDL domain problem files in the benchmarks.problems package.
+    """
+    possible_kinds = ['learning', 'learning_hard', 'applicability', 'solving']
+    assert kind in possible_kinds, f'`kind` must be one of {possible_kinds}'
+
+    pkg = f"amlgym.benchmarks.problems.{kind}.{domain_name.split('.')[0]}"
+    problems_path = [str(f) for f in resources.files(pkg).iterdir() if f.is_file()]
+    return sorted(problems_path, key=lambda x: int(x.split('/')[-1].split('_')[0]))

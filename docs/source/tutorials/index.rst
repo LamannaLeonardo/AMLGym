@@ -7,4 +7,6 @@ Hands-on examples for using AML Gym.
    :maxdepth: 1
    :titlesonly:
 
-   examples_usage
+   benchmarks
+   algorithms
+   evaluation
