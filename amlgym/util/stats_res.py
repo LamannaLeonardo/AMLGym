@@ -197,6 +197,83 @@ def lineplot_metric(metric: str,
     plt.savefig(img_file_path)
 
 
+def barplot_metric_traj_avg(metric: str,
+                   img_file_path: str) -> None:
+
+    # get metrics for each algorithm and run
+    algs = [a for a in os.listdir(RES_DIR) if '.' not in a]
+    # algs = ['ROSAME']
+
+    # alg_stats = defaultdict(list)
+    alg_stats = dict()
+    for alg in algs:
+        alg_stats[alg] = defaultdict(list)
+        for n_traj in [d for d in os.listdir(os.path.join(RES_DIR, alg)) if '.DS_' not in d]:
+            for run in [d for d in os.listdir(os.path.join(RES_DIR, alg, n_traj)) if '.DS_' not in d]:
+                alg_stats[alg][n_traj].append(pd.read_excel(f"{RES_DIR}/{alg}/{n_traj}/{run}/metrics.xlsx"))
+
+    # plot each algorithm metric
+    domain_df = pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")
+    # avoided = ['npuzzle', 'spanner', 'ferry', 'transport', 'miconic', 'sokoban', 'blocksworld']
+    # avoided = ['miconic', 'blocksworld', 'satellite']
+    # avoided = ['npuzzle', 'sokoban', 'transport', 'ferry', 'spanner', 'miconic', 'blocksworld', 'satellite']
+    avoided = []
+    domain_df = domain_df[~domain_df['domain'].isin(avoided)]
+    avg_alg_stats = defaultdict()
+    for alg in alg_stats:
+        # extract numeric columns
+        dummy_key = list(alg_stats[alg].keys())[0]
+        numeric_cols = alg_stats[alg][dummy_key][0].select_dtypes(include='number').columns
+
+        for n_traj in alg_stats[alg]:
+            avg_alg_stats[n_traj] = defaultdict()
+            # average only numeric parts
+            avg_numeric_df = pd.concat([df[numeric_cols] for df in alg_stats[alg]]).groupby(level=0).mean()
+
+            # merge non-numeric (i.e. 'domain') from the original dataframe
+            non_numeric_cols = alg_stats[alg][0].drop(columns=numeric_cols)
+            avg_metric = pd.concat([non_numeric_cols, avg_numeric_df], axis=1)
+
+            # sort by domain dataframe column `operators`
+            merged_df = avg_metric.merge(domain_df[['domain', 'operators']], on='domain')
+            merged_df = merged_df.sort_values(by='operators')
+
+            metric_series = merged_df.set_index('domain')[metric]
+            metric_series.name = alg  # gives the column a name
+
+
+            avg_alg_stats[n_traj][alg] = metric_series
+
+    avg_metric_per_ntraj = avg_alg_stats[n_traj].values()
+    barplot_df = pd.concat(avg_alg_stats.values(), axis=1)
+    barplot_df.columns = avg_alg_stats.keys()
+
+    # # # Sort domains by average value across all algorithms
+    # domain_means = barplot_df.mean(axis=1)
+    # barplot_df = barplot_df.loc[domain_means.sort_values().index]
+
+    # plot grouped bar chart
+    barplot_df.plot(
+        # kind='barh',
+        kind='bar',
+        figsize=(12, 6),
+        alpha=.8,
+        color=[color_map[next(colors)] for _ in range(len(avg_alg_stats))]
+    )
+
+    plt.legend(prop={'size': 25}, loc='lower right')
+
+    plt.xlabel('')
+    plt.ylabel('Problem solving', size=25)
+    # plt.ylabel('Pred. effs. Precision', size=25)
+    plt.xticks(rotation=-30, ha='left', rotation_mode='anchor', size=25)
+    plt.yticks(rotation=0, size=25)
+    plt.ylim(.0, 1.)
+    # plt.xticks([])
+    plt.tight_layout()
+    plt.savefig(img_file_path)
+
+
 def barplot_metric(metric: str,
                    img_file_path: str) -> None:
 
@@ -213,8 +290,8 @@ def barplot_metric(metric: str,
     domain_df = pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")
     # avoided = ['npuzzle', 'spanner', 'ferry', 'transport', 'miconic', 'sokoban', 'blocksworld']
     # avoided = ['miconic', 'blocksworld', 'satellite']
-    avoided = ['npuzzle', 'sokoban', 'transport', 'ferry', 'spanner', 'miconic', 'blocksworld', 'satellite']
-    # avoided = []
+    # avoided = ['npuzzle', 'sokoban', 'transport', 'ferry', 'spanner', 'miconic', 'blocksworld', 'satellite']
+    avoided = []
     domain_df = domain_df[~domain_df['domain'].isin(avoided)]
     avg_alg_stats = defaultdict()
     for alg in alg_stats:
@@ -415,7 +492,8 @@ def print_best_table():
 if __name__ == '__main__':
 
     BENCHMARK_DIR = "benchmarks"
-    RES_DIR = "../res_KEPS"
+    # RES_DIR = "../res_KEPS"
+    RES_DIR = "../../res"
 
     logging.basicConfig(level=logging.INFO)
 
