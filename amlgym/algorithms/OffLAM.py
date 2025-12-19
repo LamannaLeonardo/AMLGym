@@ -1,4 +1,3 @@
-import sys
 import os
 import itertools
 import shutil
@@ -36,6 +35,11 @@ class OffLAM(AlgorithmAdapter):
               trajectory_paths: List[str]) -> str:
 
         # Fill input trajectories with some (i.e. `relevant`) missing literals
+        if os.path.exists('tmp'):
+            if not os.path.isdir("tmp"):
+                os.remove("tmp")
+            else:
+                shutil.rmtree('tmp')
         os.makedirs('tmp', exist_ok=True)
         filled_traj_paths = []
         for i, traj_path in enumerate(trajectory_paths):
