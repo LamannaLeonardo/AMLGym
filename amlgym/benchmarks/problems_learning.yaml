@@ -900,3 +900,44 @@ domains:
       slow_elevators: 2
       fast_capacity: 2
       slow_capacity: 2
+  visitall:
+    - x: 3 # number of rows
+      y: 3 # number of cols
+      r: 0.5 # ratio of cells in the goal state
+      u: 2 # number of unavailable locations (randomly generated)
+    - x: 3
+      y: 4
+      r: 0.5
+      u: 4
+    - x: 4
+      y: 3
+      r: 0.5
+      u: 6
+    - x: 4
+      y: 4
+      r: 0.5
+      u: 8
+    - x: 4
+      y: 5
+      r: 0.5
+      u: 10
+    - x: 5
+      y: 4
+      r: 0.5
+      u: 12
+    - x: 5
+      y: 5
+      r: 0.5
+      u: 14
+    - x: 5
+      y: 6
+      r: 0.5
+      u: 16
+    - x: 6
+      y: 5
+      r: 0.5
+      u: 18
+    - x: 6
+      y: 6
+      r: 0.5
+      u: 20

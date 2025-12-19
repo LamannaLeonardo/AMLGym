@@ -13,6 +13,7 @@ import numpy as np
 
 GEN_DIR = "pddl-generators"
 
+
 def problem_blocksworld(seed: int = 123,
                         ops: int = 4,
                         num: int = 3) -> str:
@@ -114,6 +115,31 @@ def problem_barman(seed: int = 123,
     result = subprocess.run(f"python {GEN_DIR}/barman/barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}".split(),
                             capture_output=True, text=True)
     problem = result.stdout
+
+    return problem
+
+
+def problem_visitall(seed: int = 123,
+                     x: int = 3,
+                     y: int = 3,
+                     r: int = 0.2,
+                     u: int = 2) -> str:
+    """
+    See `util/pddl-generators/visitall/README.txt`.
+    :param seed: random seed
+    :param x: number of grid cols
+    :param y: number of grid rows
+    :param r: ratio of cells to be visited
+    :param u: number of unavailable grid cells
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/visitall/grid -x {x} -y {y} -r {r} -u {u} -s {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    problem = problem[problem.find('(define '):]
 
     return problem
 
@@ -723,7 +749,7 @@ def problem_elevators(seed: int = 123,
     result = subprocess.run(f"./{GEN_DIR}/elevators/generate_pddl {floors} {floors} 1 {passengers} {passengers} 1 1 1".split(),
                             capture_output=True, text=True)
 
-    prob_file = [f for f in os.listdir(f"/") if f.endswith('.pddl') and f.startswith('p')][0]
+    prob_file = [f for f in os.listdir(f"./") if f.endswith('.pddl') and f.startswith('p')][0]
     with open(prob_file, 'r') as f:
         problem = f.read()
     os.remove(prob_file)
