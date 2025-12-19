@@ -9,7 +9,7 @@ import numpy as np
 import yaml
 
 from tarski.grounding import LPGroundingStrategy
-from unified_planning.io import PDDLReader
+from unified_planning.io import PDDLReader, PDDLWriter
 from tarski.io import PDDLReader as tarskiPDDLReader
 from unified_planning.shortcuts import SequentialSimulator
 
@@ -177,13 +177,48 @@ def reduce_problem_settings(in_problem_path: str,
         yaml.dump(settings, f)
 
 
+def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
+
+    # Load the domain using pddl library
+    pddl_domain = PDDLReader().parse_problem(domain_path)
+
+    # Loop through all actions and remove preconditions and effects
+    for action in pddl_domain.actions:
+        action.clear_preconditions()
+        action.clear_effects()
+
+    domain_str = PDDLWriter(pddl_domain).get_domain()
+    pattern = re.compile(
+        r"(:action[\s\S]*?:parameters\s*\([^)]*\))\)",
+        re.MULTILINE
+    )
+
+    replacement = r"\1\n  :precondition (and )\n  :effect (and ))\n"
+
+    with open(empty_domain_path, 'w') as f:
+        f.write(pattern.sub(replacement, domain_str))
+
+    return empty_domain_path
+
 
 if __name__ == '__main__':
+    pass
 
     # remove_trajs('../benchmarks/problems/applicability', 100)
     # remove_trajs('../benchmarks/trajectories/applicability', 100)
 
+    # LIMIT DATASETS TO 100 MAX TRACES
+    # remove_trajs('../benchmarks/problems/predictive_power', 100)
+    # states_path = '../benchmarks/states/predictive_power'
+    # for domain in os.listdir(states_path):
+    #     domain_states_path = f"{states_path}/{domain}"
+    #     with open(f"{domain_states_path}/test_states.json", 'r') as f:
+    #         test_set = json.load(f)
+    #     new_test_set = {k:v for k, v in test_set.items() if int(k.split('_')[0]) < 100}
+    #     with open(f"{domain_states_path}/test_states.json", 'w') as f:
+    #         json.dump(new_test_set, f, indent=3)
+
     # preprocess_trace('../benchmarks/trajectories/learning')
 
-    reduce_problem_settings('../benchmarks/problems_learning.yaml',
-                            '../benchmarks/problems_learning_hard.yaml')
+    # reduce_problem_settings('../benchmarks/problems_learning.yaml',
+    #                         '../benchmarks/problems_learning_hard.yaml')
