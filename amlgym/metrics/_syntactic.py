@@ -251,8 +251,8 @@ def _compute_operator_recall(reference_op: Operator,
         all_fn += len(gt_set - pred_set)
 
     overall_recall = (
-        all_tp / (all_tp + all_fp)
-        if (all_tp + all_fp) > 0
+        all_tp / (all_tp + all_fn)
+        if (all_tp + all_fn) > 0
         else 1.0
     )
 
