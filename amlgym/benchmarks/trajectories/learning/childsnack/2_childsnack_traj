@@ -1,0 +1,69 @@
+(:trajectory
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 kitchen) (at_kitchen_bread bread1) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_bread bread4) (at_kitchen_content content1) (at_kitchen_content content2) (at_kitchen_content content3) (at_kitchen_content content4) (no_gluten_bread bread4) (no_gluten_content content2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw1) (notexist sandw2) (notexist sandw3) (notexist sandw4) (notexist sandw5) (notexist sandw6) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (make_sandwich_no_gluten sandw2 bread4 content2))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 kitchen) (at_kitchen_bread bread1) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content1) (at_kitchen_content content3) (at_kitchen_content content4) (at_kitchen_sandwich sandw2) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw1) (notexist sandw3) (notexist sandw4) (notexist sandw5) (notexist sandw6) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (move_tray tray2 kitchen table1))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (at_kitchen_bread bread1) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content1) (at_kitchen_content content3) (at_kitchen_content content4) (at_kitchen_sandwich sandw2) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw1) (notexist sandw3) (notexist sandw4) (notexist sandw5) (notexist sandw6) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (put_on_tray sandw2 tray1))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (at_kitchen_bread bread1) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content1) (at_kitchen_content content3) (at_kitchen_content content4) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw1) (notexist sandw3) (notexist sandw4) (notexist sandw5) (notexist sandw6) (ontray sandw2 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (make_sandwich sandw1 bread1 content1))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content3) (at_kitchen_content content4) (at_kitchen_sandwich sandw1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw3) (notexist sandw4) (notexist sandw5) (notexist sandw6) (ontray sandw2 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (put_on_tray sandw1 tray1))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content3) (at_kitchen_content content4) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw3) (notexist sandw4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw2 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (make_sandwich sandw3 bread2 content3))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (at_kitchen_bread bread3) (at_kitchen_content content4) (at_kitchen_sandwich sandw3) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw2 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (put_on_tray sandw3 tray1))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (at_kitchen_bread bread3) (at_kitchen_content content4) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw2 tray1) (ontray sandw3 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (make_sandwich sandw4 bread3 content4))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (at_kitchen_sandwich sandw4) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw2 tray1) (ontray sandw3 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (put_on_tray sandw4 tray1))
+
+(:state (allergic_gluten child2) (at tray1 kitchen) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw2 tray1) (ontray sandw3 tray1) (ontray sandw4 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (move_tray tray1 kitchen table1))
+
+(:state (allergic_gluten child2) (at tray1 table1) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw2 tray1) (ontray sandw3 tray1) (ontray sandw4 tray1) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (serve_sandwich_no_gluten sandw2 child2 tray1 table1))
+
+(:state (allergic_gluten child2) (at tray1 table1) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw3 tray1) (ontray sandw4 tray1) (served child2) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (move_tray tray1 table1 table2))
+
+(:state (allergic_gluten child2) (at tray1 table2) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw1 tray1) (ontray sandw3 tray1) (ontray sandw4 tray1) (served child2) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (serve_sandwich sandw1 child1 tray1 table2))
+
+(:state (allergic_gluten child2) (at tray1 table2) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw3 tray1) (ontray sandw4 tray1) (served child1) (served child2) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (serve_sandwich sandw3 child4 tray1 table2))
+
+(:state (allergic_gluten child2) (at tray1 table2) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw4 tray1) (served child1) (served child2) (served child4) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (move_tray tray1 table2 table3))
+
+(:state (allergic_gluten child2) (at tray1 table3) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (ontray sandw4 tray1) (served child1) (served child2) (served child4) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+(:action (serve_sandwich sandw4 child3 tray1 table3))
+
+(:state (allergic_gluten child2) (at tray1 table3) (at tray2 table1) (no_gluten_bread bread4) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child3) (not_allergic_gluten child4) (notexist sandw5) (notexist sandw6) (served child1) (served child2) (served child3) (served child4) (waiting child1 table2) (waiting child2 table1) (waiting child3 table3) (waiting child4 table2))
+
+)

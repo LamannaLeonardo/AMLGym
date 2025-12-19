@@ -1,0 +1,49 @@
+(:trajectory
+
+(:state (at c0 l3) (at c1 l2) (at c2 l3) (at c3 l4) (at_ferry l2) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4))
+
+(:action (board c1 l2))
+
+(:state (at c0 l3) (at c2 l3) (at c3 l4) (at_ferry l2) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4) (on c1))
+
+(:action (sail l2 l1))
+
+(:state (at c0 l3) (at c2 l3) (at c3 l4) (at_ferry l1) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4) (on c1))
+
+(:action (debark c1 l1))
+
+(:state (at c0 l3) (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l1) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4))
+
+(:action (sail l1 l3))
+
+(:state (at c0 l3) (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l3) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4))
+
+(:action (sail l3 l4))
+
+(:state (at c0 l3) (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l4) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4))
+
+(:action (sail l4 l3))
+
+(:state (at c0 l3) (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l3) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4))
+
+(:action (board c0 l3))
+
+(:state (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l3) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4) (on c0))
+
+(:action (sail l3 l1))
+
+(:state (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l1) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4) (on c0))
+
+(:action (sail l1 l2))
+
+(:state (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l2) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4) (on c0))
+
+(:action (sail l2 l1))
+
+(:state (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l1) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4) (on c0))
+
+(:action (sail l1 l2))
+
+(:state (at c1 l1) (at c2 l3) (at c3 l4) (at_ferry l2) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l0 l4) (noteq l0 l5) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l1 l4) (noteq l1 l5) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l2 l4) (noteq l2 l5) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (noteq l3 l4) (noteq l3 l5) (noteq l4 l0) (noteq l4 l1) (noteq l4 l2) (noteq l4 l3) (noteq l4 l5) (noteq l5 l0) (noteq l5 l1) (noteq l5 l2) (noteq l5 l3) (noteq l5 l4) (on c0))
+
+)

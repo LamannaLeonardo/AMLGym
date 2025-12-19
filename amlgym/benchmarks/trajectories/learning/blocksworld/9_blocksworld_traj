@@ -1,0 +1,101 @@
+(:trajectory
+
+(:state (clear b10) (clear b12) (clear b7) (handempty) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b5 b9) (on b6 b3) (on b7 b5) (on b8 b11) (on b9 b4) (ontable b10) (ontable b11) (ontable b3))
+
+(:action (unstack b7 b5))
+
+(:state (clear b10) (clear b12) (clear b5) (holding b7) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b5 b9) (on b6 b3) (on b8 b11) (on b9 b4) (ontable b10) (ontable b11) (ontable b3))
+
+(:action (put_down b7))
+
+(:state (clear b10) (clear b12) (clear b5) (clear b7) (handempty) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b5 b9) (on b6 b3) (on b8 b11) (on b9 b4) (ontable b10) (ontable b11) (ontable b3) (ontable b7))
+
+(:action (pick_up b10))
+
+(:state (clear b12) (clear b5) (clear b7) (holding b10) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b5 b9) (on b6 b3) (on b8 b11) (on b9 b4) (ontable b11) (ontable b3) (ontable b7))
+
+(:action (put_down b10))
+
+(:state (clear b10) (clear b12) (clear b5) (clear b7) (handempty) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b5 b9) (on b6 b3) (on b8 b11) (on b9 b4) (ontable b10) (ontable b11) (ontable b3) (ontable b7))
+
+(:action (unstack b5 b9))
+
+(:state (clear b10) (clear b12) (clear b7) (clear b9) (holding b5) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (on b9 b4) (ontable b10) (ontable b11) (ontable b3) (ontable b7))
+
+(:action (put_down b5))
+
+(:state (clear b10) (clear b12) (clear b5) (clear b7) (clear b9) (handempty) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (on b9 b4) (ontable b10) (ontable b11) (ontable b3) (ontable b5) (ontable b7))
+
+(:action (unstack b9 b4))
+
+(:state (clear b10) (clear b12) (clear b4) (clear b5) (clear b7) (holding b9) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b10) (ontable b11) (ontable b3) (ontable b5) (ontable b7))
+
+(:action (put_down b9))
+
+(:state (clear b10) (clear b12) (clear b4) (clear b5) (clear b7) (clear b9) (handempty) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b10) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (pick_up b10))
+
+(:state (clear b12) (clear b4) (clear b5) (clear b7) (clear b9) (holding b10) (on b1 b6) (on b12 b2) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (stack b10 b9))
+
+(:state (clear b10) (clear b12) (clear b4) (clear b5) (clear b7) (handempty) (on b1 b6) (on b10 b9) (on b12 b2) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (unstack b12 b2))
+
+(:state (clear b10) (clear b2) (clear b4) (clear b5) (clear b7) (holding b12) (on b1 b6) (on b10 b9) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (stack b12 b4))
+
+(:state (clear b10) (clear b12) (clear b2) (clear b5) (clear b7) (handempty) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b8) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (unstack b2 b8))
+
+(:state (clear b10) (clear b12) (clear b5) (clear b7) (clear b8) (holding b2) (on b1 b6) (on b10 b9) (on b12 b4) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (stack b2 b12))
+
+(:state (clear b10) (clear b2) (clear b5) (clear b7) (clear b8) (handempty) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b6 b3) (on b8 b11) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (unstack b8 b11))
+
+(:state (clear b10) (clear b11) (clear b2) (clear b5) (clear b7) (holding b8) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b6 b3) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (stack b8 b7))
+
+(:state (clear b10) (clear b11) (clear b2) (clear b5) (clear b8) (handempty) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (unstack b10 b9))
+
+(:state (clear b11) (clear b2) (clear b5) (clear b8) (clear b9) (holding b10) (on b1 b6) (on b12 b4) (on b2 b12) (on b4 b1) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (stack b10 b9))
+
+(:state (clear b10) (clear b11) (clear b2) (clear b5) (clear b8) (handempty) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b5) (ontable b7) (ontable b9))
+
+(:action (pick_up b5))
+
+(:state (clear b10) (clear b11) (clear b2) (clear b8) (holding b5) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b7) (ontable b9))
+
+(:action (stack b5 b10))
+
+(:state (clear b11) (clear b2) (clear b5) (clear b8) (handempty) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b5 b10) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b7) (ontable b9))
+
+(:action (unstack b5 b10))
+
+(:state (clear b10) (clear b11) (clear b2) (clear b8) (holding b5) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b7) (ontable b9))
+
+(:action (stack b5 b11))
+
+(:state (clear b10) (clear b2) (clear b5) (clear b8) (handempty) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b12) (on b4 b1) (on b5 b11) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b7) (ontable b9))
+
+(:action (unstack b2 b12))
+
+(:state (clear b10) (clear b12) (clear b5) (clear b8) (holding b2) (on b1 b6) (on b10 b9) (on b12 b4) (on b4 b1) (on b5 b11) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b7) (ontable b9))
+
+(:action (stack b2 b10))
+
+(:state (clear b12) (clear b2) (clear b5) (clear b8) (handempty) (on b1 b6) (on b10 b9) (on b12 b4) (on b2 b10) (on b4 b1) (on b5 b11) (on b6 b3) (on b8 b7) (ontable b11) (ontable b3) (ontable b7) (ontable b9))
+
+)

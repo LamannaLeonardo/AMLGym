@@ -1,0 +1,77 @@
+(:trajectory
+
+(:state (clear b4) (handempty) (on b1 b5) (on b10 b8) (on b2 b3) (on b3 b6) (on b4 b10) (on b5 b9) (on b6 b7) (on b8 b1) (on b9 b2) (ontable b7))
+
+(:action (unstack b4 b10))
+
+(:state (clear b10) (holding b4) (on b1 b5) (on b10 b8) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b8 b1) (on b9 b2) (ontable b7))
+
+(:action (put_down b4))
+
+(:state (clear b10) (clear b4) (handempty) (on b1 b5) (on b10 b8) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b8 b1) (on b9 b2) (ontable b4) (ontable b7))
+
+(:action (unstack b10 b8))
+
+(:state (clear b4) (clear b8) (holding b10) (on b1 b5) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b8 b1) (on b9 b2) (ontable b4) (ontable b7))
+
+(:action (put_down b10))
+
+(:state (clear b10) (clear b4) (clear b8) (handempty) (on b1 b5) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b8 b1) (on b9 b2) (ontable b10) (ontable b4) (ontable b7))
+
+(:action (unstack b8 b1))
+
+(:state (clear b1) (clear b10) (clear b4) (holding b8) (on b1 b5) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b9 b2) (ontable b10) (ontable b4) (ontable b7))
+
+(:action (put_down b8))
+
+(:state (clear b1) (clear b10) (clear b4) (clear b8) (handempty) (on b1 b5) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b9 b2) (ontable b10) (ontable b4) (ontable b7) (ontable b8))
+
+(:action (unstack b1 b5))
+
+(:state (clear b10) (clear b4) (clear b5) (clear b8) (holding b1) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b9 b2) (ontable b10) (ontable b4) (ontable b7) (ontable b8))
+
+(:action (put_down b1))
+
+(:state (clear b1) (clear b10) (clear b4) (clear b5) (clear b8) (handempty) (on b2 b3) (on b3 b6) (on b5 b9) (on b6 b7) (on b9 b2) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8))
+
+(:action (unstack b5 b9))
+
+(:state (clear b1) (clear b10) (clear b4) (clear b8) (clear b9) (holding b5) (on b2 b3) (on b3 b6) (on b6 b7) (on b9 b2) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8))
+
+(:action (stack b5 b1))
+
+(:state (clear b10) (clear b4) (clear b5) (clear b8) (clear b9) (handempty) (on b2 b3) (on b3 b6) (on b5 b1) (on b6 b7) (on b9 b2) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8))
+
+(:action (unstack b9 b2))
+
+(:state (clear b10) (clear b2) (clear b4) (clear b5) (clear b8) (holding b9) (on b2 b3) (on b3 b6) (on b5 b1) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8))
+
+(:action (put_down b9))
+
+(:state (clear b10) (clear b2) (clear b4) (clear b5) (clear b8) (clear b9) (handempty) (on b2 b3) (on b3 b6) (on b5 b1) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8) (ontable b9))
+
+(:action (unstack b2 b3))
+
+(:state (clear b10) (clear b3) (clear b4) (clear b5) (clear b8) (clear b9) (holding b2) (on b3 b6) (on b5 b1) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8) (ontable b9))
+
+(:action (stack b2 b10))
+
+(:state (clear b2) (clear b3) (clear b4) (clear b5) (clear b8) (clear b9) (handempty) (on b2 b10) (on b3 b6) (on b5 b1) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8) (ontable b9))
+
+(:action (unstack b5 b1))
+
+(:state (clear b1) (clear b2) (clear b3) (clear b4) (clear b8) (clear b9) (holding b5) (on b2 b10) (on b3 b6) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8) (ontable b9))
+
+(:action (stack b5 b1))
+
+(:state (clear b2) (clear b3) (clear b4) (clear b5) (clear b8) (clear b9) (handempty) (on b2 b10) (on b3 b6) (on b5 b1) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8) (ontable b9))
+
+(:action (unstack b2 b10))
+
+(:state (clear b10) (clear b3) (clear b4) (clear b5) (clear b8) (clear b9) (holding b2) (on b3 b6) (on b5 b1) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8) (ontable b9))
+
+(:action (stack b2 b3))
+
+(:state (clear b10) (clear b2) (clear b4) (clear b5) (clear b8) (clear b9) (handempty) (on b2 b3) (on b3 b6) (on b5 b1) (on b6 b7) (ontable b1) (ontable b10) (ontable b4) (ontable b7) (ontable b8) (ontable b9))
+
+)

@@ -1,0 +1,29 @@
+(:trajectory
+
+(:state (at c0 l1) (at c1 l0) (at_ferry l0) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2))
+
+(:action (board c1 l0))
+
+(:state (at c0 l1) (at_ferry l0) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (on c1))
+
+(:action (sail l0 l3))
+
+(:state (at c0 l1) (at_ferry l3) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (on c1))
+
+(:action (sail l3 l0))
+
+(:state (at c0 l1) (at_ferry l0) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (on c1))
+
+(:action (sail l0 l3))
+
+(:state (at c0 l1) (at_ferry l3) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2) (on c1))
+
+(:action (debark c1 l3))
+
+(:state (at c0 l1) (at c1 l3) (at_ferry l3) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2))
+
+(:action (sail l3 l0))
+
+(:state (at c0 l1) (at c1 l3) (at_ferry l0) (empty_ferry) (noteq l0 l1) (noteq l0 l2) (noteq l0 l3) (noteq l1 l0) (noteq l1 l2) (noteq l1 l3) (noteq l2 l0) (noteq l2 l1) (noteq l2 l3) (noteq l3 l0) (noteq l3 l1) (noteq l3 l2))
+
+)

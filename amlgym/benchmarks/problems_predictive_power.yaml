@@ -1,0 +1,249 @@
+# This configuration file contains 3 small-sized problem settings for every domain.
+SEED: 456
+domains:
+  barman:
+  - num_cocktails: 2
+    num_ingredients: 3
+    num_shots: 2
+  - num_cocktails: 2
+    num_ingredients: 4
+    num_shots: 2
+  - num_cocktails: 3
+    num_ingredients: 4
+    num_shots: 3
+  blocksworld:
+  - num: 3
+    ops: 4
+  - num: 4
+    ops: 4
+  - num: 5
+    ops: 4
+  childsnack:
+  - children: 3
+    gluten_factor: 0.4
+    trays: 2
+  - children: 3
+    gluten_factor: 0.6
+    trays: 1
+  - children: 4
+    gluten_factor: 0.4
+    trays: 2
+  depots:
+  - c: 2
+    e: 2
+    h: 2
+    i: 2
+    p: 2
+    t: 2
+  - c: 2
+    e: 2
+    h: 2
+    i: 3
+    p: 2
+    t: 2
+  - c: 2
+    e: 3
+    h: 2
+    i: 2
+    p: 3
+    t: 2
+  elevators:
+  - area_size: 2
+    fast_capacity: 1
+    fast_elevators: 1
+    floors: 4
+    passengers: 3
+    slow_capacity: 1
+    slow_elevators: 1
+  - area_size: 2
+    fast_capacity: 1
+    fast_elevators: 1
+    floors: 4
+    passengers: 3
+    slow_capacity: 1
+    slow_elevators: 1
+  - area_size: 2
+    fast_capacity: 1
+    fast_elevators: 1
+    floors: 4
+    passengers: 4
+    slow_capacity: 1
+    slow_elevators: 1
+  ferry:
+  - c: 2
+    l: 3
+  - c: 2
+    l: 4
+  - c: 7
+    l: 5
+  floortile:
+  - mode_flag: seq
+    num_columns: 4
+    num_robots: 1
+    num_rows: 4
+  - mode_flag: seq
+    num_columns: 5
+    num_robots: 1
+    num_rows: 4
+  - mode_flag: seq
+    num_columns: 4
+    num_robots: 1
+    num_rows: 5
+  goldminer:
+  - c: 3
+    r: 3
+  - c: 4
+    r: 3
+  - c: 3
+    r: 4
+  grippers:
+  - n: 1
+    o: 1
+    r: 3
+  - n: 1
+    o: 2
+    r: 4
+  - n: 1
+    o: 2
+    r: 5
+  matchingbw:
+  - n: 3
+  - n: 4
+  - n: 5
+  miconic:
+  - f: 3
+    p: 3
+  - f: 4
+    p: 2
+  - f: 4
+    p: 6
+  nomystery:
+  - c: 1
+    l: 2
+    m: 1
+    n: 1.5
+    p: 1
+  - c: 1
+    l: 2
+    m: 1
+    n: 1.5
+    p: 4
+  - c: 1
+    l: 3
+    m: 1
+    n: 1.5
+    p: 1
+  npuzzle:
+  - n: 2
+  - n: 3
+  - n: 3
+  parking:
+  - cars: 3
+    curbs: 3
+  - cars: 4
+    curbs: 3
+  - cars: 4
+    curbs: 4
+  rovers:
+  - c: 1
+    g: 3
+    o: 1
+    r: 1
+    w: 3
+  - c: 2
+    g: 3
+    o: 2
+    r: 1
+    w: 4
+  - c: 3
+    g: 4
+    o: 2
+    r: 2
+    w: 5
+  satellite:
+  - i: 1
+    m: 1
+    o: 1
+    s: 3
+    t: 1
+  - i: 1
+    m: 2
+    o: 4
+    s: 3
+    t: 2
+  - i: 1
+    m: 2
+    o: 5
+    s: 4
+    t: 3
+  sokoban:
+  - b: 1
+    n: 5
+    w: 10
+  - b: 1
+    n: 5
+    w: 15
+  - b: 1
+    n: 6
+    w: 12
+  spanner:
+  - locations: 3
+    nuts: 1
+    spanners: 1
+  - locations: 4
+    nuts: 2
+    spanners: 2
+  - locations: 5
+    nuts: 3
+    spanners: 3
+  tpp:
+  - d: 2
+    l: 3
+    m: 1
+    p: 2
+    t: 1
+  - d: 2
+    l: 3
+    m: 2
+    p: 2
+    t: 1
+  - d: 2
+    l: 3
+    m: 2
+    p: 3
+    t: 1
+  transport:
+  - degree: 3
+    generator: city
+    mindistance: 10
+    n: 6
+    packages: 2
+    size: 10
+    trucks: 1
+  - degree: 3
+    generator: two-cities
+    mindistance: 10
+    n: 6
+    packages: 2
+    size: 10
+    trucks: 1
+  - degree: 3
+    generator: three-cities
+    mindistance: 10
+    n: 6
+    packages: 2
+    size: 10
+    trucks: 1
+  visitall:
+    - x: 3 # number of rows
+      y: 3 # number of cols
+      r: 0.5 # ratio of cells in the goal state
+      u: 2 # number of unavailable locations (randomly generated)
+    - x: 3
+      y: 4
+      r: 0.5
+      u: 4
+    - x: 4
+      y: 3
+      r: 0.5
+      u: 6

@@ -1,0 +1,37 @@
+(:trajectory
+
+(:state (allergic_gluten child3) (at tray1 kitchen) (at_kitchen_bread bread1) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content1) (at_kitchen_content content2) (at_kitchen_content content3) (no_gluten_bread bread1) (no_gluten_content content2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (notexist sandw2) (notexist sandw3) (notexist sandw4) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (make_sandwich_no_gluten sandw2 bread1 content2))
+
+(:state (allergic_gluten child3) (at tray1 kitchen) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content1) (at_kitchen_content content3) (at_kitchen_sandwich sandw2) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (notexist sandw3) (notexist sandw4) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (put_on_tray sandw2 tray1))
+
+(:state (allergic_gluten child3) (at tray1 kitchen) (at_kitchen_bread bread2) (at_kitchen_bread bread3) (at_kitchen_content content1) (at_kitchen_content content3) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (notexist sandw3) (notexist sandw4) (ontray sandw2 tray1) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (make_sandwich sandw3 bread3 content1))
+
+(:state (allergic_gluten child3) (at tray1 kitchen) (at_kitchen_bread bread2) (at_kitchen_content content3) (at_kitchen_sandwich sandw3) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (notexist sandw4) (ontray sandw2 tray1) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (move_tray tray1 kitchen table2))
+
+(:state (allergic_gluten child3) (at tray1 table2) (at_kitchen_bread bread2) (at_kitchen_content content3) (at_kitchen_sandwich sandw3) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (notexist sandw4) (ontray sandw2 tray1) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (make_sandwich sandw4 bread2 content3))
+
+(:state (allergic_gluten child3) (at tray1 table2) (at_kitchen_sandwich sandw3) (at_kitchen_sandwich sandw4) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (ontray sandw2 tray1) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (move_tray tray1 table2 table3))
+
+(:state (allergic_gluten child3) (at tray1 table3) (at_kitchen_sandwich sandw3) (at_kitchen_sandwich sandw4) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (ontray sandw2 tray1) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (serve_sandwich_no_gluten sandw2 child3 tray1 table3))
+
+(:state (allergic_gluten child3) (at tray1 table3) (at_kitchen_sandwich sandw3) (at_kitchen_sandwich sandw4) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (served child3) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+(:action (move_tray tray1 table3 kitchen))
+
+(:state (allergic_gluten child3) (at tray1 kitchen) (at_kitchen_sandwich sandw3) (at_kitchen_sandwich sandw4) (no_gluten_bread bread1) (no_gluten_content content2) (no_gluten_sandwich sandw2) (not_allergic_gluten child1) (not_allergic_gluten child2) (notexist sandw1) (served child3) (waiting child1 table1) (waiting child2 table1) (waiting child3 table3))
+
+)

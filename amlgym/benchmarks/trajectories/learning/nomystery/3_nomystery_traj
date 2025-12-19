@@ -1,0 +1,69 @@
+(:trajectory
+
+(:state (at p0 l0) (at p1 l1) (at p2 l2) (at p3 l3) (at p4 l1) (at p5 l3) (at t0 l0) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level5) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (load p0 t0 l0))
+
+(:state (at p1 l1) (at p2 l2) (at p3 l3) (at p4 l1) (at p5 l3) (at t0 l0) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level5) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p0 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (drive t0 l0 l1 level4 level1 level5))
+
+(:state (at p1 l1) (at p2 l2) (at p3 l3) (at p4 l1) (at p5 l3) (at t0 l1) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level4) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p0 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (load p4 t0 l1))
+
+(:state (at p1 l1) (at p2 l2) (at p3 l3) (at p5 l3) (at t0 l1) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level4) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p0 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (load p1 t0 l1))
+
+(:state (at p2 l2) (at p3 l3) (at p5 l3) (at t0 l1) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level4) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p0 t0) (in p1 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (drive t0 l1 l2 level3 level1 level4))
+
+(:state (at p2 l2) (at p3 l3) (at p5 l3) (at t0 l2) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level3) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p0 t0) (in p1 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (load p2 t0 l2))
+
+(:state (at p3 l3) (at p5 l3) (at t0 l2) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level3) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p0 t0) (in p1 t0) (in p2 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (unload p1 t0 l2))
+
+(:state (at p1 l2) (at p3 l3) (at p5 l3) (at t0 l2) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level3) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p0 t0) (in p2 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (unload p0 t0 l2))
+
+(:state (at p0 l2) (at p1 l2) (at p3 l3) (at p5 l3) (at t0 l2) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level3) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (drive t0 l2 l3 level2 level1 level3))
+
+(:state (at p0 l2) (at p1 l2) (at p3 l3) (at p5 l3) (at t0 l3) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level2) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (load p5 t0 l3))
+
+(:state (at p0 l2) (at p1 l2) (at p3 l3) (at t0 l3) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level2) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p4 t0) (in p5 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (load p3 t0 l3))
+
+(:state (at p0 l2) (at p1 l2) (at t0 l3) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level2) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p3 t0) (in p4 t0) (in p5 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (drive t0 l3 l0 level1 level1 level2))
+
+(:state (at p0 l2) (at p1 l2) (at t0 l0) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level1) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p3 t0) (in p4 t0) (in p5 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (unload p5 t0 l0))
+
+(:state (at p0 l2) (at p1 l2) (at p5 l0) (at t0 l0) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level1) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p3 t0) (in p4 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (unload p4 t0 l0))
+
+(:state (at p0 l2) (at p1 l2) (at p4 l0) (at p5 l0) (at t0 l0) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level1) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p3 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (drive t0 l0 l1 level0 level1 level1))
+
+(:state (at p0 l2) (at p1 l2) (at p4 l0) (at p5 l0) (at t0 l1) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level0) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (in p3 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+(:action (unload p3 t0 l1))
+
+(:state (at p0 l2) (at p1 l2) (at p3 l1) (at p4 l0) (at p5 l0) (at t0 l1) (connected l0 l1) (connected l0 l2) (connected l0 l3) (connected l1 l0) (connected l1 l2) (connected l1 l3) (connected l2 l0) (connected l2 l1) (connected l2 l3) (connected l3 l0) (connected l3 l1) (connected l3 l2) (fuel t0 level0) (fuelcost level1 l0 l1) (fuelcost level1 l0 l2) (fuelcost level1 l0 l3) (fuelcost level1 l1 l0) (fuelcost level1 l1 l2) (fuelcost level1 l1 l3) (fuelcost level1 l2 l0) (fuelcost level1 l2 l1) (fuelcost level1 l2 l3) (fuelcost level1 l3 l0) (fuelcost level1 l3 l1) (fuelcost level1 l3 l2) (in p2 t0) (sum level0 level1 level1) (sum level1 level1 level2) (sum level2 level1 level3) (sum level3 level1 level4) (sum level4 level1 level5))
+
+)
