@@ -274,8 +274,8 @@ if __name__ == '__main__':
     TRAJ_DIR = "trajectories/learning"
 
     # # Generate xlsx file of trajectory statistics
-    # write_trajectory_stats(f"../{BENCHMARK_DIR}/trajectories_hard.xlsx")
-    # print_traj_table(f"../{BENCHMARK_DIR}/trajectories_hard.xlsx")
+    # write_trajectory_stats(f"../{BENCHMARK_DIR}/trajectories.xlsx")
+    # print_traj_table(f"../{BENCHMARK_DIR}/trajectories.xlsx")
     #
     # # Generate xlsx file of domain statistics
     # write_domain_stats(f"../{BENCHMARK_DIR}/domains.xlsx")
