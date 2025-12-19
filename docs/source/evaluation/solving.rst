@@ -6,7 +6,6 @@ Problem solving
    :titlesonly:
 
 .. automodule:: amlgym.metrics._solving
-    :noindex:
     :members:
     :special-members: __init__
     :exclude-members: print_metrics

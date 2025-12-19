@@ -9,4 +9,6 @@ Hands-on examples for using AML Gym.
 
    benchmarks
    algorithms
-   evaluation
+   syntactic
+   problem_solving
+   predictive

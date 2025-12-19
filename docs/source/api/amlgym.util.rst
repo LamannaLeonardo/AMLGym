@@ -28,6 +28,14 @@ amlgym.util.gen\_probs\_solving module
    :undoc-members:
    :show-inheritance:
 
+amlgym.util.gen\_states\_predictability module
+----------------------------------------------
+
+.. automodule:: amlgym.util.gen_states_predictability
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 amlgym.util.gen\_trajs\_learning module
 ---------------------------------------
 
@@ -36,18 +44,18 @@ amlgym.util.gen\_trajs\_learning module
    :undoc-members:
    :show-inheritance:
 
-amlgym.util.gen\_trajs\_learning\_hard module
----------------------------------------------
+amlgym.util.gen\_trajs\_learningOLD module
+------------------------------------------
 
-.. automodule:: amlgym.util.gen_trajs_learning_hard
+.. automodule:: amlgym.util.gen_trajs_learningOLD
    :members:
    :undoc-members:
    :show-inheritance:
 
-amlgym.util.gen\_trajs\_predictability module
+amlgym.util.gen\_trajs\_learning\_hard module
 ---------------------------------------------
 
-.. automodule:: amlgym.util.gen_trajs_predictability
+.. automodule:: amlgym.util.gen_trajs_learning_hard
    :members:
    :undoc-members:
    :show-inheritance:
