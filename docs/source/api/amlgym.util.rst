@@ -44,14 +44,6 @@ amlgym.util.gen\_trajs\_learning module
    :undoc-members:
    :show-inheritance:
 
-amlgym.util.gen\_trajs\_learningOLD module
-------------------------------------------
-
-.. automodule:: amlgym.util.gen_trajs_learningOLD
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 amlgym.util.gen\_trajs\_learning\_hard module
 ---------------------------------------------
 
