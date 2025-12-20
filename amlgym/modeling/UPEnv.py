@@ -178,7 +178,7 @@ class UPEnv(Env):
         if isinstance(action, str):
             action = self._str_to_action(action)
 
-        if isinstance(state, Set):
+        if isinstance(state, Set) or isinstance(state, List):
 
             pos_literals = {l for l in state if not l.startswith('(not ')}
 
@@ -221,7 +221,7 @@ class UPEnv(Env):
         # if cached is not None:
         #     return cached
 
-        if isinstance(state, Set):
+        if isinstance(state, Set) or isinstance(state, List):
 
             pos_literals = {l for l in state if not l.startswith('(not ')}
 

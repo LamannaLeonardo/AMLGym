@@ -110,6 +110,8 @@ def applicability(simulator: Env | Sequence[Env],
 
             for j, s in enumerate(states):
 
+                s = set(s)  # TODO: use sets in yaml rather than JSON
+
                 # parse the possibly precomputed list of applicable action for the k-th state
                 if applicable_in_states is not None:
                     applicable_ref = applicable_in_states[j]
@@ -229,6 +231,8 @@ def predicted_effects(simulator: Env | Sequence[Env],
 
             for j, s in enumerate(states):
 
+                s = set(s)  # TODO: use sets in yaml rather than JSON
+
                 # parse the possibly precomputed list of applicable action for the k-th state
                 if applicable_in_states is not None:
                     applicable_ref = applicable_in_states[j]
@@ -339,6 +343,8 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
 
             for j, s in enumerate(states):
 
+                s = set(s)  # TODO: use sets in yaml rather than JSON
+
                 # parse the possibly precomputed list of applicable action for the j-th state
                 # in the k-th states list
                 if applicable_in_states is not None:
@@ -357,14 +363,14 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
                     # Predicted effects
                     for action_label in applicable_ref[op] & applicable_learned[op]:
 
-                        try:
-                            snext_learned = simulator_learned.apply(s, action_label)
-                        except:
-                            warnings.warn(f'Action {action_label} were deemed applicable, '
-                                            f'but is not actually applicable in the learned model. '
-                                            f'Skipping evaluation of {action_label}.')
-                            applicable_learned[op].remove(action_label)
-                            continue
+                        # try:
+                        snext_learned = simulator_learned.apply(s, action_label)
+                        # except:
+                        #     warnings.warn(f'Action {action_label} were deemed applicable, '
+                        #                     f'but is not actually applicable in the learned model. '
+                        #                     f'Skipping evaluation of {action_label}.')
+                        #     applicable_learned[op].remove(action_label)
+                        #     continue
                         snext_ref = simulator_ref.apply(s, action_label)
 
                         predeffs_tp[op] += len((snext_learned - s) & (snext_ref - s))
