@@ -1,4 +1,4 @@
-unified-planning>=1.2.0
+unified-planning>=1.3.0
 up-fast-downward>=0.4.1
 tarski>=0.8.2
 pddl-plus-parser==3.14.7

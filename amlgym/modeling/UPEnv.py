@@ -81,7 +81,7 @@ class UPEnv(Env):
         # Create a fictitious state with all negated literals
         all_neg_fluents = {f: FALSE() for f, v in self.problem.initial_values.items()}
         UPState.MAX_ANCESTORS = None
-        self.all_neg_state = UPState(all_neg_fluents)
+        self.all_neg_state = UPState(all_neg_fluents, self.problem)
 
 
         # Initialize actions grounder with tarski since unified-planning (1.2.0) grounder is inefficient
