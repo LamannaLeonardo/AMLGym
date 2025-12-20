@@ -12,13 +12,13 @@ from unified_planning.shortcuts import SequentialSimulator, BoolType, FALSE, TRU
 from tarski.io import PDDLReader as tarskiPDDLReader
 from tarski.grounding import LPGroundingStrategy
 
-import amlgym
+from amlgym.modeling.env import Env
 
 ObservationType = TypeVar('ObservationType')
 
 
 @dataclass
-class UPEnv(amlgym.Env):
+class UPEnv(Env):
     """
     A Gymnasium environment which simulates a PDDL problem
     through the unified-planning sequential simulator.
