@@ -6,6 +6,10 @@ Problem solving
    :titlesonly:
 
 .. automodule:: amlgym.metrics._solving
+<<<<<<< HEAD
+=======
+    :noindex:
+>>>>>>> origin/main
     :members:
     :special-members: __init__
     :exclude-members: print_metrics

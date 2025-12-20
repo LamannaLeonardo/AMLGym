@@ -7,17 +7,32 @@ sys.path.insert(0, parent_dir)
 from .gen_problems import *  # do not remove
 
 from datetime import datetime
+<<<<<<< HEAD
+=======
+from typing import List
+>>>>>>> origin/main
 import yaml
 import re
 import contextlib
 import logging
 import random
 import shutil
+<<<<<<< HEAD
 import numpy as np
 import unified_planning
 from alive_progress import alive_bar
 from unified_planning.io import PDDLReader
 from unified_planning.shortcuts import OneshotPlanner
+=======
+import subprocess
+import numpy as np
+import unified_planning
+from alive_progress import alive_bar
+from unified_planning.io import PDDLReader, PDDLWriter
+from unified_planning.model import Problem, UPState
+from unified_planning.plans import ActionInstance
+from unified_planning.shortcuts import OneshotPlanner, SequentialSimulator
+>>>>>>> origin/main
 
 
 if __name__ == '__main__':

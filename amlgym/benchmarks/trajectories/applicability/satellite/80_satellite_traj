@@ -1,0 +1,133 @@
+(:trajectory
+
+(:state (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star1) (pointing satellite2 star1) (pointing satellite3 star7) (power_avail satellite0) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (switch_on instrument0 satellite0))
+
+(:state (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star1) (pointing satellite2 star1) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (switch_on instrument2 satellite2))
+
+(:state (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star1) (pointing satellite2 star1) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite2 star2 star1))
+
+(:state (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star1) (pointing satellite2 star2) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (calibrate satellite2 instrument2 star2))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star1) (pointing satellite2 star2) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (switch_off instrument2 satellite2))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star1) (pointing satellite2 star2) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star1 star4))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star1) (pointing satellite1 star1) (pointing satellite2 star2) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star0 star1))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star0) (pointing satellite1 star1) (pointing satellite2 star2) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite2 star5 star2))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star0) (pointing satellite1 star1) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite1 star2 star1))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star0) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 phenomenon3 star0))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 phenomenon3) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star2 phenomenon3))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star2) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 phenomenon3 star2))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 phenomenon3) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star5 phenomenon3))
+
+(:state (calibrated instrument2) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (switch_on instrument2 satellite2))
+
+(:state (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star2 star5))
+
+(:state (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star2) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (calibrate satellite0 instrument0 star2))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star2) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star7 star2))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star7) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (take_image satellite0 star7 instrument0 thermograph1))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star7) (pointing satellite1 star2) (pointing satellite2 star5) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite2 star4 star5))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star7) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 phenomenon3 star7))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 phenomenon3) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (take_image satellite0 phenomenon3 instrument0 thermograph1))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 phenomenon3) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star4 phenomenon3))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (take_image satellite0 star4 instrument0 thermograph1))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star4) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star5 star4))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite3) (power_on instrument0) (power_on instrument2) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (switch_off instrument2 satellite2))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (take_image satellite0 star5 instrument0 infrared0))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star5 infrared0) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 star4) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite2 phenomenon3 star4))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star5 infrared0) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 phenomenon3) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star1 star5))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star5 infrared0) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star1) (pointing satellite1 star2) (pointing satellite2 phenomenon3) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star5 star1))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star5 infrared0) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 phenomenon3) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star6 star5))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star5 infrared0) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star6) (pointing satellite1 star2) (pointing satellite2 phenomenon3) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (take_image satellite0 star6 instrument0 infrared0))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star5 infrared0) (have_image star6 infrared0) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star6) (pointing satellite1 star2) (pointing satellite2 phenomenon3) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+(:action (turn_to satellite0 star5 star6))
+
+(:state (calibrated instrument0) (calibration_target instrument0 star2) (calibration_target instrument1 star0) (calibration_target instrument2 star2) (calibration_target instrument3 star2) (have_image phenomenon3 thermograph1) (have_image star4 thermograph1) (have_image star5 infrared0) (have_image star6 infrared0) (have_image star7 thermograph1) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (on_board instrument3 satellite3) (pointing satellite0 star5) (pointing satellite1 star2) (pointing satellite2 phenomenon3) (pointing satellite3 star7) (power_avail satellite1) (power_avail satellite2) (power_avail satellite3) (power_on instrument0) (supports instrument0 infrared0) (supports instrument0 thermograph1) (supports instrument1 thermograph1) (supports instrument2 infrared0) (supports instrument3 infrared0))
+
+)

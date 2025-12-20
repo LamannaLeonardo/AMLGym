@@ -9,7 +9,11 @@ import numpy as np
 import yaml
 
 from tarski.grounding import LPGroundingStrategy
+<<<<<<< HEAD
 from unified_planning.io import PDDLReader, PDDLWriter
+=======
+from unified_planning.io import PDDLReader
+>>>>>>> origin/main
 from tarski.io import PDDLReader as tarskiPDDLReader
 from unified_planning.shortcuts import SequentialSimulator
 
@@ -177,6 +181,7 @@ def reduce_problem_settings(in_problem_path: str,
         yaml.dump(settings, f)
 
 
+<<<<<<< HEAD
 def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
 
     # Load the domain using pddl library
@@ -203,10 +208,15 @@ def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
 
 if __name__ == '__main__':
     pass
+=======
+
+if __name__ == '__main__':
+>>>>>>> origin/main
 
     # remove_trajs('../benchmarks/problems/applicability', 100)
     # remove_trajs('../benchmarks/trajectories/applicability', 100)
 
+<<<<<<< HEAD
     # LIMIT DATASETS TO 100 MAX TRACES
     # remove_trajs('../benchmarks/problems/predictive_power', 100)
     # states_path = '../benchmarks/states/predictive_power'
@@ -222,3 +232,9 @@ if __name__ == '__main__':
 
     # reduce_problem_settings('../benchmarks/problems_learning.yaml',
     #                         '../benchmarks/problems_learning_hard.yaml')
+=======
+    # preprocess_trace('../benchmarks/trajectories/learning')
+
+    reduce_problem_settings('../benchmarks/problems_learning.yaml',
+                            '../benchmarks/problems_learning_hard.yaml')
+>>>>>>> origin/main

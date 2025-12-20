@@ -41,11 +41,14 @@ class NOLAM(AlgorithmAdapter):
               trajectory_paths: List[str]) -> str:
 
         # Fill input trajectories with some (i.e. `relevant`) missing literals
+<<<<<<< HEAD
         if os.path.exists('tmp'):
             if not os.path.isdir("tmp"):
                 os.remove("tmp")
             else:
                 shutil.rmtree('tmp')
+=======
+>>>>>>> origin/main
         os.makedirs('tmp', exist_ok=True)
         filled_traj_paths = []
         for i, traj_path in enumerate(trajectory_paths):

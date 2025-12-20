@@ -28,6 +28,7 @@ amlgym.util.gen\_probs\_solving module
    :undoc-members:
    :show-inheritance:
 
+<<<<<<< HEAD
 amlgym.util.gen\_states\_predictability module
 ----------------------------------------------
 
@@ -36,6 +37,8 @@ amlgym.util.gen\_states\_predictability module
    :undoc-members:
    :show-inheritance:
 
+=======
+>>>>>>> origin/main
 amlgym.util.gen\_trajs\_learning module
 ---------------------------------------
 
@@ -52,6 +55,17 @@ amlgym.util.gen\_trajs\_learning\_hard module
    :undoc-members:
    :show-inheritance:
 
+<<<<<<< HEAD
+=======
+amlgym.util.gen\_trajs\_predictability module
+---------------------------------------------
+
+.. automodule:: amlgym.util.gen_trajs_predictability
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+>>>>>>> origin/main
 amlgym.util.stats\_gen module
 -----------------------------
 

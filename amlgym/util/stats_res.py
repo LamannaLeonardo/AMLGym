@@ -197,6 +197,7 @@ def lineplot_metric(metric: str,
     plt.savefig(img_file_path)
 
 
+<<<<<<< HEAD
 def barplot_metric_traj_avg(metric: str,
                    img_file_path: str) -> None:
 
@@ -274,6 +275,8 @@ def barplot_metric_traj_avg(metric: str,
     plt.savefig(img_file_path)
 
 
+=======
+>>>>>>> origin/main
 def barplot_metric(metric: str,
                    img_file_path: str) -> None:
 
@@ -290,8 +293,13 @@ def barplot_metric(metric: str,
     domain_df = pd.read_excel(f"../{BENCHMARK_DIR}/domains.xlsx")
     # avoided = ['npuzzle', 'spanner', 'ferry', 'transport', 'miconic', 'sokoban', 'blocksworld']
     # avoided = ['miconic', 'blocksworld', 'satellite']
+<<<<<<< HEAD
     # avoided = ['npuzzle', 'sokoban', 'transport', 'ferry', 'spanner', 'miconic', 'blocksworld', 'satellite']
     avoided = []
+=======
+    avoided = ['npuzzle', 'sokoban', 'transport', 'ferry', 'spanner', 'miconic', 'blocksworld', 'satellite']
+    # avoided = []
+>>>>>>> origin/main
     domain_df = domain_df[~domain_df['domain'].isin(avoided)]
     avg_alg_stats = defaultdict()
     for alg in alg_stats:
@@ -492,8 +500,12 @@ def print_best_table():
 if __name__ == '__main__':
 
     BENCHMARK_DIR = "benchmarks"
+<<<<<<< HEAD
     # RES_DIR = "../res_KEPS"
     RES_DIR = "../../res"
+=======
+    RES_DIR = "../res_KEPS"
+>>>>>>> origin/main
 
     logging.basicConfig(level=logging.INFO)
 

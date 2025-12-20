@@ -13,7 +13,11 @@
 		(gold_at ?x - loc)
 		(arm_empty)
 		(holds_bomb)
+<<<<<<< HEAD
         (holds_laser)
+=======
+                (holds_laser)
+>>>>>>> origin/main
 		(holds_gold)
 		(clear ?x - loc)		
 		(connected ?x - loc ?y - loc)

@@ -24,8 +24,13 @@
      (no_gluten_bread bread1)
      (no_gluten_content content2)
      (allergic_gluten child1)
+<<<<<<< HEAD
      (not_allergic_gluten child2)
      (not_allergic_gluten child3)
+=======
+     (not_allergic_gluten child3)
+     (not_allergic_gluten child2)
+>>>>>>> origin/main
      (waiting child1 table1)
      (waiting child2 table1)
      (waiting child3 table2)

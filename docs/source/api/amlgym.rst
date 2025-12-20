@@ -9,6 +9,10 @@ Subpackages
 
    amlgym.algorithms
    amlgym.benchmarks
+<<<<<<< HEAD
+=======
+   amlgym.evaluation
+>>>>>>> origin/main
    amlgym.metrics
    amlgym.modeling
    amlgym.util
