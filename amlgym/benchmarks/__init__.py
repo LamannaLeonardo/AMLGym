@@ -1,6 +1,6 @@
 import json
 from importlib import resources
-from typing import List, Dict
+from typing import List, Dict, Sequence
 
 
 def print_domains() -> None:
@@ -87,10 +87,11 @@ def get_problems_path(domain_name: str,
 
 
 def get_test_states(domain_name: str,
-                    kind: str = 'predictive_power') -> Dict[str, object]:
+                    kind: str = 'predictive_power') -> Dict[str, Sequence[object]]:
     """
     Return a set of test states from some JSON format for a PDDL domain in the
-    benchmarks.states package.
+    benchmarks.states package. The returned set of test states is a dictionary
+    where keys are PDDL problem files and values are list of test states.
     """
     base_pkg = "amlgym.benchmarks.states"
 
