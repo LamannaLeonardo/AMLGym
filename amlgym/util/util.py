@@ -3,15 +3,9 @@ import os
 import re
 import shutil
 import subprocess
-from typing import List, Tuple
-
 import numpy as np
 import yaml
-
-from tarski.grounding import LPGroundingStrategy
 from unified_planning.io import PDDLReader, PDDLWriter
-from tarski.io import PDDLReader as tarskiPDDLReader
-from unified_planning.shortcuts import SequentialSimulator
 
 
 def remove_trajs(traj_dir: str,
@@ -94,36 +88,11 @@ def get_applicable_actions_val(problem_file, domain_file):
     os.remove(tmp_domain_file)
     os.remove(tmp_problem_file)
 
-    all_actions = re.findall("\([^()]*\)", re.findall("so far.*literals", "".join(output))[0])
+    all_actions = re.findall(r"\([^()]*\)", re.findall("so far.*literals", "".join(output))[0])
     all_actions = [a[1:-1].split() for a in all_actions]
     all_actions = {f"({a[0].rsplit('_', 1)[0]} {' '.join(a[1:])})" for a in all_actions}
 
     return all_actions
-
-
-# TODO: test this
-def get_applicable_actions(domain_file: str,
-                           problem_file: str) -> List[Tuple[str, str]]:
-
-    # Ground actions with tarski since unified-planning (1.2.0) grounder is inefficient
-    tarski_reader = tarskiPDDLReader(raise_on_error=True)
-    tarski_reader.parse_domain(domain_file)
-    tarski_reader.parse_instance(problem_file)
-    grounder = LPGroundingStrategy(tarski_reader.problem)
-    ground_actions = grounder.ground_actions()
-
-    problem = PDDLReader().parse_problem(domain_file, problem_file)
-
-    with SequentialSimulator(problem=problem) as simulator:
-        current_state = simulator.get_initial_state()
-
-        applicable_actions = [(problem.action(k.lower()), [problem.object(o.lower()) for o in objs])
-                              for k, params in ground_actions.items()
-                              for objs in params
-                              if simulator._is_applicable(current_state,
-                                                          problem.action(k.lower()),
-                                                          [problem.object(o.lower()) for o in objs])]
-    return applicable_actions
 
 
 # Replace "word-word" with "word_word", otherwise unified-planning does not correctly write the problem file
