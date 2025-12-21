@@ -6,7 +6,7 @@ from dataclasses import dataclass
 sys.path.append(os.path.abspath("aml_evaluation/algorithms/sam"))
 
 from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
-from typing import List
+from typing import List, ClassVar, OrderedDict
 import shutil
 from pathlib import Path
 from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
@@ -32,6 +32,13 @@ class SAM(AlgorithmAdapter):
             print(model)
 
     """
+    reference: ClassVar[OrderedDict[str, str]] = {
+        'Authors': "B. Juba and H. S. Le, and R. Stern",
+        'Title': "Safe Learning of Lifted Action Models",
+        'Venue': "International Conference on Principles of Knowledge Representation and Reasoning",
+        'Year': 2021,
+        'URL': "https://proceedings.kr.org/2021/36/",
+    }
 
     def learn(self,
               domain_path: str,

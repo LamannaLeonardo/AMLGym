@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from unified_planning.model import Fluent
 import re
-from typing import List, Dict, Set
+from typing import List, Dict, Set, ClassVar, OrderedDict
 from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from unified_planning.io import PDDLReader
 
@@ -20,7 +20,7 @@ class NOLAM(AlgorithmAdapter):
     Adapter class for running the NOLAM algorithm: "Action Model Learning from Noisy
     Traces: a Probabilistic Approach", L. Lamanna and L. Serafini, Proceedings of the
     Thirty-Fourth International Conference on Automated Planning and Scheduling, 2024.
-    https://ojs.aaai.org/index.php/ICAPS/article/view/31493)
+    https://ojs.aaai.org/index.php/ICAPS/article/view/31493
 
     Args:
         noise (float): The observation noise.
@@ -34,6 +34,14 @@ class NOLAM(AlgorithmAdapter):
             print(model)
 
     """
+    reference: ClassVar[OrderedDict[str, str]] = {
+        'Authors': "L. Lamanna and L. Serafini",
+        'Title': "Action Model Learning from Noisy Traces: a Probabilistic Approach",
+        'Venue': "International Conference on Automated Planning and Scheduling",
+        'Year': 2024,
+        'URL': "https://ojs.aaai.org/index.php/ICAPS/article/view/31493",
+    }
+
     noise: float = 0.
 
     def learn(self,
@@ -41,6 +49,12 @@ class NOLAM(AlgorithmAdapter):
               trajectory_paths: List[str]) -> str:
 
         # Fill input trajectories with some (i.e. `relevant`) missing literals
+        if os.path.exists('tmp'):
+            if not os.path.isdir("tmp"):
+                os.remove("tmp")
+            else:
+                shutil.rmtree('tmp')
+
         os.makedirs('tmp', exist_ok=True)
         filled_traj_paths = []
         for i, traj_path in enumerate(trajectory_paths):

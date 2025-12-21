@@ -28,6 +28,14 @@ amlgym.util.gen\_probs\_solving module
    :undoc-members:
    :show-inheritance:
 
+amlgym.util.gen\_states\_predictability module
+----------------------------------------------
+
+.. automodule:: amlgym.util.gen_states_predictability
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 amlgym.util.gen\_trajs\_learning module
 ---------------------------------------
 

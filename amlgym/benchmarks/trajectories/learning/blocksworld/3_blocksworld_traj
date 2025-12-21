@@ -46,51 +46,11 @@
 
 (:state (clear b2) (clear b3) (clear b4) (clear b5) (holding b6) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b5))
 
-(:action (stack b6 b5))
-
-(:state (clear b2) (clear b3) (clear b4) (clear b6) (handempty) (on b2 b1) (on b6 b5) (ontable b1) (ontable b3) (ontable b4) (ontable b5))
-
-(:action (unstack b6 b5))
-
-(:state (clear b2) (clear b3) (clear b4) (clear b5) (holding b6) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b5))
-
 (:action (put_down b6))
 
 (:state (clear b2) (clear b3) (clear b4) (clear b5) (clear b6) (handempty) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b5) (ontable b6))
 
-(:action (pick_up b4))
-
-(:state (clear b2) (clear b3) (clear b5) (clear b6) (holding b4) (on b2 b1) (ontable b1) (ontable b3) (ontable b5) (ontable b6))
-
-(:action (put_down b4))
-
-(:state (clear b2) (clear b3) (clear b4) (clear b5) (clear b6) (handempty) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (pick_up b5))
-
-(:state (clear b2) (clear b3) (clear b4) (clear b6) (holding b5) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b6))
-
-(:action (put_down b5))
-
-(:state (clear b2) (clear b3) (clear b4) (clear b5) (clear b6) (handempty) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b5) (ontable b6))
-
 (:action (pick_up b3))
-
-(:state (clear b2) (clear b4) (clear b5) (clear b6) (holding b3) (on b2 b1) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (put_down b3))
-
-(:state (clear b2) (clear b3) (clear b4) (clear b5) (clear b6) (handempty) (on b2 b1) (ontable b1) (ontable b3) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (pick_up b3))
-
-(:state (clear b2) (clear b4) (clear b5) (clear b6) (holding b3) (on b2 b1) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (stack b3 b2))
-
-(:state (clear b3) (clear b4) (clear b5) (clear b6) (handempty) (on b2 b1) (on b3 b2) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
-
-(:action (unstack b3 b2))
 
 (:state (clear b2) (clear b4) (clear b5) (clear b6) (holding b3) (on b2 b1) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
 
@@ -98,12 +58,8 @@
 
 (:state (clear b2) (clear b3) (clear b4) (clear b6) (handempty) (on b2 b1) (on b3 b5) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
 
-(:action (pick_up b6))
+(:action (unstack b3 b5))
 
-(:state (clear b2) (clear b3) (clear b4) (holding b6) (on b2 b1) (on b3 b5) (ontable b1) (ontable b4) (ontable b5))
-
-(:action (stack b6 b3))
-
-(:state (clear b2) (clear b4) (clear b6) (handempty) (on b2 b1) (on b3 b5) (on b6 b3) (ontable b1) (ontable b4) (ontable b5))
+(:state (clear b2) (clear b4) (clear b5) (clear b6) (holding b3) (on b2 b1) (ontable b1) (ontable b4) (ontable b5) (ontable b6))
 
 )

@@ -14,8 +14,8 @@
 </div>
 
 
-Official code for benchmark generation and evaluation of action model 
-learning approaches.
+Framework for experimenting with action model 
+learning approaches and evaluating the learned domain models.
 
 
 
@@ -72,9 +72,9 @@ PRs with new or existing state-of-the-art algorithms are welcome:
 ## Evaluation
 
 AMLGym can evaluate a PDDL model by means of several metrics:
-1. _Syntactic_ precision and recall 
-2. _Predicted_ applicability and effects
-3. _Solvability_ metrics: False plans and problem solving ratios.
+1. _Syntactic similarity_ 
+2. _Problem solving_
+3. _Predicted applicability and predicted effects_
 
 ## Benchmarking
 See the [benchmark](/amlgym/benchmarks/README.md) package for details.
@@ -83,4 +83,4 @@ See the [benchmark](/amlgym/benchmarks/README.md) package for details.
 This project is licensed under the MIT License - see the [LICENSE](/LICENSE.md) file for details.
 
 ## Citing
-Available soon
+Not yet available

@@ -3,7 +3,7 @@ Evaluation
 
 
 AMLGym provides metrics for evaluating an action model w.r.t. a reference model or simulator.
-The metrics can be mainly grouped into: syntactic predictive, and problem solving.
+The metrics can be mainly grouped into: syntactic similarity, problem solving, and predictive power.
 
 .. toctree::
    :maxdepth: 5
@@ -11,3 +11,4 @@ The metrics can be mainly grouped into: syntactic predictive, and problem solvin
 
    syntactic
    solving
+   predictive

@@ -118,6 +118,31 @@ def problem_barman(seed: int = 123,
     return problem
 
 
+def problem_visitall(seed: int = 123,
+                     x: int = 3,
+                     y: int = 3,
+                     r: int = 0.2,
+                     u: int = 2) -> str:
+    """
+    See `util/pddl-generators/visitall/README.txt`.
+    :param seed: random seed
+    :param x: number of grid cols
+    :param y: number of grid rows
+    :param r: ratio of cells to be visited
+    :param u: number of unavailable grid cells
+    :return: problem string
+    """
+
+    # Generate a problem
+    result = subprocess.run(f"./{GEN_DIR}/visitall/grid -x {x} -y {y} -r {r} -u {u} -s {seed}".split(),
+                            capture_output=True, text=True)
+    problem = result.stdout
+
+    problem = problem[problem.find('(define '):]
+
+    return problem
+
+
 def problem_ferry(seed: int = 123,
                   l: int = 2,
                   c: int = 1) -> str:
@@ -723,7 +748,7 @@ def problem_elevators(seed: int = 123,
     result = subprocess.run(f"./{GEN_DIR}/elevators/generate_pddl {floors} {floors} 1 {passengers} {passengers} 1 1 1".split(),
                             capture_output=True, text=True)
 
-    prob_file = [f for f in os.listdir(f"/") if f.endswith('.pddl') and f.startswith('p')][0]
+    prob_file = [f for f in os.listdir(f"./") if f.endswith('.pddl') and f.startswith('p')][0]
     with open(prob_file, 'r') as f:
         problem = f.read()
     os.remove(prob_file)

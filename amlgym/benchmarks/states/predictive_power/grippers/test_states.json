@@ -1,0 +1,5313 @@
+{
+   "0_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "1_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ]
+   ],
+   "2_grippers_prob.pddl": [
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "3_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "4_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "5_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "6_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "7_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "8_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "9_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "10_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ]
+   ],
+   "11_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "12_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "13_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room2)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ]
+   ],
+   "14_grippers_prob.pddl": [
+      [
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "15_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "16_grippers_prob.pddl": [
+      [
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "17_grippers_prob.pddl": [
+      [
+         "(at ball1 room5)",
+         "(at ball2 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "18_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "19_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ]
+   ],
+   "20_grippers_prob.pddl": [
+      [
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "21_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "22_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ]
+   ],
+   "23_grippers_prob.pddl": [
+      [
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "24_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "25_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "26_grippers_prob.pddl": [
+      [
+         "(at ball2 room4)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "27_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "28_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ]
+   ],
+   "29_grippers_prob.pddl": [
+      [
+         "(at ball2 room5)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "30_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "31_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ]
+   ],
+   "32_grippers_prob.pddl": [
+      [
+         "(at ball2 room5)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "33_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "34_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "35_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room3)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "36_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "37_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "38_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "39_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "40_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "41_grippers_prob.pddl": [
+      [
+         "(at ball2 room4)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "42_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "43_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ]
+   ],
+   "44_grippers_prob.pddl": [
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "45_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "46_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "47_grippers_prob.pddl": [
+      [
+         "(at ball1 room4)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(at ball2 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "48_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "49_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room2)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ]
+   ],
+   "50_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room1)",
+         "(at ball2 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "51_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "52_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "53_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room3)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "54_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "55_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "56_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "57_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "58_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room1)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "59_grippers_prob.pddl": [
+      [
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "60_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "61_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "62_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "63_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "64_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "65_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "66_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "67_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "68_grippers_prob.pddl": [
+      [
+         "(at ball2 room4)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "69_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "70_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room3)"
+      ]
+   ],
+   "71_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room5)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room5)",
+         "(at ball2 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at_robby robot1 room5)"
+      ],
+      [
+         "(carry robot1 ball1 rgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room5)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room5)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "72_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "73_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "74_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room5)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "75_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "76_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "77_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at ball1 room4)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room5)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room5)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room1)",
+         "(at ball2 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "78_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "79_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(carry robot1 ball2 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(carry robot1 ball2 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room3)"
+      ]
+   ],
+   "80_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)"
+      ],
+      [
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "81_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "82_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(carry robot1 ball2 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 rgripper1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "83_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room5)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "84_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "85_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "86_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room5)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room5)",
+         "(at ball1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "87_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "88_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball2 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room4)"
+      ]
+   ],
+   "89_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "90_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "91_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(carry robot1 ball1 rgripper1)",
+         "(at ball2 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "92_grippers_prob.pddl": [
+      [
+         "(at ball2 room4)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room4)",
+         "(at ball1 room3)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at ball2 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball1 room3)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "93_grippers_prob.pddl": [
+      [
+         "(at ball1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "94_grippers_prob.pddl": [
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at ball2 room2)"
+      ]
+   ],
+   "95_grippers_prob.pddl": [
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room4)",
+         "(at_robby robot1 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room4)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 rgripper1)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room5)",
+         "(at ball1 room5)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "96_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ]
+   ],
+   "97_grippers_prob.pddl": [
+      [
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at_robby robot1 room3)",
+         "(at ball1 room4)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(at ball1 room4)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room1)",
+         "(at ball1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room4)",
+         "(free robot1 lgripper1)",
+         "(at ball1 room4)",
+         "(at ball2 room3)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room4)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball2 room3)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(free robot1 rgripper1)",
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(at ball2 room3)"
+      ]
+   ],
+   "98_grippers_prob.pddl": [
+      [
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(carry robot1 ball2 lgripper1)",
+         "(at ball1 room4)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball1 room4)",
+         "(at ball2 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room4)",
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(carry robot1 ball1 lgripper1)",
+         "(at_robby robot1 room2)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at ball2 room2)",
+         "(at_robby robot1 room2)",
+         "(at ball1 room2)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ],
+   "99_grippers_prob.pddl": [
+      [
+         "(at ball1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at ball1 room3)",
+         "(at_robby robot1 room3)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ],
+      [
+         "(at_robby robot1 room3)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(carry robot1 ball1 lgripper1)",
+         "(free robot1 rgripper1)",
+         "(at_robby robot1 room2)"
+      ],
+      [
+         "(at_robby robot1 room1)",
+         "(free robot1 rgripper1)",
+         "(carry robot1 ball1 lgripper1)"
+      ],
+      [
+         "(at ball1 room1)",
+         "(at_robby robot1 room1)",
+         "(free robot1 lgripper1)",
+         "(free robot1 rgripper1)"
+      ]
+   ]
+}

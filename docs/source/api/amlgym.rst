@@ -9,7 +9,6 @@ Subpackages
 
    amlgym.algorithms
    amlgym.benchmarks
-   amlgym.evaluation
    amlgym.metrics
    amlgym.modeling
    amlgym.util

@@ -24,25 +24,22 @@ cp -r blocksworld/bwstates.1 ./
 ```
 cd ../../ && pip install -r requirements.txt
 ```
+
 5. Generate trajectories:
 ```
-cd util && python generators.py
+cd util && python gen_trajs_learning.py
 ```
 
-6. Optionally generate trajectory statistics and plots:
-```
-python stats.py
-```
 
 > [!NOTE]
 > **Reproducibility**: the benchmark generation process and evaluation results 
-> are fully reproducible.
+> are reproducible with fixed computational resources.
 
 
 
 
 ### Domain selection
-The adopted domains are the ones adopted in previous IPC learning tracks:
+The adopted domains are the ones from all past IPC learning tracks:
 1. [IPC 2008 Learning Track](https://ipc08.icaps-conference.org/learning/): `goldminer`, `matchingbw`, `npuzzle`, 
 `parking` and `sokoban`
 > [!WARNING]

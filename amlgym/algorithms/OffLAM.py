@@ -1,11 +1,10 @@
-import sys
 import os
 import itertools
 import shutil
 from collections import defaultdict
 from unified_planning.model import Fluent
 import re
-from typing import List, Dict, Set
+from typing import List, Dict, Set, ClassVar, OrderedDict
 from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
 from unified_planning.io import PDDLReader
 from offlam.algorithm import learn
@@ -27,6 +26,13 @@ class OffLAM(AlgorithmAdapter):
             print(model)
 
     """
+    reference: ClassVar[OrderedDict[str, str]] = {
+        'Authors': "L. Lamanna, L. Serafini, A. Saetti, A. Gerevini, and P. Traverso",
+        'Title': "Lifted Action Models Learning from Partial Traces",
+        'Venue': "Artificial Intelligence Journal",
+        'Year': 2025,
+        'URL': "https://www.sciencedirect.com/science/article/abs/pii/S0004370224001929"
+    }
 
     def __init__(self, **kwargs):
         super(OffLAM, self).__init__(**kwargs)
@@ -36,6 +42,11 @@ class OffLAM(AlgorithmAdapter):
               trajectory_paths: List[str]) -> str:
 
         # Fill input trajectories with some (i.e. `relevant`) missing literals
+        if os.path.exists('tmp'):
+            if not os.path.isdir("tmp"):
+                os.remove("tmp")
+            else:
+                shutil.rmtree('tmp')
         os.makedirs('tmp', exist_ok=True)
         filled_traj_paths = []
         for i, traj_path in enumerate(trajectory_paths):

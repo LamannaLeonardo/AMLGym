@@ -13,7 +13,7 @@
 		(gold_at ?x - loc)
 		(arm_empty)
 		(holds_bomb)
-                (holds_laser)
+        (holds_laser)
 		(holds_gold)
 		(clear ?x - loc)		
 		(connected ?x - loc ?y - loc)

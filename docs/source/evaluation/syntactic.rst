@@ -6,7 +6,6 @@ Syntactic similarity
    :titlesonly:
 
 .. automodule:: amlgym.metrics._syntactic
-    :noindex:
     :members: syntactic_precision
     :special-members: __init__
     :exclude-members: print_metrics
