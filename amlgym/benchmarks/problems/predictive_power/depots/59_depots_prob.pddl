@@ -17,13 +17,8 @@
 	(clear pallet3)
 	(at pallet4 distributor1)
 	(clear pallet4)
-<<<<<<<< HEAD:amlgym/benchmarks/problems/predictive_power/depots/59_depots_prob.pddl
 	(at truck0 depot2)
 	(at truck1 depot2)
-========
-	(at truck0 distributor1)
-	(at truck1 depot0)
->>>>>>>> origin/main:amlgym/benchmarks/problems/applicability/depots/101_depots_prob.pddl
 	(at hoist0 depot0)
 	(available hoist0)
 	(at hoist1 depot1)
