@@ -96,11 +96,7 @@ class SimpleDomainReader:
         with open(f_name, 'r') as f:
             data = f.read().split("\n")
 
-<<<<<<< HEAD
             objects_row = [el.replace(")", "").strip()
-=======
-            objects_row = [el.replace(")","").strip()
->>>>>>> origin/main
                            for el in re.findall(":types.*\(:predicates","++".join(data))[0].replace(":types","").replace("(:predicates", "").split("++")
                            if el.strip() != ""]
 
