@@ -13,11 +13,7 @@ dependencies = {file = ["requirements.txt"]}
 
 [project]
 name = "amlgym"
-<<<<<<< HEAD
 version = "1.0.4"
-=======
-version = "1.0.3"
->>>>>>> origin/main
 dynamic = ["dependencies"]
 requires-python = ">=3.8"
 authors = [
