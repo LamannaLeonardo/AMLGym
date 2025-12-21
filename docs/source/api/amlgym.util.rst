@@ -52,6 +52,14 @@ amlgym.util.gen\_trajs\_learning\_hard module
    :undoc-members:
    :show-inheritance:
 
+amlgym.util.gen\_trajs\_predictability module
+---------------------------------------------
+
+.. automodule:: amlgym.util.gen_trajs_predictability
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 amlgym.util.stats\_gen module
 -----------------------------
 

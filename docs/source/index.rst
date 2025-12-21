@@ -12,7 +12,7 @@ Welcome to **AMLGym**, a framework for benchmarking action model learning approa
 This documentation provides:
 
 - **Getting Started** — how to install and run your first experiment.
-- **Algorithms** — overview of state-of-the-art AML algorithms included in AMLGym.
+- **Algorithms** — overview of domain model learning algorithms included in AMLGym.
 - **Tutorials** — hands-on guides and usage examples.
 - **API Reference** — detailed information for developers.
 
@@ -33,4 +33,11 @@ This documentation provides:
    :hidden:
 
    tutorials/index
+
+.. toctree::
+   :maxdepth: 10
+   :caption: API
+   :titlesonly:
+   :hidden:
+
    api/modules

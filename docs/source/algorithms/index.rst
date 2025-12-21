@@ -2,7 +2,7 @@ Algorithms
 ==========
 
 
-AMLGym provides seamless integration with state-of-the-art algorithms
+AMLGym provides seamless integration with several algorithms
 for offline learning classical planning domains from an input set of
 trajectories in the following settings:
 1. **full** observability: SAM [1].
