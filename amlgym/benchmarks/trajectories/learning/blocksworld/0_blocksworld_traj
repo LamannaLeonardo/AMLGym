@@ -1,0 +1,21 @@
+(:trajectory
+
+(:state (clear b2) (clear b3) (handempty) (on b2 b1) (ontable b1) (ontable b3))
+
+(:action (pick_up b3))
+
+(:state (clear b2) (holding b3) (on b2 b1) (ontable b1))
+
+(:action (put_down b3))
+
+(:state (clear b2) (clear b3) (handempty) (on b2 b1) (ontable b1) (ontable b3))
+
+(:action (unstack b2 b1))
+
+(:state (clear b1) (clear b3) (holding b2) (ontable b1) (ontable b3))
+
+(:action (stack b2 b1))
+
+(:state (clear b2) (clear b3) (handempty) (on b2 b1) (ontable b1) (ontable b3))
+
+)

@@ -1,0 +1,21 @@
+(:trajectory
+
+(:state (above f0 f1) (above f0 f2) (above f1 f2) (destin p0 f0) (destin p1 f1) (destin p2 f2) (lift_at f0) (origin p0 f2) (origin p1 f2) (origin p2 f0))
+
+(:action (board f0 p2))
+
+(:state (above f0 f1) (above f0 f2) (above f1 f2) (boarded p2) (destin p0 f0) (destin p1 f1) (destin p2 f2) (lift_at f0) (origin p0 f2) (origin p1 f2) (origin p2 f0))
+
+(:action (up f0 f2))
+
+(:state (above f0 f1) (above f0 f2) (above f1 f2) (boarded p2) (destin p0 f0) (destin p1 f1) (destin p2 f2) (lift_at f2) (origin p0 f2) (origin p1 f2) (origin p2 f0))
+
+(:action (down f2 f1))
+
+(:state (above f0 f1) (above f0 f2) (above f1 f2) (boarded p2) (destin p0 f0) (destin p1 f1) (destin p2 f2) (lift_at f1) (origin p0 f2) (origin p1 f2) (origin p2 f0))
+
+(:action (up f1 f2))
+
+(:state (above f0 f1) (above f0 f2) (above f1 f2) (boarded p2) (destin p0 f0) (destin p1 f1) (destin p2 f2) (lift_at f2) (origin p0 f2) (origin p1 f2) (origin p2 f0))
+
+)

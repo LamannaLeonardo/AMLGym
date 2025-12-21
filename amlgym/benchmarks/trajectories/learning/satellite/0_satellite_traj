@@ -1,0 +1,21 @@
+(:trajectory
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 planet1) (pointing satellite1 planet1) (pointing satellite2 groundstation0) (power_avail satellite0) (power_avail satellite1) (power_avail satellite2) (supports instrument0 spectrograph0) (supports instrument1 spectrograph0) (supports instrument2 spectrograph0))
+
+(:action (switch_on instrument0 satellite0))
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 planet1) (pointing satellite1 planet1) (pointing satellite2 groundstation0) (power_avail satellite1) (power_avail satellite2) (power_on instrument0) (supports instrument0 spectrograph0) (supports instrument1 spectrograph0) (supports instrument2 spectrograph0))
+
+(:action (turn_to satellite1 groundstation0 planet1))
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 planet1) (pointing satellite1 groundstation0) (pointing satellite2 groundstation0) (power_avail satellite1) (power_avail satellite2) (power_on instrument0) (supports instrument0 spectrograph0) (supports instrument1 spectrograph0) (supports instrument2 spectrograph0))
+
+(:action (turn_to satellite2 planet1 groundstation0))
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 planet1) (pointing satellite1 groundstation0) (pointing satellite2 planet1) (power_avail satellite1) (power_avail satellite2) (power_on instrument0) (supports instrument0 spectrograph0) (supports instrument1 spectrograph0) (supports instrument2 spectrograph0))
+
+(:action (turn_to satellite0 planet1 planet1))
+
+(:state (calibration_target instrument0 groundstation0) (calibration_target instrument1 groundstation0) (calibration_target instrument2 groundstation0) (on_board instrument0 satellite0) (on_board instrument1 satellite1) (on_board instrument2 satellite2) (pointing satellite0 planet1) (pointing satellite1 groundstation0) (pointing satellite2 planet1) (power_avail satellite1) (power_avail satellite2) (power_on instrument0) (supports instrument0 spectrograph0) (supports instrument1 spectrograph0) (supports instrument2 spectrograph0))
+
+)

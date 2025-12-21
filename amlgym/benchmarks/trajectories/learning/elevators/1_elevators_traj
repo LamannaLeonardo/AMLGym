@@ -1,0 +1,29 @@
+(:trajectory
+
+(:state (above n0 n1) (above n0 n2) (above n0 n3) (above n0 n4) (above n1 n2) (above n1 n3) (above n1 n4) (above n2 n3) (above n2 n4) (above n3 n4) (can_hold fast0 n1) (can_hold slow0_0 n1) (can_hold slow1_0 n1) (lift_at fast0 n0) (lift_at slow0_0 n0) (lift_at slow1_0 n3) (next n0 n1) (next n1 n2) (next n2 n3) (next n3 n4) (passenger_at p0 n4) (passenger_at p1 n1) (passenger_at p2 n3) (passengers fast0 n0) (passengers slow0_0 n0) (passengers slow1_0 n0) (reachable_floor fast0 n0) (reachable_floor fast0 n1) (reachable_floor fast0 n2) (reachable_floor fast0 n3) (reachable_floor fast0 n4) (reachable_floor slow0_0 n0) (reachable_floor slow0_0 n1) (reachable_floor slow0_0 n2) (reachable_floor slow1_0 n2) (reachable_floor slow1_0 n3) (reachable_floor slow1_0 n4))
+
+(:action (move_up_slow slow0_0 n0 n1))
+
+(:state (above n0 n1) (above n0 n2) (above n0 n3) (above n0 n4) (above n1 n2) (above n1 n3) (above n1 n4) (above n2 n3) (above n2 n4) (above n3 n4) (can_hold fast0 n1) (can_hold slow0_0 n1) (can_hold slow1_0 n1) (lift_at fast0 n0) (lift_at slow0_0 n1) (lift_at slow1_0 n3) (next n0 n1) (next n1 n2) (next n2 n3) (next n3 n4) (passenger_at p0 n4) (passenger_at p1 n1) (passenger_at p2 n3) (passengers fast0 n0) (passengers slow0_0 n0) (passengers slow1_0 n0) (reachable_floor fast0 n0) (reachable_floor fast0 n1) (reachable_floor fast0 n2) (reachable_floor fast0 n3) (reachable_floor fast0 n4) (reachable_floor slow0_0 n0) (reachable_floor slow0_0 n1) (reachable_floor slow0_0 n2) (reachable_floor slow1_0 n2) (reachable_floor slow1_0 n3) (reachable_floor slow1_0 n4))
+
+(:action (board p1 slow0_0 n1 n0 n1))
+
+(:state (above n0 n1) (above n0 n2) (above n0 n3) (above n0 n4) (above n1 n2) (above n1 n3) (above n1 n4) (above n2 n3) (above n2 n4) (above n3 n4) (boarded p1 slow0_0) (can_hold fast0 n1) (can_hold slow0_0 n1) (can_hold slow1_0 n1) (lift_at fast0 n0) (lift_at slow0_0 n1) (lift_at slow1_0 n3) (next n0 n1) (next n1 n2) (next n2 n3) (next n3 n4) (passenger_at p0 n4) (passenger_at p2 n3) (passengers fast0 n0) (passengers slow0_0 n1) (passengers slow1_0 n0) (reachable_floor fast0 n0) (reachable_floor fast0 n1) (reachable_floor fast0 n2) (reachable_floor fast0 n3) (reachable_floor fast0 n4) (reachable_floor slow0_0 n0) (reachable_floor slow0_0 n1) (reachable_floor slow0_0 n2) (reachable_floor slow1_0 n2) (reachable_floor slow1_0 n3) (reachable_floor slow1_0 n4))
+
+(:action (move_down_slow slow1_0 n3 n2))
+
+(:state (above n0 n1) (above n0 n2) (above n0 n3) (above n0 n4) (above n1 n2) (above n1 n3) (above n1 n4) (above n2 n3) (above n2 n4) (above n3 n4) (boarded p1 slow0_0) (can_hold fast0 n1) (can_hold slow0_0 n1) (can_hold slow1_0 n1) (lift_at fast0 n0) (lift_at slow0_0 n1) (lift_at slow1_0 n2) (next n0 n1) (next n1 n2) (next n2 n3) (next n3 n4) (passenger_at p0 n4) (passenger_at p2 n3) (passengers fast0 n0) (passengers slow0_0 n1) (passengers slow1_0 n0) (reachable_floor fast0 n0) (reachable_floor fast0 n1) (reachable_floor fast0 n2) (reachable_floor fast0 n3) (reachable_floor fast0 n4) (reachable_floor slow0_0 n0) (reachable_floor slow0_0 n1) (reachable_floor slow0_0 n2) (reachable_floor slow1_0 n2) (reachable_floor slow1_0 n3) (reachable_floor slow1_0 n4))
+
+(:action (move_up_slow slow0_0 n1 n2))
+
+(:state (above n0 n1) (above n0 n2) (above n0 n3) (above n0 n4) (above n1 n2) (above n1 n3) (above n1 n4) (above n2 n3) (above n2 n4) (above n3 n4) (boarded p1 slow0_0) (can_hold fast0 n1) (can_hold slow0_0 n1) (can_hold slow1_0 n1) (lift_at fast0 n0) (lift_at slow0_0 n2) (lift_at slow1_0 n2) (next n0 n1) (next n1 n2) (next n2 n3) (next n3 n4) (passenger_at p0 n4) (passenger_at p2 n3) (passengers fast0 n0) (passengers slow0_0 n1) (passengers slow1_0 n0) (reachable_floor fast0 n0) (reachable_floor fast0 n1) (reachable_floor fast0 n2) (reachable_floor fast0 n3) (reachable_floor fast0 n4) (reachable_floor slow0_0 n0) (reachable_floor slow0_0 n1) (reachable_floor slow0_0 n2) (reachable_floor slow1_0 n2) (reachable_floor slow1_0 n3) (reachable_floor slow1_0 n4))
+
+(:action (leave p1 slow0_0 n2 n1 n0))
+
+(:state (above n0 n1) (above n0 n2) (above n0 n3) (above n0 n4) (above n1 n2) (above n1 n3) (above n1 n4) (above n2 n3) (above n2 n4) (above n3 n4) (can_hold fast0 n1) (can_hold slow0_0 n1) (can_hold slow1_0 n1) (lift_at fast0 n0) (lift_at slow0_0 n2) (lift_at slow1_0 n2) (next n0 n1) (next n1 n2) (next n2 n3) (next n3 n4) (passenger_at p0 n4) (passenger_at p1 n2) (passenger_at p2 n3) (passengers fast0 n0) (passengers slow0_0 n0) (passengers slow1_0 n0) (reachable_floor fast0 n0) (reachable_floor fast0 n1) (reachable_floor fast0 n2) (reachable_floor fast0 n3) (reachable_floor fast0 n4) (reachable_floor slow0_0 n0) (reachable_floor slow0_0 n1) (reachable_floor slow0_0 n2) (reachable_floor slow1_0 n2) (reachable_floor slow1_0 n3) (reachable_floor slow1_0 n4))
+
+(:action (move_up_fast fast0 n0 n1))
+
+(:state (above n0 n1) (above n0 n2) (above n0 n3) (above n0 n4) (above n1 n2) (above n1 n3) (above n1 n4) (above n2 n3) (above n2 n4) (above n3 n4) (can_hold fast0 n1) (can_hold slow0_0 n1) (can_hold slow1_0 n1) (lift_at fast0 n1) (lift_at slow0_0 n2) (lift_at slow1_0 n2) (next n0 n1) (next n1 n2) (next n2 n3) (next n3 n4) (passenger_at p0 n4) (passenger_at p1 n2) (passenger_at p2 n3) (passengers fast0 n0) (passengers slow0_0 n0) (passengers slow1_0 n0) (reachable_floor fast0 n0) (reachable_floor fast0 n1) (reachable_floor fast0 n2) (reachable_floor fast0 n3) (reachable_floor fast0 n4) (reachable_floor slow0_0 n0) (reachable_floor slow0_0 n1) (reachable_floor slow0_0 n2) (reachable_floor slow1_0 n2) (reachable_floor slow1_0 n3) (reachable_floor slow1_0 n4))
+
+)
