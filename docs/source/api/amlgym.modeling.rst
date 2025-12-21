@@ -4,7 +4,6 @@ amlgym.modeling package
 Submodules
 ----------
 
-<<<<<<< HEAD
 amlgym.modeling.UPEnv module
 ----------------------------
 
@@ -21,8 +20,6 @@ amlgym.modeling.env module
    :undoc-members:
    :show-inheritance:
 
-=======
->>>>>>> origin/main
 amlgym.modeling.trajectory module
 ---------------------------------
 

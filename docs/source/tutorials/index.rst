@@ -9,10 +9,6 @@ Hands-on examples for using AML Gym.
 
    benchmarks
    algorithms
-<<<<<<< HEAD
    syntactic
    problem_solving
    predictive
-=======
-   evaluation
->>>>>>> origin/main
