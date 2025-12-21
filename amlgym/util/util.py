@@ -179,7 +179,6 @@ def reduce_problem_settings(in_problem_path: str,
 
 def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
 
-    # Load the domain using pddl library
     pddl_domain = PDDLReader().parse_problem(domain_path)
 
     # Loop through all actions and remove preconditions and effects
@@ -194,6 +193,10 @@ def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
     )
 
     replacement = r"\1\n  :precondition (and )\n  :effect (and ))\n"
+
+    # TODO: open issue in up
+    domain_str = domain_str.replace(f"(domain {pddl_domain.name}-domain)",
+                                    f"(domain {pddl_domain.name})")
 
     with open(empty_domain_path, 'w') as f:
         f.write(pattern.sub(replacement, domain_str))
