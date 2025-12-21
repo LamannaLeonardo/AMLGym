@@ -4,7 +4,7 @@ import os
 sys.path.append(os.path.abspath("aml_evaluation/algorithms/rosame"))
 
 from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
-from typing import List
+from typing import List, ClassVar, OrderedDict
 import shutil
 from pathlib import Path
 from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
@@ -17,7 +17,8 @@ class ROSAME(AlgorithmAdapter):
     """
     Adapter class for running an *unofficial* implementation of the ROSAME
     algorithm: "Neuro-Symbolic Learning of Lifted Action Models from
-    Visual Traces", Kai Xi, Stephen Gould, Sylvie Thiebaux, ICAPS 2024.
+    Visual Traces", Kai Xi, Stephen Gould, Sylvie Thiebaux, Proceedings of the
+    Thirty-Fourth International Conference on Automated Planning and Scheduling, 2024.
     https://ojs.aaai.org/index.php/ICAPS/article/download/31528/33688
 
     Example:
@@ -29,6 +30,13 @@ class ROSAME(AlgorithmAdapter):
             print(model)
 
     """
+    reference: ClassVar[OrderedDict[str, str]] = {
+        'Authors': "K. Xi, S. Gould, and S. Thiebaux",
+        'Title': "Neuro-Symbolic Learning of Lifted Action Models from Visual Traces",
+        'Venue': "International Conference on Automated Planning and Scheduling",
+        'Year': 2024,
+        'URL': "https://ojs.aaai.org/index.php/ICAPS/article/download/31528/33688"
+    }
 
     def __init__(self, **kwargs):
         super(ROSAME, self).__init__(**kwargs)
