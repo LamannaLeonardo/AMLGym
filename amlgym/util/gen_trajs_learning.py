@@ -82,16 +82,11 @@ def generate_traj(
         reader.parse_domain(domain_file)
         reader.parse_instance(problem_file)
         grounder = LPGroundingStrategy(reader.problem)
-<<<<<<< HEAD
-
         try:
             ground_actions = grounder.ground_actions()
         except:
             logging.debug(f"Problem unsolvable.")
             return Trajectory(states, actions)
-=======
-        ground_actions = grounder.ground_actions()
->>>>>>> origin/main
 
         while len(states) < TRAJ_LEN_MAX:
 
@@ -196,11 +191,7 @@ def generate_traj(
 if __name__ == '__main__':
 
     TRAJ_LEN_MIN = 5
-<<<<<<< HEAD
     TRAJ_LEN_MAX = None  # set runtime
-=======
-    TRAJ_LEN_MAX = 30
->>>>>>> origin/main
     OPTIMAL_TRACES = 3
     MAX_PLANNING_TIME = 600
     MAX_REPLANNING_TIME = 60  # time to check problem feasibility
@@ -245,10 +236,6 @@ if __name__ == '__main__':
 
     to_be_avoided = []
     domains = {k: v for k, v in domains.items() if k not in to_be_avoided}
-<<<<<<< HEAD
-    domains = {k: v for k, v in domains.items() if k in ['visitall']}
-=======
->>>>>>> origin/main
 
     for domain in domains:
 
@@ -275,10 +262,7 @@ if __name__ == '__main__':
                        bar='halloween') as bar:
             # For every domain problem kwargs
             for i, kwargs in enumerate(domains[domain]):
-<<<<<<< HEAD
                 TRAJ_LEN_MAX = TRAJ_LEN_MIN + i * 2
-=======
->>>>>>> origin/main
 
                 if i >= OPTIMAL_TRACES:
                     PLANNER_CFG = HEUR_PLANNER_CFG
