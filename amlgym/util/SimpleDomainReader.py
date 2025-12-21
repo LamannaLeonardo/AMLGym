@@ -97,7 +97,7 @@ class SimpleDomainReader:
             data = f.read().split("\n")
 
             objects_row = [el.replace(")", "").strip()
-                           for el in re.findall(":types.*\(:predicates","++".join(data))[0].replace(":types","").replace("(:predicates", "").split("++")
+                           for el in re.findall(r":types.*\(:predicates","++".join(data))[0].replace(":types","").replace("(:predicates", "").split("++")
                            if el.strip() != ""]
 
             objects = defaultdict(list)
@@ -163,7 +163,7 @@ class SimpleDomainReader:
                 # op_precs_row = re.findall(":precondition(.*?):effect", action_schema)[0].strip()[1:-1]
                 op_precs_row = re.findall(":precondition(.*?):effect", action_schema)[0]
                 op_precs_row = op_precs_row.replace('( not ', '(not ').replace(') )', '))').replace('  ', ' ').replace('( ', '(')
-                precs_cert_neg = {e.strip()[1:-1].replace('not', '', 1).strip() for e in re.findall("\(not [^)]*\)\)", op_precs_row)
+                precs_cert_neg = {e.strip()[1:-1].replace('not', '', 1).strip() for e in re.findall(r"\(not [^)]*\)\)", op_precs_row)
                                   if not len(e.replace('(and', '').replace(')', '').strip()) == 0}
                 precs_cert_pos = {p.strip() for p in re.findall(r'(?<!\(not\s)\([^()]*\)', op_precs_row)
                                   if not len(p.replace('(and', '').replace(')', '').strip()) == 0}
@@ -171,7 +171,7 @@ class SimpleDomainReader:
                 # Read operator certain effects
                 op_effects_row = re.findall(":effect(.*?)(?:action|$)", action_schema)[0]
                 op_effects_row = op_effects_row.replace('( not ', '(not ').replace(') )', '))').replace('  ', ' ').replace('( ', '(')
-                eff_neg_cert = {e.strip()[1:-1].replace('not', '', 1).strip() for e in re.findall("\(not[^)]*\)\)", op_effects_row)
+                eff_neg_cert = {e.strip()[1:-1].replace('not', '', 1).strip() for e in re.findall(r"\(not[^)]*\)\)", op_effects_row)
                                   if not len(e.replace('(and', '').replace(')', '').strip()) == 0}
                 eff_pos_cert = {e.strip() for e in re.findall(r'(?<!\(not\s)\([^()]*\)', op_effects_row)
                                 if not len(e.replace('(and', '').replace(')', '').strip()) == 0}
@@ -197,7 +197,7 @@ class SimpleDomainReader:
         with open(f_name, "r") as f:
             data = [el.strip() for el in f.read().split("\n")]
             predicates_row = re.findall(":predicates(.*?):action", " ".join(data))[0]
-            predicates_row = [p.strip() for p in re.findall("\([^()]*\)", predicates_row)]
+            predicates_row = [p.strip() for p in re.findall(r"\([^()]*\)", predicates_row)]
 
             predicates = []
             for p in predicates_row:
@@ -245,7 +245,7 @@ class SimpleDomainReader:
             data = [el.strip() for el in f.read().split("\n")]
             preds = re.findall(":predicates.+?:action","".join(data))[0]
 
-        all_predicates = sorted(re.findall("\([^()]*\)", preds))
+        all_predicates = sorted(re.findall(r"\([^()]*\)", preds))
 
         relevant_predicates = []
 
@@ -316,7 +316,7 @@ class SimpleDomainReader:
 
         with open(self.input_file, 'r') as f:
             data = [el.strip() for el in f.read().split("\n")]
-            domain_name = re.findall("domain.+?\)","".join(data))[0].strip()[:-1].split()[-1].strip()
+            domain_name = re.findall(r"domain.+?\)","".join(data))[0].strip()[:-1].split()[-1].strip()
 
         with open(f_name, 'w') as f:
 
@@ -446,7 +446,7 @@ class SimpleDomainReader:
 
                 action_schema = re.sub(' +|\t', ' ', action_schema).replace(":", "\n:").replace("\n:", ":", 1)
                 params = [el for i, el in
-                          enumerate(re.findall("\(.*\)", action_schema.split("\n")[1])[0][1:-1].split())
+                          enumerate(re.findall(r"\(.*\)", action_schema.split("\n")[1])[0][1:-1].split())
                           if el.startswith("?")]
 
                 for k, param in enumerate(params):
