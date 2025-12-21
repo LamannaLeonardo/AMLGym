@@ -30,13 +30,8 @@
      (no_gluten_bread bread2)
      (no_gluten_content content3)
      (no_gluten_content content5)
-<<<<<<< HEAD
      (allergic_gluten child4)
      (allergic_gluten child1)
-=======
-     (allergic_gluten child1)
-     (allergic_gluten child4)
->>>>>>> origin/main
      (not_allergic_gluten child3)
      (not_allergic_gluten child2)
      (not_allergic_gluten child5)

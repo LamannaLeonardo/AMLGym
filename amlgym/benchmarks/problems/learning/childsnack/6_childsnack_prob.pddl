@@ -34,17 +34,10 @@
      (no_gluten_content content1)
      (allergic_gluten child4)
      (allergic_gluten child1)
-<<<<<<< HEAD
      (not_allergic_gluten child3)
      (not_allergic_gluten child5)
      (not_allergic_gluten child6)
      (not_allergic_gluten child2)
-=======
-     (not_allergic_gluten child5)
-     (not_allergic_gluten child3)
-     (not_allergic_gluten child2)
-     (not_allergic_gluten child6)
->>>>>>> origin/main
      (waiting child1 table2)
      (waiting child2 table3)
      (waiting child3 table2)
