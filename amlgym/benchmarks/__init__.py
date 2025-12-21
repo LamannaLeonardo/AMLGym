@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import json
 from importlib import resources
 from typing import List, Dict, Sequence
-=======
-from importlib import resources
-from typing import List
->>>>>>> origin/main
 
 
 def print_domains() -> None:
@@ -29,7 +24,6 @@ def get_domain(domain_name: str) -> str:
 def get_trajectories(domain_name: str,
                      kind: str = 'learning') -> List[str]:
     """
-<<<<<<< HEAD
     Return a list of trajectory strings for a PDDL domain in the benchmarks.trajectories package.
     """
     base_pkg = "amlgym.benchmarks.trajectories"
@@ -40,14 +34,6 @@ def get_trajectories(domain_name: str,
     assert kind in possible_kinds, f'`kind` must be in {possible_kinds}'
 
     pkg = f"{base_pkg}.{kind}.{domain_name.split('.')[0]}"
-=======
-    Return the absolute path of a PDDL domain trajectory files in the benchmarks.trajectories package.
-    """
-    possible_kinds = ['learning', 'learning_hard', 'applicability']
-    assert kind in possible_kinds, f'`kind` must be one of {possible_kinds}'
-
-    pkg = f"amlgym.benchmarks.trajectories.{kind}.{domain_name.split('.')[0]}"
->>>>>>> origin/main
     trajectories = []
     for traj_file in resources.files(pkg).iterdir():
         with resources.open_text(pkg, traj_file.name) as f:
@@ -71,7 +57,6 @@ def get_trajectories_path(domain_name: str,
     """
     Return the absolute path of a PDDL domain trajectory files in the benchmarks.trajectories package.
     """
-<<<<<<< HEAD
     base_pkg = "amlgym.benchmarks.trajectories"
 
     possible_kinds = sorted([p.name for p in resources.files(base_pkg).iterdir()
@@ -80,12 +65,7 @@ def get_trajectories_path(domain_name: str,
     assert kind in possible_kinds, f'`kind` must be in {possible_kinds}'
 
     pkg = f"{base_pkg}.{kind}.{domain_name.split('.')[0]}"
-=======
-    possible_kinds = ['learning', 'learning_hard', 'applicability']
-    assert kind in possible_kinds, f'`kind` must be one of {possible_kinds}'
 
-    pkg = f"amlgym.benchmarks.trajectories.{kind}.{domain_name.split('.')[0]}"
->>>>>>> origin/main
     trajectories_path = [str(f) for f in resources.files(pkg).iterdir() if f.is_file()]
     return sorted(trajectories_path, key=lambda x: int(x.split('/')[-1].split('_')[0]))
 
@@ -95,7 +75,6 @@ def get_problems_path(domain_name: str,
     """
     Return the absolute path of a PDDL domain problem files in the benchmarks.problems package.
     """
-<<<<<<< HEAD
     base_pkg = "amlgym.benchmarks.problems"
 
     possible_kinds = sorted([p.name for p in resources.files(base_pkg).iterdir()
@@ -133,11 +112,3 @@ def get_test_states(domain_name: str,
         test_set = json.load(f)
 
     return test_set
-=======
-    possible_kinds = ['learning', 'learning_hard', 'applicability', 'solving']
-    assert kind in possible_kinds, f'`kind` must be one of {possible_kinds}'
-
-    pkg = f"amlgym.benchmarks.problems.{kind}.{domain_name.split('.')[0]}"
-    problems_path = [str(f) for f in resources.files(pkg).iterdir() if f.is_file()]
-    return sorted(problems_path, key=lambda x: int(x.split('/')[-1].split('_')[0]))
->>>>>>> origin/main
