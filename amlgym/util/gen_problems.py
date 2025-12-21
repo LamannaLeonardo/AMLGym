@@ -13,10 +13,6 @@ import numpy as np
 
 GEN_DIR = "pddl-generators"
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
 def problem_blocksworld(seed: int = 123,
                         ops: int = 4,
                         num: int = 3) -> str:
@@ -122,7 +118,6 @@ def problem_barman(seed: int = 123,
     return problem
 
 
-<<<<<<< HEAD
 def problem_visitall(seed: int = 123,
                      x: int = 3,
                      y: int = 3,
@@ -148,8 +143,6 @@ def problem_visitall(seed: int = 123,
     return problem
 
 
-=======
->>>>>>> origin/main
 def problem_ferry(seed: int = 123,
                   l: int = 2,
                   c: int = 1) -> str:
@@ -755,11 +748,7 @@ def problem_elevators(seed: int = 123,
     result = subprocess.run(f"./{GEN_DIR}/elevators/generate_pddl {floors} {floors} 1 {passengers} {passengers} 1 1 1".split(),
                             capture_output=True, text=True)
 
-<<<<<<< HEAD
     prob_file = [f for f in os.listdir(f"./") if f.endswith('.pddl') and f.startswith('p')][0]
-=======
-    prob_file = [f for f in os.listdir(f"/") if f.endswith('.pddl') and f.startswith('p')][0]
->>>>>>> origin/main
     with open(prob_file, 'r') as f:
         problem = f.read()
     os.remove(prob_file)

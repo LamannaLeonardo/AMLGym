@@ -900,7 +900,6 @@ domains:
       slow_elevators: 2
       fast_capacity: 2
       slow_capacity: 2
-<<<<<<< HEAD
   visitall:
     - x: 3 # number of rows
       y: 3 # number of cols
@@ -942,5 +941,3 @@ domains:
       y: 6
       r: 0.5
       u: 20
-=======
->>>>>>> origin/main
