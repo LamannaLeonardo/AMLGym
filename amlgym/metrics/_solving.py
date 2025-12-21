@@ -9,10 +9,7 @@ Problem solving metrics are defined with respect to a set of problems and a plan
 import contextlib
 import os
 
-<<<<<<< HEAD
 from alive_progress import alive_bar
-=======
->>>>>>> origin/main
 from unified_planning.engines import PlanGenerationResultStatus, ValidationResultStatus
 from unified_planning.io import PDDLReader, PDDLWriter
 from unified_planning.shortcuts import PlanValidator, OneshotPlanner
@@ -22,12 +19,8 @@ from typing import Dict, List
 def problem_solving(model_learn_path: str,
                     model_ref_path: str,
                     problem_paths: List[str],
-<<<<<<< HEAD
                     timeout=60,
                     show_progress: bool = True) -> Dict[str, float]:
-=======
-                    timeout=60) -> Dict[str, float]:
->>>>>>> origin/main
     """
     Solve the given problems using the model to be evaluated and return:
      (i) the solving plans ratio in the environment defined by the reference model
@@ -57,8 +50,6 @@ def problem_solving(model_learn_path: str,
     timed_out = 0
 
     # Solve the problem with the learned model
-<<<<<<< HEAD
-
     bar = alive_bar(len(problem_paths),
                     title=f'Evaluating problem solving...',
                     length=20) if show_progress else contextlib.nullcontext()
@@ -95,37 +86,6 @@ def problem_solving(model_learn_path: str,
 
             if show_progress:
                 bar()
-=======
-    for problem_path in problem_paths:
-
-        problem = reader.parse_problem(model_learn_path, problem_path)
-
-        with contextlib.redirect_stdout(open(os.devnull, 'w')):
-            with OneshotPlanner(
-                    problem_kind=problem.kind,
-                    **HEUR_PLANNER_CFG
-            ) as planner:
-                result = planner.solve(problem, timeout=timeout)
-                plan = result.plan
-
-        if plan is not None:  # neither solving_plan nor false_plan
-            # Parse problem
-            problem_ref = reader.parse_problem(model_ref_path, problem_path)
-
-            PDDLWriter(problem_ref).write_plan(plan, 'tmp')
-
-            if validate_plan(model_ref_path, problem_path, 'tmp'):
-                solving += 1
-            else:
-                false_plans += 1
-
-            os.remove('tmp')
-        else:
-            if result.status == PlanGenerationResultStatus.TIMEOUT:
-                timed_out += 1
-            elif result.status in [PlanGenerationResultStatus.UNSOLVABLE_PROVEN, PlanGenerationResultStatus.UNSOLVABLE_INCOMPLETELY]:
-                unsolvable += 1
->>>>>>> origin/main
 
     return {
         'solving_ratio': solving / len(problem_paths),
