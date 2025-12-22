@@ -1,12 +1,12 @@
 r"""
 Syntactic similarity metrics compare the intersection or difference of the atoms
 in the action preconditions and effects between an evaluated domain model :math:`M`
-and reference model :math:`M^{\star}`.
+and reference model :math:`M^{*}`.
 Let :math:`pre_M(a)` be the set of preconditions of an action :math:`a` according to :math:`M`.
 
-* True Positives: :math:`TP_{pre}(a)=|(pre_M(a)\cap pre_M^{\star}(a)|`
-* False Positives: :math:`FP_{pre}(a)=|(pre_M(a)\setminus pre_M^{\star}(a)|`
-* False Negatives: :math:`FN_{pre}(a)=|(pre_M^{\star}(a)\setminus pre_M(a))|`
+* True Positives: :math:`TP_{pre}(a)=|(pre_M(a)\cap pre_M^{*}(a)|`
+* False Positives: :math:`FP_{pre}(a)=|(pre_M(a)\setminus pre_M^{*}(a)|`
+* False Negatives: :math:`FN_{pre}(a)=|(pre_M^{*}(a)\setminus pre_M(a))|`
 
 The preconditions precision :math:`P_{pre}` and recall :math:`R_{pre}` are defined as:
 
@@ -40,7 +40,7 @@ def syntactic_precision(evaluated_path: str,
                         reference_path: str) -> Dict[str, float]:
     """
     Evaluate the syntactic precision metric of a domain model :math:`M` with
-    respect to a reference model :math:`M^{\star}`.
+    respect to a reference model :math:`M^{*}`.
 
     :param evaluated_path: path of the PDDL model to evaluate.
     :param reference_path: path of the PDDL reference model.
@@ -94,7 +94,7 @@ def syntactic_recall(evaluated_path: str,
                      reference_path: str) -> Dict[str, float]:
     """
     Evaluate the syntactic recall metric of a domain model :math:`M` with
-    respect to a reference model :math:`M^{\star}`.
+    respect to a reference model :math:`M^{*}`.
 
     :param evaluated_path: path of the PDDL model to evaluate.
     :param reference_path: path of the PDDL reference model.
