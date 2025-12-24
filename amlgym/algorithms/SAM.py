@@ -1,18 +1,14 @@
-import re
-import sys
 import os
+import re
+import shutil
 from dataclasses import dataclass
+from pathlib import Path
+from typing import List, ClassVar, OrderedDict
 
-sys.path.append(os.path.abspath("aml_evaluation/algorithms/sam"))
+from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
+from sam_learning.learners import SAMLearner
 
 from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
-from typing import List, ClassVar, OrderedDict
-import shutil
-from pathlib import Path
-from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
-
-from amlgym.algorithms.sam.sam_learning.learners import SAMLearner
-from pddl_plus_parser.lisp_parsers import ProblemParser
 
 
 @dataclass
@@ -42,8 +38,7 @@ class SAM(AlgorithmAdapter):
 
     def learn(self,
               domain_path: str,
-              trajectory_paths: List[str],
-              use_problems: bool = True) -> str:
+              trajectory_paths: List[str]) -> str:
         """
         Learns a PDDL action model from:
          (i)    a (possibly empty) input model which is required to specify the predicates and operators signature;
@@ -51,8 +46,6 @@ class SAM(AlgorithmAdapter):
 
         :parameter domain_path: input PDDL domain file path
         :parameter trajectory_paths: list of trajectory file paths
-        :parameter use_problems: boolean flag indicating whether to provide the set of objects
-            specified in the problem from which the trajectories have been generated
 
         :return: a string representing the learned PDDL model
         """
@@ -69,19 +62,10 @@ class SAM(AlgorithmAdapter):
         # Instantiate SAM algorithm
         partial_domain = DomainParser(Path(domain_path), partial_parsing=True).parse_domain()
         sam = SAMLearner(partial_domain=partial_domain)
-
-        # Parse input trajectories
-        if not use_problems:
-            allowed_observations = [TrajectoryParser(partial_domain).parse_trajectory(traj_path)
-                                    for traj_path in sorted(filled_traj_paths,
-                                                            key=lambda x: int(x.split('/')[-1].split('_')[0]))]
-        else:
-            allowed_observations = []
-            for k, traj_path in enumerate(sorted(filled_traj_paths,
-                                                 key=lambda x: int(x.split('/')[-1].split('_')[0]))):
-                problem_path = trajectory_paths[k].replace('trajectories', 'problems').replace('_traj', '_prob.pddl')
-                problem = ProblemParser(Path(problem_path), partial_domain).parse_problem()
-                allowed_observations.append(TrajectoryParser(partial_domain, problem).parse_trajectory(traj_path))
+        allowed_observations = []
+        for k, traj_path in enumerate(sorted(filled_traj_paths,
+                                             key=lambda x: int(x.split('/')[-1].split('_')[0]))):
+            allowed_observations.append(TrajectoryParser(partial_domain).parse_trajectory(traj_path))
 
         # Learn action model
         learned_model, learning_report = sam.learn_action_model(allowed_observations)
