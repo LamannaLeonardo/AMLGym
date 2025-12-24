@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.append(os.path.abspath("aml_evaluation/algorithms/rosame"))
 
-from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.OfflineAlgorithmAdapter import AlgorithmAdapter
 from typing import List, ClassVar, OrderedDict
 import shutil
 from pathlib import Path

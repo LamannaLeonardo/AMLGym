@@ -8,7 +8,7 @@ from typing import List, ClassVar, OrderedDict
 from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
 from sam_learning.learners import SAMLearner
 
-from amlgym.algorithms.AlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.OfflineAlgorithmAdapter import AlgorithmAdapter
 
 
 @dataclass

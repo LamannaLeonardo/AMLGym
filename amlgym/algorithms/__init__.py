@@ -14,7 +14,7 @@ for _, module_name, is_pkg in pkgutil.iter_modules([str(package_dir)]):
     module = importlib.import_module(f"{__name__}.{module_name}")
 
     # Expose algorithm classes to allow import such as: from amlgym.algorithms import OffLAM
-    if module_name != 'AlgorithmAdapter':
+    if 'AlgorithmAdapter' not in module_name:
         class_obj = getattr(module, module_name, None)
         assert class_obj is not None, f"{module_name}.{module_name} class is not defined"
 
@@ -30,7 +30,7 @@ def get_algorithm(name, **kwargs):
     If the name is not found, raises a ValueError with suggestions for close matches.
     """
     try:
-        return registry[name](**kwargs)
+        return registry[name.lower()](**kwargs)
     except KeyError:
         # Find close matches to the requested name
         matches = difflib.get_close_matches(name, registry.keys(), n=3, cutoff=0.6)
