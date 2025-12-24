@@ -1,14 +1,22 @@
 import json
 from importlib import resources
+from pprint import pprint
 from typing import List, Dict, Sequence
+
+
+def get_domain_names() -> List[str]:
+    """
+    List all benchmark domain names.
+    """
+    pkg = f"amlgym.benchmarks.domains"
+    return [f.name.split('.')[0] for f in resources.files(pkg).iterdir() if f.is_file()]
 
 
 def print_domains() -> None:
     """
-    List all benchmark domains.
+    Print all benchmark domain names.
     """
-    pkg = f"amlgym.benchmarks.domains"
-    print([f.name.split('.')[0] for f in resources.files(pkg).iterdir() if f.is_file()])
+    pprint(get_domain_names())
 
 
 def get_domain(domain_name: str) -> str:
