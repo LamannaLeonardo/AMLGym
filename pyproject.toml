@@ -13,9 +13,9 @@ dependencies = {file = ["requirements.txt"]}
 
 [project]
 name = "amlgym"
-version = "1.0.5"
+version = "1.0.6"
 dynamic = ["dependencies"]
-requires-python = ">=3.9,<3.13"
+requires-python = ">=3.10"
 authors = [
   {name = "Leonardo Lamanna", email = "llamanna@fbk.eu"},
   {name = "Omar Watted"}

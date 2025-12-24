@@ -187,7 +187,8 @@ def _compute_operator_precision(reference_op: Operator,
 
         if not universe:
             # No predicates at all
-            warnings.warn(f"No {key} for operator {reference_op.operator_name}, precision set to 1.")
+            warnings.warn(f"No {key} for operator {reference_op.operator_name}, "
+                          f"precision set to 1.", stacklevel=2)
             precision = 1.0
         else:
             precision = precision_score(y_true, y_pred, zero_division=1.)
@@ -237,7 +238,8 @@ def _compute_operator_recall(reference_op: Operator,
 
         if not universe:
             # No predicates at all
-            warnings.warn(f"No {key} for operator {reference_op.operator_name}, recall set to 1.")
+            warnings.warn(f"No {key} for operator {reference_op.operator_name}, "
+                          f"recall set to 1.", stacklevel=2)
             recall = 1.0
         else:
             recall = recall_score(y_true, y_pred, zero_division=1.)

@@ -1,3 +1,4 @@
+import logging
 import os
 from collections import defaultdict
 from dataclasses import dataclass
@@ -43,48 +44,12 @@ class UPEnv(Env):
         # Instantiate the environment simulation engine
         self._simulator = SequentialSimulator(self.problem)
 
-        self._problem_template = self._create_problem_template()
-
-        self.cache_app_actions = dict()
-
-        # TODO: Remove this tmp patch for childsnack and open issue on up
-        constants = ''
-        if 'childsnack' in domain_path:
-            all_objects_str = '\n'.join([f"{o.name} - {o.type.name}"
-                                        for o in self.problem.all_objects
-                                        if o.name != 'kitchen'])
-
-            constants = ' (:constants kitchen - place)'
-
-        else:
-            all_objects_str = '\n'.join([f"{o.name} - {o.type.name}"
-                                        for o in self.problem.all_objects])
-
-
-        self._problem_template_str = ("(define (problem dummy-problem) "
-                                      f"\n (:domain {self.problem.name}-domain) "
-                                      "\n (:objects "
-                                      f"\n {all_objects_str} )"
-                                      "\n(:init)"
-                                      "\n (:goal (and ))"
-                                      "\n)")
-
-        writer = PDDLWriter(self._problem_template)
-        self._domain_template_str = writer.get_domain()
-        self._domain_template_str = self._domain_template_str.replace("(at_ ",
-                                                                      "(at ")
-
-        # TODO: Check
-        if "constants" not in self._domain_template_str:
-            self._domain_template_str = '\n'.join(self._domain_template_str.split('\n')[:3] + [constants] + self._domain_template_str.split('\n')[3:])
-
         # Create a fictitious state with all negated literals
         all_neg_fluents = {f: FALSE() for f, v in self.problem.initial_values.items()}
         UPState.MAX_ANCESTORS = None
         self.all_neg_state = UPState(all_neg_fluents, self.problem)
 
-
-        # Initialize actions grounder with tarski since unified-planning (1.2.0) grounder is inefficient
+        # Initialize actions grounder with tarski
         _tmp_problem = PDDLReader().parse_problem(domain_path, problem_path)
         # Add a dummy fluent to show `preconditions:` and `effects:` sections in the PDDL file
         dummy_fluent = Fluent('dummy', BoolType())
@@ -98,7 +63,7 @@ class UPEnv(Env):
             # ensure `preconditions:` and `effects:` sections in the PDDL file
             action.add_precondition(dummy_fluent)
             action.add_effect(dummy_fluent, True)
-        # remove problem goal to avoid tarski reachability issues
+        # Remove problem goal to avoid tarski reachability issues
         _tmp_problem.clear_goals()
         tmp_domain_path = 'tmp_domain.pddl'
         tmp_problem_path = 'tmp_problem.pddl'
@@ -118,38 +83,9 @@ class UPEnv(Env):
         Return a list of all ground actions for the current environment.
         :return: ground actions list
         """
-        # logging.info("Grounding actions with tarski...")
+        logging.debug("Grounding actions with tarski...")
         ground_actions = self._grounder.ground_actions()
-        # logging.info("Instantiating UP actions...")
-        # ground_actions = [ActionInstance(self.problem.action(k.lower()), [self.problem.object(o.lower()) for o in objs])
-        #                   for k, params in ground_actions.items()
-        #                   for objs in params]
-        # Sort actions by name and parameter string for deterministic ordering
-        # ground_actions.sort(key=lambda a: (a.action.name, tuple(str(p) for p in a.actual_parameters)))
-        # logging.info(f"Total grounded actions {len(ground_actions)}.")
         return ground_actions
-
-    def _create_problem_template(self):
-
-        problem = self.problem.clone()
-
-        set_initial_value = problem.set_initial_value
-
-        problem.clear_goals()
-
-        # ---- Add `applicable` fluent once ----
-        applicable_fluent = Fluent('applicable', BoolType())
-        if applicable_fluent not in problem.fluents:
-            problem.add_fluent(applicable_fluent)
-        set_initial_value(applicable_fluent, True)
-
-        # ---- Rebuild actions with no effects and additional `applicable` precondition ----
-        for action in problem.actions:
-            action.clear_effects()
-            action.add_precondition(applicable_fluent)
-            action.add_effect(applicable_fluent, False)
-
-        return problem
 
     def _str_to_action(self, action_label: str) -> ActionInstance:
         """
@@ -254,48 +190,4 @@ class UPEnv(Env):
                     applicable_actions[op_name].add(action_label)
 
         # self.cache_app_actions[frozenset(state)] = applicable_actions
-        return applicable_actions
-
-    # def applicable_actions(self, state) -> List[ActionInstance]:
-    def applicable_actions_tarski(self, state) -> List[str]:
-        """
-        Return an iterator over all possible actions that can be executed
-        in a given state.
-        IMPORTANT NOTE: this method works only when preconditions are simple
-        conjunctions of positive literals, otherwise the grounder relaxed
-        reachability does not effectively filter from all ground actions
-        the ones applicable in the given state.
-        :param state: input state :math:`s`
-        :return: ground actions applicable in :math:`s`
-        """
-
-        cached = self.cache_app_actions.get(frozenset(state), None)
-        if cached is not None:
-            return cached
-
-        pos_literals = {l for l in state if not l.startswith("(not ")}
-
-        problem_str = self._problem_template_str.replace("(:init)",
-                                                         f"(:init {' '.join(list(pos_literals | {'(applicable)'}))})")
-
-        _tarski_reader = tarskiPDDLReader(raise_on_error=True)
-        _tarski_reader.parse_domain_string(self._domain_template_str)
-        _tarski_reader.parse_instance_string(problem_str)
-
-        grounder = LPGroundingStrategy(_tarski_reader.problem)
-        ground_actions = grounder.ground_actions()
-
-        applicable_actions = defaultdict(set)
-        for name, param_combos in ground_actions.items():
-            for params in param_combos:
-
-                if len(params) > 0:
-                    action_label = f"({name} {' '.join(params)})"
-                else:
-                    action_label = f"({name})"
-
-                applicable_actions[name].add(action_label)
-
-        self.cache_app_actions[frozenset(state)] = applicable_actions
-
         return applicable_actions

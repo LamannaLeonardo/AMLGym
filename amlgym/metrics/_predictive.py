@@ -133,8 +133,20 @@ def applicability(simulator: Env | Sequence[Env],
 
     operators = set(tp.keys()) | set(fp.keys()) | set(fn.keys())
     for op in operators:
-        precision[op] = tp[op] / (tp[op] + fp[op])
-        recall[op] = tp[op] / (tp[op] + fn[op])
+
+        if (tp[op] + fp[op]) == 0:
+            warnings.warn(f"No true and false positives for operator {op}, "
+                          f"predicted applicability precision set to 1.", stacklevel=2)
+            precision[op] = 1.
+        else:
+            precision[op] = tp[op] / (tp[op] + fp[op])
+
+        if (tp[op] + fn[op]) == 0:
+            warnings.warn(f"No true positives and false negatives for operator {op}, "
+                          f"predicted applicability recall set to 1.", stacklevel=2)
+            recall[op] = 1.
+        else:
+            recall[op] = tp[op] / (tp[op] + fn[op])
 
     return {
         'mean_precision': np.mean(list(precision.values())),
@@ -261,8 +273,21 @@ def predicted_effects(simulator: Env | Sequence[Env],
 
     operators = set(tp.keys()) | set(fp.keys()) | set(fn.keys())
     for op in operators:
-        precision[op] = tp[op] / (tp[op] + fp[op])
-        recall[op] = tp[op] / (tp[op] + fn[op])
+
+        if (tp[op] + fp[op]) == 0:
+            warnings.warn(f"No true and false positives for operator {op}, "
+                          f"predicted effects precision set to 1.", stacklevel=2)
+            precision[op] = 1.
+        else:
+            precision[op] = tp[op] / (tp[op] + fp[op])
+
+
+        if (tp[op] + fn[op]) == 0:
+            warnings.warn(f"No true positives and false negatives for operator {op}, "
+                          f"predicted effects recall set to 1.", stacklevel=2)
+            recall[op] = 1.
+        else:
+            recall[op] = tp[op] / (tp[op] + fn[op])
 
     return {
         'mean_precision': np.mean(list(precision.values())),
@@ -363,14 +388,7 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
                     # Predicted effects
                     for action_label in applicable_ref[op] & applicable_learned[op]:
 
-                        # try:
                         snext_learned = simulator_learned.apply(s, action_label)
-                        # except:
-                        #     warnings.warn(f'Action {action_label} were deemed applicable, '
-                        #                     f'but is not actually applicable in the learned model. '
-                        #                     f'Skipping evaluation of {action_label}.')
-                        #     applicable_learned[op].remove(action_label)
-                        #     continue
                         snext_ref = simulator_ref.apply(s, action_label)
 
                         predeffs_tp[op] += len((snext_learned - s) & (snext_ref - s))
@@ -390,30 +408,30 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
     for op in operators:
 
         if (app_tp[op] + app_fp[op]) == 0:
-            warnings.warn(f"No true/false positives for operator {op}, "
-                            f"predicted applicability precision set to 1.")
+            warnings.warn(f"No true and false positives for operator {op}, "
+                          f"predicted applicability precision set to 1.", stacklevel=2)
             app_precision[op] = 1.
         else:
             app_precision[op] = app_tp[op] / (app_tp[op] + app_fp[op])
 
         if (app_tp[op] + app_fn[op]) == 0:
-            warnings.warn(f"No true/false positives for operator {op}, "
-                            f"predicted applicability recall set to 1.")
+            warnings.warn(f"No true positives and false negatives for operator {op}, "
+                          f"predicted applicability recall set to 1.", stacklevel=2)
             app_recall[op] = 1.
         else:
             app_recall[op] = app_tp[op] / (app_tp[op] + app_fn[op])
 
         if (predeffs_tp[op] + predeffs_fp[op]) == 0:
-            warnings.warn(f"No true/false positives for operator {op}, "
-                            f"predicted effects precision set to 1.")
+            warnings.warn(f"No true and false positives for operator {op}, "
+                          f"predicted effects precision set to 1.", stacklevel=2)
             predeffs_precision[op] = 1.
         else:
             predeffs_precision[op] = predeffs_tp[op] / (predeffs_tp[op] + predeffs_fp[op])
 
 
         if (predeffs_tp[op] + predeffs_fn[op]) == 0:
-            warnings.warn(f"No true/false positives for operator {op}, "
-                            f"predicted effects recall set to 1.")
+            warnings.warn(f"No true positives and false negatives for operator {op}, "
+                          f"predicted effects recall set to 1.", stacklevel=2)
             predeffs_recall[op] = 1.
         else:
             predeffs_recall[op] = predeffs_tp[op] / (predeffs_tp[op] + predeffs_fn[op])

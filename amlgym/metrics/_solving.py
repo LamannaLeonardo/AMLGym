@@ -8,6 +8,7 @@ Problem solving metrics are defined with respect to a set of problems and a plan
 """
 import contextlib
 import os
+import warnings
 
 from alive_progress import alive_bar
 from unified_planning.engines import PlanGenerationResultStatus, ValidationResultStatus
@@ -48,6 +49,7 @@ def problem_solving(model_learn_path: str,
     false_plans = 0
     unsolvable = 0
     timed_out = 0
+    syntax_errors = 0
 
     # Solve the problem with the learned model
     bar = alive_bar(len(problem_paths),
@@ -56,7 +58,16 @@ def problem_solving(model_learn_path: str,
     with bar as bar:
         for problem_path in problem_paths:
 
-            problem = reader.parse_problem(model_learn_path, problem_path)
+            try:
+                problem = reader.parse_problem(model_learn_path, problem_path)
+            except SyntaxError as err:
+                warnings.warn(
+                    f"Failed to parse problem '{problem_path}' with domain "
+                    f"{model_learn_path}: {err}",
+                    stacklevel=2
+                )
+                syntax_errors += 1
+                continue
 
             with contextlib.redirect_stdout(open(os.devnull, 'w')):
                 with OneshotPlanner(
@@ -81,7 +92,8 @@ def problem_solving(model_learn_path: str,
             else:
                 if result.status == PlanGenerationResultStatus.TIMEOUT:
                     timed_out += 1
-                elif result.status in [PlanGenerationResultStatus.UNSOLVABLE_PROVEN, PlanGenerationResultStatus.UNSOLVABLE_INCOMPLETELY]:
+                elif result.status in [PlanGenerationResultStatus.UNSOLVABLE_PROVEN,
+                                       PlanGenerationResultStatus.UNSOLVABLE_INCOMPLETELY]:
                     unsolvable += 1
 
             if show_progress:
@@ -91,7 +103,8 @@ def problem_solving(model_learn_path: str,
         'solving_ratio': solving / len(problem_paths),
         'false_plans_ratio': false_plans / len(problem_paths),
         'unsolvable_ratio': unsolvable / len(problem_paths),
-        'timed_out': timed_out / len(problem_paths)
+        'timed_out': timed_out / len(problem_paths),
+        'syntax_errors': syntax_errors / len(problem_paths)
     }
 
 
