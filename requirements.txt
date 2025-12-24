@@ -1,7 +1,6 @@
 unified-planning>=1.3.0
 up-fast-downward>=0.4.1
-#tarski @ git+https://github.com/aig-upf/tarski@fcf35cd
-tarski >= 0.8.2
+tarski >= 0.9.1
 pddl-plus-parser==3.14.7
 pyyaml
 alive-progress>=3.2.0
