@@ -5,12 +5,12 @@ from collections import defaultdict
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set, ClassVar, OrderedDict
-from amlgym.algorithms.OfflineAlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
 from unified_planning.io import PDDLReader
 from offlam.algorithm import learn
 
 
-class OffLAM(AlgorithmAdapter):
+class OffLAM(OfflineAlgorithmAdapter):
     """
     Adapter class for running the OffLAM algorithm: "Lifted Action Models Learning
     from Partial Traces", L. Lamanna, L. Serafini, A. Saetti, A. Gerevini,
@@ -26,7 +26,7 @@ class OffLAM(AlgorithmAdapter):
             print(model)
 
     """
-    reference: ClassVar[OrderedDict[str, str]] = {
+    _reference: ClassVar[OrderedDict[str, str]] = {
         'Authors': "L. Lamanna, L. Serafini, A. Saetti, A. Gerevini, and P. Traverso",
         'Title': "Lifted Action Models Learning from Partial Traces",
         'Venue': "Artificial Intelligence Journal",

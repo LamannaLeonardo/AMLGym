@@ -8,11 +8,11 @@ from typing import List, ClassVar, OrderedDict
 from pddl_plus_parser.lisp_parsers import DomainParser, TrajectoryParser
 from sam_learning.learners import SAMLearner
 
-from amlgym.algorithms.OfflineAlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
 
 
 @dataclass
-class SAM(AlgorithmAdapter):
+class SAM(OfflineAlgorithmAdapter):
     """
     Adapter class for running the SAM algorithm: "Safe Learning of Lifted Action Models",
     B. Juba and H. S. Le, and R. Stern, Proceedings of the 18th International Conference
@@ -28,7 +28,7 @@ class SAM(AlgorithmAdapter):
             print(model)
 
     """
-    reference: ClassVar[OrderedDict[str, str]] = {
+    _reference: ClassVar[OrderedDict[str, str]] = {
         'Authors': "B. Juba and H. S. Le, and R. Stern",
         'Title': "Safe Learning of Lifted Action Models",
         'Venue': "International Conference on Principles of Knowledge Representation and Reasoning",

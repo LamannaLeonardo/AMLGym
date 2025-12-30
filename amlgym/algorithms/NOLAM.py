@@ -8,14 +8,14 @@ from dataclasses import dataclass
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set, ClassVar, OrderedDict
-from amlgym.algorithms.OfflineAlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
 from unified_planning.io import PDDLReader
 
 from nolam.algorithm.Learner import Learner
 
 
 @dataclass
-class NOLAM(AlgorithmAdapter):
+class NOLAM(OfflineAlgorithmAdapter):
     """
     Adapter class for running the NOLAM algorithm: "Action Model Learning from Noisy
     Traces: a Probabilistic Approach", L. Lamanna and L. Serafini, Proceedings of the
@@ -34,7 +34,7 @@ class NOLAM(AlgorithmAdapter):
             print(model)
 
     """
-    reference: ClassVar[OrderedDict[str, str]] = {
+    _reference: ClassVar[OrderedDict[str, str]] = {
         'Authors': "L. Lamanna and L. Serafini",
         'Title': "Action Model Learning from Noisy Traces: a Probabilistic Approach",
         'Venue': "International Conference on Automated Planning and Scheduling",
