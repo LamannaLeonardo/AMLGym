@@ -43,7 +43,8 @@ def get_trajectories(domain_name: str,
 
     pkg = f"{base_pkg}.{kind}.{domain_name.split('.')[0]}"
     trajectories = []
-    for traj_file in resources.files(pkg).iterdir():
+    for traj_file in sorted(resources.files(pkg).iterdir(),
+                            key=lambda x: int(x.name.split('_')[0])):
         with resources.open_text(pkg, traj_file.name) as f:
             trajectories.append(f.read())
     return trajectories
