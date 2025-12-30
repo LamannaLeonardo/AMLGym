@@ -4,14 +4,6 @@ amlgym.algorithms package
 Submodules
 ----------
 
-amlgym.algorithms.AlgorithmAdapter module
------------------------------------------
-
-.. automodule:: amlgym.algorithms.AlgorithmAdapter
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 amlgym.algorithms.NOLAM module
 ------------------------------
 
@@ -28,10 +20,34 @@ amlgym.algorithms.OffLAM module
    :undoc-members:
    :show-inheritance:
 
+amlgym.algorithms.OfflineAlgorithmAdapter module
+------------------------------------------------
+
+.. automodule:: amlgym.algorithms.OfflineAlgorithmAdapter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+amlgym.algorithms.OnlineAlgorithmAdapter module
+-----------------------------------------------
+
+.. automodule:: amlgym.algorithms.OnlineAlgorithmAdapter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 amlgym.algorithms.ROSAME module
 -------------------------------
 
 .. automodule:: amlgym.algorithms.ROSAME
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+amlgym.algorithms.RandomAgent module
+------------------------------------
+
+.. automodule:: amlgym.algorithms.RandomAgent
    :members:
    :undoc-members:
    :show-inheritance:

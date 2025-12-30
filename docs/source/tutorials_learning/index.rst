@@ -1,9 +1,10 @@
-.. _tutorials-label:
+.. _tutorials-learning-label:
 
-Tutorials: Learning a Domain Model
-==================================
+Learning Domain Models
+======================
 
-Hands-on examples for using AMLGym.
+Hands-on examples for learning a domain model using benchmark domains and trajectories provided by AMLGym and
+offline and online algorithms integrated in AMLGym.
 
 .. toctree::
    :maxdepth: 1
@@ -12,6 +13,3 @@ Hands-on examples for using AMLGym.
    benchmarks
    offline_algorithms
    online_algorithms
-   syntactic
-   problem_solving
-   predictive

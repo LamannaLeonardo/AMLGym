@@ -28,6 +28,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     "nbsphinx",
+    "sphinx_copybutton",
 ]
 
 # Add a button for opening the notebook in google colab
