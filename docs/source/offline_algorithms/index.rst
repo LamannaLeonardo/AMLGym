@@ -1,5 +1,5 @@
-Algorithms
-==========
+Offline Algorithms
+==================
 
 
 AMLGym provides seamless integration with several algorithms
@@ -29,7 +29,6 @@ Automated Planning and Scheduling, 2024.](https://ojs.aaai.org/index.php/ICAPS/a
 
 .. toctree::
    :maxdepth: 4
-   :titlesonly:
 
    sam
    offlam

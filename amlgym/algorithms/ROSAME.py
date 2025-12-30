@@ -1,9 +1,7 @@
 import re
-import sys
 import os
-sys.path.append(os.path.abspath("aml_evaluation/algorithms/rosame"))
 
-from amlgym.algorithms.OfflineAlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
 from typing import List, ClassVar, OrderedDict
 import shutil
 from pathlib import Path
@@ -13,7 +11,7 @@ from pddl_plus_parser.lisp_parsers import ProblemParser
 from amlgym.algorithms.rosame.experiment_runner.rosame_runner import Rosame_Runner
 
 
-class ROSAME(AlgorithmAdapter):
+class ROSAME(OfflineAlgorithmAdapter):
     """
     Adapter class for running an *unofficial* implementation of the ROSAME
     algorithm: "Neuro-Symbolic Learning of Lifted Action Models from
@@ -30,7 +28,7 @@ class ROSAME(AlgorithmAdapter):
             print(model)
 
     """
-    reference: ClassVar[OrderedDict[str, str]] = {
+    _reference: ClassVar[OrderedDict[str, str]] = {
         'Authors': "K. Xi, S. Gould, and S. Thiebaux",
         'Title': "Neuro-Symbolic Learning of Lifted Action Models from Visual Traces",
         'Venue': "International Conference on Automated Planning and Scheduling",

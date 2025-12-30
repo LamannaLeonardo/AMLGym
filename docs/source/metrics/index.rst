@@ -1,5 +1,5 @@
-Evaluation
-==================
+Metrics
+=======
 
 
 AMLGym provides metrics for evaluating an action model w.r.t. a reference model or simulator.

@@ -12,25 +12,24 @@ from unified_planning.model import Fluent
 from unified_planning.plans import ActionInstance
 from unified_planning.shortcuts import SequentialSimulator, BoolType
 
-from amlgym.algorithms.OfflineAlgorithmAdapter import AlgorithmAdapter
+from amlgym.algorithms.OnlineAlgorithmAdapter import OnlineAlgorithmAdapter
 from amlgym.algorithms.SAM import SAM
 from amlgym.modeling.trajectory import Trajectory
 
 
 @dataclass
-class RandomAgent(AlgorithmAdapter):
+class RandomAgent(OnlineAlgorithmAdapter):
     """
-    A simple baseline for online learning in a fully observable environment by
-    randomly executing actions. The baselines firstly generates a trajectory
-    and then applies the SAM algorithm for offline learning a model from the
-    generated trace
+    A simple baseline for online learning in a fully observable and deterministic
+    environment by randomly executing actions. The baselines firstly generates
+    a trajectory and then applies the SAM algorithm for offline learning a model
+    from the generated trace.
 
     Example:
         .. code-block:: python
 
             from unified_planning.io import PDDLReader
             from unified_planning.shortcuts import SequentialSimulator
-
             from amlgym.algorithms import get_algorithm
             from amlgym.benchmarks import get_domain_path, get_problems_path
             from amlgym.util.util import empty_domain
@@ -39,18 +38,20 @@ class RandomAgent(AlgorithmAdapter):
             domain_ref_path = get_domain_path(domain)
             input_domain_path = empty_domain(domain_ref_path)
             problem_path = get_problems_path(domain, kind='learning')[0]
-
             problem = PDDLReader().parse_problem(domain_ref_path, problem_path)
-            env = SequentialSimulator(problem=problem)
 
+            env = SequentialSimulator(problem=problem)
             baseline = get_algorithm('RandomAgent')
             model, trajectory = baseline.learn(env, input_domain_path)
 
-            print(f"\n##################### Learned model #####################"
-                  f"\n{model}")
-            print(f"\n##################### Generated trajectory #####################"
-                  f"\n{trajectory}")
+            print("##################### Learned model #####################")
+            print(model)
+
+            print("################# Generated trajectory ##################")
+            print(trajectory)
+
     """
+    max_steps: int = 100.
 
     def learn(self,
               simulator: SequentialSimulator,
@@ -84,7 +85,7 @@ class RandomAgent(AlgorithmAdapter):
         trace_actions = []
         trace_states = [state]
 
-        for i in range(100):
+        for i in range(self.max_steps):
 
             action_label = random.choice(ground_actions)
             operator = simulator._problem.action(action_label[0])

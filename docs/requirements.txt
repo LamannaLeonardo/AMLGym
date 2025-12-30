@@ -5,3 +5,4 @@ nbsphinx
 nbconvert
 pypandoc-binary
 ipykernel
+sphinx-copybutton

@@ -59,7 +59,7 @@ def print_algorithms() -> None:
         print(f"\n{i + 1} - {name}({', '.join(params)})")
 
         # Print reference
-        ref = getattr(cls, "reference", None)
+        ref = getattr(cls, "_reference", None)
 
         if isinstance(ref, dict):
             ref_str = "\n".join(f"\x1B[3m\033[1m\t{k}: {v}.\033[0m" for k, v in ref.items())

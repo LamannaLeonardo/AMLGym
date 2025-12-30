@@ -4,15 +4,16 @@
    contain the root `toctree` directive.
 
 
-AML Gym Documentation
+AMLGym Documentation
 =====================
 
-Welcome to **AMLGym**, a framework for benchmarking action model learning approaches in AI Planning.
+Welcome to **AMLGym**, a framework for benchmarking domain model learning approaches in AI Planning.
 
 This documentation provides:
 
-- **Getting Started** — how to install and run your first experiment.
-- **Algorithms** — overview of domain model learning algorithms included in AMLGym.
+- **Getting Started** — how to install AMLGym and run a learning algorithm.
+- **Offline Algorithms** — overview of offline domain model learning algorithms included in AMLGym.
+- **Online Algorithms** — overview of online domain model learning algorithms included in AMLGym.
 - **Tutorials** — hands-on guides and usage examples.
 - **API Reference** — detailed information for developers.
 
@@ -23,16 +24,18 @@ This documentation provides:
    :hidden:
 
    getting_started
-   algorithms/index
-   evaluation/index
+   offline_algorithms/index
+   online_algorithms/index
+   metrics/index
 
 .. toctree::
    :maxdepth: 10
-   :caption: Usage
+   :caption: Tutorials
    :titlesonly:
    :hidden:
 
-   tutorials/index
+   tutorials_learning/index
+   tutorials_evaluating/index
 
 .. toctree::
    :maxdepth: 10

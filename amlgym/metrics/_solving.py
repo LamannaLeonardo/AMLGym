@@ -28,6 +28,7 @@ def problem_solving(model_learn_path: str,
      (ii) the false plans ratio in the environment defined by the reference model
      (iii) the ratio of problems deemed unsolvable
      (iv) the ratio of problems where the planning process timed out
+     (v) the ratio of problems that raised syntax errors during parsing in unified planning
 
     :param model_learn_path: learned model path
     :param model_ref_path: reference model path
