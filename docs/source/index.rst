@@ -29,13 +29,14 @@ This documentation provides:
    metrics/index
 
 .. toctree::
-   :maxdepth: 10
+   :maxdepth: 15
    :caption: Tutorials
    :titlesonly:
    :hidden:
 
    tutorials_learning/index
    tutorials_evaluating/index
+   tutorials_aaai/tutorial
 
 .. toctree::
    :maxdepth: 10
