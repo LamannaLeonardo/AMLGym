@@ -29,7 +29,7 @@ This documentation provides:
    metrics/index
 
 .. toctree::
-   :maxdepth: 15
+   :maxdepth: 1
    :caption: Tutorials
    :titlesonly:
    :hidden:
