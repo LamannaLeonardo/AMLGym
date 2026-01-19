@@ -40,7 +40,7 @@ nbsphinx_prolog = r"""
     </a>
 """
 # nbsphinx_allow_errors = True  # compile despite notebook errors
-
+nbsphinx_execute = "never"
 
 templates_path = ['_templates']
 exclude_patterns = []
