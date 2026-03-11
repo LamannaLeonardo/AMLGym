@@ -9,26 +9,27 @@ Create a new offline algorithm adapter in `amlgym/algorithms/`.
 
 ## Steps
 
-1. **Create** `amlgym/algorithms/$ARGUMENTS.py` (class name must match filename, case-insensitive)
+1. **Create** `amlgym/algorithms/$ARGUMENTS.py` (class name must match filename, PascalCase, case-insensitive)
 
 2. **Inherit** from `OfflineAlgorithmAdapter` and implement `learn()`:
 
 ```python
 from dataclasses import dataclass
-from typing import List, ClassVar, OrderedDict
+from typing import List
 from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
 
 @dataclass
 class $ARGUMENTS(OfflineAlgorithmAdapter):
     """Docstring with paper reference and usage example."""
 
-    _reference: ClassVar[OrderedDict[str, str]] = {
-        'Authors': "...",
-        'Title': "...",
-        'Venue': "...",
-        'Year': 0,
-        'URL': "...",
-    }
+    # Optional: add paper reference metadata (used by registry for display)
+    # _reference: ClassVar[OrderedDict[str, str]] = {
+    #     'Authors': "Author names",
+    #     'Title': "Paper title",
+    #     'Venue': "Conference/journal",
+    #     'Year': "2024",
+    #     'URL': "https://...",
+    # }
 
     # Algorithm parameters as dataclass fields with defaults
     my_param: float = 1.0

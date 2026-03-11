@@ -9,13 +9,13 @@ Create a new online algorithm adapter in `amlgym/algorithms/`.
 
 ## Steps
 
-1. **Create** `amlgym/algorithms/$ARGUMENTS.py` (class name must match filename, case-insensitive)
+1. **Create** `amlgym/algorithms/$ARGUMENTS.py` (class name must match filename, PascalCase, case-insensitive)
 
 2. **Inherit** from `OnlineAlgorithmAdapter` and implement `learn()`:
 
 ```python
 from dataclasses import dataclass
-from typing import Tuple, ClassVar, OrderedDict
+from typing import Tuple
 from unified_planning.shortcuts import SequentialSimulator
 from amlgym.algorithms.OnlineAlgorithmAdapter import OnlineAlgorithmAdapter
 from amlgym.modeling.trajectory import Trajectory
@@ -24,13 +24,14 @@ from amlgym.modeling.trajectory import Trajectory
 class $ARGUMENTS(OnlineAlgorithmAdapter):
     """Docstring with paper reference and usage example."""
 
-    _reference: ClassVar[OrderedDict[str, str]] = {
-        'Authors': "...",
-        'Title': "...",
-        'Venue': "...",
-        'Year': 0,
-        'URL': "...",
-    }
+    # Optional: add paper reference metadata (used by registry for display)
+    # _reference: ClassVar[OrderedDict[str, str]] = {
+    #     'Authors': "Author names",
+    #     'Title': "Paper title",
+    #     'Venue': "Conference/journal",
+    #     'Year': "2024",
+    #     'URL': "https://...",
+    # }
 
     # Algorithm parameters as dataclass fields with defaults
     max_steps: int = 100

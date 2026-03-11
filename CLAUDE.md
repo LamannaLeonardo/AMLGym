@@ -137,57 +137,17 @@ results = predictive_power(simulator_learned, simulator_ref, test_states)
 
 ## Adding a New Algorithm
 
-1. **Create** `amlgym/algorithms/YourAlgorithm.py` (class name must match filename, case-insensitive)
-2. **Inherit** from the appropriate base class and **implement** `learn()`:
+Use the Claude Code skills for guided workflows:
+- **Offline** (learns from trajectory files): `/add-offline-algorithm YourAlgorithm`
+- **Online** (interacts with simulator): `/add-online-algorithm YourAlgorithm`
 
-### Offline algorithm
-Inherit from `OfflineAlgorithmAdapter`. Receives pre-collected trajectory files and returns a learned PDDL domain string. See `SAM.py` for a full example.
-
-```python
-from dataclasses import dataclass
-from typing import List
-from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
-
-@dataclass
-class YourAlgorithm(OfflineAlgorithmAdapter):
-    my_param: float = 1.0
-
-    def learn(self,
-              domain_path: str,
-              trajectory_paths: List[str]) -> str:
-        # domain_path: input PDDL domain (predicates/operator signatures, no preconditions/effects)
-        # trajectory_paths: list of trajectory file paths
-        # Return: learned PDDL domain string
-        ...
-```
-
-### Online algorithm
-Inherit from `OnlineAlgorithmAdapter`. Interacts with a simulator to collect its own experience and returns a learned PDDL domain string plus the generated trajectory. See `RandomAgent.py` for a full example.
-
-```python
-from dataclasses import dataclass
-from typing import Tuple
-from unified_planning.shortcuts import SequentialSimulator
-from amlgym.algorithms.OnlineAlgorithmAdapter import OnlineAlgorithmAdapter
-from amlgym.modeling.trajectory import Trajectory
-
-@dataclass
-class YourAlgorithm(OnlineAlgorithmAdapter):
-    my_param: float = 1.0
-
-    def learn(self,
-              simulator: SequentialSimulator,
-              input_domain_path: str,
-              seed: int = 123) -> Tuple[str, Trajectory]:
-        # Use simulator.get_initial_state() for initial state
-        # Use simulator.apply(state, action) to execute actions (returns None if inapplicable)
-        # Return (learned_pddl_string, Trajectory(states_list, actions_list))
-        ...
-```
-
-3. **No registration needed** — the `__init__.py` auto-discovers all algorithm files
-4. **Add external deps** to `requirements.txt` if your algorithm uses them
-5. **Evaluate** with `amlgym.metrics` against reference domain models
+Key points:
+- Create `amlgym/algorithms/YourAlgorithm.py` — class name must match filename (PascalCase, case-insensitive)
+- Inherit from `OfflineAlgorithmAdapter` or `OnlineAlgorithmAdapter` and implement `learn()`
+- No registration needed — `__init__.py` auto-discovers all algorithm files
+- Add external deps to `requirements.txt` if needed
+- Evaluate with `amlgym.metrics` against reference domain models
+- Reference implementations: `SAM.py` (offline), `RandomAgent.py` (online)
 
 ## Important Notes
 
