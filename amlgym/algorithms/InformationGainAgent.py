@@ -13,9 +13,8 @@ from unified_planning.shortcuts import SequentialSimulator
 from amlgym.algorithms.OnlineAlgorithmAdapter import OnlineAlgorithmAdapter
 from amlgym.modeling.trajectory import Trajectory
 
-from information_gain_aml.algorithms.information_gain import InformationGainLearner
-from information_gain_aml.core.up_adapter import UPAdapter
-
+from information_gain_aml.algorithms import InformationGainLearner
+from information_gain_aml.core import UPAdapter
 logger = logging.getLogger(__name__)
 
 
