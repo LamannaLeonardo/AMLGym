@@ -2,7 +2,7 @@
 
 AMLGym is a benchmarking framework for **Action Model Learning (AML)** — learning classical planning domain models (PDDL) from execution traces. It provides state-of-the-art algorithms, 20 benchmark domains, and evaluation metrics.
 
-**Primary workflow in this repo**: integrating and assessing a new online learning algorithm within the framework.
+**Primary workflow in this repo**: integrating and assessing new learning algorithms (offline or online) within the framework.
 
 ## Codebase Exploration Guide
 
@@ -41,11 +41,13 @@ amlgym/
     └── util.py                  # empty_domain(), fix_domain_format(), etc.
 ```
 
-### Key files for online algorithm integration
-- `amlgym/algorithms/OnlineAlgorithmAdapter.py` — the base class to inherit from
-- `amlgym/algorithms/RandomAgent.py` — reference implementation of an online agent
+### Key files for algorithm integration
+- `amlgym/algorithms/OfflineAlgorithmAdapter.py` — base class for offline algorithms
+- `amlgym/algorithms/OnlineAlgorithmAdapter.py` — base class for online algorithms
+- `amlgym/algorithms/SAM.py` — reference implementation of an offline algorithm
+- `amlgym/algorithms/RandomAgent.py` — reference implementation of an online algorithm
 - `amlgym/algorithms/__init__.py` — auto-discovery registry (no modification needed)
-- `amlgym/modeling/trajectory.py` — `Trajectory` dataclass your `learn()` must return
+- `amlgym/modeling/trajectory.py` — `Trajectory` dataclass (used by online `learn()`)
 - `amlgym/modeling/UPEnv.py` — environment wrapper with `apply()` and `applicable_actions()`
 
 ## Configuration
@@ -133,11 +135,34 @@ results = problem_solving('learned.pddl', 'reference.pddl', problem_paths, timeo
 results = predictive_power(simulator_learned, simulator_ref, test_states)
 ```
 
-## Adding a New Online Algorithm
+## Adding a New Algorithm
 
 1. **Create** `amlgym/algorithms/YourAlgorithm.py` (class name must match filename, case-insensitive)
-2. **Inherit** from `OnlineAlgorithmAdapter`
-3. **Implement** the `learn()` method:
+2. **Inherit** from the appropriate base class and **implement** `learn()`:
+
+### Offline algorithm
+Inherit from `OfflineAlgorithmAdapter`. Receives pre-collected trajectory files and returns a learned PDDL domain string. See `SAM.py` for a full example.
+
+```python
+from dataclasses import dataclass
+from typing import List
+from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
+
+@dataclass
+class YourAlgorithm(OfflineAlgorithmAdapter):
+    my_param: float = 1.0
+
+    def learn(self,
+              domain_path: str,
+              trajectory_paths: List[str]) -> str:
+        # domain_path: input PDDL domain (predicates/operator signatures, no preconditions/effects)
+        # trajectory_paths: list of trajectory file paths
+        # Return: learned PDDL domain string
+        ...
+```
+
+### Online algorithm
+Inherit from `OnlineAlgorithmAdapter`. Interacts with a simulator to collect its own experience and returns a learned PDDL domain string plus the generated trajectory. See `RandomAgent.py` for a full example.
 
 ```python
 from dataclasses import dataclass
@@ -148,7 +173,6 @@ from amlgym.modeling.trajectory import Trajectory
 
 @dataclass
 class YourAlgorithm(OnlineAlgorithmAdapter):
-    # Algorithm parameters as dataclass fields
     my_param: float = 1.0
 
     def learn(self,
@@ -161,9 +185,9 @@ class YourAlgorithm(OnlineAlgorithmAdapter):
         ...
 ```
 
-4. **No registration needed** — the `__init__.py` auto-discovers all algorithm files
-5. **Add external deps** to `requirements.txt` if your algorithm uses them
-6. **Evaluate** with `amlgym.metrics` against reference domain models
+3. **No registration needed** — the `__init__.py` auto-discovers all algorithm files
+4. **Add external deps** to `requirements.txt` if your algorithm uses them
+5. **Evaluate** with `amlgym.metrics` against reference domain models
 
 ## Important Notes
 
@@ -176,7 +200,7 @@ class YourAlgorithm(OnlineAlgorithmAdapter):
 ### Conventions
 - Algorithm class name **must** match its filename (e.g., `MyAgent` in `MyAgent.py`)
 - `empty_domain()` creates the input domain with preconditions/effects stripped — this is what algorithms receive as input
-- The `learn()` return type for online algorithms is `Tuple[str, Trajectory]` where the string is a PDDL domain
+- The `learn()` return type is `str` (PDDL domain) for offline algorithms and `Tuple[str, Trajectory]` for online algorithms
 - Trajectories use PDDL-like format: alternating `(:state ...)` and `(:action ...)` blocks
 - States in the simulator are `UPState` objects; use `str()` and regex to extract literals
 
