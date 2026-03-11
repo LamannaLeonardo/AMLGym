@@ -30,12 +30,14 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
     Parameters:
         max_steps: Maximum number of learning steps
         use_object_subset: Enable object subset selection for reduced grounding
+        spare_objects_per_type: Extra objects per type beyond minimum requirement (for subset selection)
         model_mode: "safe" (all possible preconditions, confirmed effects only)
                     or "complete" (certain preconditions only, all possible effects)
     """
 
     max_steps: int = 500
     use_object_subset: bool = True
+    spare_objects_per_type: int = 2
     model_mode: str = "safe"
 
     def learn(self,
@@ -70,6 +72,7 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
                 problem_file=tmp_problem_path,
                 max_iterations=self.max_steps,
                 use_object_subset=self.use_object_subset,
+                spare_objects_per_type=self.spare_objects_per_type,
                 seed=seed,
             )
 
