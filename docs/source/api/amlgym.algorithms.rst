@@ -4,6 +4,14 @@ amlgym.algorithms package
 Submodules
 ----------
 
+amlgym.algorithms.InformationGainAgent module
+---------------------------------------------
+
+.. automodule:: amlgym.algorithms.InformationGainAgent
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 amlgym.algorithms.NOLAM module
 ------------------------------
 
