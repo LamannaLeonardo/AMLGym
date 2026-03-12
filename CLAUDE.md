@@ -1,6 +1,6 @@
 # AMLGym - Project Guide
 
-AMLGym is a benchmarking framework for **Action Model Learning (AML)** — learning classical planning domain models (PDDL) from execution traces. It provides state-of-the-art algorithms, 20 benchmark domains, and evaluation metrics.
+AMLGym is a benchmarking framework for **Action Model Learning (AML)** — learning classical planning domain models (PDDL) from execution traces. It provides state-of-the-art algorithms, 25 benchmark domains, and evaluation metrics.
 
 **Primary workflow in this repo**: integrating and assessing new learning algorithms (offline or online) within the framework.
 
@@ -17,10 +17,11 @@ amlgym/
 │   ├── NOLAM.py                 # Noisy observations (offline)
 │   ├── ROSAME.py                # Neuro-symbolic (offline)
 │   ├── rosame/                  # ROSAME's internal implementation
-│   └── RandomAgent.py           # Online baseline (random exploration + SAM)
+│   ├── RandomAgent.py           # Online baseline (random exploration + SAM)
+│   └── InformationGainAgent.py  # Full observability (online)
 ├── benchmarks/
 │   ├── __init__.py              # API: get_domain_path(), get_trajectories_path(), etc.
-│   ├── domains/                 # 20 PDDL domain files
+│   ├── domains/                 # 25 PDDL domain files
 │   ├── trajectories/            # Pre-generated traces (learning, applicability, etc.)
 │   ├── problems/                # PDDL problem files per domain
 │   ├── states/                  # Test states for predictive metrics
@@ -76,7 +77,7 @@ Pass params via `get_algorithm('RandomAgent', max_steps=200)` or direct instanti
 ### Benchmark data access
 ```python
 from amlgym.benchmarks import (
-    get_domain_names,       # list all 20 domain names
+    get_domain_names,       # list all 25 domain names
     get_domain_path,        # absolute path to a domain PDDL file
     get_trajectories_path,  # list of trajectory file paths
     get_problems_path,      # list of problem file paths
@@ -171,5 +172,5 @@ Key points:
 - Some algorithms write temp files (`tmp.pddl`, `tmp_trajectory`) to cwd — these are cleaned up but be aware during debugging
 - No unit test suite exists; validation is done via benchmark evaluation and notebooks in `docs/source/tutorials_*`
 
-### Available benchmark domains (20)
-barman, blocksworld, childsnack, depots, elevators, ferry, floortile, goldminer, grippers, matchingbw, miconic, nomystery, npuzzle, parking, rovers, satellite, sokoban, spanner, tpp, transport
+### Available benchmark domains (25)
+barman, blocksworld, childsnack, depots, driverlog, elevators, ferry, floortile, goldminer, grid, grippers, hanoi, matchingbw, miconic, nomystery, npuzzle, parking, rovers, satellite, sokoban, spanner, tpp, transport, visitall, zenotravel
