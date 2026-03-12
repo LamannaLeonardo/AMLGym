@@ -12,3 +12,4 @@ with existing online algorithm is under development.
    :maxdepth: 4
 
    random
+   infogain

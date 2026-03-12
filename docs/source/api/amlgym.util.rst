@@ -60,22 +60,6 @@ amlgym.util.gen\_trajs\_predictability module
    :undoc-members:
    :show-inheritance:
 
-amlgym.util.stats\_gen module
------------------------------
-
-.. automodule:: amlgym.util.stats_gen
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-amlgym.util.stats\_res module
------------------------------
-
-.. automodule:: amlgym.util.stats_res
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 amlgym.util.util module
 -----------------------
 
