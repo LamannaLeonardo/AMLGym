@@ -26,12 +26,39 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
     Uses CNF/SAT-based information-theoretic approach to select actions
     that maximize expected information gain about the action model.
 
-    Parameters:
-        max_steps: Maximum number of learning steps
-        use_object_subset: Enable object subset selection for reduced grounding
-        spare_objects_per_type: Extra objects per type beyond minimum requirement (for subset selection)
-        model_mode: "safe" (all possible preconditions, confirmed effects only)
-                    or "complete" (certain preconditions only, all possible effects)
+    Args:
+        max_steps (int): Maximum number of learning steps
+        use_object_subset (bool): Enable object subset selection for reduced grounding
+        spare_objects_per_type (int): Extra objects per type beyond minimum requirement
+        (for subset selection)
+        model_mode (str): "safe" (all possible preconditions, confirmed effects only)
+        or "complete" (certain preconditions only, all possible effects)
+
+    Example:
+        .. code-block:: python
+
+            from unified_planning.io import PDDLReader
+            from unified_planning.shortcuts import SequentialSimulator
+            from amlgym.algorithms import get_algorithm
+            from amlgym.benchmarks import get_domain_path, get_problems_path
+            from amlgym.util.util import empty_domain
+
+            domain = 'blocksworld'
+            domain_ref_path = get_domain_path(domain)
+            input_domain_path = empty_domain(domain_ref_path)
+            problem_path = get_problems_path(domain, kind='learning')[0]
+            problem = PDDLReader().parse_problem(domain_ref_path, problem_path)
+
+            env = SequentialSimulator(problem=problem)
+            info_gain = get_algorithm('InformationGainAgent', max_steps=100)
+            model, trajectory = info_gain.learn(env, input_domain_path)
+
+            print("##################### Learned model #####################")
+            print(model)
+
+            print("################# Generated trajectory ##################")
+            print(trajectory)
+
     """
 
     max_steps: int = 500
