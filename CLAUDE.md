@@ -40,6 +40,7 @@ amlgym/
     ├── SimpleDomainReader.py    # Custom PDDL parser for syntactic metrics
     ├── gen_problems.py          # Benchmark problem generation
     ├── gen_trajs_learning.py    # Learning trajectory generation
+    ├── gen_trajs_learning_hard.py # Hard learning trajectory generation
     ├── gen_trajs_predictability.py  # Predictive power trajectory generation
     ├── gen_probs_solving.py     # Solving problem generation
     └── gen_states_predictability.py # Test state generation
@@ -155,6 +156,12 @@ Use the Claude Code skills for guided workflows:
 - **Online** (interacts with simulator): `/add-online-algorithm YourAlgorithm`
 
 The skills cover context gathering, step-by-step implementation, PDDL normalization, integration challenges, and testing checklists.
+
+Key points:
+- Create `amlgym/algorithms/YourAlgorithm.py` — class name must match filename (PascalCase, case-insensitive)
+- Inherit from `OfflineAlgorithmAdapter` or `OnlineAlgorithmAdapter` and implement `learn()`
+- No registration needed — `__init__.py` auto-discovers all algorithm files
+- Evaluate with `amlgym.metrics` against reference domain models
 
 ## Validation
 

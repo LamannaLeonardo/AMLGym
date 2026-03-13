@@ -135,17 +135,14 @@ problem = simulator._problem
 
 **Writing a temp problem file** (when the algorithm requires file paths for initialization):
 ```python
-import tempfile, os
+import tempfile
 from unified_planning.io import PDDLWriter
 
-tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.pddl', delete=False)
-tmp_path = tmp.name
-tmp.close()
-PDDLWriter(simulator._problem).write_problem(tmp_path)
-try:
+with tempfile.TemporaryDirectory() as tmpdir:
+    tmp_path = f"{tmpdir}/problem.pddl"
+    PDDLWriter(simulator._problem).write_problem(tmp_path)
     # ... use tmp_path for algorithm initialization ...
-finally:
-    os.remove(tmp_path)
+# tmpdir auto-cleaned
 ```
 
 **Creating ActionInstance from algorithm output:**
@@ -196,6 +193,8 @@ import re
 state_str = str(up_state)
 literals = set(re.findall(r'(\w+(?:\([^\)]*\))?)\s*:\s*true', state_str))
 ```
+
+> **Note:** This regex depends on `unified-planning`'s `str()` format for states, which may change across versions. Prefer the algorithm's own converter when available.
 
 ## Common integration challenges
 
