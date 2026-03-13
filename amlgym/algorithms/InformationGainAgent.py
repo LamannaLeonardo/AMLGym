@@ -65,6 +65,7 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
     use_object_subset: bool = True
     spare_objects_per_type: int = 2
     model_mode: str = "safe"
+    learn_negative_preconditions: bool = True
 
     def learn(self,
               simulator: SequentialSimulator,
@@ -99,6 +100,7 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
                 max_iterations=self.max_steps,
                 use_object_subset=self.use_object_subset,
                 spare_objects_per_type=self.spare_objects_per_type,
+                learn_negative_preconditions=self.learn_negative_preconditions,
                 seed=seed,
             )
 
