@@ -25,10 +25,7 @@ amlgym/
 │   ├── trajectories/            # Pre-generated traces (learning, applicability, etc.)
 │   ├── problems/                # PDDL problem files per domain
 │   ├── states/                  # Test states for predictive metrics
-│   ├── problems_learning.yaml   # Problem generation configs
-│   ├── problems_solving.yaml
-│   ├── problems_applicability.yaml
-│   └── problems_predictive_power.yaml
+│   └── problems_*.yaml          # Problem/trajectory generation configs
 ├── metrics/
 │   ├── __init__.py              # Exports all metrics
 │   ├── _syntactic.py            # syntactic_precision(), syntactic_recall()
@@ -39,17 +36,32 @@ amlgym/
 │   ├── UPEnv.py                 # Concrete environment (wraps unified-planning simulator)
 │   └── trajectory.py            # Trajectory dataclass (states + actions)
 └── util/
-    └── util.py                  # empty_domain(), fix_domain_format(), etc.
+    ├── util.py                  # empty_domain(), fix_domain_format(), etc.
+    ├── SimpleDomainReader.py    # Custom PDDL parser for syntactic metrics
+    ├── gen_problems.py          # Benchmark problem generation
+    ├── gen_trajs_learning.py    # Learning trajectory generation
+    ├── gen_trajs_predictability.py  # Predictive power trajectory generation
+    ├── gen_probs_solving.py     # Solving problem generation
+    └── gen_states_predictability.py # Test state generation
 ```
 
 ### Key files for algorithm integration
 - `amlgym/algorithms/OfflineAlgorithmAdapter.py` — base class for offline algorithms
 - `amlgym/algorithms/OnlineAlgorithmAdapter.py` — base class for online algorithms
-- `amlgym/algorithms/SAM.py` — reference implementation of an offline algorithm
-- `amlgym/algorithms/RandomAgent.py` — reference implementation of an online algorithm
+- `amlgym/algorithms/SAM.py` — reference offline adapter
+- `amlgym/algorithms/RandomAgent.py` — reference online adapter
 - `amlgym/algorithms/__init__.py` — auto-discovery registry (no modification needed)
 - `amlgym/modeling/trajectory.py` — `Trajectory` dataclass (used by online `learn()`)
 - `amlgym/modeling/UPEnv.py` — environment wrapper with `apply()` and `applicable_actions()`
+
+## Development Setup
+
+- Python 3.10+, pip-based
+- Install for development: `pip install -e .` then `pip install -r requirements.txt`
+- `clingo` ASP solver required (used by `tarski` for action grounding in online algorithms; installation can be tricky on macOS)
+- ROSAME has its own setup: `amlgym/algorithms/rosame/setup.py`
+- Core deps: `unified-planning` (simulation/PDDL), `tarski` (grounding), `pddl-plus-parser`
+- Algorithm deps: `n-sam`, `offlam`, `nolam`, `information-gain-aml` (external PyPI packages)
 
 ## Configuration
 
@@ -142,35 +154,31 @@ Use the Claude Code skills for guided workflows:
 - **Offline** (learns from trajectory files): `/add-offline-algorithm YourAlgorithm`
 - **Online** (interacts with simulator): `/add-online-algorithm YourAlgorithm`
 
-Key points:
-- Create `amlgym/algorithms/YourAlgorithm.py` — class name must match filename (PascalCase, case-insensitive)
-- Inherit from `OfflineAlgorithmAdapter` or `OnlineAlgorithmAdapter` and implement `learn()`
-- No registration needed — `__init__.py` auto-discovers all algorithm files
-- Add external deps to `requirements.txt` if needed
-- Evaluate with `amlgym.metrics` against reference domain models
-- Reference implementations: `SAM.py` (offline), `RandomAgent.py` (online)
+The skills cover context gathering, step-by-step implementation, PDDL normalization, integration challenges, and testing checklists.
 
-## Important Notes
+## Validation
 
-### Dependencies
-- Python 3.10+
-- Core: `unified-planning` (simulation/PDDL), `tarski` (grounding), `pddl-plus-parser`
-- Algorithms: `n-sam`, `offlam`, `nolam` (external PyPI packages)
-- Install: `pip install amlgym` or `pip install -r requirements.txt`
+No pytest test suite — validation is done via notebooks:
 
-### Conventions
-- Algorithm class name **must** match its filename (e.g., `MyAgent` in `MyAgent.py`)
-- `empty_domain()` creates the input domain with preconditions/effects stripped — this is what algorithms receive as input
-- The `learn()` return type is `str` (PDDL domain) for offline algorithms and `Tuple[str, Trajectory]` for online algorithms
-- Trajectories use PDDL-like format: alternating `(:state ...)` and `(:action ...)` blocks
-- States in the simulator are `UPState` objects; use `str()` and regex to extract literals
+| Notebook | What it validates |
+|----------|-------------------|
+| `notebooks/test_information_gain.ipynb` | End-to-end online algorithm (all 3 metric types) |
+| `docs/source/tutorials_learning/offline_algorithms.ipynb` | Offline algorithm usage |
+| `docs/source/tutorials_learning/online_algorithms.ipynb` | Online algorithm usage |
+| `docs/source/tutorials_evaluating/syntactic.ipynb` | Syntactic precision/recall metrics |
+| `docs/source/tutorials_evaluating/predictive.ipynb` | Predictive power metrics |
+| `docs/source/tutorials_evaluating/problem_solving.ipynb` | Problem solving metrics |
 
-### Gotchas
-- `unified-planning` doesn't handle hyphens in names well — the framework normalizes to underscores (see `fix_domain_format()`)
-- Action grounding uses `tarski.LPGroundingStrategy` — requires `clingo` ASP solver
-- `simulator.apply()` returns `None` for inapplicable actions (not an exception)
-- Some algorithms write temp files (`tmp.pddl`, `tmp_trajectory`) to cwd — these are cleaned up but be aware during debugging
-- No unit test suite exists; validation is done via benchmark evaluation and notebooks in `docs/source/tutorials_*`
+After modifying metrics, environments, or utility code, run the relevant notebooks to verify.
 
-### Available benchmark domains (25)
+## Contributing
+
+- Branch naming: `feature/topic` style (e.g., `information-gain/main`, `keps-2025`)
+- No CI/CD — validate manually with notebooks before submitting PR
+- No code quality tools configured (no linter, no mypy, no formatter)
+- Algorithm adapters: use the `/add-offline-algorithm` or `/add-online-algorithm` skills
+- Metrics, environments, and utilities: study existing code and validate with notebooks
+- Some algorithms write temp files (`tmp.pddl`, `tmp_trajectory`) to cwd during execution — these are cleaned up but be aware during debugging
+
+## Available benchmark domains (25)
 barman, blocksworld, childsnack, depots, driverlog, elevators, ferry, floortile, goldminer, grid, grippers, hanoi, matchingbw, miconic, nomystery, npuzzle, parking, rovers, satellite, sokoban, spanner, tpp, transport, visitall, zenotravel
