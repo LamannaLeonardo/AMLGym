@@ -47,13 +47,7 @@ class $ARGUMENTS(OnlineAlgorithmAdapter):
         # Key simulator methods:
         #   simulator.get_initial_state() -> UPState
         #   simulator.apply(state, action) -> UPState or None (if inapplicable)
-        #     NOTE: due to a UP bug, apply() may raise UPInvalidActionError instead
-        #     of returning None for invalid groundings. Always wrap in try/except:
-        #       from unified_planning.exceptions import UPInvalidActionError
-        #       try:
-        #           next_state = simulator.apply(state, action)
-        #       except UPInvalidActionError:
-        #           next_state = None
+        #     Wrap with try/except UPInvalidActionError (from unified_planning.exceptions)
         #
         # Return: (learned_pddl_string, Trajectory(states_list, actions_list))
         ...
