@@ -7,6 +7,7 @@ from typing import List, Tuple, Any
 import numpy as np
 from tarski.grounding import LPGroundingStrategy
 from unified_planning.interop import convert_problem_to_tarski
+from unified_planning.exceptions import UPInvalidActionError
 from unified_planning.io import PDDLReader, PDDLWriter
 from unified_planning.model import Fluent
 from unified_planning.plans import ActionInstance
@@ -92,7 +93,10 @@ class RandomAgent(OnlineAlgorithmAdapter):
             args = [simulator._problem.object(o) for o in action_label[1]]
             action = ActionInstance(operator, tuple(args))
 
-            next_state = simulator.apply(state, action)
+            try:
+                next_state = simulator.apply(state, action)
+            except UPInvalidActionError:
+                next_state = None
 
             if next_state is not None:
                 state = next_state

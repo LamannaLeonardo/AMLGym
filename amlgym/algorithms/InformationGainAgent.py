@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from typing import Tuple
 
 import numpy as np
+from unified_planning.exceptions import UPInvalidActionError
 from unified_planning.io import PDDLWriter
 from unified_planning.plans import ActionInstance
 from unified_planning.shortcuts import SequentialSimulator
@@ -127,7 +128,10 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
                 action_instance = ActionInstance(up_action, up_objects)
 
                 # Execute via simulator
-                next_up_state = simulator.apply(up_state, action_instance)
+                try:
+                    next_up_state = simulator.apply(up_state, action_instance)
+                except UPInvalidActionError:
+                    next_up_state = None
                 success = next_up_state is not None
 
                 # Record trajectory
