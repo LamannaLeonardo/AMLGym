@@ -10,17 +10,17 @@ Create a new offline algorithm adapter in `amlgym/algorithms/`.
 
 ## Context gathering
 
-Before writing any code, gather the following information from the user. If the user provides a repo path or package, explore it to find this information automatically.
+Before writing any code:
 
-1. **Package name** — PyPI package or local repo path (e.g., `pip install n-sam` or `/path/to/repo`)
-2. **Main algorithm class and import path** — e.g., `from sam_learning.learners import SAMLearner`
-3. **Key methods the algorithm exposes**:
-   - Init signature (what does the constructor need — parsed domain object? file path? config params?)
-   - Learn method (e.g., `learn(observations) -> (learned_domain, report)`)
-   - Model export (e.g., `learned_domain.to_pddl() -> str`)
-4. **PDDL library** — does it use `pddl-plus-parser`, `unified-planning`, or something else?
-5. **Trajectory format expected** — does the algorithm accept AMLGym's `(:trajectory` format directly, or does it need preprocessing? (e.g., SAM expects `(:init`/`(operator:` keywords instead of `(:state`/`(:action`)
-6. **Paper reference** (optional) — for the `_reference` metadata field
+1. **Get from the user**: package name or repo path, and optionally a paper reference
+2. **Explore the algorithm's code** to determine:
+   - Main class and import path (e.g., `from sam_learning.learners import SAMLearner`)
+   - Constructor signature (parsed domain object? file path? config params?)
+   - Learn method signature and return type (e.g., `learn(observations) -> (learned_domain, report)`)
+   - Model export method (e.g., `learned_domain.to_pddl() -> str`)
+   - What PDDL library it uses (`pddl-plus-parser`, `unified-planning`, or other)
+   - What trajectory format it expects as input
+3. If exploration is insufficient, ask the user targeted questions about specific API details
 
 ## Steps
 
@@ -90,18 +90,9 @@ Key pattern: every offline adapter has a `_preprocess_trace()` method that conve
 
 ## Trajectory format
 
-AMLGym trajectories use PDDL-like format with alternating `(:state ...)` and `(:action ...)` blocks. See `amlgym/benchmarks/trajectories/` for examples.
+> See `docs/pddl-format-spec.md` for the native AMLGym trajectory format and normalization rules.
 
-**AMLGym native format:**
-```
-(:trajectory
-(:state (clear b2) (clear b3) (handempty) (on b2 b1) (ontable b1) (ontable b3))
-(:action (pick_up b3))
-(:state (clear b2) (holding b3) (on b2 b1) (ontable b1))
-(:action (put_down b3))
-(:state (clear b2) (clear b3) (handempty) (on b2 b1) (ontable b1) (ontable b3))
-)
-```
+Each adapter preprocesses the native format into an algorithm-specific format. The key transformations:
 
 **SAM/ROSAME expected format** (pddl-plus-parser):
 ```
@@ -136,44 +127,17 @@ def _preprocess_trace(self, traj_path: str) -> str:
     return traj_str
 ```
 
-## PDDL normalization rules
+## What to look for in the algorithm's API
 
-All benchmark domains are pre-normalized: hyphens replaced with underscores, all lowercase (via `fix_domain_format()` in `amlgym/util/util.py`). Example: `pick-up` becomes `pick_up`.
+When exploring the algorithm's code, identify these three components:
 
-**Your learned PDDL output must match this convention**, or syntactic metrics will silently produce wrong results (predicate names in preconditions/effects are compared verbatim and won't match if they use hyphens instead of underscores).
+| Component | What to find | Example |
+|-----------|-------------|---------|
+| Initialization | Constructor params — does it need a parsed domain, file path, or config? | `SAMLearner(partial_domain=domain)` |
+| Learning | Method that ingests trajectory data and learns | `sam.learn_action_model(observations)` |
+| Export | How to get PDDL string out of the learned model | `learned_domain.to_pddl()` |
 
-What must match:
-- **Action names**: underscores, lowercase (e.g., `pick_up`, not `pick-up`)
-- **Predicate names**: underscores, lowercase (e.g., `on_table`, not `on-table`)
-- **Type names**: underscores, lowercase
-
-What doesn't matter:
-- **Parameter names**: `SimpleDomainReader` (used by syntactic metrics) normalizes all parameter names to `?param_1`, `?param_2`, etc. So `?x` vs `?block1` doesn't affect evaluation.
-
-Safe normalization pattern for the output PDDL:
-```python
-import re
-# Only replace hyphens between word characters (preserves PDDL keywords like :pre-condition)
-normalized = re.sub(r'(?<=\w)-(?=\w)', '_', learned_pddl)
-normalized = normalized.lower()
-```
-
-## Algorithm interface recommendations
-
-For maximum modularity between the algorithm library and the AMLGym adapter, the algorithm should expose:
-
-| Method | Purpose |
-|--------|---------|
-| `__init__(domain, **params)` | Init with parsed domain (format depends on PDDL library) |
-| `learn(observations) -> model` | Learn from trajectory data |
-| `model.to_pddl() -> str` | Export learned model as PDDL string |
-
-**Key principle**: the adapter handles trajectory preprocessing (AMLGym format → algorithm format) and PDDL normalization of the output. The algorithm stays focused on learning.
-
-**PDDL parser choice determines the adapter's work:**
-- `pddl-plus-parser`: adapter does keyword replacement in trajectories, uses `DomainParser(path, partial_parsing=True)` and `TrajectoryParser(domain).parse_trajectory(path)` — see SAM.py
-- `unified-planning`: adapter may need to enrich trajectories with negative literals, uses `PDDLReader().parse_problem(domain, problem)` — see OffLAM.py
-- Custom parser: adapter converts trajectories to whatever format the algorithm expects
+The adapter's job: preprocess trajectories (AMLGym format → algorithm format) and normalize the PDDL output. The PDDL library the algorithm uses determines the preprocessing approach — see reference implementations.
 
 ## Common integration challenges
 
@@ -181,27 +145,13 @@ For maximum modularity between the algorithm library and the AMLGym adapter, the
 Every offline adapter's primary job is converting AMLGym trajectories to the algorithm's expected format via `_preprocess_trace()`. Plan for this — study your algorithm's trajectory parser to understand what format it expects.
 
 **2. Temp file management:**
-All offline adapters create temp files for preprocessed trajectories. Prefer `tempfile.TemporaryDirectory`:
-```python
-import tempfile
-with tempfile.TemporaryDirectory() as tmpdir:
-    for i, traj_path in enumerate(trajectory_paths):
-        processed = self._preprocess_trace(traj_path)
-        out_path = f"{tmpdir}/{i}_traj"
-        with open(out_path, 'w') as f:
-            f.write(processed)
-    # ... run learning on files in tmpdir ...
-# tmpdir auto-cleaned
-```
+Use `tempfile.TemporaryDirectory` for preprocessed trajectories (existing adapters use CWD-relative `tmp/` which is not safe for parallel execution).
 
 **3. Domain output post-processing:**
-Some algorithms produce PDDL that needs fixing:
-- Missing `:requirements :typing` — add it if the domain uses typed predicates/objects (see OffLAM.py)
-- Domain name mismatches — `PDDLWriter` may append `-domain`
-- Hyphens instead of underscores — apply normalization pattern above
+See "PDDL Conventions" in CLAUDE.md for common output fixes (`:requirements :typing`, domain name suffix, hyphen normalization).
 
 **4. Object type inference from trajectories:**
-If your algorithm needs typed objects but trajectories only contain untyped literals, you can infer types from the domain's predicate signatures. See the `_preprocess_trace()` in NOLAM/OffLAM which uses `domain.fluent(pred).signature[k].type.name` to resolve object types.
+If your algorithm needs typed objects but trajectories only contain untyped literals, see `_preprocess_trace()` in NOLAM.py or OffLAM.py for examples of inferring types from domain predicate signatures.
 
 ## Testing
 

@@ -10,19 +10,18 @@ Create a new online algorithm adapter in `amlgym/algorithms/`.
 
 ## Context gathering
 
-Before writing any code, gather the following information from the user. If the user provides a repo path or package, explore it to find this information automatically.
+Before writing any code:
 
-1. **Package name** — PyPI package or local repo path (e.g., `pip install information-gain-aml` or `/path/to/repo`)
-2. **Main algorithm class and import path** — e.g., `from information_gain_aml.algorithms import InformationGainLearner`
-3. **Key methods the algorithm exposes**:
-   - Init signature (what does the constructor need — domain file? problem file? config params?)
+1. **Get from the user**: package name or repo path, and optionally a paper reference
+2. **Explore the algorithm's code** to determine:
+   - Main class and import path (e.g., `from information_gain_aml.algorithms import InformationGainLearner`)
+   - Constructor signature (domain file? problem file? config params?)
    - Action selection method (e.g., `select_action(state) -> (action_name, objects)`)
    - Observation/update method (e.g., `observe(state, action, objects, success, next_state)`)
    - Model export method (e.g., `to_pddl_string() -> str`)
-   - Convergence check (optional, e.g., `has_converged() -> bool`)
-4. **PDDL library** — does it use `pddl-plus-parser`, `unified-planning`, or something else?
-5. **State/action format** — what format does the algorithm expect states in? (e.g., `Set[str]` like `{"on_a_b"}`, UP `State` objects, `pddl_plus_parser.models.State`)
-6. **Paper reference** (optional) — for the `_reference` metadata field
+   - Convergence check if available (e.g., `has_converged() -> bool`)
+   - What state/action format the algorithm expects (e.g., `Set[str]`, UP objects, custom types)
+3. If exploration is insufficient, ask the user targeted questions about specific API details
 
 ## Steps
 
@@ -80,17 +79,16 @@ class <AlgorithmName>(OnlineAlgorithmAdapter):
 Study these two adapters for different integration patterns:
 
 **`amlgym/algorithms/RandomAgent.py`** — random exploration baseline:
+- baselinr implementation - sets a basic example for inheriting the `OnlineAlgorithmAdapter` class.
 - Grounds all actions via `tarski.LPGroundingStrategy` (requires `clingo`)
 - Randomly selects and executes actions, collecting a trajectory
 - Filters failed actions, then delegates to offline SAM learner for model extraction
-- Shows the tarski grounding pattern with dummy-fluent workaround
 
 **`amlgym/algorithms/InformationGainAgent.py`** — active learning with external package:
-- Imports `InformationGainLearner` from `information-gain-aml` PyPI package
-- Converts UP states to algorithm's `Set[str]` format via `UPAdapter.up_state_to_fluent_set()`
+- Integrates an external PyPI package (`information-gain-aml`)
+- Converts UP states to algorithm's expected format using the algorithm's own converter (importable `UPAdapter`)
 - Writes temp problem file from `simulator._problem` (see "Accessing simulator internals")
 - Handles success/failure observations separately
-- Uses convergence detection (`"no_action"` return) for early termination
 - Constructs `ActionInstance` from algorithm's `(action_name, objects)` output
 
 ## Key utilities
@@ -102,27 +100,7 @@ Study these two adapters for different integration patterns:
 - `unified_planning.plans.ActionInstance` — construct actions for `simulator.apply()`
 - Action grounding: use `tarski.LPGroundingStrategy` + `convert_problem_to_tarski()` (see `RandomAgent._ground_actions()`)
 
-## PDDL normalization rules
-
-All benchmark domains are pre-normalized: hyphens replaced with underscores, all lowercase (via `fix_domain_format()` in `amlgym/util/util.py`). Example: `pick-up` becomes `pick_up`.
-
-**Your learned PDDL output must match this convention**, or syntactic metrics will silently produce wrong results (predicate names in preconditions/effects are compared verbatim and won't match if they use hyphens instead of underscores).
-
-What must match:
-- **Action names**: underscores, lowercase (e.g., `pick_up`, not `pick-up`)
-- **Predicate names**: underscores, lowercase (e.g., `on_table`, not `on-table`)
-- **Type names**: underscores, lowercase
-
-What doesn't matter:
-- **Parameter names**: `SimpleDomainReader` (used by syntactic metrics) normalizes all parameter names to `?param_1`, `?param_2`, etc. So `?x` vs `?block1` doesn't affect evaluation.
-
-Safe normalization pattern for the output PDDL:
-```python
-import re
-# Only replace hyphens between word characters (preserves PDDL keywords like :pre-condition)
-normalized = re.sub(r'(?<=\w)-(?=\w)', '_', learned_pddl)
-normalized = normalized.lower()
-```
+> See `docs/pddl-format-spec.md` for normalization rules, trajectory format, and output post-processing.
 
 ## Accessing simulator internals
 
@@ -163,49 +141,27 @@ if next_state is None:
     algorithm.observe(state, action_name, objects, success=False, next_state=None)
 ```
 
-## Algorithm interface recommendations
+## What to look for in the algorithm's API
 
-For maximum modularity between the algorithm library and the AMLGym adapter, the algorithm should expose:
+When exploring the algorithm's code, identify these components:
 
-| Method | Purpose |
-|--------|---------|
-| `__init__(domain_file, problem_file, **params)` | Init from PDDL files |
-| `select_action(state) -> (name, objects)` | Choose next action to execute |
-| `observe(state, action, objects, success, next_state)` | Update model from observation |
-| `to_pddl_string() -> str` | Export learned model as PDDL |
-| `has_converged() -> bool` | Check if learning is done (optional) |
+| Component | What to find | Example |
+|-----------|-------------|---------|
+| Initialization | Constructor params — domain file? problem file? config? | `Learner(domain_file, problem_file)` |
+| Action selection | Method that picks next action given current state | `select_action(state) -> (name, objects)` |
+| Observation | Method to update model after executing action | `observe(state, action, success, next_state)` |
+| Export | How to get PDDL string out | `to_pddl_string() -> str` |
+| Convergence | Optional early stopping check | `has_converged() -> bool` |
 
-**Key principle**: the adapter handles all UP-specific conversions (states, actions, temp files). The algorithm stays framework-agnostic (works with strings/sets, not UP types). This means algorithm improvements (new PyPI versions) don't require AMLGym adapter changes.
-
-**State conversion in the adapter** (UP → algorithm format):
-
-If the algorithm provides its own converter, use it — it will handle edge cases correctly:
-```python
-# Preferred: use the algorithm's own converter
-from my_algorithm import StateConverter
-state_set = StateConverter.from_up_state(up_state, problem)
-```
-
-Fallback regex approach if no converter is available:
-```python
-# Fallback: extract literals from UP state string representation
-import re
-state_str = str(up_state)
-literals = set(re.findall(r'(\w+(?:\([^\)]*\))?)\s*:\s*true', state_str))
-```
-
-> **Note:** This regex depends on `unified-planning`'s `str()` format for states, which may change across versions. Prefer the algorithm's own converter when available.
+The adapter's job: handle all UP-specific conversions (states, actions, temp files). For state conversion, prefer the algorithm's own converter if available (see `InformationGainAgent.py` for an example). If none exists, inspect `str(up_state)` output to understand the format and write a custom converter.
 
 ## Common integration challenges
 
 **1. Action grounding:**
 The simulator does not expose ground actions. To enumerate all possible actions, use tarski (requires `clingo`). See `RandomAgent._ground_actions()` for the full pattern, including a dummy-fluent workaround needed to make tarski grounding work with empty preconditions/effects.
 
-**2. Domain name suffix:**
-`PDDLWriter` may append `-domain` to the domain name. If your output needs to match the input domain name, post-process:
-```python
-domain_str = domain_str.replace(f"(domain {name}-domain)", f"(domain {name})")
-```
+**2. Domain output post-processing:**
+See "PDDL Conventions" in CLAUDE.md for common output fixes (domain name suffix, hyphen normalization).
 
 **3. Temp file cleanup:**
 Both reference implementations write temp files. Always use `try/finally` to ensure cleanup, even if the algorithm raises an exception.
