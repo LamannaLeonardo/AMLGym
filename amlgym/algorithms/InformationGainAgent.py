@@ -43,6 +43,8 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
         lookahead_depth (int): Lookahead depth for 'lookahead' strategy (default: 2)
         lookahead_top_k (int): Number of top actions to evaluate in lookahead (default: 5)
         lookahead_discount (float): Discount factor for future gain in lookahead (default: 0.9)
+        epsilon (float): Exploration probability for 'epsilon_greedy' strategy (default: 0.1)
+        temperature (float): Temperature for 'boltzmann' softmax selection (default: 1.0)
         mcts_iterations (int): Number of MCTS iterations per action selection (default: 50)
         mcts_rollout_depth (int): Simulation depth during MCTS rollout phase (default: 5)
 
@@ -88,6 +90,8 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
     model_mode: str = "safe"
     learn_negative_preconditions: bool = True
     selection_strategy: str = "greedy"
+    epsilon: float = 0.1
+    temperature: float = 1.0
     lookahead_depth: int = 2
     lookahead_top_k: int = 5
     lookahead_discount: float = 0.9
@@ -130,6 +134,8 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
                 learn_negative_preconditions=self.learn_negative_preconditions,
                 seed=seed,
                 selection_strategy=self.selection_strategy,
+                epsilon=self.epsilon,
+                temperature=self.temperature,
                 lookahead_depth=self.lookahead_depth,
                 lookahead_top_k=self.lookahead_top_k,
                 lookahead_discount=self.lookahead_discount,
