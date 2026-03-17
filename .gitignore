@@ -166,3 +166,4 @@ __pycache__/
 aml-evaluation/util/pddl-generators
 aml-evaluation/util/output.sas
 res/
+/docs/source/tutorials_learning/empty.pddl
