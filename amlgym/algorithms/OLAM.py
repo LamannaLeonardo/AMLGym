@@ -136,8 +136,12 @@ class OLAM(OnlineAlgorithmAdapter):
                 action_instance = ActionInstance(up_action, up_objects)
 
                 # Execute via simulator
-                next_up_state = simulator.apply(up_state, action_instance)
-                success = next_up_state is not None
+                try:
+                    next_up_state = simulator.apply(up_state, action_instance)
+                    success = next_up_state is not None
+                except Exception:
+                    next_up_state = None
+                    success = False
 
                 # Record trajectory
                 trace_actions.append(action_instance)
