@@ -47,6 +47,7 @@ class $ARGUMENTS(OnlineAlgorithmAdapter):
         # Key simulator methods:
         #   simulator.get_initial_state() -> UPState
         #   simulator.apply(state, action) -> UPState or None (if inapplicable)
+        #     Wrap with try/except UPInvalidActionError (from unified_planning.exceptions)
         #
         # Return: (learned_pddl_string, Trajectory(states_list, actions_list))
         ...
@@ -61,7 +62,7 @@ class $ARGUMENTS(OnlineAlgorithmAdapter):
 Study `amlgym/algorithms/RandomAgent.py` for the canonical online adapter pattern:
 - Grounding actions via `tarski.LPGroundingStrategy` (requires `clingo`)
 - Interacting with the simulator to collect trajectories
-- Filtering failed actions (`simulator.apply()` returns `None` for inapplicable actions)
+- Filtering failed actions (`simulator.apply()` returns `None` for inapplicable actions, but may also raise `UPInvalidActionError` — always wrap in try/except)
 - Building a `Trajectory` from collected states and actions
 - Optionally delegating to an offline learner (e.g., `SAM`) for model extraction
 

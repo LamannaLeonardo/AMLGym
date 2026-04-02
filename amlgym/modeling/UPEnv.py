@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from functools import cached_property
 from typing import List, TypeVar, Set, Dict, Any
 
+from unified_planning.exceptions import UPInvalidActionError
 from unified_planning.io import PDDLReader, PDDLWriter
 from unified_planning.model import Problem, Fluent, UPState
 from unified_planning.plans import ActionInstance
@@ -132,7 +133,13 @@ class UPEnv(Env):
 
             state = self.all_neg_state.make_child(prob_state_fluents)
 
-        next_state = self._simulator.apply(state, action)
+        try:
+            next_state = self._simulator.apply(state, action)
+        except UPInvalidActionError:
+            next_state = None
+
+        if next_state is None:
+            return None
 
         literals = set()
         for l, v in next_state._values.items():
