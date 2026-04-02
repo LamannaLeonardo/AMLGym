@@ -30,9 +30,23 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
         max_steps (int): Maximum number of learning steps
         use_object_subset (bool): Enable object subset selection for reduced grounding
         spare_objects_per_type (int): Extra objects per type beyond minimum requirement
-        (for subset selection)
+            (for subset selection)
         model_mode (str): "safe" (all possible preconditions, confirmed effects only)
-        or "complete" (certain preconditions only, all possible effects)
+            or "complete" (certain preconditions only, all possible effects)
+        learn_negative_preconditions (bool): Whether to learn negative preconditions
+        selection_strategy (str): Action selection strategy. One of:
+            - "greedy" — always select highest information gain (default)
+            - "epsilon_greedy" — explore with probability epsilon
+            - "boltzmann" — softmax probabilistic selection
+            - "lookahead" — depth-limited lookahead with discounted future gain
+            - "mcts" — full UCT-based Monte Carlo Tree Search
+        lookahead_depth (int): Lookahead depth for 'lookahead' strategy (default: 2)
+        lookahead_top_k (int): Number of top actions to evaluate in lookahead (default: 5)
+        lookahead_discount (float): Discount factor for future gain in lookahead (default: 0.9)
+        epsilon (float): Exploration probability for 'epsilon_greedy' strategy (default: 0.1)
+        temperature (float): Temperature for 'boltzmann' softmax selection (default: 1.0)
+        mcts_iterations (int): Number of MCTS iterations per action selection (default: 50)
+        mcts_rollout_depth (int): Simulation depth during MCTS rollout phase (default: 5)
 
     Example:
         .. code-block:: python
@@ -53,6 +67,15 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
             info_gain = get_algorithm('InformationGainAgent', max_steps=100)
             model, trajectory = info_gain.learn(env, input_domain_path)
 
+            # With lookahead strategy
+            info_gain = get_algorithm(
+                'InformationGainAgent',
+                max_steps=100,
+                selection_strategy='lookahead',
+                lookahead_depth=3,
+            )
+            model, trajectory = info_gain.learn(env, input_domain_path)
+
             print("##################### Learned model #####################")
             print(model)
 
@@ -65,6 +88,15 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
     use_object_subset: bool = True
     spare_objects_per_type: int = 2
     model_mode: str = "safe"
+    learn_negative_preconditions: bool = True
+    selection_strategy: str = "greedy"
+    epsilon: float = 0.1
+    temperature: float = 1.0
+    lookahead_depth: int = 2
+    lookahead_top_k: int = 5
+    lookahead_discount: float = 0.9
+    mcts_iterations: int = 50
+    mcts_rollout_depth: int = 5
 
     def learn(self,
               simulator: SequentialSimulator,
@@ -99,7 +131,16 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
                 max_iterations=self.max_steps,
                 use_object_subset=self.use_object_subset,
                 spare_objects_per_type=self.spare_objects_per_type,
+                learn_negative_preconditions=self.learn_negative_preconditions,
                 seed=seed,
+                selection_strategy=self.selection_strategy,
+                epsilon=self.epsilon,
+                temperature=self.temperature,
+                lookahead_depth=self.lookahead_depth,
+                lookahead_top_k=self.lookahead_top_k,
+                lookahead_discount=self.lookahead_discount,
+                mcts_iterations=self.mcts_iterations,
+                mcts_rollout_depth=self.mcts_rollout_depth,
             )
 
             # Get initial state
