@@ -28,18 +28,18 @@ amlgym.algorithms.OffLAM module
    :undoc-members:
    :show-inheritance:
 
-amlgym.algorithms.OfflineAlgorithmAdapter module
+amlgym.algorithms.PassiveAlgorithmAdapter module
 ------------------------------------------------
 
-.. automodule:: amlgym.algorithms.OfflineAlgorithmAdapter
+.. automodule:: amlgym.algorithms.PassiveAlgorithmAdapter
    :members:
    :undoc-members:
    :show-inheritance:
 
-amlgym.algorithms.OnlineAlgorithmAdapter module
+amlgym.algorithms.ActiveAlgorithmAdapter module
 -----------------------------------------------
 
-.. automodule:: amlgym.algorithms.OnlineAlgorithmAdapter
+.. automodule:: amlgym.algorithms.ActiveAlgorithmAdapter
    :members:
    :undoc-members:
    :show-inheritance:

@@ -11,7 +11,7 @@ from unified_planning.io import PDDLWriter
 from unified_planning.plans import ActionInstance
 from unified_planning.shortcuts import SequentialSimulator
 
-from amlgym.algorithms.OnlineAlgorithmAdapter import OnlineAlgorithmAdapter
+from amlgym.algorithms.ActiveAlgorithmAdapter import ActiveAlgorithmAdapter
 from amlgym.modeling.trajectory import Trajectory
 
 from information_gain_aml.algorithms import InformationGainLearner
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 @dataclass
-class InformationGainAgent(OnlineAlgorithmAdapter):
+class InformationGainAgent(ActiveAlgorithmAdapter):
     """
     Online action model learning via information gain.
 
@@ -28,7 +28,6 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
     that maximize expected information gain about the action model.
 
     Args:
-        max_steps (int): Maximum number of learning steps
         use_object_subset (bool): Enable object subset selection for reduced grounding
         spare_objects_per_type (int): Extra objects per type beyond minimum requirement
             (for subset selection)
@@ -65,8 +64,16 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
             problem = PDDLReader().parse_problem(domain_ref_path, problem_path)
 
             env = SequentialSimulator(problem=problem)
-            info_gain = get_algorithm('InformationGainAgent', max_steps=100)
-            model, trajectory = info_gain.learn(env, input_domain_path)
+            info_gain = get_algorithm('InformationGainAgent')
+            model, trajectory = info_gain.learn(env, input_domain_path, max_steps=100)
+
+            # With lookahead strategy
+            info_gain = get_algorithm(
+                'InformationGainAgent',
+                selection_strategy='lookahead',
+                lookahead_depth=3,
+            )
+            model, trajectory = info_gain.learn(env, input_domain_path, max_steps=100)
 
             # With lookahead strategy
             info_gain = get_algorithm(
@@ -85,7 +92,6 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
 
     """
 
-    max_steps: int = 500
     use_object_subset: bool = True
     spare_objects_per_type: int = 2
     model_mode: str = "safe"
@@ -102,12 +108,14 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
     def learn(self,
               simulator: SequentialSimulator,
               input_domain_path: str,
+              max_steps: int = 500,
               seed: int = 123) -> Tuple[str, Trajectory]:
         """
         Learn a PDDL action model by interacting with the environment.
 
         :parameter simulator: environment simulator
         :parameter input_domain_path: input PDDL domain file path
+        :parameter max_steps: maximum number of interaction steps with the simulator
         :parameter seed: random seed for reproducibility
         :return: (learned PDDL model string, trajectory)
         """
@@ -129,7 +137,7 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
             learner = InformationGainLearner(
                 domain_file=input_domain_path,
                 problem_file=tmp_problem_path,
-                max_iterations=self.max_steps,
+                max_iterations=max_steps,
                 use_object_subset=self.use_object_subset,
                 spare_objects_per_type=self.spare_objects_per_type,
                 learn_negative_preconditions=self.learn_negative_preconditions,
@@ -150,7 +158,7 @@ class InformationGainAgent(OnlineAlgorithmAdapter):
             trace_states = [up_state]
             trace_actions = []
 
-            for _ in range(self.max_steps):
+            for _ in range(max_steps):
                 # Convert UP state to fluent set for our algorithm
                 state_set = UPAdapter.up_state_to_fluent_set(up_state, problem)
 
