@@ -12,8 +12,8 @@ Welcome to **AMLGym**, a framework for benchmarking domain model learning approa
 This documentation provides:
 
 - **Getting Started** — how to install AMLGym and run a learning algorithm.
-- **Offline Algorithms** — overview of offline domain model learning algorithms included in AMLGym.
-- **Online Algorithms** — overview of online domain model learning algorithms included in AMLGym.
+- **Passive Algorithms** — overview of passive domain model learning algorithms included in AMLGym.
+- **Active Algorithms** — overview of active domain model learning algorithms included in AMLGym.
 - **Tutorials** — hands-on guides and usage examples.
 - **API Reference** — detailed information for developers.
 
@@ -24,8 +24,8 @@ This documentation provides:
    :hidden:
 
    getting_started
-   offline_algorithms/index
-   online_algorithms/index
+   passive_algorithms/index
+   active_algorithms/index
    metrics/index
 
 .. toctree::

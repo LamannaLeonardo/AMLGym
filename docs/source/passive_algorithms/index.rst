@@ -1,9 +1,9 @@
-Offline Algorithms
+Passive Algorithms
 ==================
 
 
 AMLGym provides seamless integration with several algorithms
-for offline learning classical planning domains from an input set of
+for passive learning classical planning domains from an input set of
 trajectories in the following settings:
 1. **full** observability: SAM [1].
 2. **partial** observability: OffLAM [2].
