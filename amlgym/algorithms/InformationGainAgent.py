@@ -64,16 +64,17 @@ class InformationGainAgent(ActiveAlgorithmAdapter):
             problem = PDDLReader().parse_problem(domain_ref_path, problem_path)
 
             env = SequentialSimulator(problem=problem)
-            info_gain = get_algorithm('InformationGainAgent')
-            model, trajectory = info_gain.learn(env, input_domain_path, max_steps=100)
+            info_gain = get_algorithm('InformationGainAgent', input_domain_path=input_domain_path)
+            model, trajectory = info_gain.learn(env, max_steps=100)
 
             # With lookahead strategy
             info_gain = get_algorithm(
                 'InformationGainAgent',
+                input_domain_path=input_domain_path,
                 selection_strategy='lookahead',
                 lookahead_depth=3,
             )
-            model, trajectory = info_gain.learn(env, input_domain_path, max_steps=100)
+            model, trajectory = info_gain.learn(env, max_steps=100)
 
             print("##################### Learned model #####################")
             print(model)
@@ -98,14 +99,12 @@ class InformationGainAgent(ActiveAlgorithmAdapter):
 
     def learn(self,
               simulator: SequentialSimulator,
-              input_domain_path: str,
               max_steps: int = 500,
               seed: int = 123) -> Tuple[str, Trajectory]:
         """
         Learn a PDDL action model by interacting with the environment.
 
         :parameter simulator: environment simulator
-        :parameter input_domain_path: input PDDL domain file path
         :parameter max_steps: maximum number of interaction steps with the simulator
         :parameter seed: random seed for reproducibility
         :return: (learned PDDL model string, trajectory)
@@ -126,7 +125,7 @@ class InformationGainAgent(ActiveAlgorithmAdapter):
         try:
             # Initialize our learner
             learner = InformationGainLearner(
-                domain_file=input_domain_path,
+                domain_file=self.input_domain_path,
                 problem_file=tmp_problem_path,
                 max_iterations=max_steps,
                 use_object_subset=self.use_object_subset,

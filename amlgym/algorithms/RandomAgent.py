@@ -1,6 +1,7 @@
 import logging
 import os
 import random
+from dataclasses import dataclass
 from typing import List, Tuple, Any
 
 import numpy as np
@@ -17,6 +18,7 @@ from amlgym.algorithms.SAM import SAM
 from amlgym.modeling.trajectory import Trajectory
 
 
+@dataclass
 class RandomAgent(ActiveAlgorithmAdapter):
     """
     A simple baseline for online learning in a fully observable and deterministic
@@ -40,8 +42,8 @@ class RandomAgent(ActiveAlgorithmAdapter):
             problem = PDDLReader().parse_problem(domain_ref_path, problem_path)
 
             env = SequentialSimulator(problem=problem)
-            baseline = get_algorithm('RandomAgent')
-            model, trajectory = baseline.learn(env, input_domain_path, max_steps=100)
+            baseline = get_algorithm('RandomAgent', input_domain_path=input_domain_path)
+            model, trajectory = baseline.learn(env, max_steps=100)
 
             print("##################### Learned model #####################")
             print(model)
@@ -53,16 +55,15 @@ class RandomAgent(ActiveAlgorithmAdapter):
 
     def learn(self,
               simulator: SequentialSimulator,
-              input_domain_path: str,
               max_steps: int = 100,
               seed: int = 123) -> Tuple[str, Trajectory]:
         """
         Learns a PDDL action model from:
          (i)   a simulator of the environment to learn from
-         (ii)    a (possibly empty) input model which is required to specify the predicates and operators signature;
+         (ii)    a (possibly empty) input model which is required to specify the predicates and operators signature
+                 (set via the input_domain_path attribute at instantiation time);
 
         :parameter simulator: environment simulator
-        :parameter input_domain_path: input PDDL domain file path
         :parameter max_steps: maximum number of interaction steps with the simulator
         :parameter seed: random seed for reproducibility
 
@@ -76,7 +77,7 @@ class RandomAgent(ActiveAlgorithmAdapter):
         # Ground actions
         problem_path = 'tmp.pddl'
         PDDLWriter(simulator._problem).write_problem(problem_path)
-        ground_actions = self._ground_actions(input_domain_path, problem_path)
+        ground_actions = self._ground_actions(self.input_domain_path, problem_path)
         os.remove(problem_path)
 
         # Get initial state
@@ -113,14 +114,14 @@ class RandomAgent(ActiveAlgorithmAdapter):
         trajectory = Trajectory(success_states, success_actions)
         trajectory.write(trajectory_path)
 
-        model = SAM().learn(input_domain_path, [trajectory_path])
+        model = SAM().learn(self.input_domain_path, [trajectory_path])
 
         return model, Trajectory(trace_states, trace_actions)
 
-    def _ground_actions(self, input_domain_path: str, problem_path: str) -> List[Any]:
+    def _ground_actions(self, domain_path: str, problem_path: str) -> List[Any]:
 
         # Initialize actions grounder with tarski
-        _tmp_problem = PDDLReader().parse_problem(input_domain_path, problem_path)
+        _tmp_problem = PDDLReader().parse_problem(domain_path, problem_path)
         # Add a dummy fluent to show `preconditions:` and `effects:` sections in the PDDL file
         dummy_fluent = Fluent('dummy', BoolType())
         if dummy_fluent not in _tmp_problem.fluents:
