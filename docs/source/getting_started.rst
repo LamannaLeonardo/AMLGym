@@ -12,7 +12,7 @@ Install AMLGym:
    pip install amlgym
 
 
-Example usage for offline learning a domain model:
+Example usage for passive learning a domain model:
 
 .. code-block:: python
 

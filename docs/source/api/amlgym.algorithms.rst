@@ -4,6 +4,14 @@ amlgym.algorithms package
 Submodules
 ----------
 
+amlgym.algorithms.ActiveAlgorithmAdapter module
+-----------------------------------------------
+
+.. automodule:: amlgym.algorithms.ActiveAlgorithmAdapter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 amlgym.algorithms.InformationGainAgent module
 ---------------------------------------------
 
@@ -20,6 +28,14 @@ amlgym.algorithms.NOLAM module
    :undoc-members:
    :show-inheritance:
 
+amlgym.algorithms.OLAM module
+-----------------------------
+
+.. automodule:: amlgym.algorithms.OLAM
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 amlgym.algorithms.OffLAM module
 -------------------------------
 
@@ -32,14 +48,6 @@ amlgym.algorithms.PassiveAlgorithmAdapter module
 ------------------------------------------------
 
 .. automodule:: amlgym.algorithms.PassiveAlgorithmAdapter
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-amlgym.algorithms.ActiveAlgorithmAdapter module
------------------------------------------------
-
-.. automodule:: amlgym.algorithms.ActiveAlgorithmAdapter
    :members:
    :undoc-members:
    :show-inheritance:
