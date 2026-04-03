@@ -33,8 +33,8 @@ class OLAM(ActiveAlgorithmAdapter):
             problem = PDDLReader().parse_problem(domain_ref_path, problem_path)
 
             env = SequentialSimulator(problem=problem)
-            olam = get_algorithm('OLAM')
-            model, trajectory = olam.learn(env, input_domain_path)
+            olam = get_algorithm('OLAM', input_domain_path=input_domain_path)
+            model, trajectory = olam.learn(env)
 
             print("##################### Learned model #####################")
             print(model)
@@ -66,33 +66,33 @@ class OLAM(ActiveAlgorithmAdapter):
     max_subproblems: int = 5
     max_goals: int = 10000
 
-    def learn(self,
-              simulator: SequentialSimulator,
-              input_domain_path: str,
-              max_steps: int = 10000,
-              seed: int = 123) -> Tuple[str, Trajectory]:
-        """
-        Learns a PDDL action model from:
-         (i)   a simulator of the environment to learn from
-         (ii)    a (possibly empty) input model which is required to specify the predicates and operators signature;
-
-        :parameter simulator: environment simulator
-        :parameter input_domain_path: input PDDL domain file path
-        :parameter max_steps: maximum number of interaction steps with the simulator
-        :parameter seed: random seed for reproducibility
-
-        :return: a string representing the learned PDDL model, and a JSON specification of the trajectory
-        """
-
-        learner = OLAMLearner(
-            domain_path=input_domain_path,
+    def __post_init__(self):
+        self._learner = OLAMLearner(
+            domain_path=self.input_domain_path,
             planning_timeout=self.planning_timeout,
             max_length=self.max_length,
             max_subproblems=self.max_subproblems,
             max_goals=self.max_goals,
         )
 
-        domain_str, olam_traj = learner.run(simulator, max_steps=max_steps)
+    def learn(self,
+              simulator: SequentialSimulator,
+              max_steps: int = 10000,
+              seed: int = 123) -> Tuple[str, Trajectory]:
+        """
+        Learns a PDDL action model from:
+         (i)   a simulator of the environment to learn from
+         (ii)    a (possibly empty) input model which is required to specify the predicates and operators signature
+                 (set via the input_domain_path attribute at instantiation time);
+
+        :parameter simulator: environment simulator
+        :parameter max_steps: maximum number of interaction steps with the simulator
+        :parameter seed: random seed for reproducibility
+
+        :return: a string representing the learned PDDL model, and a JSON specification of the trajectory
+        """
+
+        domain_str, olam_traj = self._learner.run(simulator, max_steps=max_steps)
 
         # Convert OLAM trajectory (SymbolicObservation states) to AMLGym Trajectory (UPState states)
         UPState.MAX_ANCESTORS = None

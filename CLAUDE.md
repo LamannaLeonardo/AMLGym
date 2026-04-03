@@ -115,8 +115,8 @@ problem_path = get_problems_path('blocksworld', kind='learning')[0]
 problem = PDDLReader().parse_problem(domain_path, problem_path)
 simulator = SequentialSimulator(problem=problem)
 
-agent = get_algorithm('RandomAgent')
-model, trajectory = agent.learn(simulator, input_domain)
+agent = get_algorithm('RandomAgent', input_domain_path=input_domain)
+model, trajectory = agent.learn(simulator)
 ```
 
 ### Evaluation

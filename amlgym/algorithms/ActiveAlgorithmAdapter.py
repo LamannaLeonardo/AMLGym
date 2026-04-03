@@ -1,6 +1,6 @@
 import abc
 from dataclasses import dataclass
-from typing import Any, Tuple, Dict
+from typing import Tuple
 
 from unified_planning.shortcuts import SequentialSimulator
 
@@ -14,19 +14,17 @@ class ActiveAlgorithmAdapter(abc.ABC):
     that must be implemented by every (subclass) algorithm adapter.
     """
 
+    input_domain_path: str
+
     @abc.abstractmethod
     def learn(self,
               simulator: SequentialSimulator,
-              input_domain_path: str,
               max_steps: int = 100,
               seed: int = 123) -> Tuple[str, Trajectory]:
         """
-        Learns a PDDL action model from:
-         (i)   a simulator of the environment to learn from
-         (ii)    a (possibly empty) input model which is required to specify the predicates and operators signature;
+        Learns a PDDL action model by acting within a simulated environment.
 
         :parameter simulator: environment simulator
-        :parameter input_domain_path: input PDDL domain file path
         :parameter max_steps: maximum number of interaction steps with the simulator
         :parameter seed: random seed for reproducibility
 
