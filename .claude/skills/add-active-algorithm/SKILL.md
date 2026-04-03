@@ -1,27 +1,27 @@
 ---
-name: add-online-algorithm
-description: Add a new online learning algorithm to AMLGym. Use when the user wants to integrate an algorithm that interacts with a simulator to collect its own experience.
+name: add-active-algorithm
+description: Add a new active learning algorithm to AMLGym. Use when the user wants to integrate an algorithm that interacts with a simulator to collect its own experience.
 ---
 
-# Add an Online Algorithm
+# Add an Active Algorithm
 
-Create a new online algorithm adapter in `amlgym/algorithms/`.
+Create a new active algorithm adapter in `amlgym/algorithms/`.
 
 ## Steps
 
 1. **Create** `amlgym/algorithms/$ARGUMENTS.py` (class name must match filename, PascalCase, case-insensitive)
 
-2. **Inherit** from `OnlineAlgorithmAdapter` and implement `learn()`:
+2. **Inherit** from `ActiveAlgorithmAdapter` and implement `learn()`:
 
 ```python
 from dataclasses import dataclass
 from typing import Tuple
 from unified_planning.shortcuts import SequentialSimulator
-from amlgym.algorithms.OnlineAlgorithmAdapter import OnlineAlgorithmAdapter
+from amlgym.algorithms.ActiveAlgorithmAdapter import ActiveAlgorithmAdapter
 from amlgym.modeling.trajectory import Trajectory
 
 @dataclass
-class $ARGUMENTS(OnlineAlgorithmAdapter):
+class $ARGUMENTS(ActiveAlgorithmAdapter):
     """Docstring with paper reference and usage example."""
 
     # Optional: add paper reference metadata (used by registry for display)
@@ -34,11 +34,11 @@ class $ARGUMENTS(OnlineAlgorithmAdapter):
     # }
 
     # Algorithm parameters as dataclass fields with defaults
-    max_steps: int = 100
 
     def learn(self,
               simulator: SequentialSimulator,
               input_domain_path: str,
+              max_steps: int = 100,
               seed: int = 123) -> Tuple[str, Trajectory]:
         # simulator: environment to interact with
         # input_domain_path: PDDL domain with predicates/operator signatures (no preconditions/effects)
@@ -59,7 +59,7 @@ class $ARGUMENTS(OnlineAlgorithmAdapter):
 
 ## Reference implementation
 
-Study `amlgym/algorithms/RandomAgent.py` for the canonical online adapter pattern:
+Study `amlgym/algorithms/RandomAgent.py` for the canonical active adapter pattern:
 - Grounding actions via `tarski.LPGroundingStrategy` (requires `clingo`)
 - Interacting with the simulator to collect trajectories
 - Filtering failed actions (`simulator.apply()` returns `None` for inapplicable actions, but may also raise `UPInvalidActionError` — always wrap in try/except)

@@ -8,9 +8,9 @@ from amlgym.modeling.trajectory import Trajectory
 
 
 @dataclass
-class OnlineAlgorithmAdapter(abc.ABC):
+class ActiveAlgorithmAdapter(abc.ABC):
     """
-    An abstract class for an online action model learning algorithm, which defines the abstract interface
+    An abstract class for an active action model learning algorithm, which defines the abstract interface
     that must be implemented by every (subclass) algorithm adapter.
     """
 
@@ -18,6 +18,7 @@ class OnlineAlgorithmAdapter(abc.ABC):
     def learn(self,
               simulator: SequentialSimulator,
               input_domain_path: str,
+              max_steps: int = 100,
               seed: int = 123) -> Tuple[str, Trajectory]:
         """
         Learns a PDDL action model from:
@@ -26,6 +27,7 @@ class OnlineAlgorithmAdapter(abc.ABC):
 
         :parameter simulator: environment simulator
         :parameter input_domain_path: input PDDL domain file path
+        :parameter max_steps: maximum number of interaction steps with the simulator
         :parameter seed: random seed for reproducibility
 
         :return: a string representing the learned PDDL model, and a JSON specification of the trajectory

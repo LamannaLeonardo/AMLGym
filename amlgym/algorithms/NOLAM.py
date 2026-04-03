@@ -8,14 +8,14 @@ from dataclasses import dataclass
 from unified_planning.model import Fluent
 import re
 from typing import List, Dict, Set, ClassVar, OrderedDict
-from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
+from amlgym.algorithms.PassiveAlgorithmAdapter import PassiveAlgorithmAdapter
 from unified_planning.io import PDDLReader
 
 from nolam.algorithm.Learner import Learner
 
 
 @dataclass
-class NOLAM(OfflineAlgorithmAdapter):
+class NOLAM(PassiveAlgorithmAdapter):
     """
     Adapter class for running the NOLAM algorithm: "Action Model Learning from Noisy
     Traces: a Probabilistic Approach", L. Lamanna and L. Serafini, Proceedings of the
