@@ -1,7 +1,7 @@
 import re
 import os
 
-from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
+from amlgym.algorithms.PassiveAlgorithmAdapter import PassiveAlgorithmAdapter
 from typing import List, ClassVar, OrderedDict
 import shutil
 from pathlib import Path
@@ -11,7 +11,7 @@ from pddl_plus_parser.lisp_parsers import ProblemParser
 from amlgym.algorithms.rosame.experiment_runner.rosame_runner import Rosame_Runner
 
 
-class ROSAME(OfflineAlgorithmAdapter):
+class ROSAME(PassiveAlgorithmAdapter):
     """
     Adapter class for running an *unofficial* implementation of the ROSAME
     algorithm: "Neuro-Symbolic Learning of Lifted Action Models from

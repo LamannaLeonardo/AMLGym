@@ -2,7 +2,7 @@
 
 AMLGym is a benchmarking framework for **Action Model Learning (AML)** — learning classical planning domain models (PDDL) from execution traces. It provides state-of-the-art algorithms, 25 benchmark domains, and evaluation metrics.
 
-**Primary workflow in this repo**: integrating and assessing new learning algorithms (offline or online) within the framework.
+**Primary workflow in this repo**: integrating and assessing new learning algorithms (passive or active) within the framework.
 
 ## Codebase Exploration Guide
 
@@ -10,15 +10,15 @@ AMLGym is a benchmarking framework for **Action Model Learning (AML)** — learn
 amlgym/
 ├── algorithms/                  # All learning algorithms live here
 │   ├── __init__.py              # Auto-registration registry, get_algorithm()
-│   ├── OfflineAlgorithmAdapter.py  # Base class for offline algorithms
-│   ├── OnlineAlgorithmAdapter.py   # Base class for online algorithms
-│   ├── SAM.py                   # Full observability (offline)
-│   ├── OffLAM.py                # Partial observability (offline)
-│   ├── NOLAM.py                 # Noisy observations (offline)
-│   ├── ROSAME.py                # Neuro-symbolic (offline)
+│   ├── PassiveAlgorithmAdapter.py  # Base class for passive algorithms
+│   ├── ActiveAlgorithmAdapter.py   # Base class for active algorithms
+│   ├── SAM.py                   # Full observability (passive)
+│   ├── OffLAM.py                # Partial observability (passive)
+│   ├── NOLAM.py                 # Noisy observations (passive)
+│   ├── ROSAME.py                # Neuro-symbolic (passive)
 │   ├── rosame/                  # ROSAME's internal implementation
-│   ├── RandomAgent.py           # Online baseline (random exploration + SAM)
-│   └── InformationGainAgent.py  # Full observability (online)
+│   ├── RandomAgent.py           # Active baseline (random exploration + SAM)
+│   └── InformationGainAgent.py  # Full observability (active)
 ├── benchmarks/
 │   ├── __init__.py              # API: get_domain_path(), get_trajectories_path(), etc.
 │   ├── domains/                 # 25 PDDL domain files
@@ -43,12 +43,12 @@ amlgym/
 ```
 
 ### Key files for algorithm integration
-- `amlgym/algorithms/OfflineAlgorithmAdapter.py` — base class for offline algorithms
-- `amlgym/algorithms/OnlineAlgorithmAdapter.py` — base class for online algorithms
-- `amlgym/algorithms/SAM.py` — reference implementation of an offline algorithm
-- `amlgym/algorithms/RandomAgent.py` — reference implementation of an online algorithm
+- `amlgym/algorithms/PassiveAlgorithmAdapter.py` — base class for passive algorithms
+- `amlgym/algorithms/ActiveAlgorithmAdapter.py` — base class for active algorithms
+- `amlgym/algorithms/SAM.py` — reference implementation of an passive algorithm
+- `amlgym/algorithms/RandomAgent.py` — reference implementation of an active algorithm
 - `amlgym/algorithms/__init__.py` — auto-discovery registry (no modification needed)
-- `amlgym/modeling/trajectory.py` — `Trajectory` dataclass (used by online `learn()`)
+- `amlgym/modeling/trajectory.py` — `Trajectory` dataclass (used by active `learn()`)
 - `amlgym/modeling/UPEnv.py` — environment wrapper with `apply()` and `applicable_actions()`
 
 ## Configuration
@@ -69,7 +69,7 @@ domains:
 Algorithms are Python dataclasses — parameters are fields with defaults:
 ```python
 @dataclass
-class RandomAgent(OnlineAlgorithmAdapter):
+class RandomAgent(ActiveAlgorithmAdapter):
     max_steps: int = 100
 ```
 Pass params via `get_algorithm('RandomAgent', max_steps=200)` or direct instantiation.
@@ -88,7 +88,7 @@ from amlgym.benchmarks import (
 
 ## Experimenting
 
-### Offline learning
+### Passive learning
 ```python
 from amlgym.algorithms import get_algorithm
 from amlgym.benchmarks import get_domain_path, get_trajectories_path
@@ -101,7 +101,7 @@ traj_paths = get_trajectories_path('blocksworld')
 model = agent.learn(input_domain, traj_paths)
 ```
 
-### Online learning
+### Active learning
 ```python
 from unified_planning.io import PDDLReader
 from unified_planning.shortcuts import SequentialSimulator
@@ -139,16 +139,16 @@ results = predictive_power(simulator_learned, simulator_ref, test_states)
 ## Adding a New Algorithm
 
 Use the Claude Code skills for guided workflows:
-- **Offline** (learns from trajectory files): `/add-offline-algorithm YourAlgorithm`
-- **Online** (interacts with simulator): `/add-online-algorithm YourAlgorithm`
+- **Passive** (learns from trajectory files): `/add-passive-algorithm YourAlgorithm`
+- **Active** (interacts with simulator): `/add-active-algorithm YourAlgorithm`
 
 Key points:
 - Create `amlgym/algorithms/YourAlgorithm.py` — class name must match filename (PascalCase, case-insensitive)
-- Inherit from `OfflineAlgorithmAdapter` or `OnlineAlgorithmAdapter` and implement `learn()`
+- Inherit from `PassiveAlgorithmAdapter` or `ActiveAlgorithmAdapter` and implement `learn()`
 - No registration needed — `__init__.py` auto-discovers all algorithm files
 - Add external deps to `requirements.txt` if needed
 - Evaluate with `amlgym.metrics` against reference domain models
-- Reference implementations: `SAM.py` (offline), `RandomAgent.py` (online)
+- Reference implementations: `SAM.py` (passive), `RandomAgent.py` (active)
 
 ## Important Notes
 
@@ -161,7 +161,7 @@ Key points:
 ### Conventions
 - Algorithm class name **must** match its filename (e.g., `MyAgent` in `MyAgent.py`)
 - `empty_domain()` creates the input domain with preconditions/effects stripped — this is what algorithms receive as input
-- The `learn()` return type is `str` (PDDL domain) for offline algorithms and `Tuple[str, Trajectory]` for online algorithms
+- The `learn()` return type is `str` (PDDL domain) for passive algorithms and `Tuple[str, Trajectory]` for active algorithms
 - Trajectories use PDDL-like format: alternating `(:state ...)` and `(:action ...)` blocks
 - States in the simulator are `UPState` objects; use `str()` and regex to extract literals
 

@@ -1,7 +1,6 @@
 import logging
 import os
 import random
-from dataclasses import dataclass
 from typing import List, Tuple, Any
 
 import numpy as np
@@ -13,13 +12,12 @@ from unified_planning.model import Fluent
 from unified_planning.plans import ActionInstance
 from unified_planning.shortcuts import SequentialSimulator, BoolType
 
-from amlgym.algorithms.OnlineAlgorithmAdapter import OnlineAlgorithmAdapter
+from amlgym.algorithms.ActiveAlgorithmAdapter import ActiveAlgorithmAdapter
 from amlgym.algorithms.SAM import SAM
 from amlgym.modeling.trajectory import Trajectory
 
 
-@dataclass
-class RandomAgent(OnlineAlgorithmAdapter):
+class RandomAgent(ActiveAlgorithmAdapter):
     """
     A simple baseline for online learning in a fully observable and deterministic
     environment by randomly executing actions. The baselines firstly generates
@@ -43,7 +41,7 @@ class RandomAgent(OnlineAlgorithmAdapter):
 
             env = SequentialSimulator(problem=problem)
             baseline = get_algorithm('RandomAgent')
-            model, trajectory = baseline.learn(env, input_domain_path)
+            model, trajectory = baseline.learn(env, input_domain_path, max_steps=100)
 
             print("##################### Learned model #####################")
             print(model)
@@ -52,11 +50,11 @@ class RandomAgent(OnlineAlgorithmAdapter):
             print(trajectory)
 
     """
-    max_steps: int = 100.
 
     def learn(self,
               simulator: SequentialSimulator,
               input_domain_path: str,
+              max_steps: int = 100,
               seed: int = 123) -> Tuple[str, Trajectory]:
         """
         Learns a PDDL action model from:
@@ -65,6 +63,7 @@ class RandomAgent(OnlineAlgorithmAdapter):
 
         :parameter simulator: environment simulator
         :parameter input_domain_path: input PDDL domain file path
+        :parameter max_steps: maximum number of interaction steps with the simulator
         :parameter seed: random seed for reproducibility
 
         :return: a string representing the learned PDDL model, and a JSON specification of the trajectory
@@ -86,7 +85,7 @@ class RandomAgent(OnlineAlgorithmAdapter):
         trace_actions = []
         trace_states = [state]
 
-        for i in range(self.max_steps):
+        for i in range(max_steps):
 
             action_label = random.choice(ground_actions)
             operator = simulator._problem.action(action_label[0])

@@ -1,25 +1,25 @@
 ---
-name: add-offline-algorithm
-description: Add a new offline learning algorithm to AMLGym. Use when the user wants to integrate an algorithm that learns from pre-collected trajectory files.
+name: add-passive-algorithm
+description: Add a new passive learning algorithm to AMLGym. Use when the user wants to integrate an algorithm that learns from pre-collected trajectory files.
 ---
 
-# Add an Offline Algorithm
+# Add a Passive Algorithm
 
-Create a new offline algorithm adapter in `amlgym/algorithms/`.
+Create a new passive algorithm adapter in `amlgym/algorithms/`.
 
 ## Steps
 
 1. **Create** `amlgym/algorithms/$ARGUMENTS.py` (class name must match filename, PascalCase, case-insensitive)
 
-2. **Inherit** from `OfflineAlgorithmAdapter` and implement `learn()`:
+2. **Inherit** from `PassiveAlgorithmAdapter` and implement `learn()`:
 
 ```python
 from dataclasses import dataclass
 from typing import List
-from amlgym.algorithms.OfflineAlgorithmAdapter import OfflineAlgorithmAdapter
+from amlgym.algorithms.PassiveAlgorithmAdapter import PassiveAlgorithmAdapter
 
 @dataclass
-class $ARGUMENTS(OfflineAlgorithmAdapter):
+class $ARGUMENTS(PassiveAlgorithmAdapter):
     """Docstring with paper reference and usage example."""
 
     # Optional: add paper reference metadata (used by registry for display)
@@ -49,7 +49,7 @@ class $ARGUMENTS(OfflineAlgorithmAdapter):
 
 ## Reference implementation
 
-Study `amlgym/algorithms/SAM.py` for the canonical offline adapter pattern:
+Study `amlgym/algorithms/SAM.py` for the canonical passive adapter pattern:
 - Preprocessing trajectories into algorithm-specific format
 - Invoking the learning algorithm
 - Cleaning up temp files

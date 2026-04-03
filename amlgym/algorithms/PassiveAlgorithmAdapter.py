@@ -4,7 +4,7 @@ from typing import List
 
 
 @dataclass
-class OfflineAlgorithmAdapter(abc.ABC):
+class PassiveAlgorithmAdapter(abc.ABC):
     """
     An abstract class for an action model learning algorithm, which defines the abstract interface that must be
     implemented by every (subclass) algorithm adapter to enable automated evaluation.
