@@ -37,6 +37,7 @@ This documentation provides:
    tutorials_learning/index
    tutorials_evaluating/index
    tutorials_aaai/tutorial
+   tutorials_aamas/tutorial
 
 .. toctree::
    :maxdepth: 10
