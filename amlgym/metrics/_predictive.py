@@ -154,6 +154,11 @@ def applicability(simulator: Env | Sequence[Env],
     }
 
 
+def _effects(s, s_next):
+    """Effects of the transition from ``s`` to ``s_next``: ``('+', p)`` per added atom, ``('-', p)`` per deleted one."""
+    return {('+', p) for p in s_next - s} | {('-', p) for p in s - s_next}
+
+
 def predicted_effects(simulator: Env | Sequence[Env],
                       simulator_env: Env | Sequence[Env],
                       test_states: Sequence[StateType] | Sequence[Sequence[StateType]],
@@ -166,19 +171,21 @@ def predicted_effects(simulator: Env | Sequence[Env],
     state for both :math:`M` and :math:`E`.
     For an action :math:`a\in A`, and state :math:`s\in S`,
     we denote by :math:`a_{M}(s)` and :math:`a(s)` the state resulting from applying :math:`a` in :math:`s`
-    according to :math:`M` and :math:`E`, respectively.
+    according to :math:`M` and :math:`E`, respectively, and by :math:`eff_M(s,a)` and :math:`eff(s,a)`
+    the corresponding effects, i.e. the atoms :math:`p` added (:math:`+p`) and deleted (:math:`-p`):
+    :math:`eff(s,a)=\{+p \mid p\in a(s)\setminus s\}\cup\{-p \mid p\in s\setminus a(s)\}`, and likewise :math:`eff_M(s,a)`.
     We define the predicted effect metrics for every state :math:`s \in S_{test}`
     and action :math:`a\in A` as:
 
-    * True Positives: :math:`TP_{eff}(s,a)=|(a_M(s)\setminus s)\cap (a(s)\setminus s)|`
-    * False Positives: :math:`FP_{eff}(s,a)=|(a_M(s)\setminus s)\setminus a(s)|`
-    * False Negatives: :math:`FN_{eff}(s,a)=|(a_M(s)\cap s)\setminus a(s)|`
+    * True Positives: :math:`TP_{eff}(s,a)=|eff_M(s,a)\cap eff(s,a)|`
+    * False Positives: :math:`FP_{eff}(s,a)=|eff_M(s,a)\setminus eff(s,a)|`
+    * False Negatives: :math:`FN_{eff}(s,a)=|eff(s,a)\setminus eff_M(s,a)|`
 
     The predicted effects mean precision and recall per action are obtained by averaging over all
     states in :math:`S_{test}`, i.e.:
 
     * True Positives: :math:`TP_{eff}(a)=\sum\limits_{s\in S_{test}}TP_{eff}(s,a)`
-    * False Positives: :math:`FP_{eff}(a)=\sum\limits_{s\in S_{test}}TP_{eff}(s,a)`
+    * False Positives: :math:`FP_{eff}(a)=\sum\limits_{s\in S_{test}}FP_{eff}(s,a)`
     * False Negatives: :math:`FN_{eff}(a)=\sum\limits_{s\in S_{test}}FN_{eff}(s,a)`
 
     * Predicted effects precision of :math:`a` : :math:`P_{eff}(a) = \frac{TP_{eff}(a)}{TP_{eff}(a)+FP_{eff}(a)}`
@@ -264,9 +271,11 @@ def predicted_effects(simulator: Env | Sequence[Env],
                         snext_learned = simulator.apply(s, action_label)
                         snext_ref = simulator_env.apply(s, action_label)
 
-                        tp[op] += len((snext_learned - s) .intersection((snext_ref - s)))
-                        fp[op] += len((snext_learned - s) - snext_ref)
-                        fn[op] += len((snext_learned.intersection(s)) - snext_ref)
+                        eff_learned = _effects(s, snext_learned)
+                        eff_ref = _effects(s, snext_ref)
+                        tp[op] += len(eff_learned & eff_ref)
+                        fp[op] += len(eff_learned - eff_ref)
+                        fn[op] += len(eff_ref - eff_learned)
 
             if show_progress:
                 bar()
@@ -391,9 +400,11 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
                         snext_learned = simulator_learned.apply(s, action_label)
                         snext_ref = simulator_ref.apply(s, action_label)
 
-                        predeffs_tp[op] += len((snext_learned - s) & (snext_ref - s))
-                        predeffs_fp[op] += len((snext_learned - s) - snext_ref)
-                        predeffs_fn[op] += len((snext_learned & s) - snext_ref)
+                        eff_learned = _effects(s, snext_learned)
+                        eff_ref = _effects(s, snext_ref)
+                        predeffs_tp[op] += len(eff_learned & eff_ref)
+                        predeffs_fp[op] += len(eff_learned - eff_ref)
+                        predeffs_fn[op] += len(eff_ref - eff_learned)
                         pass
 
                     # Action applicability

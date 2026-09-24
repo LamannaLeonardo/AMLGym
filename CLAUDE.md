@@ -170,7 +170,7 @@ Key points:
 - Action grounding uses `tarski.LPGroundingStrategy` — requires `clingo` ASP solver
 - `simulator.apply()` returns `None` for inapplicable actions (not an exception)
 - Some algorithms write temp files (`tmp.pddl`, `tmp_trajectory`) to cwd — these are cleaned up but be aware during debugging
-- No unit test suite exists; validation is done via benchmark evaluation and notebooks in `docs/source/tutorials_*`
+- Unit tests in `tests/` cover the predictive metrics (`python -m unittest discover -s tests`); other validation is done via benchmark evaluation and notebooks in `docs/source/tutorials_*`
 
 ### Available benchmark domains (25)
 barman, blocksworld, childsnack, depots, driverlog, elevators, ferry, floortile, goldminer, grid, grippers, hanoi, matchingbw, miconic, nomystery, npuzzle, parking, rovers, satellite, sokoban, spanner, tpp, transport, visitall, zenotravel
