@@ -43,9 +43,10 @@ def get_trajectories(domain_name: str,
     assert kind in possible_kinds, f'`kind` must be in {possible_kinds}'
 
     pkg = f"{base_pkg}.{kind}.{domain_name.split('.')[0]}"
+    traj_files = [f for f in resources.files(pkg).iterdir()
+                 if f.is_file() and not f.name.startswith('.')]
     trajectories = []
-    for traj_file in sorted(resources.files(pkg).iterdir(),
-                            key=lambda x: int(x.name.split('_')[0])):
+    for traj_file in sorted(traj_files, key=lambda x: int(x.name.split('_')[0])):
         with resources.open_text(pkg, traj_file.name) as f:
             trajectories.append(f.read())
     return trajectories
@@ -76,7 +77,8 @@ def get_trajectories_path(domain_name: str,
 
     pkg = f"{base_pkg}.{kind}.{domain_name.split('.')[0]}"
 
-    trajectories_path = [str(f) for f in resources.files(pkg).iterdir() if f.is_file()]
+    trajectories_path = [str(f) for f in resources.files(pkg).iterdir()
+                         if f.is_file() and not f.name.startswith('.')]
     return sorted(trajectories_path, key=lambda x: int(x.split('/')[-1].split('_')[0]))
 
 
@@ -93,7 +95,8 @@ def get_problems_path(domain_name: str,
     assert kind in possible_kinds, f'`kind` must be in {possible_kinds}'
 
     pkg = f"{base_pkg}.{kind}.{domain_name.split('.')[0]}"
-    problems_path = [str(f) for f in resources.files(pkg).iterdir() if f.is_file()]
+    problems_path = [str(f) for f in resources.files(pkg).iterdir()
+                     if f.is_file() and not f.name.startswith('.')]
     return sorted(problems_path, key=lambda x: int(x.split('/')[-1].split('_')[0]))
 
 
@@ -114,7 +117,8 @@ def get_test_states(domain_name: str,
     pkg = f"{base_pkg}.{kind}.{domain_name.split('.')[0]}"
 
     try:
-        states_path = str(next(f for f in resources.files(pkg).iterdir() if f.is_file()))
+        states_path = str(next(f for f in resources.files(pkg).iterdir()
+                               if f.is_file() and not f.name.startswith('.')))
     except StopIteration:
         raise FileNotFoundError(f"No files found in package {pkg}.")
 
