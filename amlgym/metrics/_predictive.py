@@ -154,11 +154,6 @@ def applicability(simulator: Env | Sequence[Env],
     }
 
 
-def _effects(s, s_next):
-    """Effects of the transition from ``s`` to ``s_next``: ``('+', p)`` per added atom, ``('-', p)`` per deleted one."""
-    return {('+', p) for p in s_next - s} | {('-', p) for p in s - s_next}
-
-
 def predicted_effects(simulator: Env | Sequence[Env],
                       simulator_env: Env | Sequence[Env],
                       test_states: Sequence[StateType] | Sequence[Sequence[StateType]],
@@ -171,15 +166,22 @@ def predicted_effects(simulator: Env | Sequence[Env],
     state for both :math:`M` and :math:`E`.
     For an action :math:`a\in A`, and state :math:`s\in S`,
     we denote by :math:`a_{M}(s)` and :math:`a(s)` the state resulting from applying :math:`a` in :math:`s`
-    according to :math:`M` and :math:`E`, respectively, and by :math:`eff_M(s,a)` and :math:`eff(s,a)`
-    the corresponding effects, i.e. the atoms :math:`p` added (:math:`+p`) and deleted (:math:`-p`):
-    :math:`eff(s,a)=\{+p \mid p\in a(s)\setminus s\}\cup\{-p \mid p\in s\setminus a(s)\}`, and likewise :math:`eff_M(s,a)`.
+    according to :math:`M` and :math:`E`, respectively.
     We define the predicted effect metrics for every state :math:`s \in S_{test}`
     and action :math:`a\in A` as:
 
-    * True Positives: :math:`TP_{eff}(s,a)=|eff_M(s,a)\cap eff(s,a)|`
-    * False Positives: :math:`FP_{eff}(s,a)=|eff_M(s,a)\setminus eff(s,a)|`
-    * False Negatives: :math:`FN_{eff}(s,a)=|eff(s,a)\setminus eff_M(s,a)|`
+    * True Positives: :math:`TP_{eff}(s,a)=|(a_M(s)\setminus s)\cap (a(s)\setminus s)|`
+    * False Positives: :math:`FP_{eff}(s,a)=|(a_M(s)\setminus s)\setminus a(s)|`
+    * False Negatives: :math:`FN_{eff}(s,a)=|(a_M(s)\cap s)\setminus a(s)|`
+
+    .. note::
+        The formulas above assume :math:`s`, :math:`a_M(s)` and :math:`a(s)` are complete literal
+        assignments, i.e. they also contain the negative literals of the ground fluents that do
+        not hold. Since states here are represented only by their positive literals, they are
+        computed equivalently by considering the add effects (:math:`a_M(s)\setminus s`,
+        :math:`a(s)\setminus s`) and delete effects (:math:`s\setminus a_M(s)`,
+        :math:`s\setminus a(s)`) of :math:`M` and :math:`E` separately, and summing their
+        contribution to :math:`TP_{eff}`, :math:`FP_{eff}` and :math:`FN_{eff}`.
 
     The predicted effects mean precision and recall per action are obtained by averaging over all
     states in :math:`S_{test}`, i.e.:
@@ -235,7 +237,7 @@ def predicted_effects(simulator: Env | Sequence[Env],
     recall = defaultdict(float)
 
     bar = alive_bar(len(test_states_list),
-                    title=f'Evaluating actions applicability...',
+                    title=f'Evaluating predicted effects...',
                     length=20) if show_progress else nullcontext()
     with bar as bar:
         for k, (simulator, simulator_env, states) in enumerate(zip(simulator_learned_list,
@@ -271,11 +273,15 @@ def predicted_effects(simulator: Env | Sequence[Env],
                         snext_learned = simulator.apply(s, action_label)
                         snext_ref = simulator_env.apply(s, action_label)
 
-                        eff_learned = _effects(s, snext_learned)
-                        eff_ref = _effects(s, snext_ref)
-                        tp[op] += len(eff_learned & eff_ref)
-                        fp[op] += len(eff_learned - eff_ref)
-                        fn[op] += len(eff_ref - eff_learned)
+                        # states only carry positive literals, so add/delete effects are
+                        # computed separately and summed below, equivalently to applying
+                        # the TP/FP/FN formulas on states completed with negative literals
+                        added_learned, deleted_learned = snext_learned - s, s - snext_learned
+                        added_ref, deleted_ref = snext_ref - s, s - snext_ref
+
+                        tp[op] += len(added_learned & added_ref) + len(deleted_learned & deleted_ref)
+                        fp[op] += len(added_learned - added_ref) + len(deleted_learned - deleted_ref)
+                        fn[op] += len(added_ref - added_learned) + len(deleted_ref - deleted_learned)
 
             if show_progress:
                 bar()
@@ -400,12 +406,15 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
                         snext_learned = simulator_learned.apply(s, action_label)
                         snext_ref = simulator_ref.apply(s, action_label)
 
-                        eff_learned = _effects(s, snext_learned)
-                        eff_ref = _effects(s, snext_ref)
-                        predeffs_tp[op] += len(eff_learned & eff_ref)
-                        predeffs_fp[op] += len(eff_learned - eff_ref)
-                        predeffs_fn[op] += len(eff_ref - eff_learned)
-                        pass
+                        # states only carry positive literals, so add/delete effects are
+                        # computed separately and summed below, equivalently to applying
+                        # the TP/FP/FN formulas on states completed with negative literals
+                        added_learned, deleted_learned = snext_learned - s, s - snext_learned
+                        added_ref, deleted_ref = snext_ref - s, s - snext_ref
+
+                        predeffs_tp[op] += len(added_learned & added_ref) + len(deleted_learned & deleted_ref)
+                        predeffs_fp[op] += len(added_learned - added_ref) + len(deleted_learned - deleted_ref)
+                        predeffs_fn[op] += len(added_ref - added_learned) + len(deleted_ref - deleted_learned)
 
                     # Action applicability
                     app_tp[op] += len(applicable_ref[op] & applicable_learned[op])

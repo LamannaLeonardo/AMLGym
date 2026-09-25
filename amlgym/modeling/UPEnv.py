@@ -141,20 +141,20 @@ class UPEnv(Env):
         if next_state is None:
             return None
 
+        # only the positive literals are returned, consistently with the state
+        # representation used throughout the framework (closed-world assumption)
         literals = set()
         for l, v in next_state._values.items():
+            if not v.is_true():
+                continue
+
             l_name = l.fluent().name
             l_objs = [str(o) for o in l.args]
 
             if len(l_objs) == 0:
-                l_formatted = f"({l_name})"
+                literals.add(f"({l_name})")
             else:
-                l_formatted = f"({l_name} {' '.join(l_objs)})"
-
-            if v.is_true():
-                literals.add(l_formatted)
-            else:
-                literals.add(f"(not {l_formatted})")
+                literals.add(f"({l_name} {' '.join(l_objs)})")
 
         return literals
 
