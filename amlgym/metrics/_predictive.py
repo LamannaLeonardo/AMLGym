@@ -174,11 +174,20 @@ def predicted_effects(simulator: Env | Sequence[Env],
     * False Positives: :math:`FP_{eff}(s,a)=|(a_M(s)\setminus s)\setminus a(s)|`
     * False Negatives: :math:`FN_{eff}(s,a)=|(a_M(s)\cap s)\setminus a(s)|`
 
+    .. note::
+        The formulas above assume :math:`s`, :math:`a_M(s)` and :math:`a(s)` are complete literal
+        assignments, i.e. they also contain the negative literals of the ground fluents that do
+        not hold. Since states here are represented only by their positive literals, they are
+        computed equivalently by considering the add effects (:math:`a_M(s)\setminus s`,
+        :math:`a(s)\setminus s`) and delete effects (:math:`s\setminus a_M(s)`,
+        :math:`s\setminus a(s)`) of :math:`M` and :math:`E` separately, and summing their
+        contribution to :math:`TP_{eff}`, :math:`FP_{eff}` and :math:`FN_{eff}`.
+
     The predicted effects mean precision and recall per action are obtained by averaging over all
     states in :math:`S_{test}`, i.e.:
 
     * True Positives: :math:`TP_{eff}(a)=\sum\limits_{s\in S_{test}}TP_{eff}(s,a)`
-    * False Positives: :math:`FP_{eff}(a)=\sum\limits_{s\in S_{test}}TP_{eff}(s,a)`
+    * False Positives: :math:`FP_{eff}(a)=\sum\limits_{s\in S_{test}}FP_{eff}(s,a)`
     * False Negatives: :math:`FN_{eff}(a)=\sum\limits_{s\in S_{test}}FN_{eff}(s,a)`
 
     * Predicted effects precision of :math:`a` : :math:`P_{eff}(a) = \frac{TP_{eff}(a)}{TP_{eff}(a)+FP_{eff}(a)}`
@@ -228,7 +237,7 @@ def predicted_effects(simulator: Env | Sequence[Env],
     recall = defaultdict(float)
 
     bar = alive_bar(len(test_states_list),
-                    title=f'Evaluating actions applicability...',
+                    title=f'Evaluating predicted effects...',
                     length=20) if show_progress else nullcontext()
     with bar as bar:
         for k, (simulator, simulator_env, states) in enumerate(zip(simulator_learned_list,
@@ -264,9 +273,15 @@ def predicted_effects(simulator: Env | Sequence[Env],
                         snext_learned = simulator.apply(s, action_label)
                         snext_ref = simulator_env.apply(s, action_label)
 
-                        tp[op] += len((snext_learned - s) .intersection((snext_ref - s)))
-                        fp[op] += len((snext_learned - s) - snext_ref)
-                        fn[op] += len((snext_learned.intersection(s)) - snext_ref)
+                        # states only carry positive literals, so add/delete effects are
+                        # computed separately and summed below, equivalently to applying
+                        # the TP/FP/FN formulas on states completed with negative literals
+                        added_learned, deleted_learned = snext_learned - s, s - snext_learned
+                        added_ref, deleted_ref = snext_ref - s, s - snext_ref
+
+                        tp[op] += len(added_learned & added_ref) + len(deleted_learned & deleted_ref)
+                        fp[op] += len(added_learned - added_ref) + len(deleted_learned - deleted_ref)
+                        fn[op] += len(added_ref - added_learned) + len(deleted_ref - deleted_learned)
 
             if show_progress:
                 bar()
@@ -391,10 +406,15 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
                         snext_learned = simulator_learned.apply(s, action_label)
                         snext_ref = simulator_ref.apply(s, action_label)
 
-                        predeffs_tp[op] += len((snext_learned - s) & (snext_ref - s))
-                        predeffs_fp[op] += len((snext_learned - s) - snext_ref)
-                        predeffs_fn[op] += len((snext_learned & s) - snext_ref)
-                        pass
+                        # states only carry positive literals, so add/delete effects are
+                        # computed separately and summed below, equivalently to applying
+                        # the TP/FP/FN formulas on states completed with negative literals
+                        added_learned, deleted_learned = snext_learned - s, s - snext_learned
+                        added_ref, deleted_ref = snext_ref - s, s - snext_ref
+
+                        predeffs_tp[op] += len(added_learned & added_ref) + len(deleted_learned & deleted_ref)
+                        predeffs_fp[op] += len(added_learned - added_ref) + len(deleted_learned - deleted_ref)
+                        predeffs_fn[op] += len(added_ref - added_learned) + len(deleted_ref - deleted_learned)
 
                     # Action applicability
                     app_tp[op] += len(applicable_ref[op] & applicable_learned[op])
