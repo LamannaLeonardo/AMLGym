@@ -9,7 +9,7 @@ from unified_planning.exceptions import UPInvalidActionError
 from unified_planning.io import PDDLReader, PDDLWriter
 from unified_planning.model import Problem, Fluent, UPState
 from unified_planning.plans import ActionInstance
-from unified_planning.shortcuts import SequentialSimulator, BoolType, FALSE, TRUE
+from unified_planning.shortcuts import SequentialSimulator, BoolType, TRUE
 
 from tarski.io import PDDLReader as tarskiPDDLReader
 from tarski.grounding import LPGroundingStrategy
@@ -45,10 +45,7 @@ class UPEnv(Env):
         # Instantiate the environment simulation engine
         self._simulator = SequentialSimulator(self.problem)
 
-        # Create a fictitious state with all negated literals
-        all_neg_fluents = {f: FALSE() for f, v in self.problem.initial_values.items()}
         UPState.MAX_ANCESTORS = None
-        self.all_neg_state = UPState(all_neg_fluents, self.problem)
 
         # Initialize actions grounder with tarski
         _tmp_problem = PDDLReader().parse_problem(domain_path, problem_path)
@@ -131,7 +128,8 @@ class UPEnv(Env):
                 prob_args = [self.problem.object(o) for o in f_objs]
                 prob_state_fluents[prob_f(*prob_args)] = TRUE()
 
-            state = self.all_neg_state.make_child(prob_state_fluents)
+            # unset fluents default to False via self.problem.fluents_defaults
+            state = UPState(prob_state_fluents, self.problem)
 
         try:
             next_state = self._simulator.apply(state, action)
@@ -180,12 +178,13 @@ class UPEnv(Env):
                 prob_args = [self.problem.object(o) for o in f_objs]
                 prob_state_fluents[prob_f(*prob_args)] = TRUE()
 
-            state = self.all_neg_state.make_child(prob_state_fluents)
+            # unset fluents default to False via self.problem.fluents_defaults
+            state = UPState(prob_state_fluents, self.problem)
 
         applicable_actions = defaultdict(set)
         for op_name, param_combos in self.ground_actions.items():
             for args in param_combos:
-                if self._simulator._is_applicable(state,
+                if self._simulator.is_applicable(state,
                                                   self.problem.action(op_name),
                                                   [self.problem.object(o.lower())
                                                    for o in args]):
