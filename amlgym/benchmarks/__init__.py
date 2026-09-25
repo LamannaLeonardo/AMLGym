@@ -9,7 +9,8 @@ def get_domain_names() -> List[str]:
     List all benchmark domain names.
     """
     pkg = f"amlgym.benchmarks.domains"
-    return [f.name.split('.')[0] for f in resources.files(pkg).iterdir() if f.is_file()]
+    return [f.name.split('.')[0] for f in resources.files(pkg).iterdir()
+            if f.is_file() and f.name.endswith('.pddl')]
 
 
 def print_domains() -> None:
