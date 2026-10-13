@@ -424,7 +424,7 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
             if show_progress:
                 bar()
 
-    operators = set(predeffs_tp.keys()) | set(predeffs_fp.keys()) | set(predeffs_fn.keys())
+    operators = set(app_tp.keys()) | set(app_fp.keys()) | set(app_fn.keys())
     for op in operators:
 
         if (app_tp[op] + app_fp[op]) == 0:
@@ -440,6 +440,9 @@ def predictive_power(simulator_learned: Env | Sequence[Env],
             app_recall[op] = 1.
         else:
             app_recall[op] = app_tp[op] / (app_tp[op] + app_fn[op])
+
+    operators = set(predeffs_tp.keys()) | set(predeffs_fp.keys()) | set(predeffs_fn.keys())
+    for op in operators:
 
         if (predeffs_tp[op] + predeffs_fp[op]) == 0:
             warnings.warn(f"No true and false positives for operator {op}, "
