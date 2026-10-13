@@ -9,7 +9,7 @@
     <img src="https://badge.fury.io/py/amlgym.svg" height="20"/></a>
     
   <a href="https://amlgym.readthedocs.io/en/latest/" target="_blank">
-    <img src="https://readthedocs.org/projects/amlgym/badge/?version=latest" height="20"/></a>
+    <img src="https://app.readthedocs.org/projects/amlgym/badge/?version=latest" height="20"/></a>
 
 </div>
 
