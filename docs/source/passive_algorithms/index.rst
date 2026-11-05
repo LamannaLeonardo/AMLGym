@@ -23,7 +23,7 @@ and L. Serafini, Proceedings of the Thirty-Fourth International Conference on
 Automated Planning and Scheduling, 2024.](
 https://ojs.aaai.org/index.php/ICAPS/article/view/31493)
 
-[4] ["Neuro-symbolic learning of lifted action models from visual traces", X. Kai,
+[4] ["Neuro-symbolic learning of lifted action models from visual traces", K. Xi,
 S. Gould, and S. Thiébaux, Proceedings of the Thirty-Fourth International Conference on
 Automated Planning and Scheduling, 2024.](https://ojs.aaai.org/index.php/ICAPS/article/download/31528/33688)
 

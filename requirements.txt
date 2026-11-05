@@ -6,6 +6,7 @@ pyyaml
 alive-progress>=3.2.0
 clingo>=5.7.1
 torch>=2.6.0
+rosame>=0.1.0
 offlam
 nolam
 anytree>=2.8.0
