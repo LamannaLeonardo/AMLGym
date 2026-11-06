@@ -1,6 +1,5 @@
-import os
 import re
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from typing import ClassVar, Dict, List, OrderedDict, Set, Tuple
 
 import rosame
@@ -19,14 +18,10 @@ class ROSAME(PassiveAlgorithmAdapter):
     International Conference on Automated Planning and Scheduling, 2024.
     https://ojs.aaai.org/index.php/ICAPS/article/download/31528/33688
 
-    One model is trained on all trajectories at once, whatever their object sets and
-    lengths. Objects and their types are inferred from the atoms and actions of each
-    trajectory; constants declared in the input domain are added to every trajectory.
-    When a trajectory has a problem file at the benchmark location (``.../trajectories/...
-    /<i>_<domain>_traj`` -> ``.../problems/.../<i>_<domain>_prob.pddl``), objects it uses
-    without declaring are domain constants missing from the input domain (``empty_domain()``
-    does not keep ``:constants``); they are declared in the learned domain, so that problems
-    using them can be parsed with it.
+    One model is trained on all trajectories at once, whatever their object sets
+    and lengths. The objects of each trajectory and their types are inferred from
+    its atoms and actions, and the constants declared in the input domain are added
+    to every trajectory.
 
     Args:
         prior_weight (float): Weight of the prior that prefers preconditions (lambda in the
@@ -85,21 +80,27 @@ class ROSAME(PassiveAlgorithmAdapter):
         :return: a string representing the learned PDDL model
         """
         pddl = rosame.io.read_pddl_domain(domain_path)
-        traces, constants = [], {}
+        traces = []
         for traj_path in trajectory_paths:
             states, actions = self._read_trajectory(traj_path)
             objects = self._infer_objects(pddl, states, actions)
-            constants.update(self._undeclared_objects(traj_path, objects, pddl))
             traces.append(rosame.Trace(objects, states, actions))
 
-        loss = rosame.ROSAMELoss(prior_weight=self.prior_weight, endpoint_weight=self.endpoint_weight,
+        loss = rosame.ROSAMELoss(prior_weight=self.prior_weight,
+                                 endpoint_weight=self.endpoint_weight,
                                  reduction=self.reduction)
-        # Atoms that repeat an object, e.g. (adjacent c1 c1), have no ROSAME proposition: ignore them
-        result = rosame.learn(pddl.domain, traces, loss=loss, epochs=self.epochs, min_epochs=self.min_epochs,
-                              patience=self.patience, lr=self.lr, seed=self.seed, device=self.device,
+        # Atoms that repeat an object, e.g. (adjacent c1 c1), have no
+        # ROSAME proposition: ignore them
+        result = rosame.learn(pddl.domain, traces,
+                              loss=loss,
+                              epochs=self.epochs,
+                              min_epochs=self.min_epochs,
+                              patience=self.patience,
+                              lr=self.lr,
+                              seed=self.seed,
+                              device=self.device,
                               on_unknown_atom="ignore")
-        if constants:
-            pddl = replace(pddl, constants=list(pddl.constants) + sorted(constants.items()))
+
         return result.to_pddl(pddl_domain=pddl)
 
     @staticmethod
@@ -132,26 +133,6 @@ class ROSAME(PassiveAlgorithmAdapter):
         if len(states) != len(actions) + 1:
             raise ValueError(f"{traj_path}: {len(states)} states for {len(actions)} actions")
         return states, actions
-
-    @staticmethod
-    def _undeclared_objects(traj_path: str, objects: List[Tuple[str, str]], pddl) -> Dict[str, str]:
-        """
-        Objects of a trajectory that its problem file does not declare, i.e. domain constants
-        missing from the input domain. Empty if the trajectory has no problem file at the
-        benchmark location.
-
-        :parameter traj_path: path to the trajectory file
-        :parameter objects: the trajectory objects, as returned by _infer_objects
-        :parameter pddl: the input domain, as read by rosame.io.read_pddl_domain
-
-        :return: dictionary from object names to types
-        """
-        problem_path = traj_path.replace('trajectories', 'problems').replace('_traj', '_prob.pddl')
-        if problem_path == traj_path or not os.path.isfile(problem_path):
-            return {}
-        declared = {name for name, _ in rosame.io.read_pddl_problem(problem_path).objects}
-        declared |= {name for name, _ in pddl.constants}
-        return {name: t for name, t in objects if name not in declared}
 
     @staticmethod
     def _infer_objects(pddl, states: List[List[Atom]], actions: List[Atom]) -> List[Tuple[str, str]]:

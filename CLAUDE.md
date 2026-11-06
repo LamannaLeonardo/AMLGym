@@ -21,9 +21,9 @@ amlgym/
 ├── benchmarks/
 │   ├── __init__.py              # API: get_domain_path(), get_trajectories_path(), etc.
 │   ├── domains/                 # 25 PDDL domain files
-│   ├── trajectories/            # Pre-generated traces (learning, applicability, etc.)
-│   ├── problems/                # PDDL problem files per domain
-│   ├── states/                  # Test states for predictive metrics
+│   ├── trajectories/            # Pre-generated traces (learning)
+│   ├── problems/                # PDDL problem files per domain (learning, predictive_power, solving)
+│   ├── states/                  # Test states for predictive metrics (predictive_power)
 │   ├── problems_learning.yaml   # Problem generation configs
 │   ├── problems_solving.yaml
 │   ├── problems_applicability.yaml
@@ -82,7 +82,10 @@ from amlgym.benchmarks import (
     get_problems_path,      # list of problem file paths
     get_test_states,        # test states dict for predictive metrics
 )
-# `kind` param: 'learning', 'applicability', 'predictive_power', 'solving'
+# `kind` param: a subfolder of the matching benchmarks/ folder (an invalid kind fails an assert)
+#   get_trajectories_path: 'learning' (default)
+#   get_problems_path:     'solving' (default), 'learning', 'predictive_power'
+#   get_test_states:       'predictive_power' (default)
 ```
 
 ## Experimenting
@@ -159,7 +162,7 @@ Key points:
 
 ### Conventions
 - Algorithm class name **must** match its filename (e.g., `MyAgent` in `MyAgent.py`)
-- `empty_domain()` creates the input domain with preconditions/effects stripped — this is what algorithms receive as input
+- `empty_domain()` creates the input domain with preconditions/effects stripped, keeping types, `:constants` and predicates — this is what algorithms receive as input. Constants matter: problem files may use them without declaring them (e.g. childsnack's `kitchen`), so learned domains must keep them
 - The `learn()` return type is `str` (PDDL domain) for passive algorithms and `Tuple[str, Trajectory]` for active algorithms
 - Trajectories use PDDL-like format: alternating `(:state ...)` and `(:action ...)` blocks
 - States in the simulator are `UPState` objects; use `str()` and regex to extract literals
