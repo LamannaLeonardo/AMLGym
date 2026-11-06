@@ -3,9 +3,11 @@ import os
 import re
 import shutil
 import subprocess
+from typing import Dict, Set
 import numpy as np
 import yaml
 from unified_planning.io import PDDLReader, PDDLWriter
+from unified_planning.model import Object, Type
 
 
 def remove_trajs(traj_dir: str,
@@ -146,7 +148,18 @@ def reduce_problem_settings(in_problem_path: str,
         yaml.dump(settings, f)
 
 
-def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
+def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl') -> str:
+    """
+    Write a copy of a domain whose actions have empty preconditions and effects,
+    keeping the domain types, constants and predicates.
+
+    :param domain_path: path of the reference PDDL domain
+    :param empty_domain_path: path where the empty domain is written
+    :return: the path of the empty domain
+    :raises FileNotFoundError: if ``domain_path`` does not exist
+    """
+    if not os.path.isfile(domain_path):
+        raise FileNotFoundError(f"Domain file not found: {domain_path}")
 
     pddl_domain = PDDLReader().parse_problem(domain_path)
 
@@ -155,7 +168,15 @@ def empty_domain(domain_path: str, empty_domain_path: str = 'empty.pddl'):
         action.clear_preconditions()
         action.clear_effects()
 
-    domain_str = PDDLWriter(pddl_domain).get_domain()
+    writer = PDDLWriter(pddl_domain)
+    # unified-planning writes only the constants occurring in action bodies, which are
+    # now empty; without a problem file, the parsed objects are exactly the domain
+    # constants; e.g. childsnack's kitchen, which problem files use without declaring
+    constants: Dict[Type, Set[Object]] = {}
+    for obj in pddl_domain.all_objects:
+        constants.setdefault(obj.type, set()).add(obj)
+    writer.domain_objects = constants
+    domain_str = writer.get_domain()
     pattern = re.compile(
         r"(:action[\s\S]*?:parameters\s*\([^)]*\))\)",
         re.MULTILINE
