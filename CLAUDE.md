@@ -15,8 +15,7 @@ amlgym/
 │   ├── SAM.py                   # Full observability (passive)
 │   ├── OffLAM.py                # Partial observability (passive)
 │   ├── NOLAM.py                 # Noisy observations (passive)
-│   ├── ROSAME.py                # Neuro-symbolic (passive)
-│   ├── rosame/                  # ROSAME's internal implementation
+│   ├── ROSAME.py                # Neuro-symbolic (passive), uses the rosame package
 │   ├── RandomAgent.py           # Active baseline (random exploration + SAM)
 │   └── InformationGainAgent.py  # Full observability (active)
 ├── benchmarks/
